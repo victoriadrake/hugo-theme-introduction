@@ -25,6 +25,7 @@ $ git clone https://github.com/vickylaixy/hugo-theme-introduction.git introducti
 From the exampleSite, copy `config.toml` to the root folder of your Hugo site and change the fields as you like.
 
 Start with:
+
 1. Set your baseurl
 2. Set your full name and first name
 3. Set your avatar image
