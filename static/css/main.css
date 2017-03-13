@@ -1,0 +1,217 @@
+/* make keyframes that tell the start state and the end state of our object */
+ 
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+ 
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animation ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+ 
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+ 
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+}
+ 
+.fade-in.one {
+-webkit-animation-delay: 0.7s;
+-moz-animation-delay: 0.7s;
+animation-delay: 0.7s;
+}
+ 
+.fade-in.two {
+-webkit-animation-delay: 1.4s;
+-moz-animation-delay:1.4s;
+animation-delay: 1.4s;
+}
+ 
+.fade-in.three {
+-webkit-animation-delay: 1.8s;
+-moz-animation-delay: 1.8s;
+animation-delay: 1.8s;
+}
+body {
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    color: #666;    
+}
+a {
+    color: #00b8d4;
+}
+a:hover {
+    color: #000;
+    font-style: none;
+}
+a:active {
+    color: #00b8d4;
+}
+h1 {
+    color: #222;
+}
+h2 {
+    color: #222;
+}
+hr {
+
+}
+ul {
+    padding: 0;
+}
+li {
+    display: block;
+    list-style: none;
+    list-style-position: outside;
+    margin-left: 0;
+}
+.test-border {
+    border: 1px solid #000;
+}
+.main {
+    padding: 0px 40px 40px 40px;
+    width: 80%;
+    margin: 0 auto;
+    float: center;
+}
+@media (max-width: 600px) {
+    .main {
+        padding: 0px 20px 20px 20px;
+        width: 100%;
+        margin: 0 auto;
+        float: center;
+    }
+}
+.nav {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5% 0 5% 0;
+}
+.content {
+    margin: 0em 0em 4em 0em;
+    padding: 20px;
+}
+.markdown {
+
+}
+.pagehead {
+	margin: 20% 20% 5% 20%;
+    text-align: center;
+}
+.list-head {
+    text-align: left;
+    margin: 20% 0 0 0;
+}
+.list-title {
+    font-size: 8em;
+    font-weight: bold;
+    margin-left: -10px;
+}
+@media (max-width: 550px) {
+    .list-title {
+        font-size: 3em;
+        font-weight:bold;
+        margin-left: 0;
+    }
+}
+.section-head {
+    font-size: 3em;
+    text-align: center;
+    margin: 1.5em 0em 1.5em 0em;
+}
+@media (max-width: 550px) {
+    .section-head {
+        font-size: 2em;
+        text-align: center;
+        margin: 1em 0em 1em 0em;
+    }
+}
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.img-responsive {
+    border-radius: 5px;
+}
+.intro {
+    font-size: 8em;
+    font-weight: bold;
+}
+@media (max-width: 550px) {
+    .intro {
+        font-size: 3em;
+        font-weight:bold;
+    }
+}
+.blurb {
+    font-size: 2em;
+    text-align: center;
+}
+@media (max-width: 550px) {
+    .blurb {
+        font-size: 1em;
+        text-align: center;
+    }
+}
+.social-icons {
+    text-align: center;
+    font-size: 2em;
+    margin: 1em;
+}
+.highlight-text {
+    font-size: 2em;
+    margin: 0.8em 0em 0.5em 0em;
+}
+.project-grid {
+    padding: 1.2em 0em 0em 0em;
+}
+.project-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.thumbnail {
+    border: none;
+}
+.summary {
+    margin: 0 0 1.5em 0;
+}
+.bloglist {
+    text-align: center;
+}
+.blog-header {
+    margin: 10% 0 5% 0;
+    text-align: left;
+    font-size: 3em;
+    font-weight: bold;
+}
+@media (max-width: 550px) {
+    .blog-header {
+    margin: 10% 0 5% 0;
+    text-align: left;
+    font-size: 2em;
+    font-weight: bold;
+    }
+}
+.post-data {
+    font-size: 0.5em;
+    font-weight: normal;
+}
+.blog-share {
+    font-size: 0.3em;
+    font-weight: normal;
+    line-height: 2em;
+}
+#footer {
+    text-align: center;
+    color: #888;
+    padding: 2em;
+}
+#footer a {
+    color: #888;
+}

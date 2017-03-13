@@ -1,0 +1,31 @@
+<div class="content" id="blog">
+
+{{ if .Site.Params.showlatest }}
+<h2 class="section-head">Latest Post</h2>
+{{ range first 1 .Data.Pages.ByPublishDate }}
+  <div class="summary">{{ .Date.Format .Site.Params.dateform }}
+    <h4><span style="font-weight: bold"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></h4>
+        {{ .Summary }}
+        {{ if .Truncated }}
+        <div class="read-more-link"><a href="{{ .RelPermalink }}">...Read More</a></div>
+        {{ end }}
+  </div>
+{{ end }}
+{{ end }}
+
+{{ if .Site.Params.showallposts }}
+<h2 class="section-head">All Posts</h2>
+<div class="bloglist">
+    <ul>
+    {{ range .Data.Pages.ByPublishDate }}
+        {{ if eq .Section "blog" }}
+            {{ partial "li.html" . }}
+        {{ end }}
+    {{ end }}
+    </ul>
+</div>
+{{ else }}
+<div class="nav"><a href="/blog">All Blog Posts</a></div>
+{{ end }}
+<div class="nav"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+</div>

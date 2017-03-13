@@ -1,0 +1,42 @@
+{{ partial "header.html" . }}
+
+<div class="container-fluid">
+    <div class="main">
+        <div class="list-head">
+        <h1 class="list-title fade-in one">Blog</h1>
+        
+
+        <div class="fade-in two">
+        {{ if .Site.Params.showlatest }}
+        <h2 class="blog-header">Latest Post</h2>
+        {{ range first 1 .Data.Pages.ByPublishDate }}
+        <div class="summary">{{ .Date.Format .Site.Params.dateform }}
+            <h4><span style="font-weight: bold"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></h4>
+                {{ .Summary }}
+                {{ if .Truncated }}
+                <div class="read-more-link"><a href="{{ .RelPermalink }}">...Read More</a></div>
+                {{ end }}
+        {{ end }}
+        {{ end }}
+
+        <h2 class="blog-header">All Posts</div>
+
+        <ul>
+        {{ range .Data.Pages.ByPublishDate }}
+            {{ if eq .Section "blog" }}
+                {{ partial "li.html" . }}
+            {{ end }}
+        {{ end }}
+        </ul>
+
+        </div>
+        </div>
+
+<div class="nav">
+    <hr>
+    <a href="/">Back to Main</a>
+    <hr>
+</div>
+{{ partial "footer.html" . }}
+    </div>
+</div>

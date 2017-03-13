@@ -1,0 +1,114 @@
+<!-- 
+    Hey! Thanks for looking at my code! You win a cookie. :) The nice kind with chocolate chips.
+
+    This page was originally created for the Personal Portfolio Webpage challenge on FreeCodeCamp's Front End Development Certification course. It's totally responsive, and the first web page I ever coded from scratch.
+
+    Enjoy, and I hope you find what you're looking for! If you have questions or want to get in touch, please do: hello@vickylai.com.
+-->
+
+{{ partial "header.html" . }}
+
+<div class="container-fluid" id="top">
+<!-- Awesome content begins here! -->
+
+<!-- Super sweet intro heading -->
+<div class="pagehead">
+<h1 class="fade-in one intro">Hi, I'm {{ .Site.Params.firstname }}.</h1>
+<p class="fade-in two blurb">{{ .Site.Params.tagline }}</p>
+</div>
+<!-- End of intro heading -->
+<div class="fade-in three container-fluid main">
+<!-- Some social icons -->
+{{ partial "social.html" . }}
+<!-- End top social icons -->
+<!-- Clean and simple nav section -->
+<div class="nav">
+<hr>
+        <a href="#about">About</a> | 
+        {{ if .Site.Params.showprojects }}
+        <a href="#projects">Projects</a> | 
+        {{ end }}
+        {{ if .Site.Params.showblog }}
+        <a href="#blog">Blog</a> | 
+        {{ end }}
+        <a href="#contact">Contact</a> 
+<hr>
+</div>
+<!-- Done with nav section -->
+<!-- Tell them all about it! -->
+<div class="content" id="about">
+<h2 class="section-head">About</h2>
+
+<div class="row">
+    <div class="profile-pic col-md-offset-1 col-md-3"><img class="img-responsive" src="/{{ .Site.Params.avatar }}" alt="My profile picture." width="200px">
+    </div>
+    <div class="col-md-7">
+            
+            {{ range .Data.Pages }}
+                {{if eq .Title "about" }} 
+                        {{.Content}}
+                    {{end}}
+                {{ end }}
+            
+    </div>
+</div>
+	<div class="nav"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+</div>
+<!-- End of About section -->
+<hr>
+<!-- Now for some cool projects -->
+{{ if .Site.Params.showprojects }}
+    {{ partial "projects.html" . }}
+<hr>
+{{ end }}
+<!-- Done with projects section -->
+<!-- Let's show some blog posts -->
+{{ if .Site.Params.showblog }}
+    {{ partial "blogsection.html" . }}
+<hr>
+{{ end }}
+<!-- End of blog section -->
+<!-- Let's chat, shall we? -->
+<div class="content text-center" id="contact">
+<h2 class="section-head">Contact</h2>
+
+{{ range .Data.Pages }}
+    {{if eq .Title "contact" }} 
+            {{.Content}}
+        {{end}}
+    {{ end }}
+
+{{ if .Site.Params.email }}
+<p class="highlight-text text-center"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+{{ end }}
+
+{{ partial "social.html" . }}
+
+	<div class="nav"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+</div>
+<!-- End of Contact section -->
+<hr>
+<!-- Nice clean finish -->
+{{ partial "footer.html" . }}
+<!-- Footer done! -->
+<!-- Awesome content ends here! -->
+</div>
+</div>
+
+<!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
+<!-- Include jQuery from somewhere, must use version 1.8 or above -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include latest jquery.scrollTo, can download from https://github.com/flesler/jquery.scrollTo/releases -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+<!-- Initialize the plugin, the contents of the script can be inlined here, of course -->
+<script type="text/javascript" src="js/init.js"></script>
+<script>
+  // Bind to the click of all links with a #hash in the href
+  $('a[href^="#"]').click(function(e) {
+    // Prevent the jump and the #hash from appearing on the address bar
+    e.preventDefault();
+    // Scroll the window, stop any previous animation, stop on user manual scroll
+    // Check https://github.com/flesler/jquery.scrollTo for more customizability
+    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
+  });
+  </script>

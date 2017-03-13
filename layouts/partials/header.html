@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+{{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+
+<base href="{{ .Site.BaseURL }}">
+<title>
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ if eq $url "/" }}
+    {{ .Site.Title }}
+{{ else }}
+    {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
+{{ end }}
+</title>
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- HTTPS -->
+
+{{ if .Site.Params.forcehttps }}
+<script type="text/javascript">
+    var baseURL = '{{ .Site.BaseURL }}';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+{{ end }}
+
+<!-- CSS -->
+
+{{ if .Site.Params.highlightjs }}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{{ end }}
+
+<!-- Fonts and icon CSS -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500|Work+Sans">
+
+{{ if .Site.Params.cachebuster }}
+
+    {{ $t := .Now.Unix }}
+    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
+    {{range .Site.Params.extracssfiles}}
+        <link rel="stylesheet" href="{{.}}?t={{$t}}">
+    {{ end }}
+
+{{ else }}
+
+    <link rel="stylesheet" href="/css/main.css">
+    {{range .Site.Params.extracssfiles}}
+        <link rel="stylesheet" href="{{.}}">
+    {{end}}
+
+{{ end }}
+
+<!-- Icon -->
+<link rel="shortcut icon"
+{{ if .Site.Params.faviconfile }}
+    href="/{{ .Site.Params.faviconfile }}"
+{{ else }}
+    href="/img/favicon.ico"
+{{ end }}
+>
+
+<!-- Google Analytics -->
+{{ template "_internal/google_analytics_async.html" . }}
+
+<!-- RSS -->
+{{ if .RSSLink }}
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
+
+<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body lang="{{ .Site.Params.lang }}">
+  

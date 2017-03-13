@@ -1,0 +1,10 @@
+<!--
+<li class="post-item">
+    <div class="col-md-6 col-xs-6" style="text-align:right">{{ .Date.Format .Site.Params.dateform }}</div>
+    <div class="col-md-6 col-xs-6" style="text-align:left"><a href="{{ .Permalink }}">{{ .Title }}</div></a>
+</li>
+-->
+<li class="post-item">
+    <span>{{ .Date.Format .Site.Params.dateform }}</span>
+    <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+</li>
