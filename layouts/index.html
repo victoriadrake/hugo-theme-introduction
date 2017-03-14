@@ -40,7 +40,7 @@
 <h2 class="section-head">About</h2>
 
 <div class="row">
-    <div class="profile-pic col-md-offset-1 col-md-3"><img class="img-responsive" src="/{{ .Site.Params.avatar }}" alt="My profile picture." width="200px">
+    <div class="col-md-offset-1 col-md-3"><img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
     </div>
     <div class="col-md-7">
             
@@ -58,13 +58,17 @@
 <hr>
 <!-- Now for some cool projects -->
 {{ if .Site.Params.showprojects }}
+<div class="main section">
     {{ partial "projects.html" . }}
+</div>
 <hr>
 {{ end }}
 <!-- Done with projects section -->
 <!-- Let's show some blog posts -->
 {{ if .Site.Params.showblog }}
+<div class="main section">
     {{ partial "blogsection.html" . }}
+</div>
 <hr>
 {{ end }}
 <!-- End of blog section -->

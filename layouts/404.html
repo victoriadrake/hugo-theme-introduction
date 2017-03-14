@@ -1,0 +1,37 @@
+ {{ partial "header.html" . }}
+
+<div class="container-fluid">
+    <div class="main">
+        <div class="page-head-box fade-in one">
+        <h1 class="list-title">404</h1>
+        
+            <div class="blognav">
+            <hr>
+            <a href="/">Main</a> | 
+            <a href="/#about">About</a> | 
+            {{ if .Site.Params.showprojects }}
+            <a href="/#projects">Projects</a> | 
+            {{ end }}
+            {{ if .Site.Params.showallposts }}
+            <a href="/#blog">Back to blog</a> |
+            {{ else }}
+            <a href="/blog">Back to blog</a> |
+            {{ end }}
+            <a href="/#contact">Contact</a> 
+            <hr>
+            </div>
+        </div>
+
+    <div class="content fade-in two">
+
+    <div class="container markdown">
+        Oops! Either you've found a bug (in which case, <a href="{{ .Site.Params.email }}">please tell me</a>) or you're just making things up. This page doesn't exist!
+    </div>
+            
+            <div class="blognav">
+            <hr>
+            </div>
+{{ partial "footer.html" . }}
+</div>
+</div>
+</div>

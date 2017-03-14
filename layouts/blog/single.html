@@ -1,11 +1,29 @@
 {{ partial "header.html" . }}
 
 <div class="container-fluid">
-    <div class="main fade-in one">
+    <div class="main">
+        <div class="page-head-box fade-in one">
+        <h1 class="list-title">{{ .Site.Params.firstname }}'s Blog</h1>
+        
+            <div class="nav">
+            <hr>
+            <a href="/">Main</a> | 
+            <a href="/#about">About</a> | 
+            {{ if .Site.Params.showprojects }}
+            <a href="/#projects">Projects</a> | 
+            {{ end }}
+            {{ if .Site.Params.showblog }}
+            <a href="/#blog">Blog</a> | 
+            {{ end }}
+            <a href="/#contact">Contact</a> 
+            <hr>
+            </div>
+        </div>
+
+    <div class="content fade-in two">
         <div class="blog-header">
             <a href="{{ .Permalink }}">{{ .Title }}</a>
             <div class="post-data">
-                {{ .Site.Params.author }} |
                 {{ .Date.Format .Site.Params.dateform }} |
                 {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
             </div>
@@ -37,7 +55,7 @@
             {{ end }}
             
         </div>
-    <div class="markdown">
+    <div class="container markdown">
         {{ .Content }}
     </div>
 
@@ -54,5 +72,6 @@
     {{ template "_internal/disqus.html" . }}
 </div>
 {{ partial "footer.html" . }}
+</div>
 </div>
 </div>
