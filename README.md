@@ -2,7 +2,7 @@
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
-![Main page screenshot](/screenshot.png)
+![Main page screenshot](https://github.com/vickylaixy/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
 * Single scrolling home page
