@@ -1,4 +1,4 @@
-# Introduction theme for Hugo
+# <a href="https://github.com/vickylaixy/hugo-theme-introduction" target="_blank">Introduction theme for Hugo</a>
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
