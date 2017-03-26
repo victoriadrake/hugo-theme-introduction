@@ -1,8 +1,9 @@
-<div class="content" id="footer">
-{{ if .Site.Params.footertext }}
-    {{ .Site.Params.footertext }}
-{{ else }}
-<a href="https://github.com/vickylaixy/hugo-theme-introduction" target="_blank">Introduction</a> theme for <a href="http://gohugo.io/" target="_blank">Hugo</a>
-</div>
-
-{{ end }}
+<div class="section" id="footer"><!-- Begin Footer section -->
+    <div class="container has-text-centered"><!-- Begin Footer container -->
+        {{ if .Site.Params.footertext }}
+            {{ .Site.Params.footertext }}
+        {{ else }}
+        <span class="footer-text"><a href="https://github.com/vickylaixy/hugo-theme-introduction" target="_blank">Introduction</a> theme for <a href="http://gohugo.io/" target="_blank">Hugo</a>. Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i>. <i class="fa fa-copyright"></i> <a href="https://vickylai.com" target="_blank">Vicky Lai</a> 2017</span>
+        {{ end }}
+    </div><!-- End Footer container -->
+</div><!-- End Footer section -->

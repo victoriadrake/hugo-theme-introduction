@@ -1,28 +1,20 @@
 {{ partial "header.html" . }}
 
-<div class="container-fluid">
-    <div class="main">
-        <div class="page-head-box fade-in one">
-        <h1 class="list-title">{{ .Site.Params.firstname }}'s Blog</h1>
-        
-            <div class="nav">
-            <hr>
-            <a href="/">Main</a> | 
-            <a href="/#about">About</a> | 
-            {{ if .Site.Params.showprojects }}
-            <a href="/#projects">Projects</a> | 
-            {{ end }}
-            {{ if .Site.Params.showblog }}
-            <a href="/#blog">Blog</a> | 
-            {{ end }}
-            <a href="/#contact">Contact</a> 
-            <hr>
-            </div>
-        </div>
+<div class="section" id="top"><!-- Parent section -->
 
-    <div class="content fade-in two">
-        <div class="blog-header">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <div class="container hero fade-in one"><!-- Begin Title -->
+    <h1 class="bold-title is-1">{{ .Site.Params.firstname }}'s Blog</h1>
+    </div><!-- End Title -->
+
+<!-- Everything below fades in two! -->
+<div class="section fade-in two">
+
+    <div class="container"><!-- Begin Nav bar -->
+    {{ partial "nav-single.html" . }}
+    </div><!-- End Nav bar -->
+
+    <div class="container fade-in two"><!-- Begin blog title container -->
+        <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
                 {{ .Date.Format .Site.Params.dateform }} |
                 {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
@@ -54,24 +46,40 @@
                 </div>
             {{ end }}
             
-        </div>
-    <div class="container markdown">
+    </div><!-- End blog title container -->
+
+    <div class="container markdown fade-in two top-pad"><!-- Begin blog post content -->
         {{ .Content }}
+    </div><!-- End blog post content -->
+            
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
     </div>
 
-<div class="nav">
+<div class="container has-text-centered top-pad">
 <hr>
-{{ if .Site.Params.showallposts }}
-<a href="/#blog">Back to blog</a> | <a href="/">Main</a>
-{{ else }}
-<a href="/blog">Back to blog</a> | <a href="/">Main</a>
-{{ end }}
+<a href="{{ .Permalink }}#top">TOP</a>
 <hr>
 </div>
-<div class="disqus">
-    {{ template "_internal/disqus.html" . }}
-</div>
+
 {{ partial "footer.html" . }}
-</div>
-</div>
-</div>
+</div><!-- End fade in two -->
+</div><!-- End parent section -->
+
+<!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
+<!-- Include jQuery from somewhere, must use version 1.8 or above -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include latest jquery.scrollTo, can download from https://github.com/flesler/jquery.scrollTo/releases -->
+<script type="application/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+<!-- Initialize the plugin, the contents of the script can be inlined here, of course -->
+<script type="text/javascript" src={{ "js/init.js" | relURL }}></script>
+<script>
+  // Bind to the click of all links with a #hash in the href
+  $('a[href^="{{ .Permalink }}#"]').click(function(e) {
+    // Prevent the jump and the #hash from appearing on the address bar
+    e.preventDefault();
+    // Scroll the window, stop any previous animation, stop on user manual scroll
+    // Check https://github.com/flesler/jquery.scrollTo for more customizability
+    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
+  });
+  </script>

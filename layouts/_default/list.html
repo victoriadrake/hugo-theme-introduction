@@ -1,26 +1,36 @@
 {{ partial "header.html" . }}
 
-<div class="container-fluid">
-    <div class="main">
-        <div class="list-head">
-        <h1 class="list-title fade-in one">Blog</h1>
-        
+<div class="section" id="top"><!-- Parent section -->
 
-        <div class="fade-in two">
-        {{ if .Site.Params.showlatest }}
-        <h2 class="blog-header">Latest Post</h2>
-        {{ range first 1 .Data.Pages.ByPublishDate }}
+    <div class="container hero fade-in one"><!-- Begin Title -->
+    <h1 class="bold-title is-1">{{ .Site.Params.firstname }}'s Blog</h1>
+    </div><!-- End Title -->
+
+    <!-- Everything below fades in two! -->
+    <div class="section no-padding fade-in two">
+
+    <div class="container"><!-- Begin Nav bar -->
+    {{ partial "nav-list.html" . }}
+    </div><!-- End Nav bar -->
+       
+    <div class="container"><!-- Begin Blog container -->
+
+    {{ if .Site.Params.showlatest }}
+    <h2 class="title is-2 top-pad">Latest Post</h2>
+        {{ range first 1 .Data.Pages.ByPublishDate }} 
         <div class="summary">{{ .Date.Format .Site.Params.dateform }}
-            <h4><span style="font-weight: bold"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></h4>
+            <h3 class="title is-3 strong-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <div class="markdown">
                 {{ .Summary }}
                 {{ if .Truncated }}
-                <div class="read-more-link"><a href="{{ .RelPermalink }}">...Read More</a></div>
+                <a href="{{ .RelPermalink }}">...Read More</a>
                 {{ end }}
+                </div>
+        </div>
         {{ end }}
-        {{ end }}
+    {{ end }}
 
-        <h2 class="blog-header">All Posts</div>
-
+    <h2 class="title is-2 top-pad">All Posts</h2>
         <ul>
         {{ range .Data.Pages.ByPublishDate }}
             {{ if eq .Section "blog" }}
@@ -29,14 +39,32 @@
         {{ end }}
         </ul>
 
-        </div>
-        </div>
+    </div><!-- End Blog container -->
 
-<div class="nav">
-    <hr>
-    <a href="/">Back to Main</a>
-    <hr>
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="{{ .Permalink }}#top">TOP</a>
+<hr>
 </div>
+
 {{ partial "footer.html" . }}
-    </div>
-</div>
+</div><!-- End fade in two -->
+</div><!-- End parent section -->
+
+<!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
+<!-- Include jQuery from somewhere, must use version 1.8 or above -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include latest jquery.scrollTo, can download from https://github.com/flesler/jquery.scrollTo/releases -->
+<script type="application/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+<!-- Initialize the plugin, the contents of the script can be inlined here, of course -->
+<script type="text/javascript" src={{ "js/init.js" | relURL }}></script>
+<script>
+  // Bind to the click of all links with a #hash in the href
+  $('a[href^="{{ .Permalink }}#"]').click(function(e) {
+    // Prevent the jump and the #hash from appearing on the address bar
+    e.preventDefault();
+    // Scroll the window, stop any previous animation, stop on user manual scroll
+    // Check https://github.com/flesler/jquery.scrollTo for more customizability
+    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
+  });
+  </script>

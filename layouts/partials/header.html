@@ -44,21 +44,21 @@
 <!-- Fonts and icon CSS -->
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500|Work+Sans">
 
 {{ if .Site.Params.cachebuster }}
 
     {{ $t := .Now.Unix }}
-    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
+    <link rel="stylesheet" href="/css/style.css?t={{$t}}">
     {{range .Site.Params.extracssfiles}}
         <link rel="stylesheet" href="{{.}}?t={{$t}}">
     {{ end }}
 
 {{ else }}
 
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
     {{range .Site.Params.extracssfiles}}
         <link rel="stylesheet" href="{{.}}">
     {{end}}

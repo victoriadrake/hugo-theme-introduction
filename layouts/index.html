@@ -1,101 +1,130 @@
+<!-- 
+    Hey! Thanks for looking at my code! You win a cookie. :) The nice kind with chocolate chips, not the sneaky spying kind.
+
+    This page was originally created for the Personal Portfolio Webpage challenge on FreeCodeCamp's Front End Development Certification course. It's totally responsive, and the first web page I ever coded from scratch.
+
+    Enjoy, and I hope you find what you're looking for! If you have questions or want to get in touch, please do: hello@vickylai.com.
+-->
+
 {{ partial "header.html" . }}
 
-<div class="container-fluid" id="top">
-<!-- Awesome content begins here! -->
+<div class="section" id="top"> <!-- Where all the awesome begins -->
 
-<!-- Super sweet intro heading -->
-<div class="pagehead">
-<h1 class="fade-in one intro">Hi, I'm {{ .Site.Params.firstname }}.</h1>
-<p class="fade-in two blurb">{{ .Site.Params.tagline }}</p>
-</div>
-<!-- End of intro heading -->
-<div class="fade-in three container-fluid main">
-<!-- Some social icons -->
-{{ partial "social.html" . }}
-<!-- End top social icons -->
-<!-- Clean and simple nav section -->
-<div class="nav">
-<hr>
-        <a href="#about">About</a> | 
+<div class="hero is-medium">
+<!-- Possible hero-head not used -->
+    <!-- Super sweet Hero body title -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <!-- Title and tagline -->
+            <h1 class="bold-title fade-in one">Hi, I'm {{ .Site.Params.firstname }}.</h1>
+            <h3 class="subtitle is-3 fade-in two">{{ .Site.Params.tagline }}</h3>
+            <!-- End title and tagline -->
+            <!-- Some social icons -->
+            <div class="fade-in three">{{ partial "social.html" . }}</div>
+            <!-- End top social icons -->
+        </div>
+    </div> <!-- Hero body title end -->
+    <!-- Hero foot has nav bar -->
+    <div class="hero-foot fade-in three">
+    <hr>
+    <nav class="nav-center">
+        <a class="nav-item" href="#about">About</a>  
         {{ if .Site.Params.showprojects }}
-        <a href="#projects">Projects</a> | 
+        <a class="nav-item" href="#projects">Projects</a>  
         {{ end }}
         {{ if .Site.Params.showblog }}
-        <a href="#blog">Blog</a> | 
+        <a class="nav-item" href="#blog">Blog</a>  
         {{ end }}
-        <a href="#contact">Contact</a> 
-<hr>
-</div>
-<!-- Done with nav section -->
-<!-- Tell them all about it! -->
-<div class="content" id="about">
-<h2 class="section-head">About</h2>
+        <a class="nav-item" href="#workwithme">Work With Me</a> 
+        <a class="nav-item" href="#contact">Contact</a> 
+    </nav>
+    <hr>
+    </div><!-- Done with nav bar -->
+</div><!-- Done with Hero -->
+</div><!-- End of top section -->
 
-<div class="row">
-    <div class="col-md-offset-1 col-md-3"><img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
-    </div>
-    <div class="col-md-7">
-            
+<!-- Everything below fades in three! -->
+<div class="section no-padding fade-in three">
+
+<!-- Tell them all about it! -->
+<div class="section" id="about">
+    <div class="container">
+    <h2 class="title is-2 has-text-centered">About</h2>
+
+        <div class="columns"><!-- Avatar and about.md side by side except mobile -->
+            <div class="column is-one-third has-text-centered"><img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
+            </div>
+            <div class="column markdown">
+                {{ range .Data.Pages }}
+                    {{if eq .Title "about" }} 
+                            {{.Content}}
+                        {{end}}
+                    {{ end }}
+            </div>
+        </div>
+    </div><!-- End About container-->
+
+<div class="container has-text-centered top-pad"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+</div><!-- End About section -->
+
+<div class="container"><hr></div>
+
+
+<!-- Now for some cool projects -->
+    {{ if .Site.Params.showprojects }}
+    <div class="section" id="projects">
+        {{ partial "projects.html" . }}
+    </div><!-- End Projects section -->
+
+    <div class="container"><hr></div>
+    {{ end }} 
+
+
+<!-- Let's show some blog posts -->
+    {{ if .Site.Params.showblog }}
+    <div class="section" id="blog">
+        {{ partial "blogsection.html" . }}
+    </div><!-- End Blog section -->
+
+    <div class="container"><hr></div>
+    {{ end }}
+
+<!-- Let's chat, shall we? -->
+<div class="section" id="contact">
+    <div class="container has-text-centered">
+    <h2 class="title is-2">Contact</h2>
+        <div class="markdown">
             {{ range .Data.Pages }}
-                {{if eq .Title "about" }} 
+                {{if eq .Title "contact" }} 
                         {{.Content}}
                     {{end}}
                 {{ end }}
-            
-    </div>
-</div>
-	<div class="nav"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
-</div>
-<!-- End of About section -->
-<hr>
-<!-- Now for some cool projects -->
-{{ if .Site.Params.showprojects }}
-<div class="main section">
-    {{ partial "projects.html" . }}
-</div>
-<hr>
-{{ end }}
-<!-- Done with projects section -->
-<!-- Let's show some blog posts -->
-{{ if .Site.Params.showblog }}
-<div class="main section">
-    {{ partial "blogsection.html" . }}
-</div>
-<hr>
-{{ end }}
-<!-- End of blog section -->
-<!-- Let's chat, shall we? -->
-<div class="content text-center" id="contact">
-<h2 class="section-head">Contact</h2>
+        </div>
 
-{{ range .Data.Pages }}
-    {{if eq .Title "contact" }} 
-            {{.Content}}
-        {{end}}
-    {{ end }}
+        {{ if .Site.Params.email }}
+        <h3 class="subtitle is-3 has-text-centered top-pad"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></h3>
+        {{ end }}
 
-{{ if .Site.Params.email }}
-<p class="highlight-text text-center"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
-{{ end }}
+        {{ partial "social.html" . }}
+    </div><!-- End Contact container -->
 
-{{ partial "social.html" . }}
+	<div class="container has-text-centered top-pad"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+</div><!-- End Contact section -->
 
-	<div class="nav"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
-</div>
-<!-- End of Contact section -->
-<hr>
+<div class="container"><hr></div>
+
+
 <!-- Nice clean finish -->
 {{ partial "footer.html" . }}
 <!-- Footer done! -->
-<!-- Awesome content ends here! -->
-</div>
-</div>
+</div><!-- End of fade in three section -->
+<!-- Where all the awesome ends. Aww. -->
 
 <!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
 <!-- Include jQuery from somewhere, must use version 1.8 or above -->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Include latest jquery.scrollTo, can download from https://github.com/flesler/jquery.scrollTo/releases -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+<script type="application/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
 <!-- Initialize the plugin, the contents of the script can be inlined here, of course -->
 <script type="text/javascript" src={{ "js/init.js" | relURL }}></script>
 <script>
