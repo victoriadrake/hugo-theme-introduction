@@ -5,12 +5,12 @@ A minimal, single page, smooth scrolling theme for Hugo.
 ![Main page screenshot](https://github.com/vickylaixy/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
-* Single scrolling home page
-    * About and Contact sections
-    * Optional Projects and Blog sections
-* Browser friendly CSS fade-in effect for some pizzaz
-* Smooth scroll-to nav feature
-* Responsive and fast
+- Single scrolling home page
+    - About and Contact sections
+    - Optional Projects and Blog sections
+- Browser friendly CSS fade-in effect for some pizzaz
+- Smooth scroll-to nav feature
+- Responsive and fast
 
 ## Quick start
 
@@ -30,9 +30,10 @@ Start with:
 
 1. Set your baseurl
 2. Set your full name and first name
-3. Set your avatar image
-4. Input your social site usernames
-5. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
+3. Set your introduction header height (use "medium", "large", or "fullheight")
+4. Set your avatar image
+5. Input your social site usernames
+6. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
 
 ### Create About and Contact pages
 
