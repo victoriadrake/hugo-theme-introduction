@@ -1,6 +1,6 @@
 baseurl             = "/"
 languageCode        = "en-us"
-title               = "My New Hugo Site"
+title               = "Introduction"
 theme               = "introduction"
 enforce_ssl         = "your-url.com"
 builddrafts         = false
@@ -16,9 +16,10 @@ fixed = ":title/"
 blog  = "blog/:slug/"
 
 [params]
-author        = "Author Name" # Full name shows on blog post pages
-firstname     = "Author" # First name shows in introduction on main page
-tagline       = "Welcome to my lovingly hand-coded portfolio page template." # Appears after the introduction
+author        = "A Clever Author" # Full name shows on blog post pages
+firstname     = "awesome" # First name shows in introduction on main page
+tagline       = "I'm a theme for Hugo." # Appears after the introduction
+introheight   = "large" # Input either 'medium' or 'large' or 'fullheight'
 avatar        = "img/profile.png" # Path to image in static folder eg. img/avatar.png 
 email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
 dateform      = "Jan 2, 2006"
