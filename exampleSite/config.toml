@@ -22,6 +22,8 @@ tagline       = "I'm a theme for Hugo." # Appears after the introduction
 introheight   = "large" # Input either 'medium' or 'large' or 'fullheight'
 avatar        = "img/profile.png" # Path to image in static folder eg. img/avatar.png 
 email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
+localtime     = true # Show your current local time in contact section
+timezone      = "America/Los_Angeles" # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 dateform      = "Jan 2, 2006"
 dateformfull  = "Mon Jan 2 2006 15:04:05 EST"
 cachebuster   = true # Add the current unix timestamp in query string for cache busting css assets
@@ -30,15 +32,6 @@ faviconfile   = "img/fav.ico"
 highlightjs   = true # Syntax highlighting
 lang          = "en"
 footertext    = "" # Text to show in footer (overrides default text)
-
-# Social icons appear in introduction and contact section. Input your username only, eg "you" as it appears in "twitter.com/you"
-linkedin      = "you"
-twitter       = "you"
-github        = "you"
-codepen       = "you"
-pinterest     = ""
-facebook      = ""
-googleplus    = ""
 
 showblog        = true # Show Blog section on home page
 showallposts    = false # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
@@ -59,3 +52,19 @@ project2title   = "Project 2"
 project3link    = "#"
 project3img     = "img/project3.jpg"
 project3title   = "Project 3"
+
+
+# Social icons appear in introduction and contact section. Add as many more as you like.
+# Find icon names here: http://fontawesome.io/cheatsheet/
+
+[[params.social]]
+url = "https://twitter.com/"
+icon = "twitter"
+
+[[params.social]]
+url = "https://facebook.com/"
+icon = "facebook"
+
+[[params.social]]
+url = "https://linkedin.com/"
+icon = "linkedin"
