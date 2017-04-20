@@ -1,26 +1,7 @@
 <div class="social-icons">
-    {{ if .Site.Params.twitter }}
-    <a href="https://twitter.com/{{ .Site.Params.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-    {{ end }}
-    {{ if .Site.Params.linkedin }}
-    <a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a> 
-    {{ end }}
-    {{ if .Site.Params.github }}
-    <a href="https://github.com/{{ .Site.Params.github }}" target="_blank"><i class="fa fa-github"></i></a> 
-    {{ end }}
-    {{ if .Site.Params.codepen }}
-    <a href="https://codepen.io/{{ .Site.Params.codepen }}" target="_blank"><i class="fa fa-codepen"></i></a> 
-    {{ end }}
-    {{ if .Site.Params.pinterest }}
-    <a href="https://pinterest.com/{{ .Site.Params.pinterest }}" target="_blank"><i class="fa fa-pinterest"></i></a> 
-    {{ end }}
-    {{ if .Site.Params.facebook }}
-    <a href="https://facebook.com/{{ .Site.Params.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a> 
-    {{ end }}
-    {{ if .Site.Params.googleplus }}
-    <a href="https://plus.google.com/+{{ .Site.Params.googleplus }}" target="_blank"><i class="fa fa-google-plus"></i></a> 
-    {{ end }}
-    {{ if .Site.RSSLink }}
-    <a href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+    {{ range .Site.Params.social }}
+    <a href="{{ .url }}">
+        <i class="fa fa-{{ .icon}}"></i>
+    </a>
     {{ end }}
 </div>

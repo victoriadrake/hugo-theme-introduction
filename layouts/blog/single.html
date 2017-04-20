@@ -58,7 +58,7 @@
 
 <div class="container has-text-centered top-pad">
 <hr>
-<a href="{{ .Permalink }}#top">TOP</a>
+<a href="{{ .Permalink }}#top"><i class="fa fa-arrow-up"></i></a>
 <hr>
 </div>
 
@@ -66,20 +66,14 @@
 </div><!-- End fade in two -->
 </div><!-- End parent section -->
 
-<!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
-<!-- Include jQuery from somewhere, must use version 1.8 or above -->
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!-- Include latest jquery.scrollTo, can download from https://github.com/flesler/jquery.scrollTo/releases -->
-<script type="application/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
-<!-- Initialize the plugin, the contents of the script can be inlined here, of course -->
-<script type="text/javascript" src={{ "js/init.js" | relURL }}></script>
+<!-- Bitty scrolling links script -->
 <script>
-  // Bind to the click of all links with a #hash in the href
-  $('a[href^="{{ .Permalink }}#"]').click(function(e) {
-    // Prevent the jump and the #hash from appearing on the address bar
+$('a[href^="{{ .Permalink }}#"]').click(function(e) {
     e.preventDefault();
-    // Scroll the window, stop any previous animation, stop on user manual scroll
-    // Check https://github.com/flesler/jquery.scrollTo for more customizability
-    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
-  });
-  </script>
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
