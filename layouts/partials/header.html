@@ -49,7 +49,7 @@
 
 {{ if .Site.Params.cachebuster }}
 
-    {{ $t := .Now.Unix }}
+    {{ $t := now.Unix }}
     <link rel="stylesheet" href="/css/style.css?t={{$t}}">
     {{range .Site.Params.extracssfiles}}
         <link rel="stylesheet" href="{{.}}?t={{$t}}">
