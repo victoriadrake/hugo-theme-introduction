@@ -6,10 +6,11 @@ A minimal, single page, smooth scrolling theme for Hugo.
 
 Features:
 - Single scrolling home page
-    - About and Contact sections
+    - About section with profile photo
+    - Contact section with option to show your local timezone
     - Optional Projects and Blog sections
 - Browser friendly CSS fade-in effect for some pizzaz
-- Smooth scroll-to nav feature
+- Smooth scroll-to-section navigation
 - Responsive and fast
 
 ## Quick start
@@ -32,13 +33,14 @@ Start with:
 2. Set your full name and first name
 3. Set your introduction header height (use "medium", "large", or "fullheight")
 4. Set your avatar image
-5. Input your social site usernames
+5. Set your timezone, if you choose to show it
 6. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
+7. Input your social site urls and font-awesome icon names - use as many as you like
 
 ### Create About and Contact pages
 
 Run:
-```
+```sh
 $ hugo new about.md 
 $ hugo new contact.md
 ```
