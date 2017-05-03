@@ -1,8 +1,8 @@
-# <a href="https://github.com/vickylaixy/hugo-theme-introduction" target="_blank">Introduction theme for Hugo</a>
+# <a href="https://github.com/vickylaiio/hugo-theme-introduction" target="_blank">Introduction theme for Hugo</a>
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
-![Main page screenshot](https://github.com/vickylaixy/hugo-theme-introduction/blob/master/images/screenshot.png)
+![Main page screenshot](https://github.com/vickylaiio/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
 - Single scrolling home page
@@ -20,7 +20,7 @@ Features:
 From the root of your Hugo site:
 ```sh
 $ cd themes
-$ git clone https://github.com/vickylaixy/hugo-theme-introduction.git introduction
+$ git clone https://github.com/vickylaiio/hugo-theme-introduction.git introduction
 ```
 
 ### Configure your site
@@ -64,4 +64,4 @@ $ hugo new blog/your-post.md
 ```
 
 ## License
-This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylaixy/hugo-theme-introduction/blob/master/LICENSE.md)
+This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylaiio/hugo-theme-introduction/blob/master/LICENSE.md)
