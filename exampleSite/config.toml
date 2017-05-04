@@ -33,6 +33,8 @@ highlightjs   = true # Syntax highlighting
 lang          = "en"
 footertext    = "" # Text to show in footer (overrides default text)
 
+fadein          = true # Turn on/off the fade-in effect
+
 showblog        = true # Show Blog section on home page
 showallposts    = false # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
 showlatest      = true # Show latest blog post summary
