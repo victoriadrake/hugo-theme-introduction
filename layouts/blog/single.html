@@ -2,24 +2,24 @@
 
 <div class="section" id="top"><!-- Parent section -->
 
-    <div class="container hero fade-in one"><!-- Begin Title -->
+    <div class="container hero {{ if .Site.Params.fadein }} fade-in one {{ end }}"><!-- Begin Title -->
     <h1 class="bold-title is-1">{{ .Site.Params.firstname }}'s Blog</h1>
     </div><!-- End Title -->
 
 <!-- Everything below fades in two! -->
-<div class="section fade-in two">
+<div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">
 
     <div class="container"><!-- Begin Nav bar -->
     {{ partial "nav-single.html" . }}
     </div><!-- End Nav bar -->
 
-    <div class="container fade-in two"><!-- Begin blog title container -->
+    <div class="container {{ if .Site.Params.fadein }} fade-in two {{ end }}"><!-- Begin blog title container -->
         <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
                 {{ .Date.Format .Site.Params.dateform }} |
                 {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
             </div>
-            
+
             {{ if .Site.Params.sharebuttons }}
                 <div class="blog-share">
                 Share this:
@@ -45,13 +45,13 @@
                 </a>
                 </div>
             {{ end }}
-            
+
     </div><!-- End blog title container -->
 
-    <div class="container markdown fade-in two top-pad"><!-- Begin blog post content -->
+    <div class="container markdown {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad"><!-- Begin blog post content -->
         {{ .Content }}
     </div><!-- End blog post content -->
-            
+
     <div class="disqus">
         {{ template "_internal/disqus.html" . }}
     </div>
