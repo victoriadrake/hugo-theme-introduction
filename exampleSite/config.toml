@@ -20,6 +20,7 @@ author        = "A Clever Author" # Full name shows on blog post pages
 firstname     = "awesome" # First name shows in introduction on main page
 tagline       = "I'm a theme for Hugo." # Appears after the introduction
 introheight   = "large" # Input either 'medium' or 'large' or 'fullheight'
+theme         = "dark" # Choose 'light' or 'dark'
 avatar        = "img/profile.png" # Path to image in static folder eg. img/avatar.png 
 email         = "youremail@email.com" # Shows in contact section, or leave blank to omit
 localtime     = true # Show your current local time in contact section
