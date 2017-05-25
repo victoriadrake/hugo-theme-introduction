@@ -1,3 +1,9 @@
+## Version 2.10 - May 25 2017
+
+- Fixed issue (#7) causing '_fades.css' to not load with some site structures
+    - file '_fades.css' is now unnecessary
+- Added baseURL to header assets in case the lack of was also causing complications
+
 # Version 2.00 - April 20 2017
 
 - Load speed improvements:

@@ -1,4 +1,4 @@
-# <a href="https://github.com/vickylaiio/hugo-theme-introduction" target="_blank">Introduction theme for Hugo</a>
+# <a href="https://vickylai.io/introduction/" target="_blank">Introduction theme for Hugo</a>
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
