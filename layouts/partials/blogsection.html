@@ -2,7 +2,7 @@
 
 {{ if .Site.Params.showlatest }}
 <h2 class="title is-2 has-text-centered">Latest Post</h2>
-    {{ range first 1 .Data.Pages.ByPublishDate }} 
+    {{ range first 1 (where .Data.Pages.ByPublishDate "Section" "blog") }} 
     <div class="summary">{{ .Date.Format .Site.Params.dateform }}
         <h3 class="title is-3 latest-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <div class="markdown">
