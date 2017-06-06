@@ -66,4 +66,4 @@ $ hugo new blog/your-post.md
 ```
 
 ## License
-This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylaiio/hugo-theme-introduction/blob/master/LICENSE.md)
+This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylaiio/hugo-theme-introduction/blob/master/LICENSE.txt)
