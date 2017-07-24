@@ -1,4 +1,4 @@
-<!-- 
+<!--
     Hey! Thanks for looking at my code! You win a cookie. :) The nice kind with chocolate chips, not the sneaky spying kind.
 
     This page was originally created for the Personal Portfolio Webpage challenge on FreeCodeCamp's Front End Development Certification course. It's totally responsive, and the first web page I ever coded from scratch.
@@ -34,14 +34,14 @@
     <div class="hero-foot {{ if .Site.Params.fadein }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
-        <a class="nav-item" href="#about">About</a>  
+        <a class="nav-item" href="#about">About</a>
         {{ if .Site.Params.showprojects }}
-        <a class="nav-item" href="#projects">Projects</a>  
+        <a class="nav-item" href="#projects">Projects</a>
         {{ end }}
         {{ if .Site.Params.showblog }}
-        <a class="nav-item" href="#blog">Blog</a>  
+        <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
-        <a class="nav-item" href="#contact">Contact</a> 
+        <a class="nav-item" href="#contact">Contact</a>
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
@@ -57,11 +57,14 @@
     <h2 class="title is-2 has-text-centered">About</h2>
 
         <div class="columns"><!-- Avatar and about.md side by side except mobile -->
-            <div class="column is-one-third has-text-centered"><img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
+            {{ if .Site.Params.avatar }}
+            <div class="column is-one-third has-text-centered">
+              <img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
             </div>
+            {{ end }}
             <div class="column markdown">
                 {{ range .Data.Pages }}
-                    {{if eq .Title "about" }} 
+                    {{if eq .Title "about" }}
                             {{.Content}}
                         {{end}}
                     {{ end }}
@@ -82,7 +85,7 @@
     </div><!-- End Projects section -->
 
     <div class="container"><hr></div>
-    {{ end }} 
+    {{ end }}
 
 
 <!-- Let's show some blog posts -->
@@ -100,7 +103,7 @@
     <h2 class="title is-2">Contact</h2>
         <div class="markdown">
             {{ range .Data.Pages }}
-                {{if eq .Title "contact" }} 
+                {{if eq .Title "contact" }}
                         {{.Content}}
                     {{end}}
                 {{ end }}
