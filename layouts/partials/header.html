@@ -23,7 +23,7 @@
 
 <!-- HTTPS -->
 
-{{ if .Site.Params.forcehttps }}
+{{ if .Site.Params.enforce_ssl }}
 <script type="text/javascript">
     var baseURL = '{{ .Site.BaseURL }}';
     var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');

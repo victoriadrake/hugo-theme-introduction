@@ -1,3 +1,12 @@
+## Version 2.20 - Jul 25 2017
+
+- Avatar made optional
+- Fixed bug in CSS dark theme
+
+*Thanks to [@alanfran](https://github.com/alanfran) for the contribution!*
+
+- Removed dead code (font loads) from header
+
 ## Version 2.10 - May 25 2017
 
 - Fixed issue (#7) causing '_fades.css' to not load with some site structures
