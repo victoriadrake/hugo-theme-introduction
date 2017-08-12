@@ -3,9 +3,9 @@
 
 name = "Introduction"
 license = "Creative Commons Attribution 3.0 Unported"
-licenselink = "https://github.com/vickylaiio/hugo-theme-introduction/blob/master/LICENSE.md"
+licenselink = "https://github.com/hivickylai/hugo-theme-introduction/blob/master/LICENSE.md"
 description = "Minimal, single page, smooth scrolling theme for Hugo."
-homepage = "https://github.com/vickylaiio/hugo-theme-introduction"
+homepage = "https://github.com/hivickylai/hugo-theme-introduction"
 tags = ["clean", "minimal"]
 features = ["responsive", "single page"]
 min_version = 0.15
