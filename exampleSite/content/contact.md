@@ -1,10 +1,8 @@
-+++
-date = "2017-03-09T13:23:28+08:00"
-draft = false
-title = "contact"
+---
+title: "Contact"
+date: 2017-03-09T13:23:28+08:00
+---
 
-+++
+In the Contact section of Introduction, you may optionally display the current time in your preferred timezone.
 
-This is where you overcome your social anxiety and let people know how to reach you.
-
-You could try linking to your [email](/), for instance. Just check it, okay?
+This lets visitors know what sort of response time to expect when they contact you. The timezone is easily set in the config file.

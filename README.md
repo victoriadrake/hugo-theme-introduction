@@ -30,14 +30,14 @@ From the exampleSite, copy `config.toml` to the root folder of your Hugo site an
 
 Start with:
 
-1. Set your baseurl
-2. Set your full name and first name
-3. Set your introduction header height (use "medium", "large", or "fullheight")
-4. Choose "light" or "dark" theme
-5. Set your avatar image
-6. Set your timezone, if you choose to show it
-7. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
-8. Input your social site urls and font-awesome icon names - use as many as you like
+1. Set your baseurl to your site's domain
+1. Set your blog's title and your first name
+1. Set your introduction header height (use "medium", "large", or "fullheight")
+1. Choose "light" or "dark" theme
+1. Set your avatar image
+1. Set your timezone, if you choose to show it
+1. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
+1. Input your social site urls and font-awesome icon names - use as many as you like
 
 ### Create About and Contact pages
 
@@ -53,7 +53,7 @@ Then edit the markdown files with the content you'd like shown in your main page
 Use Hugo's built-in server to see your site in action as you make changes.
 
 ```
-$ hugo -t introduction --watch serve
+$ hugo serve -t introduction
 ```
 
 Visit `localhost:1313` in your browser to see a live preview of your site.
@@ -62,8 +62,40 @@ Visit `localhost:1313` in your browser to see a live preview of your site.
 
 To create a new blog post, run:
 ```
-$ hugo new blog/your-post.md
+$ hugo new blog/your-post-title.md
 ```
+
+## Projects
+
+To create a new project entry, run:
+```
+$ hugo new projects/your-project-name.md
+```
+
+### Project front matter
+
+Project parameters look like this:
+```
+---
+title: "Design"
+date: 2017-11-13T12:21:16-05:00
+image: "img/plant.jpg"
+external_link: ""
+weight: 2
+---
+```
+
+Projects are ordered on the main page by `weight` first, then by `date`.
+
+The `image` will show up on the main page and in the project's details view. If you don't specify an image, the `placeholderimg` from your site's `config.toml` file will be used.
+
+If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
 ## License
 This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/hivickylai/hugo-theme-introduction/blob/master/LICENSE.txt)
+
+## Contributing
+
+Pull requests for bug fixes and suggestions are welcome.
+
+Contributors are listed in [CHANGELOG.md](https://github.com/hivickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤

@@ -1,39 +1,75 @@
-<div class="container"><!-- Begin Projects container -->
-<h2 class="title is-2 has-text-centered">Projects</h2>
+<div class="container">
+    <!-- Begin Projects container -->
+    <h2 class="title is-2 has-text-centered">Projects</h2>
 
-<div class="columns is-mobile">
-
-    <div class="column has-text-centered">
-	  {{ if .Site.Params.project1img }}
-      <div class="thumbnail">
-        <a href="{{ .Site.Params.project1link }}"><img class="img-responsive" src="/{{ .Site.Params.project1img }}" alt="{{ .Site.Params.project1title }}"></a>
-      </div>
-      {{ end }}
-      <div class="thumbnail"><a href="{{ .Site.Params.project1link }}"><h4 class="title is-4 top-pad">{{ .Site.Params.project1title }}</h4></a>
-      </div>
+    <div class="section is-small">
+        <div class="columns is-multiline">
+            {{ range sort .Pages }} {{ if eq .Section "projects" }}
+            <div class="column is-one-third">
+                <!-- Hey Vicky, show half column if number is even. -->
+                <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-3by2">
+                                <a {{ if .Params.external_link }}
+                                    href="{{ .Params.external_link }}"
+                                    {{ else }}
+                                    id="project{{.Title}}"
+                                    {{ end }}>
+                                    <img src="{{ .Params.image | default "{{ .Params.placeholderimg }}" }}"/>
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered top-pad">
+                                <a {{ if .Params.external_link }}
+                                    href="{{ .Params.external_link }}"
+                                    {{ else }}
+                                    id="project{{.Title}}"
+                                    {{ end }}>
+                                    {{ .Title }}
+                                </a>
+                        </div>
+                </div>
+            </div>
+            {{ end }} {{ end }}
+        </div>
     </div>
-
-    <div class="column has-text-centered">
-	  {{ if .Site.Params.project2img }}
-      <div class="thumbnail">
-        <a href="{{ .Site.Params.project2link }}"><img class="img-responsive" src="/{{ .Site.Params.project2img }}" alt="{{ .Site.Params.project2title }}"></a>
-      </div>
-      {{ end }}
-      <div class="thumbnail"><a href="{{ .Site.Params.project2link }}"><h4 class="title is-4 top-pad">{{ .Site.Params.project2title }}</h4></a>
-      </div>
-    </div>
-
-    <div class="column has-text-centered">
-      {{ if .Site.Params.project3img }}
-      <div class="thumbnail">
-        <a href="{{ .Site.Params.project3link }}"><img class="img-responsive" src="/{{ .Site.Params.project3img }}" alt="{{ .Site.Params.project3title }}"></a>
-      </div>
-      {{ end }}
-      <div class="thumbnail"><a href="{{ .Site.Params.project3link }}"><h4 class="title is-4 top-pad">{{ .Site.Params.project3title }}</h4></a>
-      </div>
-    </div>
-
 </div>
-</div><!-- End Projects container -->
+<!-- End Projects container -->
 
-<div class="container has-text-centered top-pad"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+<!-- Projects modals -->
+{{ range sort .Pages }} {{ if eq .Section "projects" }}
+<div class="modal" id="modal{{.Title}}">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        {{ with .Title }}
+        <header class="modal-card-header bottom-pad">
+            <p class="modal-card-title has-text-centered">{{ . }}</p>
+        </header>
+        {{ end }}
+        {{ if .Params.image }}
+            <img src="{{ .Params.image }}" class="img-responsive img-centered">
+        {{ end }}
+        {{ if .Content }}
+        <section class="modal-card-body markdown">
+            {{ .Content }}
+        </section>
+        {{ end }}
+    </div>
+    <button class="modal-close is-large" aria-label="close" id="close{{.Title}}"></button>
+</div>
+<script>
+    $('#project{{.Title}}').click(function() {
+        $('#modal{{.Title}}').addClass('is-active');
+    });
+    $('#close{{.Title}}').click(function() {
+        $('#modal{{.Title}}').removeClass('is-active');
+    });
+</script>
+{{ end }} {{ end }}
+
+
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>

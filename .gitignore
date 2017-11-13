@@ -1,4 +1,4 @@
-/static/node_modules/
+node_modules/
 /static/sass/
 /static/gulpfile.js
 package.json

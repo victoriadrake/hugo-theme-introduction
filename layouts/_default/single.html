@@ -2,6 +2,7 @@
 
 <div class="section" id="top">
     <!-- Parent section -->
+
     <div class="container hero {{ if .Site.Params.fadein }} fade-in one {{ end }}">
         <!-- Begin Title -->
         <h1 class="bold-title is-1">{{ .Title }}</h1>
@@ -9,31 +10,29 @@
     <!-- End Title -->
 
     <!-- Everything below fades in two! -->
-    <div class="section no-padding {{ if .Site.Params.fadein }} fade-in two {{ end }}">
+    <div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">
 
         <div class="container">
             <!-- Begin Nav bar -->
-            {{ partial "nav-list.html" . }}
+            {{ partial "nav-single.html" . }}
         </div>
         <!-- End Nav bar -->
-        <article>
-            <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+
+        <div class="container markdown {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad">
+            <!-- Begin blog post content -->
+            {{ if .Params.image }}
+            <div class="has-text-centered">
+            <img src="{{ .Params.image }}" class="img-responsive"> 
+            </div>
+            {{ end }} 
+            
             {{ .Content }}
-        </article>
-
-
-        <div class="container">
-            <!-- Begin Blog container -->
-            <ul>
-                <!-- Ranges through content/post/*.md -->
-                {{ range .Data.Pages.ByPublishDate }} {{ if not (eq .Section "blog") }}
-                <li>
-                    <a href="{{.Permalink}}">{{.Date.Format .Site.Params.dateform }} | {{.Title}}</a>
-                </li>
-                {{ end }} {{ end }}
-            </ul>
         </div>
-        <!-- End Blog container -->
+        <!-- End blog post content -->
+
+        <div class="disqus">
+            {{ template "_internal/disqus.html" . }}
+        </div>
 
         <div class="container has-text-centered top-pad">
             <hr>

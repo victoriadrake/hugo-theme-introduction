@@ -12,20 +12,9 @@
       <span class="nav-item">
         <a href="/#about">About</a> 
       </span>
-    {{ if .Site.Params.showprojects }}
       <span class="nav-item">
-        <a href="/#projects">Projects</a> 
-      </span>
-    {{ end }}
-    {{ if .Site.Params.showallposts }}
-      <span class="nav-item">
-        <a href="/#blog">Back to blog</a> 
-      </span>
-    {{ else }}
-      <span class="nav-item">
-        <a href="/blog">Back to blog</a>
+        <a href="/{{ .Section }}">Back to {{ .Section }}</a>
       </span> 
-    {{ end }}
       <span class="nav-item">
         <a href="/#contact">Contact</a>
       </span>

@@ -64,7 +64,7 @@
             {{ end }}
             <div class="column markdown">
                 {{ range .Data.Pages }}
-                    {{if eq .Title "about" }}
+                    {{if eq .Title "About" }}
                             {{.Content}}
                         {{end}}
                     {{ end }}
@@ -103,7 +103,7 @@
     <h2 class="title is-2">Contact</h2>
         <div class="markdown">
             {{ range .Data.Pages }}
-                {{if eq .Title "contact" }}
+                {{if eq .Title "Contact" }}
                         {{.Content}}
                     {{end}}
                 {{ end }}
