@@ -1,3 +1,10 @@
+## Version 3.1 - Nov 14 2017
+
+- Added columns option to projects section
+- Fixed bugs with project section modal links
+
+*Thanks to [@Heirak](https://github.com/Heirak) for the suggestions!*
+
 # Version 3.0 - Nov 13 2017
 
 - Projects are a content section now instead of 3 static config file entries:
