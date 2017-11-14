@@ -20,7 +20,7 @@ canonifyurls        = true                          # Turns relative urls into a
     timezone        = "America/Los_Angeles"         # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     dateform        = "Jan 2, 2006"
     dateformfull    = "Mon Jan 2 2006 15:04:05 EST"
-    cachebuster     = true                          # Add the current unix timestamp in query string for cache busting css assets
+    cachebuster     = false                         # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
     description     = "Website Description"         # Max 160 characters show in search results
     faviconfile     = "img/fav.ico"
     highlightjs     = true                          # Syntax highlighting
@@ -29,6 +29,7 @@ canonifyurls        = true                          # Turns relative urls into a
 
     showblog            = true                      # Show Blog section on home page
     showprojects        = true                      # Show Projects section on home page
+    projectcolumns      = "3"                       # Choose "2" or "3" columns for projects section
     placeholderimg      = "/img/workday.jpg"        # For Projects without image
     showallposts        = false                     # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
     showlatest          = true                      # Show latest blog post summary

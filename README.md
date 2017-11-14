@@ -89,6 +89,8 @@ Projects are ordered on the main page by `weight` first, then by `date`.
 
 The `image` will show up on the main page and in the project's details view. If you don't specify an image, the `placeholderimg` from your site's `config.toml` file will be used.
 
+If you don't specify a `title`, only the photo will show. You can still add content to the file to "caption" the image, and this will show in the popup. (Great way to create a simple gallery!)
+
 If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
 ## License

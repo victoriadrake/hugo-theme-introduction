@@ -5,7 +5,9 @@
     <div class="section is-small">
         <div class="columns is-multiline">
             {{ range sort .Pages }} {{ if eq .Section "projects" }}
-            <div class="column is-one-third">
+            {{ if eq .Site.Params.projectcolumns "2" }}
+            <div class="column is-half"> {{ else if eq .Site.Params.projectcolumns "3" }}
+            <div class="column is-one-third"> {{ end }}
                 <!-- Hey Vicky, show half column if number is even. -->
                 <div class="card">
                         <div class="card-image">
@@ -13,9 +15,9 @@
                                 <a {{ if .Params.external_link }}
                                     href="{{ .Params.external_link }}"
                                     {{ else }}
-                                    id="project{{.Title}}"
+                                    id="project{{.Title | urlize}}"
                                     {{ end }}>
-                                    <img src="{{ .Params.image | default "{{ .Params.placeholderimg }}" }}"/>
+                                    <img src="{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.placeholderimg }}{{ end }}">
                                 </a>
                             </figure>
                         </div>
@@ -23,7 +25,7 @@
                                 <a {{ if .Params.external_link }}
                                     href="{{ .Params.external_link }}"
                                     {{ else }}
-                                    id="project{{.Title}}"
+                                    id="project{{.Title | urlize}}"
                                     {{ end }}>
                                     {{ .Title }}
                                 </a>
@@ -31,14 +33,14 @@
                 </div>
             </div>
             {{ end }} {{ end }}
-        </div>
     </div>
+</div>
 </div>
 <!-- End Projects container -->
 
 <!-- Projects modals -->
 {{ range sort .Pages }} {{ if eq .Section "projects" }}
-<div class="modal" id="modal{{.Title}}">
+<div class="modal" id="modal{{.Title | urlize}}">
     <div class="modal-background"></div>
     <div class="modal-card">
         {{ with .Title }}
@@ -55,14 +57,14 @@
         </section>
         {{ end }}
     </div>
-    <button class="modal-close is-large" aria-label="close" id="close{{.Title}}"></button>
+    <button class="modal-close is-large" aria-label="close" id="close{{.Title | urlize}}"></button>
 </div>
 <script>
-    $('#project{{.Title}}').click(function() {
-        $('#modal{{.Title}}').addClass('is-active');
+    $('#project{{.Title | urlize}}').click(function() {
+        $('#modal{{.Title | urlize}}').addClass('is-active');
     });
-    $('#close{{.Title}}').click(function() {
-        $('#modal{{.Title}}').removeClass('is-active');
+    $('#close{{.Title | urlize}}').click(function() {
+        $('#modal{{.Title | urlize}}').removeClass('is-active');
     });
 </script>
 {{ end }} {{ end }}
