@@ -1,3 +1,9 @@
+## Version 3.1.1 - Dec 4 2017
+
+- Fixed blog posts ordered by date (reversed as of Hugo v0.31)
+
+*Thanks to [@pmviva](https://github.com/pmviva) for the contribution!*
+
 ## Version 3.1 - Nov 14 2017
 
 - Added columns option to projects section
