@@ -7,16 +7,16 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="/">Main</a>
+        <a href="/">{{ i18n "main" }}</a>
       </span>
       <span class="nav-item">
-        <a href="/#about">About</a> 
+        <a href="/#about">{{ i18n "about" }}</a> 
       </span>
       <span class="nav-item">
-        <a href="/{{ .Section }}">Back to {{ .Section }}</a>
+        <a href="/{{ .Section }}">{{ i18n "backToSection" . }}</a>
       </span> 
       <span class="nav-item">
-        <a href="/#contact">Contact</a>
+        <a href="/#contact">{{ i18n "contact" }}</a>
       </span>
     {{ if .Site.RSSLink }}
       <span class="nav-item">

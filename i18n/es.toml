@@ -1,0 +1,60 @@
+[about]
+  other = "Sobre Mi"
+
+[allBlogPosts]
+  other = "TODOS LOS BLOG POSTS"
+
+[allPosts]
+  other = "Todos los Posts"
+
+[backToSection]
+  other = "Volver a {{ .Section }}"
+
+[blog]
+  other = "Blog"
+
+[contact]
+  other = "Contacto"
+
+[facebook]
+  other = "Facebook"
+
+[googleplus]
+  other = "Google+"
+
+[hiFirstName]
+  other = "Hola, Soy {{ .Site.Params.firstname }}."
+
+[latestPost]
+  other = "Último Post"
+
+[main]
+  other = "Principal"
+
+[myCurrentLocalTimeIs]
+  other = "Mi hora local actual es"
+
+[myProfilePicture]
+  other = "Mi foto de perfil."
+
+[oops]
+  other = "Oops! O bien encontraste un bug (en cuyo caso, <a href='mailto:{{ .Site.Params.email }}'>por favor comentame</a>) o simplemente estas inventando cosas. Esta página no existe!"
+
+[pinterest]
+  other = "Pinterest"
+
+[projects]
+  other = "Proyectos"
+
+[readingTime]
+  one = "Lectura de un minuto"
+  other = "Lectura de {{ .Count }} minutos"
+
+[readMore]
+  other = "...Leer más"
+
+[shareThis]
+  other = "Comparte esto:"
+
+[twitter]
+  other = "Twitter"

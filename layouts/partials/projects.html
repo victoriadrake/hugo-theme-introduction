@@ -1,6 +1,6 @@
 <div class="container">
     <!-- Begin Projects container -->
-    <h2 class="title is-2 has-text-centered">Projects</h2>
+    <h2 class="title is-2 has-text-centered">{{ i18n "projects" }}</h2>
 
     <div class="section is-small">
         <div class="columns is-multiline">
@@ -15,7 +15,7 @@
                                 <a {{ if .Params.external_link }}
                                     href="{{ .Params.external_link }}"
                                     {{ else }}
-                                    id="project{{.Title | urlize}}"
+                                    id="project{{ .Title | urlize }}"
                                     {{ end }}>
                                     <img src="{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.placeholderimg }}{{ end }}">
                                 </a>
@@ -25,7 +25,7 @@
                                 <a {{ if .Params.external_link }}
                                     href="{{ .Params.external_link }}"
                                     {{ else }}
-                                    id="project{{.Title | urlize}}"
+                                    id="project{{ .Title | urlize }}"
                                     {{ end }}>
                                     {{ .Title }}
                                 </a>
@@ -40,7 +40,7 @@
 
 <!-- Projects modals -->
 {{ range sort .Pages }} {{ if eq .Section "projects" }}
-<div class="modal" id="modal{{.Title | urlize}}">
+<div class="modal" id="modal{{ .Title | urlize }}">
     <div class="modal-background"></div>
     <div class="modal-card">
         {{ with .Title }}
@@ -57,14 +57,14 @@
         </section>
         {{ end }}
     </div>
-    <button class="modal-close is-large" aria-label="close" id="close{{.Title | urlize}}"></button>
+    <button class="modal-close is-large" aria-label="close" id="close{{ .Title | urlize }}"></button>
 </div>
 <script>
-    $('#project{{.Title | urlize}}').click(function() {
-        $('#modal{{.Title | urlize}}').addClass('is-active');
+    $('#project{{ .Title | urlize }}').click(function() {
+        $('#modal{{ .Title | urlize }}').addClass('is-active');
     });
-    $('#close{{.Title | urlize}}').click(function() {
-        $('#modal{{.Title | urlize}}').removeClass('is-active');
+    $('#close{{ .Title | urlize }}').click(function() {
+        $('#modal{{ .Title | urlize }}').removeClass('is-active');
     });
 </script>
 {{ end }} {{ end }}

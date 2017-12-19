@@ -1,0 +1,60 @@
+[about]
+  other = "About"
+
+[allBlogPosts]
+  other = "ALL BLOG POSTS"
+
+[allPosts]
+  other = "All Posts"
+
+[backToSection]
+  other = "Back to {{ .Section }}"
+
+[blog]
+  other = "Blog"
+
+[contact]
+  other = "Contact"
+
+[facebook]
+  other = "Facebook"
+
+[googleplus]
+  other = "Google+"
+
+[hiFirstName]
+  other = "Hi, I'm {{ .Site.Params.firstname }}."
+
+[latestPost]
+  other = "Latest Post"
+
+[main]
+  other = "Main"
+
+[myCurrentLocalTimeIs]
+  other = "My current local time is"
+
+[myProfilePicture]
+  other = "My profile picture."
+
+[oops]
+  other = "Oops! Either you've found a bug (in which case, <a href='mailto:{{ .Site.Params.email }}'>please tell me</a>) or you're just making things up. This page doesn't exist!"
+
+[pinterest]
+  other = "Pinterest"
+
+[projects]
+  other = "Projects"
+
+[readingTime]
+  one = "One minute read"
+  other = "{{ .Count }} minutes read"
+
+[readMore]
+  other = "...Read More"
+
+[shareThis]
+  other = "Share this:"
+
+[twitter]
+  other = "Twitter"
