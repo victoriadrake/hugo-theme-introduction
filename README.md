@@ -48,6 +48,18 @@ $ hugo new contact.md
 ```
 Then edit the markdown files with the content you'd like shown in your main page's About and Contact sections.
 
+Don't forget to add:
+```
+about_page: true
+```
+In the front matter of any about page you may have.
+
+And also:
+```
+contact_page: true
+```
+In the front matter of any contact page you may have.
+
 ## Preview your site locally
 
 Use Hugo's built-in server to see your site in action as you make changes.

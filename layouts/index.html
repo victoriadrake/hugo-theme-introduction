@@ -64,10 +64,12 @@
             {{ end }}
             <div class="column markdown">
                 {{ range .Data.Pages }}
-                    {{ if eq .Title "About" }}
+                    {{ if eq .Lang .Site.Language.Lang }}
+                        {{ if eq .Params.about_page true }}
                             {{ .Content }}
                         {{ end }}
                     {{ end }}
+                {{ end }}
             </div>
         </div>
     </div><!-- End About container-->
@@ -103,10 +105,12 @@
     <h2 class="title is-2">{{ i18n "contact" }}</h2>
         <div class="markdown">
             {{ range .Data.Pages }}
-                {{ if eq .Title "Contact" }}
-                        {{ .Content }}
+                {{ if eq .Lang .Site.Language.Lang }}
+                    {{ if eq .Params.contact_page true }}
+                            {{ .Content }}
                     {{ end }}
                 {{ end }}
+            {{ end }}
         </div>
 
         {{ if .Site.Params.localtime }}
