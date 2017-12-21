@@ -43,7 +43,7 @@
         {{ end }}
         <a class="nav-item" href="#contact">{{ i18n "contact" }}</a>
         {{ if .Site.IsMultiLingual }}
-            {{ range .Site.Home.Translations }}
+            {{ range .Site.Home.AllTranslations }}
                 <a class="nav-item" href="{{ .Permalink }}"><i class="fa fa-language"></i>{{ .Language.LanguageName }}</a>
             {{ end }}
         {{ end }}

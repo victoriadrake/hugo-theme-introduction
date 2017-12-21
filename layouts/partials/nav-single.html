@@ -12,14 +12,16 @@
       <span class="nav-item">
         <a href="/#about">{{ i18n "about" }}</a> 
       </span>
-      <span class="nav-item">
-        <a href="/{{ .Section }}">{{ i18n "backToSection" . }}</a>
-      </span> 
+      {{ if .Section }}
+        <span class="nav-item">
+          <a href="/{{ .Section }}">{{ i18n "backToSection" . }}</a>
+        </span> 
+      {{ end }}
       <span class="nav-item">
         <a href="/#contact">{{ i18n "contact" }}</a>
       </span>
     {{ if .Site.IsMultiLingual }}
-      {{ range .Site.Home.Translations }}
+      {{ range .Site.Home.AllTranslations }}
       <span class="nav-item">
         <a href="{{ .Permalink }}"><i class="fa fa-language"></i> {{ .Language.LanguageName }}</a>
       </span>

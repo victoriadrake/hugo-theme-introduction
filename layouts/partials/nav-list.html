@@ -21,7 +21,7 @@
         <a href="/#contact">{{ i18n "contact" }}</a>
       </span>
     {{ if .Site.IsMultiLingual }}
-      {{ range .Site.Home.Translations }}
+      {{ range .Site.Home.AllTranslations }}
       <span class="nav-item">
         <a href="{{ .Permalink }}"><i class="fa fa-language"></i> {{ .Language.LanguageName }}</a>
       </span>
