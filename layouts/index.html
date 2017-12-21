@@ -42,6 +42,11 @@
         <a class="nav-item" href="#blog">{{ i18n "blog" }}</a>
         {{ end }}
         <a class="nav-item" href="#contact">{{ i18n "contact" }}</a>
+        {{ if .Site.IsMultiLingual }}
+            {{ range .Site.Home.Translations }}
+                <a class="nav-item" href="{{ .Permalink }}"><i class="fa fa-language"></i>{{ .Language.LanguageName }}</a>
+            {{ end }}
+        {{ end }}
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
