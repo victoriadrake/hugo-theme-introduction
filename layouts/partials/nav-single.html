@@ -14,7 +14,7 @@
       </span>
       {{ if .Section }}
         <span class="nav-item">
-          <a href="/{{ .Section }}">{{ i18n "backToSection" . }}</a>
+          <a href="/{{ .Section }}">{{ i18n "backToSection" ( i18n .Section ) }}</a>
         </span> 
       {{ end }}
       <span class="nav-item">

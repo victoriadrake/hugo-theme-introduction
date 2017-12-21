@@ -8,7 +8,7 @@
   other = "Todos los Posts"
 
 [backToSection]
-  other = "Volver a {{ .Section }}"
+  other = "Volver a {{ .Count }}"
 
 [blog]
   other = "Blog"
