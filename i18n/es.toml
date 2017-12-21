@@ -59,5 +59,8 @@
 [shareThis]
   other = "Comparte esto:"
 
+[translations]
+  other = "Traducciones"
+
 [twitter]
   other = "Twitter"

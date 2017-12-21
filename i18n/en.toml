@@ -59,5 +59,8 @@
 [shareThis]
   other = "Share this:"
 
+[translations]
+  other = "Translations"
+
 [twitter]
   other = "Twitter"

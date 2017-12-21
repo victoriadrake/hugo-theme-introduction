@@ -60,6 +60,19 @@
         {{ .Content }}
     </div><!-- End blog post content -->
 
+    {{ if .IsTranslated }}
+    <div class="container">
+        <h4 class="title is-4">{{ i18n "translations" }}</h4>
+        <ul>
+            {{ range .Translations }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Title }} ({{ .Lang }})</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+
     <div class="disqus">
         {{ template "_internal/disqus.html" . }}
     </div>
