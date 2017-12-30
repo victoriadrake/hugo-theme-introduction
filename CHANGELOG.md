@@ -1,3 +1,10 @@
+## Version 3.1.2 - Dec 30 2017
+
+- Updated to FontAwesome 4.7.0
+- Fixed card background color in dark theme css
+
+*Thanks to [@chrislabarge](https://github.com/chrislabarge) for the contribution and [@Lytigas](https://github.com/Lytigas) for bug catching!*
+
 ## Version 3.1.1 - Dec 4 2017
 
 - Fixed blog posts ordered by date (reversed as of Hugo v0.31)
