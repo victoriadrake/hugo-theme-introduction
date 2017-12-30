@@ -1,4 +1,5 @@
 baseurl             = "https://introduction.com/"   # Your domain name. Must end with "/"
+languageName        = "English"
 languageCode        = "en-us"
 title               = "Introduction"
 theme               = "introduction"
@@ -55,3 +56,28 @@ canonifyurls        = true                          # Turns relative urls into a
 [[params.social]]
     url = "https://linkedin.com/"
     icon = "linkedin"
+
+[Languages]
+[Languages.en]
+    languageName    = "English"
+    title           = "Introduction"
+
+    bloghead        = "Blog"                        # Full name shows on blog post pages
+    firstname       = "Introduction"                # First name shows in introduction on main page
+    tagline         = "I'm a theme for Hugo."       # Appears after the introduction
+    dateform        = "Jan 2, 2006"
+    dateformfull    = "Mon Jan 2 2006 15:04:05 EST"
+    description     = "Website Description"         # Max 160 characters show in search results
+    footertext      = ""                            # Text to show in footer (overrides default text)
+
+[Languages.es]
+    languageName    = "Español"
+    title           = "Introduction"
+
+    bloghead        = "Blog"                        # Full name shows on blog post pages
+    firstname       = "Introduction"                # First name shows in introduction on main page
+    tagline         = "Soy un tema para Hugo."      # Appears after the introduction
+    dateform        = "Jan 2, 2006"
+    dateformfull    = "Mon Jan 2 2006 15:04:05 EST"
+    description     = "Descripcion del Sitio Web"   # Max 160 characters show in search results
+    footertext      = ""                            # Text to show in footer (overrides default text)

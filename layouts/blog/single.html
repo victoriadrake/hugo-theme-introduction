@@ -17,38 +17,38 @@
         <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
                 {{ .Date.Format .Site.Params.dateform }} |
-                {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                {{ i18n "readingTime" .ReadingTime }}
             </div>
 
             {{ if .Site.Params.sharebuttons }}
                 <div class="blog-share">
-                Share this:
+                {{ i18n "shareThis" }}
                 {{ if .Site.Params.sharetwitter }}
                 <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
-                <span class="hidden">Twitter</span>
+                <span class="hidden">{{ i18n "twitter" }}</span>
                 </a>
                 {{ end }}
                  {{ if .Site.Params.sharefacebook }}
                 <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
-                <span class="hidden">Facebook</span>
+                <span class="hidden">{{ i18n "facebook" }}</span>
                 </a>
                 {{ end }}
                 {{ if .Site.Params.sharepinterest }}
                 <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestmedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestmedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
                 onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
                 <i class="fa fa-pinterest"></i>
-                <span class="hidden">Pinterest</span>
+                <span class="hidden">{{ i18n "pinterest" }}</span>
                 </a>
                 {{ end }}
                 {{ if .Site.Params.sharegoogleplus }}
                 <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}"
                 onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                 <i class="fa fa-google-plus"></i>
-                <span class="hidden">Google+</span>
+                <span class="hidden">{{ i18n "googleplus" }}</span>
                 </a>
                 {{ end }}
                 </div>
@@ -59,6 +59,19 @@
     <div class="container markdown {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad"><!-- Begin blog post content -->
         {{ .Content }}
     </div><!-- End blog post content -->
+
+    {{ if .IsTranslated }}
+    <div class="container">
+        <h4 class="title is-4">{{ i18n "translations" }}</h4>
+        <ul>
+            {{ range .Translations }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Title }} ({{ .Language.LanguageName }})</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
 
     <div class="disqus">
         {{ template "_internal/disqus.html" . }}

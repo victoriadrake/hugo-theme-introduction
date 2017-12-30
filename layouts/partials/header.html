@@ -53,16 +53,16 @@ crossorigin="anonymous"></script>
 {{ if .Site.Params.cachebuster }}
 
     {{ $t := now.Unix }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/{{ .Site.Params.theme }}-style.css?t={{$t}}">
-    {{range .Site.Params.extracssfiles}}
-        <link rel="stylesheet" href="{{.}}?t={{$t}}">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/{{ .Site.Params.theme }}-style.css?t={{ $t }}">
+    {{ range .Site.Params.extracssfiles }}
+        <link rel="stylesheet" href="{{ . }}?t={{ $t }}">
     {{ end }}
 
 {{ else }}
 
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/{{ .Site.Params.theme }}-style.css">
     {{range .Site.Params.extracssfiles}}
-        <link rel="stylesheet" href="{{.}}">
+        <link rel="stylesheet" href="{{ . }}">
     {{end}}
 
 {{ end }}

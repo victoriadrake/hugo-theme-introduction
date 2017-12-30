@@ -14,7 +14,7 @@
     </div><!-- End Nav bar -->
 
     <div class="container {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad"><!-- Begin blurb -->
-        Oops! Either you've found a bug (in which case, <a href="mailto:{{ .Site.Params.email }}">please tell me</a>) or you're just making things up. This page doesn't exist!
+        {{ i18n "oops" . | safeHTML }}
     </div><!-- End blurb -->
 
 <div class="top-pad"><hr></div>

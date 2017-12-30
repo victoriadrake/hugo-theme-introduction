@@ -7,19 +7,26 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="/">Main</a>
+        <a href="/">{{ i18n "main" }}</a>
       </span>
       <span class="nav-item">
-        <a href="/#about">About</a> 
+        <a href="/#about">{{ i18n "about" }}</a> 
       </span>
     {{ if .Site.Params.showprojects }}
       <span class="nav-item">
-        <a href="/#projects">Projects</a> 
+        <a href="/#projects">{{ i18n "projects" }}</a> 
       </span>
     {{ end }}
       <span class="nav-item">
-        <a href="/#contact">Contact</a>
+        <a href="/#contact">{{ i18n "contact" }}</a>
       </span>
+    {{ if .Site.IsMultiLingual }}
+      {{ range .Site.Home.AllTranslations }}
+      <span class="nav-item">
+        <a href="{{ .Permalink }}"><i class="fa fa-language"></i> {{ .Language.LanguageName }}</a>
+      </span>
+      {{ end }}
+    {{ end }}
     {{ if .Site.RSSLink }}
       <span class="nav-item">
         <a href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>

@@ -16,21 +16,21 @@
     <div class="container"><!-- Begin Blog container -->
 
     {{ if .Site.Params.showlatest }}
-    <h2 class="title is-2 top-pad">Latest Post</h2>
+    <h2 class="title is-2 top-pad">{{ i18n "latestPost" }}</h2>
         {{ range first 1 (where .Data.Pages.ByPublishDate.Reverse "Section" "blog") }} 
         <div class="summary">{{ .Date.Format .Site.Params.dateform }}
             <h3 class="title is-3 strong-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <div class="markdown">
                 {{ .Summary }}
                 {{ if .Truncated }}
-                <a href="{{ .RelPermalink }}">...Read More</a>
+                <a href="{{ .RelPermalink }}">{{ i18n "readMore" }}</a>
                 {{ end }}
                 </div>
         </div>
         {{ end }}
     {{ end }}
 
-    <h2 class="title is-2 top-pad">All Posts</h2>
+    <h2 class="title is-2 top-pad">{{ i18n "allPosts" }}</h2>
         <ul>
         {{ range .Data.Pages.ByPublishDate }}
             {{ if eq .Section "blog" }}
