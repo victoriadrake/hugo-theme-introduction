@@ -1,4 +1,4 @@
-baseurl             = "https://introduction.com/"   # Your domain name. Must end with "/"
+baseurl             = "/"   # Your domain name. Must end with "/"
 languageCode        = "en-us"
 title               = "Introduction"
 theme               = "introduction"
@@ -13,7 +13,7 @@ canonifyurls        = true                          # Turns relative urls into a
     firstname       = "Introduction"                # First name shows in introduction on main page
     tagline         = "I'm a theme for Hugo."       # Appears after the introduction
     introheight     = "large"                       # Input either 'medium' or 'large' or 'fullheight'
-    theme           = "dark"                        # Choose 'light' or 'dark'
+    themestyle      = "light"                        # Choose 'light' or 'dark'
     avatar          = "img/profile.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
     email           = "youremail@email.com"         # Shows in contact section, or leave blank to omit
     localtime       = true                          # Show your current local time in contact section
