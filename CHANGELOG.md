@@ -7,6 +7,10 @@
 
 *Thanks to @nancym, @penance316, @quendera, and @mrshannon for helping me squish 🐞!*
 
+- Parameter names changed to camelCase
+
+*Thanks to @danieldiaz14 for the contribution!*
+
 ## Version 3.1.2 - Dec 30 2017
 
 - Updated to FontAwesome 4.7.0
