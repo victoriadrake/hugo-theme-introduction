@@ -39,7 +39,7 @@
                 </a>
                 {{ end }}
                 {{ if .Site.Params.sharePinterest }}
-                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestmedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestmedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
+                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
                 onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
                 <i class="fa fa-pinterest"></i>
                 <span class="hidden">Pinterest</span>

@@ -54,14 +54,14 @@ crossorigin="anonymous"></script>
 
     {{ $t := now.Unix }}
     <link rel="stylesheet" href="css/{{ .Site.Params.themeStyle }}-style.css?t={{$t}}">
-    {{range .Site.Params.extracssfiles}}
+    {{range .Site.Params.extraCSSFiles}}
         <link rel="stylesheet" href="{{.}}?t={{$t}}">
     {{ end }}
 
 {{ else }}
 
     <link rel="stylesheet" href="css/{{ .Site.Params.themeStyle }}-style.css">
-    {{range .Site.Params.extracssfiles}}
+    {{range .Site.Params.extraCSSFiles}}
         <link rel="stylesheet" href="{{.}}">
     {{end}}
 
