@@ -3,14 +3,14 @@
 
 <div class="section" id="top">
     <!-- Parent section -->
-    <div class="container hero {{ if .Site.Params.fadein }} fade-in one {{ end }}">
+    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
         <!-- Begin Title -->
         <h1 class="bold-title is-1">{{ .Title }}</h1>
     </div>
     <!-- End Title -->
 
     <!-- Everything below fades in two! -->
-    <div class="section no-padding {{ if .Site.Params.fadein }} fade-in two {{ end }}">
+    <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
 
         <div class="container">
             <!-- Begin Nav bar -->
@@ -29,7 +29,7 @@
                 <!-- Ranges through content/post/*.md -->
                 {{ range .Data.Pages.ByPublishDate }} {{ if not (eq .Section "blog") }}
                 <li>
-                    <a href="{{.Permalink}}">{{.Date.Format .Site.Params.dateform }} | {{.Title}}</a>
+                    <a href="{{.Permalink}}">{{.Date.Format .Site.Params.dateForm }} | {{.Title}}</a>
                 </li>
                 {{ end }} {{ end }}
             </ul>

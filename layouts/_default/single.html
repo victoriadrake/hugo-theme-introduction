@@ -4,14 +4,14 @@
 <div class="section" id="top">
     <!-- Parent section -->
 
-    <div class="container hero {{ if .Site.Params.fadein }} fade-in one {{ end }}">
+    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
         <!-- Begin Title -->
         <h1 class="bold-title is-1">{{ .Title }}</h1>
     </div>
     <!-- End Title -->
 
     <!-- Everything below fades in two! -->
-    <div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">
+    <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
 
         <div class="container">
             <!-- Begin Nav bar -->
@@ -19,7 +19,7 @@
         </div>
         <!-- End Nav bar -->
 
-        <div class="container markdown {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad">
+        <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
             <!-- Begin blog post content -->
             {{ if .Params.image }}
             <div class="has-text-centered">

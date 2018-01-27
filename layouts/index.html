@@ -3,35 +3,35 @@
 
 <div class="section" id="top"> <!-- Where all the awesome begins -->
 
-<div class="hero is-{{ .Site.Params.introheight }}">
+<div class="hero is-{{ .Site.Params.introHeight }}">
 <!-- Possible hero-head not used -->
     <!-- Super sweet Hero body title -->
     <div class="hero-body">
         <div class="container has-text-centered">
             <!-- Title and tagline -->
-            <h1 class="bold-title {{ if .Site.Params.fadein }}fade-in one{{ end }}">
+            <h1 class="bold-title {{ if .Site.Params.fadeIn }}fade-in one{{ end }}">
                 Hi, I'm {{ .Site.Params.firstname }}.
             </h1>
-            <h3 class="subtitle is-3 {{ if.Site.Params.fadein }} fade-in two{{ end }}">
-                {{ .Site.Params.tagline }}
+            <h3 class="subtitle is-3 {{ if.Site.Params.fadeIn }} fade-in two{{ end }}">
+                {{ .Site.Params.tagLine }}
             </h3>
             <!-- End title and tagline -->
             <!-- Some social icons -->
-            <div class="{{ if .Site.Params.fadein }}fade-in three{{ end }}">
+            <div class="{{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
                 {{ partial "social.html" . }}
             </div>
             <!-- End top social icons -->
         </div>
     </div> <!-- Hero body title end -->
     <!-- Hero foot has nav bar -->
-    <div class="hero-foot {{ if .Site.Params.fadein }}fade-in three{{ end }}">
+    <div class="hero-foot {{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
         <a class="nav-item" href="#about">About</a>
-        {{ if .Site.Params.showprojects }}
+        {{ if .Site.Params.showProjects }}
         <a class="nav-item" href="#projects">Projects</a>
         {{ end }}
-        {{ if .Site.Params.showblog }}
+        {{ if .Site.Params.showBlog }}
         <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
         <a class="nav-item" href="#contact">Contact</a>
@@ -42,7 +42,7 @@
 </div><!-- End of top section -->
 
 <!-- Everything below fades in three! -->
-<div class="section no-padding {{ if .Site.Params.fadein }}fade-in three{{ end }}">
+<div class="section no-padding {{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
 
 <!-- Tell them all about it! -->
 <div class="section" id="about">
@@ -72,7 +72,7 @@
 
 
 <!-- Now for some cool projects -->
-    {{ if .Site.Params.showprojects }}
+    {{ if .Site.Params.showProjects }}
     <div class="section" id="projects">
         {{ partial "projects.html" . }}
     </div><!-- End Projects section -->
@@ -102,7 +102,7 @@
                 {{ end }}
         </div>
 
-        {{ if .Site.Params.localtime }}
+        {{ if .Site.Params.localTime }}
         <p>My current local time is <span id="time"></span>.</p>
         <script type="text/javascript" src="/js/moment.js"></script>
         <script type="text/javascript" src="/js/moment-timezone.js"></script>
@@ -110,7 +110,7 @@
 
         <script>
         $(document).ready(function() {
-        var time = moment().tz("{{ .Site.Params.timezone }}").format("h:mm A");
+        var time = moment().tz("{{ .Site.Params.timeZone }}").format("h:mm A");
         $('#time').html(time);
         })
         </script>

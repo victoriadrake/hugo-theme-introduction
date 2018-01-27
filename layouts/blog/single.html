@@ -3,49 +3,49 @@
 
 <div class="section" id="top"><!-- Parent section -->
 
-    <div class="container hero {{ if .Site.Params.fadein }} fade-in one {{ end }}"><!-- Begin Title -->
-    <h1 class="bold-title is-1">{{ .Site.Params.bloghead }}</h1>
+    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}"><!-- Begin Title -->
+    <h1 class="bold-title is-1">{{ .Site.Params.blogHead }}</h1>
     </div><!-- End Title -->
 
 <!-- Everything below fades in two! -->
-<div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">
+<div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
 
     <div class="container"><!-- Begin Nav bar -->
     {{ partial "nav-single.html" . }}
     </div><!-- End Nav bar -->
 
-    <div class="container {{ if .Site.Params.fadein }} fade-in two {{ end }}"><!-- Begin blog title container -->
+    <div class="container {{ if .Site.Params.fadeIn }} fade-in two {{ end }}"><!-- Begin blog title container -->
         <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
-                {{ .Date.Format .Site.Params.dateform }} |
+                {{ .Date.Format .Site.Params.dateForm }} |
                 {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
             </div>
 
-            {{ if .Site.Params.sharebuttons }}
+            {{ if .Site.Params.shareButtons }}
                 <div class="blog-share">
                 Share this:
-                {{ if .Site.Params.sharetwitter }}
+                {{ if .Site.Params.shareTwitter }}
                 <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
                 </a>
                 {{ end }}
-                 {{ if .Site.Params.sharefacebook }}
+                 {{ if .Site.Params.shareFacebook }}
                 <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
                 </a>
                 {{ end }}
-                {{ if .Site.Params.sharepinterest }}
+                {{ if .Site.Params.sharePinterest }}
                 <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestmedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestmedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
                 onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
                 <i class="fa fa-pinterest"></i>
                 <span class="hidden">Pinterest</span>
                 </a>
                 {{ end }}
-                {{ if .Site.Params.sharegoogleplus }}
+                {{ if .Site.Params.shareGooglePlus }}
                 <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}"
                 onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                 <i class="fa fa-google-plus"></i>
@@ -57,7 +57,7 @@
 
     </div><!-- End blog title container -->
 
-    <div class="container markdown {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad"><!-- Begin blog post content -->
+    <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad"><!-- Begin blog post content -->
         {{ .Content }}
     </div><!-- End blog post content -->
 
