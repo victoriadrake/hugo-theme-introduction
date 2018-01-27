@@ -5,8 +5,8 @@
     <div class="section is-small">
         <div class="columns is-multiline">
             {{ range sort .Pages }} {{ if eq .Section "projects" }}
-            {{ if eq .Site.Params.projectcolumns "2" }}
-            <div class="column is-half"> {{ else if eq .Site.Params.projectcolumns "3" }}
+            {{ if eq .Site.Params.projectColumns "2" }}
+            <div class="column is-half"> {{ else if eq .Site.Params.projectColumns "3" }}
             <div class="column is-one-third"> {{ end }}
                 <!-- Hey Vicky, show half column if number is even. -->
                 <div class="card">
@@ -17,7 +17,7 @@
                                     {{ else }}
                                     id="project{{.Title | urlize}}"
                                     {{ end }}>
-                                    <img src="{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.placeholderimg }}{{ end }}">
+                                    <img src="{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.placeHolderimg }}{{ end }}">
                                 </a>
                             </figure>
                         </div>

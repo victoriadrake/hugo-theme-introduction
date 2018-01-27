@@ -3,21 +3,21 @@
 
 <div class="section" id="top"><!-- Parent section -->
 
-    <div class="container hero is-medium has-text-centered {{ if .Site.Params.fadein }} fade-in one {{ end }}"><!-- Begin Title -->
+    <div class="container hero is-medium has-text-centered {{ if .Site.Params.fadeIn }} fade-in one {{ end }}"><!-- Begin Title -->
     <h1 class="bold-title is-1">404</h1>
     </div><!-- End Title -->
 
 <!-- Everything below fades in two! -->
-<div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">
+<div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
 
     <div class="container"><!-- Begin Nav bar -->
     {{ partial "nav-single.html" . }}
     </div><!-- End Nav bar -->
 
-    <div class="container {{ if .Site.Params.fadein }} fade-in two {{ end }} top-pad"><!-- Begin blurb -->
+    <div class="container {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad"><!-- Begin blurb -->
         Oops! Either you've found a bug (in which case, <a href="mailto:{{ .Site.Params.email }}">please tell me</a>) or you're just making things up. This page doesn't exist!
     </div><!-- End blurb -->
 
-<div class="top-pad"><hr></div>
+<div class="container top-pad"><hr></div>
 {{ partial "footer.html" . }}
 </div><!-- End parent section -->
