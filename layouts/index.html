@@ -10,7 +10,7 @@
         <div class="container has-text-centered">
             <!-- Title and tagline -->
             <h1 class="bold-title {{ if .Site.Params.fadeIn }}fade-in one{{ end }}">
-                Hi, I'm {{ .Site.Params.firstname }}.
+                Hi, I'm {{ .Site.Params.firstName }}.
             </h1>
             <h3 class="subtitle is-3 {{ if.Site.Params.fadeIn }} fade-in two{{ end }}">
                 {{ .Site.Params.tagLine }}
@@ -82,7 +82,7 @@
 
 
 <!-- Let's show some blog posts -->
-    {{ if .Site.Params.showblog }}
+    {{ if .Site.Params.showBlog }}
     <div class="section" id="blog">
         {{ partial "blogsection.html" . }}
     </div><!-- End Blog section -->
