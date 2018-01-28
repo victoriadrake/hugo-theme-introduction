@@ -24,6 +24,7 @@ canonifyurls        = true                          # Turns relative urls into a
     description     = "Website Description"         # Max 160 characters show in search results
     faviconFile     = "img/fav.ico"
     highlightjs     = true                          # Syntax highlighting
+    hljsTheme       = true                          # Select highlight.js theme: https://highlightjs.org/static/demo/
     footerText      = ""                            # Text to show in footer (overrides default text)
     fadeIn          = true                          # Turn on/off the fade-in effect
 
