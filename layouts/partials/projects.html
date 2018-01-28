@@ -39,7 +39,7 @@
 <!-- End Projects container -->
 
 <!-- Projects modals -->
-{{ range sort .Pages }} {{ if eq .Section "projects" }}
+{{ range sort .Pages }} {{ if eq .Section "projects" }} {{ if not .Params.external_link }}
 <div class="modal" id="modal{{.Title | urlize}}">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -67,7 +67,7 @@
         $('#modal{{.Title | urlize}}').removeClass('is-active');
     });
 </script>
-{{ end }} {{ end }}
+{{ end }} {{ end }} {{ end }}
 
 
 <div class="container has-text-centered top-pad">
