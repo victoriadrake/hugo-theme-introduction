@@ -1,4 +1,13 @@
-# Version 3.2 - Jan 26 2017
+## Version 3.2.1 - Feb 3 2018
+
+- Allow highlight theme choice using built-in Chroma and `pygmentsStyle` config
+- Improvement for modal rendering
+
+*Thanks to @darkk for the contribution!*
+
+- Included Sass files
+
+# Version 3.2 - Jan 26 2018
 
 - Fixed "theme" namespace bug in exampleSite config file that prevented site building after Hugo v0.32.2 (#22)
 - Updates supporting up to Hugo v0.35dev

@@ -1,0 +1,327 @@
+$family-sans-serif: Nunito Sans, sans-serif
+$title-stack: Nunito Sans, sans-serif
+$body-size: 16px
+$body-color: #78888b
+$background: #111
+$primary: #ed6a5a
+$secondary: #f4f1bb
+$h-color: #75b8c8
+$code: $primary
+$code-background: $background
+
+@import "node_modules/bulma/sass/utilities/_all"
+@import "node_modules/bulma/sass/base/_all"
+@import "node_modules/bulma/sass/layout/_all"
+@import "node_modules/bulma/sass/grid/_all"
+@import "node_modules/bulma/sass/elements/_all"
+@import "node_modules/bulma/sass/components/_all"
+
+html
+    background-color: $background
+
+body
+    font-size: $body-size
+    font-family: $family-sans-serif
+    color: $body-color
+    background-color: $background
+
+@-webkit-keyframes fadeIn 
+    from
+        opacity: 0
+    to
+        opacity: 1
+@-moz-keyframes fadeIn 
+    from
+        opacity: 0
+    to
+        opacity: 1
+@keyframes fadeIn 
+    from
+        opacity: 0
+    to
+        opacity: 1
+ 
+.fade-in
+    opacity: 0
+    -webkit-animation: fadeIn ease-in 1
+    -moz-animation: fadeIn ease-in 1
+    animation: fadeIn ease-in 1
+
+    -webkit-animation-fill-mode: forwards
+    -moz-animation-fill-mode: forwards
+    animation-fill-mode: forwards
+
+    -webkit-animation-duration: 1s
+    -moz-animation-duration: 1s
+    animation-duration: 1s
+ 
+.fade-in.one
+    -webkit-animation-delay: 0.7s
+    -moz-animation-delay: 0.7s
+    animation-delay: 0.7s
+ 
+.fade-in.two
+    -webkit-animation-delay: 1.4s
+    -moz-animation-delay: 1.4s
+    animation-delay: 1.4s
+ 
+.fade-in.three
+    -webkit-animation-delay: 1.8s
+    -moz-animation-delay: 1.8s
+    animation-delay: 1.8s
+
+.section
+    background-color: $background
+
+.hero
+    background-color: $background
+
+a
+    color: $primary
+
+a:hover
+    color: $secondary
+    font-style: none
+    
+a:active
+    color: $primary
+
+a.nav-item:hover
+    color: $secondary
+
+.title
+    color: $h-color
+
+.subtitle
+    color: $h-color
+
+h1
+    color: $h-color
+    font-family: $title-stack
+
+h2
+    color: $h-color
+    font-family: $title-stack
+
+ul
+    padding: 0
+
+img 
+    border-radius: 5px
+    border: 1px solid $secondary
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4)
+
+.container
+    max-width: 1000px
+
+.noborder
+    border-radius: 0px
+    border: none
+    box-shadow: none
+
+.img-responsive 
+    border-radius: 5px
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4)
+
+.avatar 
+    border: none
+    @include mobile
+        max-width: 50%
+
+.thumbnail
+    border: none
+
+.bold-title
+    font-size: 6rem
+    @include mobile
+        font-size: 3rem
+        text-align: center
+
+.tagline
+    font-size: 2.5rem
+    @include mobile
+        font-size: 1.5rem
+
+.top-pad
+    padding-top: 1rem
+
+
+.bottom-pad
+    padding-bottom: 1rem
+
+.no-padding
+    padding: 0
+
+.strong-post-title
+    font-weight: $weight-bold
+
+.post-item
+    display: block
+    list-style: none
+    list-style-position: outside
+    margin-left: 0
+
+.post-data
+    font-size: 1rem
+    line-height: 2rem
+
+.blog-share
+    .icon
+        height: 1rem
+        width: 1rem
+        vertical-align: baseline
+        margin: 0 5px
+
+.nav
+    background-color: $background
+
+.nav-toggle:hover
+        background-color: $background
+
+.nav-item
+    text-transform: uppercase
+    font-size: 14px
+
+.nav-item:hover
+    color: $secondary
+
+.expanding-menu
+    ul
+        list-style: none
+        display: none
+
+.expanding-menu:hover ul
+    display: block
+    transition: height  1s ease
+
+.social-icons
+    padding: 0 10px
+
+.icon
+    height: 2rem
+    width: 2rem
+    margin: 0 10px
+
+.footer-text
+    font-size: 0.8em
+    a
+        color: $body-color
+    .fa
+        font-size: 0.8em
+        vertical-align: baseline
+
+.tags-list
+    width: 70%
+    margin: 0 auto
+    text-align: center
+    font-family: $h-color
+    font-size: 1.5rem
+    @include mobile
+        width: 100%
+
+.tag-cloud
+    font-size: 1.5rem
+    margin-right: 1.5rem
+    @include mobile
+        font-size: 1.5rem
+        margin-right: 1rem
+
+.card
+    background-color: $background
+
+.card-content
+    background-color: $background
+    font-size: 1.5rem
+
+.modal-card-title
+    color: $primary
+
+.modal-card-body
+    background-color: $background
+
+.markdown
+    p
+        margin-bottom: 1em
+    h1
+        font-size: $size-1
+        @include mobile
+            font-size: $size-2
+    h2
+        font-size: $size-2
+        line-height: 1em
+        margin-top: 1em
+        margin-bottom: 0.5em
+        @include mobile
+            font-size: $size-3
+    h3
+        font-size: $size-3
+        @include mobile
+            font-size: $size-4
+    h4
+        font-size: $size-4
+        @include mobile
+            font-size: $size-5
+    h5
+        font-size: $size-5
+    h6
+        font-size: $size-6
+    a
+        color: $primary
+        :hover
+            color: $secondary
+            font-style: none
+        :active
+            color: $primary
+    ul
+        margin-bottom: 1.25rem
+        margin-left: 1.5em
+        list-style: none
+    li
+        list-style-type: disc 
+        margin-left: 1.5em
+        list-style-position: outside
+        padding-left: 1em
+    em
+        font-style: italic
+    strong
+        font-weight: 700
+    hr
+        position: relative
+        margin: 1.75rem 0
+        border: 0
+        border-top: 1px solid $secondary
+    abbr
+        font-size: 0.8rem
+        font-weight: bold
+        color: #666666
+        text-transform: uppercase
+    abbr[title]
+        cursor: help
+        border-bottom: 1px dotted #808080
+    blockquote
+        padding: .5rem 1rem
+        margin: .8rem 0
+        color: #7a7a7a
+        border-left: .25rem solid #e5e5e5
+        blockquote p:last-child
+        margin-bottom: 0
+    table
+        margin: 2em 0 2em 0
+        width: 100%
+        border: 1px solid #e5e5e5
+        border-collapse: collapse
+    td, th
+        padding: .25rem .5rem
+        border: 1px solid #e5e5e5
+        text-align: center
+    tbody tr:nth-child(odd) td,
+    tbody tr:nth-child(odd) th
+        background-color: #f7f7f7
+    strong
+        font-weight: 700
+        color: $body-color
+    pre
+        border-radius: 3px
+
+.hidden
+    display: none
