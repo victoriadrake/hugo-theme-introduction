@@ -3,43 +3,44 @@ languageCode        = "en-us"
 title               = "Introduction"
 theme               = "introduction"
 enforce_ssl         = false
-builddrafts         = false                         # Include pages with draft status of true
-canonifyurls        = true                          # Turns relative urls into absolute urls
-# disqusshortname   = "xxx"                         # Enable Disqus for comments
+builddrafts         = false                             # Include pages with draft status of true
+canonifyurls        = true                              # Turns relative urls into absolute urls
+# disqusshortname   = "xxx"                             # Enable Disqus for comments
 # googleAnalytics   = "xxx"
 
 [params]
-    blogHead        = "Blog"                        # Full name shows on blog post pages
-    firstName       = "Introduction"                # First name shows in introduction on main page
-    tagLine         = "I'm a theme for Hugo."       # Appears after the introduction
-    introHeight     = "large"                       # Input either 'medium' or 'large' or 'fullheight'
-    themeStyle      = "light"                        # Choose 'light' or 'dark'
-    avatar          = "img/profile.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
-    email           = "youremail@email.com"         # Shows in contact section, or leave blank to omit
-    localTime       = true                          # Show your current local time in contact section
-    timeZone        = "America/Los_Angeles"         # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    dateForm        = "Jan 2, 2006"
-    dateFormFull    = "Mon Jan 2 2006 15:04:05 EST"
-    cacheBuster     = false                         # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
-    description     = "Website Description"         # Max 160 characters show in search results
-    faviconFile     = "img/fav.ico"
-    highlightjs     = true                          # Syntax highlighting
-    footerText      = ""                            # Text to show in footer (overrides default text)
-    fadeIn          = true                          # Turn on/off the fade-in effect
+    bloghead            = "Blog"                        # Full name shows on blog post pages
+    firstname           = "Introduction"                # First name shows in introduction on main page
+    tagline             = "I'm a theme for Hugo."       # Appears after the introduction
+    introheight         = "fullheight"                       # Input either 'medium' or 'large' or 'fullheight'
+    themestyle          = "dark"                        # Choose 'light' or 'dark'
+    avatar              = "img/profile.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
+    email               = "youremail@email.com"         # Shows in contact section, or leave blank to omit
+    localtime           = true                          # Show your current local time in contact section
+    timezone            = "America/Los_Angeles"         # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    dateform            = "Jan 2, 2006"
+    dateformfull        = "Mon Jan 2 2006 15:04:05 EST"
+    cachebuster         = false                         # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
+    description         = "Website description."        # Max 160 characters show in search results
+    faviconfile         = "img/fav.ico"
+    pygmentsStyle       = "monokai"                     # Choose theme: https://help.farbox.com/pygments.html
+    pygmentsCodeFences  = true
+    footertext          = ""                            # Text to show in footer (overrides default text)
+    fadein              = true                          # Turn on/off the fade-in effect
 
-    showBlog            = true                      # Show Blog section on home page
-    showProjects        = true                      # Show Projects section on home page
-    projectColumns      = "3"                       # Choose "2" or "3" columns for projects section
-    placeHolderimg      = "/img/workday.jpg"        # For Projects without image
-    showAllPosts        = false                     # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
-    showLatest          = true                      # Show latest blog post summary
-    shareButtons        = true                      # On post pages, show share this social buttons
+    showblog            = true                          # Show Blog section on home page
+    showprojects        = true                          # Show Projects section on home page
+    projectcolumns      = "3"                           # Choose "2" or "3" columns for projects section
+    placeholderimg      = "/img/workday.jpg"            # For Projects without image
+    showallposts        = false                         # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
+    showlatest          = true                          # Show latest blog post summary
+    sharebuttons        = true                          # On post pages, show share this social buttons
 
     # Share buttons
-    shareTwitter        = true
-    shareFacebook       = true
-    sharePinterest      = false
-    shareGooglePlus     = true
+    sharetwitter        = true
+    sharefacebook       = true
+    sharepinterest      = false
+    sharegoogleplus     = true
 
 # Social icons appear in introduction and contact section. Add as many more as you like.
 # Find icon names here: http://fontawesome.io/cheatsheet/
