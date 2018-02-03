@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 <body>
 
-<div class="section" id="top"> <!-- Where all the awesome begins -->
+<div id="top"> <!-- Where all the awesome begins -->
 
 <div class="hero is-{{ .Site.Params.introHeight }}">
 <!-- Possible hero-head not used -->
@@ -39,7 +39,6 @@
     <hr>
     </div><!-- Done with nav bar -->
 </div><!-- Done with Hero -->
-</div><!-- End of top section -->
 
 <!-- Everything below fades in three! -->
 <div class="section no-padding {{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
