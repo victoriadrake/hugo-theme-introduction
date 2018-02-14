@@ -24,7 +24,7 @@ canonifyurls        = true                              # Turns relative urls in
     description         = "Website description."        # Max 160 characters show in search results
     faviconfile         = "img/fav.ico"
     pygmentsStyle       = "monokai"                     # Choose theme: https://help.farbox.com/pygments.html
-    pygmentsCodeFences  = true
+    pygmentsCodefences  = true
     footertext          = ""                            # Text to show in footer (overrides default text)
     fadein              = true                          # Turn on/off the fade-in effect
 
