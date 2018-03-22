@@ -60,6 +60,11 @@ crossorigin="anonymous"></script>
 
 {{ end }}
 
+<!-- Custom css -->
+{{ range .Site.Params.customCSS -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+{{- end }}
+
 <!-- Icon -->
 <link rel="shortcut icon"
 {{ if .Site.Params.faviconFile }}
