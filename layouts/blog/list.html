@@ -4,7 +4,7 @@
 <div class="section" id="top"><!-- Parent section -->
 
     <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}"><!-- Begin Title -->
-    <h1 class="bold-title is-1">{{ .Site.Params.blogHead }}</h1>
+    <h1 class="bold-title is-1">{{ .Site.Params.blogHead | default "Blog" }}</h1>
     </div><!-- End Title -->
 
     <!-- Everything below fades in two! -->
@@ -13,13 +13,13 @@
     <div class="container"><!-- Begin Nav bar -->
     {{ partial "nav-list.html" . }}
     </div><!-- End Nav bar -->
-       
+
     <div class="container"><!-- Begin Blog container -->
 
     {{ if .Site.Params.showLatest }}
     <h2 class="title is-2 top-pad">Latest Post</h2>
-        {{ range first 1 (where .Data.Pages.ByPublishDate.Reverse "Section" "blog") }} 
-        <div class="summary">{{ .Date.Format .Site.Params.dateForm }}
+        {{ range first 1 (where .Data.Pages.ByPublishDate.Reverse "Section" "blog") }}
+        <div class="summary">{{ .Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }}
             <h3 class="title is-3 strong-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <div class="markdown">
                 {{ .Summary }}
