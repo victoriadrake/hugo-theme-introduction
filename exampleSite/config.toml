@@ -27,6 +27,7 @@ canonifyurls        = true                              # Turns relative urls in
     pygmentsCodeFences  = true
     footertext          = ""                            # Text to show in footer (overrides default text)
     fadein              = true                          # Turn on/off the fade-in effect
+    customCSS           = []                            # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
     showblog            = true                          # Show Blog section on home page
     showprojects        = true                          # Show Projects section on home page
