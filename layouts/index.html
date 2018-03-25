@@ -9,29 +9,29 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <!-- Title and tagline -->
-            <h1 class="bold-title {{ if .Site.Params.fadeIn }}fade-in one{{ end }}">
+            <h1 class="bold-title {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
                 Hi, I'm {{ .Site.Params.firstName | default "Introduction" }}.
             </h1>
-            <h3 class="subtitle is-3 {{ if.Site.Params.fadeIn }} fade-in two{{ end }}">
+            <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
                 {{ .Site.Params.tagLine }}
             </h3>
             <!-- End title and tagline -->
             <!-- Some social icons -->
-            <div class="{{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
+            <div class=" {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
                 {{ partial "social.html" . }}
             </div>
             <!-- End top social icons -->
         </div>
     </div> <!-- Hero body title end -->
     <!-- Hero foot has nav bar -->
-    <div class="hero-foot {{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
+    <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
         <a class="nav-item" href="#about">About</a>
         {{ if .Site.Params.showProjects }}
         <a class="nav-item" href="#projects">Projects</a>
         {{ end }}
-        {{ if .Site.Params.showBlog }}
+        {{ if .Site.Params.showBlog | default true }}
         <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
         <a class="nav-item" href="#contact">Contact</a>
@@ -41,7 +41,7 @@
 </div><!-- Done with Hero -->
 
 <!-- Everything below fades in three! -->
-<div class="section no-padding {{ if .Site.Params.fadeIn }}fade-in three{{ end }}">
+<div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
 
 <!-- Tell them all about it! -->
 <div class="section" id="about">

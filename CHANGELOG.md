@@ -1,3 +1,10 @@
+## Version 3.3.0 - Mar 25 2018
+
+- Default parameters implemented so theme renders without custom config parameters
+- Local assets placed 
+
+*Thank you very much to @paskal and @Hanzei for your important contributions!*
+
 ## Version 3.2.1 - Feb 3 2018
 
 - Allow highlight theme choice using built-in Chroma and `pygmentsStyle` config
