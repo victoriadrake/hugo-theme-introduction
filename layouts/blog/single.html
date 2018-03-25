@@ -17,7 +17,7 @@
     <div class="container {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}"><!-- Begin blog title container -->
         <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
-                {{ .Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} |
+                {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
                 {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
             </div>
 
