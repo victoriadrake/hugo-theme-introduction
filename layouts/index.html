@@ -3,14 +3,14 @@
 
 <div id="top"> <!-- Where all the awesome begins -->
 
-<div class="hero is-{{ .Site.Params.introHeight }}">
+<div class="hero is-{{ .Site.Params.introHeight | default "fullheight" }}">
 <!-- Possible hero-head not used -->
     <!-- Super sweet Hero body title -->
     <div class="hero-body">
         <div class="container has-text-centered">
             <!-- Title and tagline -->
             <h1 class="bold-title {{ if .Site.Params.fadeIn }}fade-in one{{ end }}">
-                Hi, I'm {{ .Site.Params.firstName }}.
+                Hi, I'm {{ .Site.Params.firstName | default "Introduction" }}.
             </h1>
             <h3 class="subtitle is-3 {{ if.Site.Params.fadeIn }} fade-in two{{ end }}">
                 {{ .Site.Params.tagLine }}

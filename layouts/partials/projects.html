@@ -5,8 +5,8 @@
     <div class="section is-small">
         <div class="columns is-multiline">
             {{ range sort .Pages }} {{ if eq .Section "projects" }}
-            {{ if eq .Site.Params.projectColumns "2" }}
-            <div class="column is-half"> {{ else if eq .Site.Params.projectColumns "3" }}
+            {{ if eq (.Site.Params.projectColumns | default "3") "2" }}
+            <div class="column is-half"> {{ else if eq (.Site.Params.projectColumns | default "3") "3" }}
             <div class="column is-one-third"> {{ end }}
                 <!-- Hey Vicky, show half column if number is even. -->
                 <div {{ if not .Params.external_link }} id="project{{.Title | urlize}}" {{ end }} class="card">
