@@ -27,7 +27,6 @@
     <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
-        <a class="nav-item" href="#about">About</a>
         {{ if .Site.Params.showProjects }}
         <a class="nav-item" href="#projects">Projects</a>
         {{ end }}
@@ -43,29 +42,6 @@
 <!-- Everything below fades in three! -->
 <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
 
-<!-- Tell them all about it! -->
-<div class="section" id="about">
-    <div class="container">
-    <h2 class="title is-2 has-text-centered">About</h2>
-
-        <div class="columns"><!-- Avatar and about.md side by side except mobile -->
-            {{ if .Site.Params.avatar }}
-            <div class="column is-one-third has-text-centered">
-              <img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
-            </div>
-            {{ end }}
-            <div class="column markdown">
-                {{ range .Data.Pages }}
-                    {{if eq .Title "About" }}
-                            {{.Content}}
-                        {{end}}
-                    {{ end }}
-            </div>
-        </div>
-    </div><!-- End About container-->
-
-<div class="container has-text-centered top-pad"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
-</div><!-- End About section -->
 
 <div class="container"><hr></div>
 
