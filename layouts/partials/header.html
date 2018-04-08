@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang='{{ .Site.Language.Lang | default "en-us" }}'>
 
 <head>
 <meta charset="utf-8">
@@ -12,8 +12,7 @@
 
 <base href="{{ .Site.BaseURL }}">
 <title>
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ if eq $url "/" }}
+{{ if .IsHome }}
     {{ .Site.Title }}
 {{ else }}
     {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
@@ -49,7 +48,7 @@
 
 <!-- Custom css -->
 {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+    <link rel="stylesheet" href="{{ . | relURL }}">
 {{- end }}
 
 <!-- Icon -->

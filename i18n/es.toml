@@ -1,0 +1,47 @@
+[blog]
+  other = "Blog"
+[projects]
+  other = "Proyectos"
+[404_TITLE]
+  other = "404"
+[404_DESCRIPTION]
+  other = "Oops! O bien encontraste un bug (en cuyo caso, [por favor avisame](mailto:{{ .Site.Params.email }})) o simplemente estas inventando cosas. Esta página no existe!"
+[ABOUT_LINK]
+  other = "Sobre Mi"
+[ABOUT_TITLE]
+  other = "Sobre Mi"
+[ALL_BLOG_POSTS_TITLE]
+  other = "TODAS LAS ENTRADAS DE BLOG"
+[ALL_POSTS_TITLE]
+  other = "Todas las Entradas"
+[AVATAR_ALT]
+  other = "Mi foto de perfil."
+[BACK_TO_SECTION_LINK]
+  other = "VOLVER A {{ .section }}"
+[BLOG_LINK]
+  other = "Blog"
+[CONTACT_LINK]
+  other = "Contacto"
+[CONTACT_TITLE]
+  other = "Contacto"
+[COPYRIGHT]
+  other = "Tema [Introducción](https://github.com/hivickylai/hugo-theme-introduction) para [Hugo](http://gohugo.io/). Hecho con <i class='fa fa-heart'></i> y <i class='fa fa-coffee'></i>. [Vicky Lai](https://vickylai.io) {{ .year }}"
+[HI_IM]
+  other = "Hola, Soy {{ .firstName }}."
+[LATEST_POSTS_TITLE]
+  other = "Últimas Entradas"
+[MAIN_LINK]
+  other = "Principal"
+[MY_CURRENT_LOCAL_TIME]
+  other = "Mi hora local actual es <span id='time'></span>."
+[PROJECTS_LINK]
+  other = "Proyectos"
+[PROJECTS_TITLE]
+  other = "Proyectos"
+[READ_MORE]
+  other = "...Leer más"
+[READING_TIME]
+  one = "{{ .Count }} minuto de lectura"
+  other = "{{ .Count }} minutos de lectura"
+[SHARE_THIS]
+  other = "Comparte esto:"

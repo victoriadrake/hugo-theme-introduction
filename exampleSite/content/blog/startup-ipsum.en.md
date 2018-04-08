@@ -1,5 +1,5 @@
 ---
-title: "Startup Ipsum"
+title: "Startup Ipsum - English"
 date: 2017-11-06T12:04:06-05:00
 tags: ['code','ipsum','words']
 ---
