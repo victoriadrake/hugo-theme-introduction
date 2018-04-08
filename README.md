@@ -59,7 +59,7 @@ Edit the contact page's front matter to have:
 ```yaml
 contact_page: true
 ```
-Otherwise neither the about page or the contact page gets picked up by the home page corresponding sections.
+Otherwise neither the about page nor the contact page gets picked up by the home page corresponding sections.
 
 ## Preview your site locally
 
