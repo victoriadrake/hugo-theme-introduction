@@ -43,10 +43,23 @@ Start with:
 
 Run:
 ```sh
-$ hugo new about.md 
+$ hugo new about.md
 $ hugo new contact.md
 ```
 Then edit the markdown files with the content you'd like shown in your main page's About and Contact sections.
+
+Edit the about page's front matter to have:
+
+```yaml
+about_page: true
+```
+
+Edit the contact page's front matter to have:
+
+```yaml
+contact_page: true
+```
+Otherwise neither the about page or the contact page gets picked up by the home page corresponding sections.
 
 ## Preview your site locally
 
