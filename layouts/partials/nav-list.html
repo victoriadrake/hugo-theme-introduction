@@ -29,7 +29,7 @@
       {{ end }}
     {{ if .Site.RSSLink }}
       <span class="nav-item">
-        <a href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+        <a href="{{ .Site.RSSLink | relLangURL }}"><i class="fa fa-rss"></i></a>
       </span>
     {{ end }}
     </div>
