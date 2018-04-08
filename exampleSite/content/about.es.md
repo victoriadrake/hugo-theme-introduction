@@ -4,8 +4,7 @@ date: 2017-03-09T13:19:25+08:00
 about_page: true
 ---
 
-Esto es **Introducción,** un
-This is **Introduction,** un tema mínimo con desplazamiento para sitios web hechos con [Hugo](https://gohugo.io).
+Esto es **Introducción,** un tema mínimo con desplazamiento para sitios web hechos con [Hugo](https://gohugo.io).
 
 ### Características
 
