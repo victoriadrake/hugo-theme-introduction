@@ -7,19 +7,29 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="/">Main</a>
+        <a href='{{ "/" | relLangURL }}'>{{ i18n "MAIN_LINK" . }}</a>
       </span>
       <span class="nav-item">
-        <a href="/#about">About</a>
+        <a href='{{ "/#about" | relLangURL }}'>{{ i18n "ABOUT_LINK" . }}</a>
       </span>
-      {{ with .Section }}
+      {{ if .Section }}
       <span class="nav-item">
-        <a href="/{{ . }}">Back to {{ . }}</a>
+        {{ $section := .Section }}
+        {{ with .Site.GetPage "section" $section }}
+        <a href='{{ .Permalink }}'>{{ i18n "BACK_TO_SECTION_LINK" (dict "section" ($section | i18n))}}</a>
+        {{ end }}
       </span>
       {{ end }}
       <span class="nav-item">
-        <a href="/#contact">Contact</a>
+        <a href='{{ "/#contact" | relLangURL }}'>{{ i18n "CONTACT_LINK" . }}</a>
       </span>
+      {{ if .IsTranslated }}
+      {{ range .AllTranslations }}
+      <span class="nav-item">
+        <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+      </span>
+      {{ end }}
+      {{ end }}
     {{ if .Site.RSSLink }}
       <span class="nav-item">
         <a href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>

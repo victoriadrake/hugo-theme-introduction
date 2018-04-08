@@ -10,7 +10,7 @@
         <div class="container has-text-centered">
             <!-- Title and tagline -->
             <h1 class="bold-title {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-                Hi, I'm {{ .Site.Params.firstName | default "Introduction" }}.
+                {{ i18n "HI_IM" (dict "firstName" (.Site.Params.firstName | default "Introduction")) }}
             </h1>
             <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
                 {{ .Site.Params.tagLine }}
@@ -27,14 +27,19 @@
     <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
-        <a class="nav-item" href="#about">About</a>
+        <a class="nav-item" href='{{ "/#about" | relLangURL }}'>{{ i18n "ABOUT_LINK" . }}</a>
         {{ if .Site.Params.showProjects }}
-        <a class="nav-item" href="#projects">Projects</a>
+        <a class="nav-item" href='{{ "/#projects" | relLangURL }}'>{{ i18n "PROJECTS_LINK" . }}</a>
         {{ end }}
         {{ if .Site.Params.showBlog }}
-        <a class="nav-item" href="#blog">Blog</a>
+        <a class="nav-item" href='{{ "/#blog" | relLangURL }}'>{{ i18n "BLOG_LINK" . }}</a>
         {{ end }}
-        <a class="nav-item" href="#contact">Contact</a>
+        <a class="nav-item" href='{{ "/#contact" | relLangURL }}'>{{ i18n "CONTACT_LINK" . }}</a>
+        {{ if .IsTranslated }}
+        {{ range .AllTranslations }}
+        <a class="nav-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+        {{ end }}
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
@@ -46,20 +51,22 @@
 <!-- Tell them all about it! -->
 <div class="section" id="about">
     <div class="container">
-    <h2 class="title is-2 has-text-centered">About</h2>
+    <h2 class="title is-2 has-text-centered">{{ i18n "ABOUT_TITLE" . }}</h2>
 
         <div class="columns"><!-- Avatar and about.md side by side except mobile -->
             {{ if .Site.Params.avatar }}
             <div class="column is-one-third has-text-centered">
-              <img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt="My profile picture.">
+              <img class="img-responsive avatar" src="/{{ .Site.Params.avatar }}" alt='{{ i18n "AVATAR_ALT" . }}'>
             </div>
             {{ end }}
             <div class="column markdown">
-                {{ range .Data.Pages }}
-                    {{if eq .Title "About" }}
-                            {{.Content}}
-                        {{end}}
-                    {{ end }}
+            {{ range .Data.Pages }}
+              {{ if eq .Lang .Site.Language.Lang }}
+                {{ if eq .Params.about_page true }}
+                  {{.Content}}
+                {{end}}
+              {{ end }}
+            {{ end }}
             </div>
         </div>
     </div><!-- End About container-->
@@ -92,17 +99,19 @@
 <!-- Let's chat, shall we? -->
 <div class="section" id="contact">
     <div class="container has-text-centered">
-    <h2 class="title is-2">Contact</h2>
+    <h2 class="title is-2">{{ i18n "CONTACT_TITLE" . }}</h2>
         <div class="markdown">
-            {{ range .Data.Pages }}
-                {{if eq .Title "Contact" }}
-                        {{.Content}}
-                    {{end}}
-                {{ end }}
+          {{ range .Data.Pages }}
+            {{ if eq .Lang .Site.Language.Lang }}
+              {{ if eq .Params.contact_page true }}
+                {{.Content}}
+              {{end}}
+            {{ end }}
+          {{ end }}
         </div>
 
         {{ if .Site.Params.localTime }}
-        <p>My current local time is <span id="time"></span>.</p>
+        <p>{{ i18n "MY_CURRENT_LOCAL_TIME" . | markdownify }}</p>
         <script type="text/javascript" src="/js/moment.js"></script>
         <script type="text/javascript" src="/js/moment-timezone.js"></script>
         <script type="text/javascript" src="/js/moment-timezone-with-data-2012-2022.js"></script>

@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 date: 2017-03-09T13:23:28+08:00
+contact_page: true
 ---
 
 In the Contact section of Introduction, you may optionally display the current time in your preferred timezone.

@@ -1,0 +1,47 @@
+[blog]
+  other = "Blog"
+[projects]
+  other = "Projects"
+[404_TITLE]
+  other = "404"
+[404_DESCRIPTION]
+  other = "Oops! Either you've found a bug (in which case, [please tell me](mailto:{{ .Site.Params.email }})) or you're just making things up. This page doesn't exist!"
+[ABOUT_LINK]
+  other = "About"
+[ABOUT_TITLE]
+  other = "About"
+[ALL_BLOG_POSTS_TITLE]
+  other = "ALL BLOG POSTS"
+[ALL_POSTS_TITLE]
+  other = "All Posts"
+[AVATAR_ALT]
+  other = "My profile picture."
+[BACK_TO_SECTION_LINK]
+  other = "Back to {{ .section }}"
+[BLOG_LINK]
+  other = "Blog"
+[CONTACT_LINK]
+  other = "Contact"
+[CONTACT_TITLE]
+  other = "Contact"
+[COPYRIGHT]
+  other = "[Introduction](https://github.com/hivickylai/hugo-theme-introduction) theme for [Hugo](http://gohugo.io/). Made with <i class='fa fa-heart'></i> and <i class='fa fa-coffee'></i>. [Vicky Lai](https://vickylai.io) {{ .year }}"
+[HI_IM]
+  other = "Hi, I'm {{ .firstName }}."
+[LATEST_POSTS_TITLE]
+  other = "Latest Post"
+[MAIN_LINK]
+  other = "Main"
+[MY_CURRENT_LOCAL_TIME]
+  other = "My current local time is <span id='time'></span>."
+[PROJECTS_LINK]
+  other = "Projects"
+[PROJECTS_TITLE]
+  other = "Projects"
+[READ_MORE]
+  other = "...Read more"
+[READING_TIME]
+  one = "{{ .Count }} minute read"
+  other = "{{ .Count }} minutes read"
+[SHARE_THIS]
+  other = "Share this:"

@@ -1,6 +1,5 @@
 baseurl                 = "/"   # Your domain name. Must end with "/"
 languageCode            = "en-us"
-title                   = "Introduction"
 theme                   = "introduction"
 enforce_ssl             = false
 builddrafts             = false                             # Include pages with draft status of true
@@ -8,10 +7,7 @@ canonifyurls            = true                              # Turns relative url
 # disqusshortname       = "xxx"                             # Enable Disqus for comments
 # googleAnalytics       = "xxx"
 
-[params]    
-    blogHead            = "Blog"                            # Full name shows on blog post pages
-    firstName           = "Introduction"                    # First name shows in introduction on main page
-    tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
+[params]
     introHeight         = "large"                           # Input either 'medium' or 'large' or 'fullheight'
     themeStyle          = "light"                           # Choose 'light' or 'dark'
     avatar              = "img/profile.jpg"                 # Path to image in static folder eg. img/avatar.png, or comment out to remove
@@ -21,14 +17,12 @@ canonifyurls            = true                              # Turns relative url
     dateForm            = "Jan 2, 2006"
     dateFormFull        = "Mon Jan 2 2006 15:04:05 EST"
     cacheBuster         = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
-    description         = "Website Description"             # Max 160 characters show in search results
     faviconFile         = "img/fav.ico"
     pygmentsStyle       = "monokai"                         # https://help.farbox.com/pygments.html
     pygmentsCodefences  = true
     footerText          = ""                                # Text to show in footer (overrides default text)
     fadeIn              = true                              # Turn on/off the fade-in effect
     customCSS           = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
-
     showBlog            = true                              # Show Blog section on home page
     showProjects        = true                              # Show Projects section on home page
     projectColumns      = "3"                               # Choose "2" or "3" columns for projects section
@@ -57,3 +51,20 @@ canonifyurls            = true                              # Turns relative url
 [[params.social]]
     url = "https://linkedin.com/"
     icon = "linkedin"
+
+[languages]
+[languages.en]
+  languageName        = "English"
+  title               = "Introduction"
+  blogHead            = "Blog"                            # Full name shows on blog post pages
+  firstName           = "Introduction"                    # First name shows in introduction on main page
+  tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
+  description         = "Website Description"             # Max 160 characters show in search results
+
+[languages.es]
+  languageName        = "Español"
+  title               = "Introducción"
+  blogHead            = "Entradas"                        # Full name shows on blog post pages
+  firstName           = "Introducción"                    # First name shows in introduction on main page
+  tagLine             = "Soy un tema para Hugo."          # Appears after the introduction
+  description         = "Descripcion del sitio web"       # Max 160 characters show in search results

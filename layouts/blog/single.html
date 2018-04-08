@@ -18,12 +18,12 @@
         <h2 class="title is-1 top-pad strong-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="post-data">
                 {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
-                {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                {{ i18n "READING_TIME" .ReadingTime }}
             </div>
 
             {{ if .Site.Params.shareButtons }}
                 <div class="blog-share">
-                Share this:
+                {{ i18n "SHARE_THIS" . }}
                 {{ if .Site.Params.shareTwitter }}
                 <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
