@@ -43,6 +43,12 @@ canonifyurls            = true                              # Turns relative url
     sharePinterest      = false
     shareGooglePlus     = true
 
+    # Section areas
+    mainTitle           = "Main"
+    projectsTitle       = "Project"
+    aboutTitle          = "About"
+    contactTitle        = "Contact"
+
 # Social icons appear in introduction and contact section. Add as many more as you like.
 # Find icon names here: http://fontawesome.io/cheatsheet/
 
