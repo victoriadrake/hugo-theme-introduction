@@ -38,6 +38,7 @@ Start with:
 1. Set your timezone, if you choose to show it
 1. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
 1. Input your social site urls and font-awesome icon names - use as many as you like
+1. Customize your section areas titile 
 
 ### Create About and Contact pages
 
