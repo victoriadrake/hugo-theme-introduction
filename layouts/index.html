@@ -13,8 +13,8 @@
                 Hi, I'm {{ .Site.Params.firstName | default "Introduction" }}.
             </h1>
             <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-                {{ .Site.Params.tagLine }}
-            </h3>
+	        {{ .Site.Params.tagLine | emojify }}
+	    </h3>
             <!-- End title and tagline -->
             <!-- Some social icons -->
             <div class=" {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
