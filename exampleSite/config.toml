@@ -45,7 +45,7 @@ canonifyurls            = true                              # Turns relative url
 
     # Section areas
     mainTitle           = "Main"
-    projectsTitle       = "Project"
+    projectsTitle       = "Projects"
     aboutTitle          = "About"
     contactTitle        = "Contact"
 
