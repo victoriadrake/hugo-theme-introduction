@@ -1,8 +1,8 @@
-# <a href="https://vickylai.io/introduction/" target="_blank" rel="noopener">Introduction theme for Hugo</a>
+# <a href="https://vickylai.com/introduction/" target="_blank" rel="noopener">Introduction theme for Hugo</a>
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
-![Main page screenshot](https://github.com/hivickylai/hugo-theme-introduction/blob/master/images/screenshot.png)
+![Main page screenshot](https://github.com/vickylai/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
 - Single scrolling home page
@@ -21,7 +21,7 @@ Features:
 From the root of your Hugo site:
 ```sh
 $ cd themes
-$ git clone https://github.com/hivickylai/hugo-theme-introduction.git introduction
+$ git clone https://github.com/vickylai/hugo-theme-introduction.git introduction
 ```
 
 ### Configure your site
@@ -94,10 +94,10 @@ If you don't specify a `title`, only the photo will show. You can still add cont
 If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
 ## License
-This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/hivickylai/hugo-theme-introduction/blob/master/LICENSE.txt)
+This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE.txt)
 
 ## Contributing
 
 Pull requests for bug fixes and suggestions are welcome.
 
-Contributors are listed in [CHANGELOG.md](https://github.com/hivickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤
+Contributors are listed in [CHANGELOG.md](https://github.com/vickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤

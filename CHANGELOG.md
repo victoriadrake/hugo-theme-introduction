@@ -1,3 +1,9 @@
+## Version 
+
+- Fix for single page navigation
+
+*Thank you to @pmviva for the contribution!*
+
 ## Version 3.3.0 - Mar 25 2018
 
 - Default parameters implemented so theme renders without custom config parameters
