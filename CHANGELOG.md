@@ -1,4 +1,4 @@
-## Version 
+## Version 3.3.1 - Mar 28 2018
 
 - Fix for single page navigation
 
