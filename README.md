@@ -93,11 +93,24 @@ If you don't specify a `title`, only the photo will show. You can still add cont
 
 If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
-## License
-This theme is released under the [Creative Commons Attribution 3.0 license.](https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE.txt)
-
 ## Contributing
 
 Pull requests for bug fixes and suggestions are welcome.
 
 Contributors are listed in [CHANGELOG.md](https://github.com/vickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤
+
+## License
+Copyright (C) 2018 Vicky Lai
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
