@@ -63,7 +63,7 @@
 
 *Thanks to [@lucab85](https://github.com/lucab85) for the contribution!*
 
-## Version 2.20 - Jul 25 2017
+## Version 2.2 - Jul 25 2017
 
 - Avatar made optional
 - Fixed bug in CSS dark theme
@@ -72,7 +72,7 @@
 
 - Removed dead code (font loads) from header
 
-## Version 2.10 - May 25 2017
+## Version 2.1 - May 25 2017
 
 - Fixed issue (#7) causing '_fades.css' to not load with some site structures
   - file '_fades.css' is now unnecessary
@@ -80,14 +80,14 @@
 
 *Thanks to [@kirederik](https://github.com/kirederik) for the contribution!*
 
-# Version 2.00 - April 20 2017
+# Version 2.0 - April 20 2017
 
 - Load speed improvements:
   - Lighter smooth scrolling effect using a little jQuery
 - Added option to show author's local time in Contact section
 - Social icons are now totally customizable via config - add as many as you want
 
-# Version 1.00 - March 25 2017
+# Version 1.0 - March 25 2017
 
 - Standardized layout using bulma
 - Minified CSS for faster loading
