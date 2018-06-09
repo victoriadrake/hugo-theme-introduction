@@ -7,18 +7,23 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="/">Main</a>
+        <a href="{{ "/" | relURL }}">Main</a>
       </span>
       <span class="nav-item">
-        <a href="/#about">About</a> 
+        <a href="{{ "/about" | relURL }}">About</a>
       </span>
-    {{ if .Site.Params.showProjects }}
+      {{ if .Site.Params.showProjects }}
       <span class="nav-item">
-        <a href="/#projects">Projects</a> 
+        <a href="{{ "/projects" | relURL }}">Projects</a>
       </span>
-    {{ end }}
+      {{ end }}
+      {{ if .Site.Params.showBlog }}
       <span class="nav-item">
-        <a href="/#contact">Contact</a>
+        <a href="{{ "/blog" | relURL }}">Blog</a>
+      </span>
+      {{ end }}
+      <span class="nav-item">
+        <a href="{{ "/contact" | relURL }}">Contact</a>
       </span>
     {{ if .Site.RSSLink }}
       <span class="nav-item">
