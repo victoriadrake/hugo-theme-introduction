@@ -12,7 +12,6 @@
 
     <!-- Everything below fades in two! -->
     <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-
         <div class="container">
             <!-- Begin Nav bar -->
             {{ partial "nav-single.html" . }}
@@ -23,10 +22,9 @@
             <!-- Begin blog post content -->
             {{ if .Params.image }}
             <div class="has-text-centered">
-            <img src="{{ .Params.image }}" class="img-responsive"> 
+              <img src="{{ .Params.image }}" class="img-responsive">
             </div>
-            {{ end }} 
-            
+            {{ end }}
             {{ .Content }}
         </div>
         <!-- End blog post content -->
@@ -37,7 +35,7 @@
 
         <div class="container has-text-centered top-pad">
             <hr>
-            <a href="{{ .Permalink }}#top">
+            <a href="#top">
                 <i class="fa fa-arrow-up"></i>
             </a>
             <hr>
