@@ -27,14 +27,14 @@
     <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
-        <a class="nav-item" href="#about">About</a>
+        <a class="nav-item" href="#about">{{ .Site.Params.aboutTitle | default "About" }}</a>
         {{ if .Site.Params.showProjects }}
-        <a class="nav-item" href="#projects">Projects</a>
+        <a class="nav-item" href="#projects">{{ .Site.Params.projectsTitle | default "Projects" }}</a>
         {{ end }}
         {{ if .Site.Params.showBlog }}
-        <a class="nav-item" href="#blog">Blog</a>
+        <a class="nav-item" href="#blog">{{ .Site.Params.blogTitle | default "Blog" }}</a>
         {{ end }}
-        <a class="nav-item" href="#contact">Contact</a>
+        <a class="nav-item" href="#contact">{{ .Site.Params.contactTitle | default "Contact" }}</a>
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
@@ -46,7 +46,7 @@
 <!-- Tell them all about it! -->
 <div class="section" id="about">
     <div class="container">
-    <h2 class="title is-2 has-text-centered">About</h2>
+    <h2 class="title is-2 has-text-centered">{{ .Site.Params.aboutTitle | default "About" }}</h2>
 
         <div class="columns"><!-- Avatar and about.md side by side except mobile -->
             {{ if .Site.Params.avatar }}
@@ -56,7 +56,7 @@
             {{ end }}
             <div class="column markdown">
                 {{ range .Data.Pages }}
-                    {{if eq .Title "About" }}
+                 {{if or (eq .Title "About") (eq .Title .Site.Params.aboutTitle) }}
                             {{.Content}}
                         {{end}}
                     {{ end }}
@@ -92,10 +92,10 @@
 <!-- Let's chat, shall we? -->
 <div class="section" id="contact">
     <div class="container has-text-centered">
-    <h2 class="title is-2">Contact</h2>
+    <h2 class="title is-2">{{ .Site.Params.contactTitle | default "Contact" }}</h2>
         <div class="markdown">
             {{ range .Data.Pages }}
-                {{if eq .Title "Contact" }}
+                {{if or (eq .Title "Contact") (eq .Title .Site.Params.contactTitle) }}
                         {{.Content}}
                     {{end}}
                 {{ end }}

@@ -7,10 +7,10 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="/">Main</a>
+        <a href="/">{{ .Site.Params.mainTitle | default "Main" }}</a>
       </span>
       <span class="nav-item">
-        <a href="/#about">About</a>
+        <a href="/#about">{{ .Site.Params.aboutTitle | default "About" }}</a>
       </span>
       {{ with .Section }}
       <span class="nav-item">
@@ -18,7 +18,7 @@
       </span>
       {{ end }}
       <span class="nav-item">
-        <a href="/#contact">Contact</a>
+        <a href="/#contact">{{ .Site.Params.contactTitle | default "Contact" }}</a>
       </span>
     {{ if .Site.RSSLink }}
       <span class="nav-item">
