@@ -34,25 +34,25 @@
 {{ end }}
 
 <!-- jQuery -->
-<script type="text/javascript" src={{ "js/jquery-3.3.1.min.js"| absURL }}></script>
+<script type="text/javascript" src="{{ "/js/jquery-3.3.1.min.js" | relURL }}"></script>
 
 <!-- Fonts and icon CSS -->
-<link rel="stylesheet" href={{ "css/font-awesome.min.css" | absURL }}>
-<link rel="stylesheet" href={{ "css/nunito_sans.css" | absURL }}>
+<link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
+<link rel="stylesheet" href="{{ "/css/nunito_sans.css" | relURL }}">
 
 {{ if .Site.Params.cacheBuster }}
     <link rel="stylesheet" href="{{ (printf "css/%s-style.css?t=%d" (.Site.Params.themeStyle | default "dark") now.Unix) |relURL }}">
 {{ else }}
-    <link rel="stylesheet" href="{{ (printf "css/%s-style.css" .Site.Params.themeStyle | default "dark") | absURL }}">
+    <link rel="stylesheet" href="{{ (printf "css/%s-style.css" .Site.Params.themeStyle | default "dark") | relURL }}">
 {{ end }}
 
 <!-- Custom css -->
 {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+    <link rel="stylesheet" href="{{ . | relURL }}">
 {{- end }}
 
 <!-- Icon -->
-<link rel="shortcut icon" href="{{ .Site.Params.faviconFile | default "img/favicon.ico" | absURL }}">
+<link rel="shortcut icon" href="{{ .Site.Params.faviconFile | default "img/favicon.ico" | relURL }}">
 
 <!-- Google Analytics -->
 {{ template "_internal/google_analytics_async.html" . }}
