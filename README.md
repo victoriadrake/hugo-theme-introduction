@@ -1,4 +1,5 @@
 # <a href="https://vickylai.com/introduction/" target="_blank" rel="noopener">Introduction theme for Hugo</a>
+[![Build Status](https://travis-ci.com/vickylai/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/vickylai/hugo-theme-introduction)
 
 A minimal, single page, smooth scrolling theme for Hugo.
 
@@ -43,7 +44,7 @@ Start with:
 
 Run:
 ```sh
-$ hugo new about.md 
+$ hugo new about.md
 $ hugo new contact.md
 ```
 Then edit the markdown files with the content you'd like shown in your main page's About and Contact sections.
