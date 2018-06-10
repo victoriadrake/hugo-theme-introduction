@@ -12,12 +12,12 @@
       <span class="nav-item">
         <a href="{{ "/about" | relURL }}">About</a>
       </span>
-      {{ if .Site.Params.showProjects }}
+      {{ if and (.Site.Params.showProjects)  (ne .Page.Section "projects")  }}
       <span class="nav-item">
         <a href="{{ "/projects" | relURL }}">Projects</a>
       </span>
       {{ end }}
-      {{ if .Site.Params.showBlog }}
+      {{ if and (.Site.Params.showBlog)  (ne .Page.Section "blog")  }}
       <span class="nav-item">
         <a href="{{ "/blog" | relURL }}">Blog</a>
       </span>
