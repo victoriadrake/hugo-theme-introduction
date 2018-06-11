@@ -10,9 +10,7 @@
     <!-- Everything below fades in two! -->
     <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
 
-    <div class="container"><!-- Begin Nav bar -->
-    {{ partial "nav-list.html" . }}
-    </div><!-- End Nav bar -->
+    {{ partial "nav.html" . }}
 
     <div class="container"><!-- Begin Blog container -->
 
