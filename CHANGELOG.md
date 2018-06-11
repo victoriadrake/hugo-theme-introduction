@@ -1,3 +1,14 @@
+## Version 3.3.2 - Jun 10 2018
+
+Travis CI integration, why not.
+
+Bug fixes:
+
+- Update to relative URLs
+- Add links to blog and projects in navigation on list and single pages
+
+*Thank you to @Hanzei for adding testing and helping to squish 🐛*
+
 ## Version 3.3.1 - Mar 28 2018
 
 - Fix for single page navigation
