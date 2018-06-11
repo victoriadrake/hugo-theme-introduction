@@ -2,13 +2,12 @@ baseurl                 = "/"   # Your domain name. Must end with "/"
 languageCode            = "en-us"
 title                   = "Introduction"
 theme                   = "introduction"
-enforce_ssl             = false
 builddrafts             = false                             # Include pages with draft status of true
 canonifyurls            = true                              # Turns relative urls into absolute urls
 # disqusshortname       = "xxx"                             # Enable Disqus for comments
 # googleAnalytics       = "xxx"
 
-[params]    
+[params]
     blogHead            = "Blog"                            # Full name shows on blog post pages
     firstName           = "Introduction"                    # First name shows in introduction on main page
     tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
