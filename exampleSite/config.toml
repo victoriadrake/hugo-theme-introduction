@@ -1,14 +1,12 @@
-baseurl                 = "/"   # Your domain name. Must end with "/"
-languageCode            = "en-us"
-title                   = "Introduction"
+baseURL                 = "https://example.org/"            # Your domain name. Must end with "/"
+languageCode            = "en-us"                           # languageCode
+title                   = "Introduction"                    # Site title
 theme                   = "introduction"
 enforce_ssl             = false
-builddrafts             = false                             # Include pages with draft status of true
-canonifyurls            = true                              # Turns relative urls into absolute urls
-# disqusshortname       = "xxx"                             # Enable Disqus for comments
-# googleAnalytics       = "xxx"
+# disqusshortname       = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
+# googleAnalytics       = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
 
-[params]    
+[params]
     blogHead            = "Blog"                            # Full name shows on blog post pages
     firstName           = "Introduction"                    # First name shows in introduction on main page
     tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
@@ -47,13 +45,13 @@ canonifyurls            = true                              # Turns relative url
 # Find icon names here: http://fontawesome.io/cheatsheet/
 
 [[params.social]]
-    url = "https://twitter.com/"
+    url  = "https://twitter.com/"
     icon = "twitter"
 
 [[params.social]]
-    url = "https://facebook.com/"
+    url  = "https://facebook.com/"
     icon = "facebook"
 
 [[params.social]]
-    url = "https://linkedin.com/"
+    url  = "https://linkedin.com/"
     icon = "linkedin"
