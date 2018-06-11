@@ -8,7 +8,7 @@ canonifyurls            = true                              # Turns relative url
 # disqusshortname       = "xxx"                             # Enable Disqus for comments
 # googleAnalytics       = "xxx"
 
-[params]    
+[params]
     blogHead            = "Blog"                            # Full name shows on blog post pages
     firstName           = "Introduction"                    # First name shows in introduction on main page
     tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
@@ -36,6 +36,7 @@ canonifyurls            = true                              # Turns relative url
     showAllPosts        = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
     showLatest          = true                              # Show latest blog post summary
     shareButtons        = true                              # On post pages, show share this social buttons
+    showRSSButton       = true                              # Show rss button in navigation
 
     # Share buttons
     shareTwitter        = true
