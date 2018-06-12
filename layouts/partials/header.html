@@ -21,18 +21,6 @@
 </title>
 <link rel="canonical" href="{{ .Permalink }}">
 
-<!-- HTTPS -->
-
-{{ if .Site.Params.enforce_ssl }}
-<script type="text/javascript">
-    var baseURL = '{{ .Site.BaseURL }}';
-    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
-    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
-        window.location.protocol = 'https:';
-    }
-</script>
-{{ end }}
-
 <!-- jQuery -->
 <script type="text/javascript" src="{{ "/js/jquery-3.3.1.min.js" | relURL }}"></script>
 
