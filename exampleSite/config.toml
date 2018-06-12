@@ -23,7 +23,7 @@ enforce_ssl             = false
     cacheBuster         = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
     description         = "Website Description"             # Max 160 characters show in search results
     faviconFile         = "img/fav.ico"
-    footerText          = ""                                # Text to show in footer (overrides default text)
+    footerText          = ""                                # Text to override default footer text (markdown allowed)
     fadeIn              = true                              # Turn on/off the fade-in effect
     customCSS           = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
