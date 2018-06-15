@@ -22,23 +22,14 @@
             </div>
             <!-- End top social icons -->
         </div>
-    </div> <!-- Hero body title end -->
-    <!-- Hero foot has nav bar -->
+    </div>
+    <!-- Hero body title end -->
+
     <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
-    <hr>
-    <nav class="nav-center">
-        <a class="nav-item" href="#about">About</a>
-        {{ if .Site.Params.showProjects }}
-        <a class="nav-item" href="#projects">Projects</a>
-        {{ end }}
-        {{ if .Site.Params.showBlog }}
-        <a class="nav-item" href="#blog">Blog</a>
-        {{ end }}
-        <a class="nav-item" href="#contact">Contact</a>
-    </nav>
-    <hr>
-    </div><!-- Done with nav bar -->
-</div><!-- Done with Hero -->
+      {{ partial "nav.html" . }}
+    </div>
+</div>
+<!-- Done with Hero -->
 
 <!-- Everything below fades in three! -->
 <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
@@ -136,7 +127,7 @@
 
 <!-- Bitty scrolling links script -->
 <script>
-$('a[href^="#"]').click(function(e) {
+$('a[href^="/#"]').click(function(e) {
     e.preventDefault();
     var target = this.hash;
     $('html, body').animate({

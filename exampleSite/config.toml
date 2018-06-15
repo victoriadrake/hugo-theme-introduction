@@ -34,6 +34,7 @@ enforce_ssl             = false
     showAllPosts        = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
     showLatest          = true                              # Show latest blog post summary
     shareButtons        = true                              # On post pages, show share this social buttons
+    showRSSButton       = true                              # Show rss button in navigation
 
     # Share buttons
     shareTwitter        = true

@@ -9,14 +9,12 @@
 
 <!-- Everything below fades in two! -->
 <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-
-    <div class="container"><!-- Begin Nav bar -->
-    {{ partial "nav-single.html" . }}
-    </div><!-- End Nav bar -->
-
-    <div class="container {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad"><!-- Begin blurb -->
+    {{ partial "nav.html" . }}
+    <!-- Begin blurb -->
+    <div class="container {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
         Oops! Either you've found a bug (in which case, <a href="mailto:{{ .Site.Params.email }}">please tell me</a>) or you're just making things up. This page doesn't exist!
-    </div><!-- End blurb -->
+    </div>
+    <!-- End blurb -->
 
 <div class="container top-pad"><hr></div>
 {{ partial "footer.html" . }}

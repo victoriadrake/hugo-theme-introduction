@@ -1,0 +1,55 @@
+<!-- Begin Nav bar -->
+<div class="container">
+  <hr>
+  <nav class="nav nav-center">
+    {{ if not .Page.IsHome }}
+    <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div id="nav-menu" class="nav-left nav-menu">
+    {{ end }}
+      {{ if not .Page.IsHome }}
+      <a class="nav-item" href="{{ "/" | relURL }}">Main</a>
+      {{ end }}
+
+      <a class="nav-item" href="{{ "/#about" | relURL }}">About</a>
+
+      {{ if and (.Site.Params.showProjects) (not (and (eq .Page.Section "projects") (eq .Page.Kind "section") )) }}
+        {{ if .IsHome }}
+        <a class="nav-item" href="{{ "/#projects" | relURL }}">Projects</a>
+        {{ else}}
+          {{ if ne .Section "projects" }}
+          <a class="nav-item" href="{{ "/projects" | relURL }}">Projects</a>
+          {{ else }}
+          <a class="nav-item" href="{{ "/projects" | relURL }}">Back to Projects</a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ if and (.Site.Params.showBlog) (not (and (eq .Page.Section "blog") (eq .Page.Kind "section") )) }}
+        {{ if .IsHome }}
+        <a class="nav-item" href="{{ "/#blog" | relURL }}">Blog</a>
+        {{ else }}
+          {{ if ne .Section "blog" }}
+          <a class="nav-item" href="{{ "/blog" | relURL }}">Blog</a>
+          {{ else }}
+          <a class="nav-item" href="{{ "/blog" | relURL }}">Back to Blog</a>
+          {{ end }}
+        {{ end}}
+      {{ end }}
+
+      <a class="nav-item" href="{{ "/#contact" | relURL }}">Contact</a>
+
+      {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
+      <a class="nav-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+      {{ end }}
+      
+    {{ if not .Page.IsHome }}
+    </div>
+    {{ end }}
+  </nav>
+  <hr>
+</div>
+<!-- End Nav bar -->

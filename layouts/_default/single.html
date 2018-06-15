@@ -12,11 +12,8 @@
 
     <!-- Everything below fades in two! -->
     <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-        <div class="container">
-            <!-- Begin Nav bar -->
-            {{ partial "nav-single.html" . }}
-        </div>
-        <!-- End Nav bar -->
+
+        {{ partial "nav.html" . }}
 
         <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
             <!-- Begin blog post content -->
