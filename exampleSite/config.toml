@@ -1,12 +1,12 @@
-baseurl                 = "/"   # Your domain name. Must end with "/"
-languageCode            = "en-us"
-title                   = "Introduction"
+baseURL                 = "https://example.org/"            # Your domain name. Must end with "/"
+languageCode            = "en-us"                           # languageCode
+title                   = "Introduction"                    # Site title
 theme                   = "introduction"
+pygmentsStyle           = "monokai"                         # https://help.farbox.com/pygments.html
+pygmentsCodefences      = true
 enforce_ssl             = false
-builddrafts             = false                             # Include pages with draft status of true
-canonifyurls            = true                              # Turns relative urls into absolute urls
-# disqusshortname       = "xxx"                             # Enable Disqus for comments
-# googleAnalytics       = "xxx"
+# disqusshortname       = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
+# googleAnalytics       = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
 
 [params]
     blogHead            = "Blog"                            # Full name shows on blog post pages
@@ -23,9 +23,7 @@ canonifyurls            = true                              # Turns relative url
     cacheBuster         = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
     description         = "Website Description"             # Max 160 characters show in search results
     faviconFile         = "img/fav.ico"
-    pygmentsStyle       = "monokai"                         # https://help.farbox.com/pygments.html
-    pygmentsCodefences  = true
-    footerText          = ""                                # Text to show in footer (overrides default text)
+    footerText          = ""                                # Text to override default footer text (markdown allowed)
     fadeIn              = true                              # Turn on/off the fade-in effect
     customCSS           = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
@@ -48,13 +46,13 @@ canonifyurls            = true                              # Turns relative url
 # Find icon names here: http://fontawesome.io/cheatsheet/
 
 [[params.social]]
-    url = "https://twitter.com/"
+    url  = "https://twitter.com/"
     icon = "twitter"
 
 [[params.social]]
-    url = "https://facebook.com/"
+    url  = "https://facebook.com/"
     icon = "facebook"
 
 [[params.social]]
-    url = "https://linkedin.com/"
+    url  = "https://linkedin.com/"
     icon = "linkedin"

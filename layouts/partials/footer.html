@@ -1,9 +1,9 @@
 <div class="section" id="footer"><!-- Begin Footer section -->
     <div class="container has-text-centered"><!-- Begin Footer container -->
-        {{ if .Site.Params.footerText }}
-            {{ .Site.Params.footerText }}
-        {{ else }}
+    {{ if .Site.Params.footerText }}
+        {{ .Site.Params.footerText | markdownify }}
+    {{ else }}
         <span class="footer-text"><a href="https://github.com/vickylai/hugo-theme-introduction" target="_blank" rel="noopener">Introduction</a> theme for <a href="http://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i> by <a href="https://vickylai.com" target="_blank" rel="noopener">Vicky Lai</a>.</span>
-        {{ end }}
+    {{ end }}
     </div><!-- End Footer container -->
 </div><!-- End Footer section -->
