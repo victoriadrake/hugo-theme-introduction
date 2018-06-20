@@ -4,11 +4,16 @@
 
     <div class="section is-small">
         <div class="columns is-multiline">
-            {{ range sort .Pages }} {{ if eq .Section "projects" }}
+            {{ .Scratch.Set "numberOfProjects" (.Site.Params.numberOfProjects | default 0) }}
+            {{ if eq (.Scratch.Get "numberOfProjects") 0 }}
+            {{ .Scratch.Set "numberOfProjects" (len (.Site.GetPage "section" "projects").Pages) }}
+            {{ end }}
+            {{ range (.Site.GetPage "section" "projects").Pages | first (.Scratch.Get "numberOfProjects") }}
             {{ if eq .Site.Params.projectColumns "2" }}
-            <div class="column is-half"> {{ else if eq .Site.Params.projectColumns "3" }}
-            <div class="column is-one-third"> {{ else }}
-                <div class="column is-one-third"> {{ end }}
+            <div class="column is-half">
+            {{ else }}
+            <div class="column is-one-third">
+            {{ end }}
                 <!-- Hey Vicky, show half column if number is even. -->
                 <div {{ if not .Params.external_link }} id="project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}" {{ end }} class="card">
                         <div class="card-image">
@@ -25,14 +30,18 @@
                         </div>
                 </div>
             </div>
-            {{ end }} {{ end }}
+            {{ end }}
     </div>
 </div>
 </div>
+{{ if lt (.Scratch.Get "numberOfProjects") (len (.Site.GetPage "section" "projects").Pages) }}
+<div class="container has-text-centered top-pad"><a href="{{ "/projects" | relURL }}">ALL PROJECTS</a></div>
+{{ end }}
 <!-- End Projects container -->
 
 <!-- Projects modals -->
-{{ range sort .Pages }} {{ if eq .Section "projects" }} {{ if not .Params.external_link }}
+{{ range (.Site.GetPage "section" "projects").Pages }}
+{{ if not .Params.external_link }}
 <div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -60,7 +69,7 @@
         $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').removeClass('is-active');
     });
 </script>
-{{ end }} {{ end }} {{ end }}
+{{ end }} {{ end }}
 
 
 <div class="container has-text-centered top-pad">
