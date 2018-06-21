@@ -55,9 +55,11 @@
 <script>
     $('#project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function() {
         $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').addClass('is-active');
+        $("body").addClass("modal-open");
     });
     $('#close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function() {
         $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').removeClass('is-active');
+        $("body").removeClass("modal-open");
     });
 </script>
 {{ end }} {{ end }} {{ end }}
