@@ -4,11 +4,13 @@
 
     <div class="section is-small">
         <div class="columns is-multiline">
-            {{ .Scratch.Set "numberOfProjects" (.Site.Params.numberOfProjects | default 0) }}
-            {{ if eq (.Scratch.Get "numberOfProjects") 0 }}
-            {{ .Scratch.Set "numberOfProjects" (len (.Site.GetPage "section" "projects").Pages) }}
+            {{ .Scratch.Set "numberOfProjectsToShow" (.Site.Params.numberOfProjects | default 0) }}
+            {{ $numberOfProjects := (len (.Site.GetPage "section" "projects").Pages) }}
+
+            {{ if eq (.Scratch.Get "numberOfProjectsToShow") 0 }}
+            {{ .Scratch.Set "numberOfProjectsToShow" $numberOfProjects }}
             {{ end }}
-            {{ range (.Site.GetPage "section" "projects").Pages | first (.Scratch.Get "numberOfProjects") }}
+            {{ range (.Site.GetPage "section" "projects").Pages | first (.Scratch.Get "numberOfProjectsToShow") }}
             {{ if eq .Site.Params.projectColumns "2" }}
             <div class="column is-half">
             {{ else }}
@@ -34,13 +36,13 @@
     </div>
 </div>
 </div>
-{{ if lt (.Scratch.Get "numberOfProjects") (len (.Site.GetPage "section" "projects").Pages) }}
+{{ if lt (.Scratch.Get "numberOfProjectsToShow") $numberOfProjects }}
 <div class="container has-text-centered top-pad"><a href="{{ "/projects" | relURL }}">ALL PROJECTS</a></div>
 {{ end }}
 <!-- End Projects container -->
 
 <!-- Projects modals -->
-{{ range (.Site.GetPage "section" "projects").Pages }}
+{{ range (.Site.GetPage "section" "projects").Pages | first (.Scratch.Get "numberOfProjectsToShow")  }}
 {{ if not .Params.external_link }}
 <div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}">
     <div class="modal-background"></div>
