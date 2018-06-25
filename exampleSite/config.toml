@@ -1,45 +1,44 @@
-baseURL                 = "https://example.org/"            # Your domain name. Must end with "/"
-languageCode            = "en-us"                           # languageCode
-title                   = "Introduction"                    # Site title
-theme                   = "introduction"
-pygmentsStyle           = "monokai"                         # https://help.farbox.com/pygments.html
-pygmentsCodefences      = true
-enforce_ssl             = false
-# disqusshortname       = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
-# googleAnalytics       = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
+baseURL                     = "https://example.org/"            # Your domain name. Must end with "/"
+languageCode                = "en-us"                           # languageCode
+title                       = "Introduction"                    # Site title
+theme                       = "introduction"
+pygmentsStyle               = "monokai"                         # https://help.farbox.com/pygments.html
+pygmentsCodefences          = true
+enforce_ssl                 = false
+# disqusshortname           = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
+# googleAnalytics           = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
 
 [params]
-    blogHead            = "Blog"                            # Full name shows on blog post pages
-    firstName           = "Introduction"                    # First name shows in introduction on main page
-    tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
-    introHeight         = "large"                           # Input either 'medium' or 'large' or 'fullheight'
-    themeStyle          = "light"                           # Choose 'light' or 'dark'
-    avatar              = "img/profile.jpg"                 # Path to image in static folder eg. img/avatar.png, or comment out to remove
-    email               = "youremail@email.com"             # Shows in contact section, or leave blank to omit
-    localTime           = true                              # Show your current local time in contact section
-    timeZone            = "America/Los_Angeles"             # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    dateForm            = "Jan 2, 2006"
-    dateFormFull        = "Mon Jan 2 2006 15:04:05 EST"
-    cacheBuster         = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
-    description         = "Website Description"             # Max 160 characters show in search results
-    faviconFile         = "img/fav.ico"
-    footerText          = ""                                # Text to override default footer text (markdown allowed)
-    fadeIn              = true                              # Turn on/off the fade-in effect
-    customCSS           = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
+    firstName               = "Introduction"                    # First name shows in introduction on main page
+    tagLine                 = "I'm a theme for Hugo."           # Appears after the introduction
+    introHeight             = "large"                           # Input either 'medium' or 'large' or 'fullheight'
+    themeStyle              = "light"                           # Choose 'light' or 'dark'
+    avatar                  = "img/profile.jpg"                 # Path to image in static folder eg. img/avatar.png, or comment out to remove
+    email                   = "youremail@email.com"             # Shows in contact section, or leave blank to omit
+    localTime               = true                              # Show your current local time in contact section
+    timeZone                = "America/Los_Angeles"             # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    dateForm                = "Jan 2, 2006"
+    dateFormFull            = "Mon Jan 2 2006 15:04:05 EST"
+    cacheBuster             = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
+    description             = "Website Description"             # Max 160 characters show in search results
+    faviconFile             = "img/fav.ico"
+    footerText              = ""                                # Text to override default footer text (markdown allowed)
+    fadeIn                  = true                              # Turn on/off the fade-in effect
+    customCSS               = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
-    showBlog            = true                              # Show Blog section on home page
-    showProjects        = true                              # Show Projects section on home page
-    projectColumns      = "3"                               # Choose "2" or "3" columns for projects section
-    placeHolderimg      = "/img/workday.jpg"                # For Projects without image
-    showAllPosts        = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
-    showLatest          = true                              # Show latest blog post summary
-    shareButtons        = true                              # On post pages, show share this social buttons
-
-    # Share buttons
-    shareTwitter        = true
-    shareFacebook       = true
-    sharePinterest      = false
-    shareGooglePlus     = true
+    showBlog                = true                              # Show Blog section on home page
+    showAllPosts            = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
+    showLatest              = true                              # Show latest blog post summary
+    # Share buttons on blog post pages
+    shareButtons            = true                              # Show "Share this:" social buttons
+    shareTwitter            = true
+    shareFacebook           = true
+    sharePinterest          = false
+    shareGooglePlus         = true
+    
+    showProjects            = true                              # Show Projects section on home page
+    numberOfProjectsToShow  = 3                                 # Maximum number of projects to show on home page. Unset or comment out to show all projects.
+    placeHolderimg          = "/img/workday.jpg"                # For Projects without image
 
 # Social icons appear in introduction and contact section. Add as many more as you like.
 # Find icon names here: http://fontawesome.io/cheatsheet/

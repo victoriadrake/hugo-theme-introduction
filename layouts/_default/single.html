@@ -1,62 +1,62 @@
 {{ partial "header.html" . }}
 
 <body>
-<div class="section" id="top">
-    <!-- Parent section -->
 
-    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
-        <!-- Begin Title -->
-        <h1 class="bold-title is-1">{{ .Title }}</h1>
-    </div>
-    <!-- End Title -->
-
-    <!-- Everything below fades in two! -->
-    <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-        <div class="container">
-            <!-- Begin Nav bar -->
-            {{ partial "nav-single.html" . }}
+    <div class="section" id="top">
+        <!-- Parent section -->
+        <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
+            <!-- Begin Title -->
+            <h1 class="bold-title is-1">{{ .Title }}</h1>
         </div>
-        <!-- End Nav bar -->
+        <!-- End Title -->
 
-        <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
-            <!-- Begin blog post content -->
-            {{ if .Params.image }}
-            <div class="has-text-centered">
-              <img src="{{ .Params.image }}" class="img-responsive">
+        <!-- Everything below fades in two! -->
+        <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
+
+            <div class="container">
+                <!-- Begin Nav bar -->
+                {{ partial "nav-single.html" . }}
             </div>
-            {{ end }}
-            {{ .Content }}
-        </div>
-        <!-- End blog post content -->
+            <!-- End Nav bar -->
 
-        <div class="disqus">
-            {{ template "_internal/disqus.html" . }}
-        </div>
+            <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
+                <!-- Begin content -->
+                {{ if .Params.image }}
+                <div class="has-text-centered">
+                    <img src="{{ .Params.image }}" class="img-responsive">
+                </div>
+                {{ end }} {{ .Content }}
+            </div>
+            <!-- End content -->
 
-        <div class="container has-text-centered top-pad">
-            <hr>
-            <a href="#top">
-                <i class="fa fa-arrow-up"></i>
-            </a>
-            <hr>
-        </div>
+            <div class="disqus">
+                {{ template "_internal/disqus.html" . }}
+            </div>
 
-        {{ partial "footer.html" . }}
+            <div class="container has-text-centered top-pad">
+                <hr>
+                <a href="#top">
+                    <i class="fa fa-arrow-up"></i>
+                </a>
+                <hr>
+            </div>
+
+            {{ partial "footer.html" . }}
+        </div>
+        <!-- End fade in two -->
     </div>
-    <!-- End fade in two -->
-</div>
-<!-- End parent section -->
+    <!-- End parent section -->
 
-<!-- Bitty scrolling links script -->
-<script>
-    $('a[href^="{{ .Permalink }}#"]').click(function (e) {
-        e.preventDefault();
-        var target = this.hash;
-        $('html, body').animate({
-            scrollTop: $(target).offset().top
-        }, 500);
-        return false;
-    })
-</script>
+    <!-- Bitty scrolling links script -->
+    <script>
+        $('a[href^="{{ .Permalink }}#"]').click(function (e) {
+            e.preventDefault();
+            var target = this.hash;
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 500);
+            return false;
+        })
+    </script>
 
 </body>

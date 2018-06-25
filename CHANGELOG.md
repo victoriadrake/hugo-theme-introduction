@@ -1,3 +1,23 @@
+## Version 3.4.0 - Jun 24 2018
+
+Changes to Projects display options:
+
+- Add functionality to limit number of projects shown on index page
+- Projects will automatically display in 2 or 3 columns for even or odd numbers respectively
+- Create new template for projects list page
+
+Improve list templates:
+
+- List pages will display content from `_index.md`
+
+Housecleaning:
+
+- Remove dead code
+- Use GetPage logic on index.html and in nav menus
+- Site still builds with no content
+
+*Thank you to @Hanzei for your feature work and @Setherizor for the great suggestion.*
+
 ## Version 3.3.2 - Jun 10 2018
 
 Travis CI integration, why not.

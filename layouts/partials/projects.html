@@ -4,13 +4,16 @@
 
     <div class="section is-small">
         <div class="columns is-multiline">
-            {{ range sort .Pages }} {{ if eq .Section "projects" }}
-            {{ if eq .Site.Params.projectColumns "2" }}
-            <div class="column is-half"> {{ else if eq .Site.Params.projectColumns "3" }}
-            <div class="column is-one-third"> {{ else }}
-                <div class="column is-one-third"> {{ end }}
-                <!-- Hey Vicky, show half column if number is even. -->
-                <div {{ if not .Params.external_link }} id="project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}" {{ end }} class="card">
+            {{ $totalProjects := (len (.Site.GetPage "section" "projects").Pages) }}
+            {{ $numberOfProjectsToShow := .Site.Params.numberOfProjectsToShow | default $totalProjects }}
+            {{ range (.Site.GetPage "section" "projects").Pages | first $numberOfProjectsToShow }}
+            {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
+            <div class="column is-half">
+                {{ else }}
+                <div class="column is-one-third">
+                    {{ end }}
+                    <div {{ if not .Params.external_link }} id="project{{ $card := .Title | urlize }}{{ replace $card "%" " "}}" {{ end }}
+                        class="card">
                         <div class="card-image">
                             <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
@@ -19,52 +22,54 @@
                             </figure>
                         </div>
                         <div class="card-content has-text-centered top-pad">
-                                <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                    {{ .Title }}
-                                </a>
+                            <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                {{ .Title }}
+                            </a>
                         </div>
+                    </div>
                 </div>
+                {{ end }}
             </div>
-            {{ end }} {{ end }}
+        </div>
     </div>
-</div>
-</div>
-<!-- End Projects container -->
-
-<!-- Projects modals -->
-{{ range sort .Pages }} {{ if eq .Section "projects" }} {{ if not .Params.external_link }}
-<div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        {{ with .Title }}
-        <header class="modal-card-header bottom-pad">
-            <p class="modal-card-title has-text-centered">{{ . }}</p>
-        </header>
-        {{ end }}
-        {{ if .Params.image }}
-            <img src="{{ .Params.image | relURL }}" class="img-responsive img-centered">
-        {{ end }}
-        {{ if .Content }}
-        <section class="modal-card-body markdown">
-            {{ .Content }}
-        </section>
-        {{ end }}
+    {{ if lt $numberOfProjectsToShow $totalProjects }}
+    <div class="container has-text-centered top-pad">
+        <a href="{{ "/projects" | relURL }}">ALL PROJECTS</a>
     </div>
-    <button class="modal-close is-large" aria-label="close" id="close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}"></button>
-</div>
-<script>
-    $('#project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function() {
-        $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').addClass('is-active');
-    });
-    $('#close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function() {
-        $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').removeClass('is-active');
-    });
-</script>
-{{ end }} {{ end }} {{ end }}
+    {{ end }}
+    <!-- End Projects container -->
+
+    <!-- Projects modals -->
+    {{ range (.Site.GetPage "section" "projects").Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
+    <div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" " "}}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            {{ with .Title }}
+            <header class="modal-card-header bottom-pad">
+                <p class="modal-card-title has-text-centered">{{ . }}</p>
+            </header>
+            {{ end }} {{ if .Params.image }}
+            <img src="{{ .Params.image | relURL }}" class="img-responsive img-centered"> {{ end }} {{ if .Content }}
+            <section class="modal-card-body markdown">
+                {{ .Content }}
+            </section>
+            {{ end }}
+        </div>
+        <button class="modal-close is-large" aria-label="close" id="close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}"></button>
+    </div>
+    <script>
+        $('#project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function () {
+            $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').addClass('is-active');
+        });
+        $('#close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function () {
+            $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').removeClass('is-active');
+        });
+    </script>
+    {{ end }} {{ end }}
 
 
-<div class="container has-text-centered top-pad">
-    <a href="#top">
-        <i class="fa fa-arrow-up"></i>
-    </a>
-</div>
+    <div class="container has-text-centered top-pad">
+        <a href="#top">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </div>

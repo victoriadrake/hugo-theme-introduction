@@ -27,14 +27,18 @@
     <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
+        {{ if (.Site.GetPage "page" "about") }}
         <a class="nav-item" href="#about">About</a>
+        {{ end }}
         {{ if .Site.Params.showProjects }}
         <a class="nav-item" href="#projects">Projects</a>
         {{ end }}
         {{ if .Site.Params.showBlog }}
         <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
+        {{ if (.Site.GetPage "page" "contact") }}
         <a class="nav-item" href="#contact">Contact</a>
+        {{ end }}
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
@@ -44,6 +48,7 @@
 <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
 
 <!-- Tell them all about it! -->
+{{ if (.Site.GetPage "page" "about") }}
 <div class="section" id="about">
     <div class="container">
     <h2 class="title is-2 has-text-centered">About</h2>
@@ -55,11 +60,7 @@
             </div>
             {{ end }}
             <div class="column markdown">
-                {{ range .Data.Pages }}
-                    {{if eq .Title "About" }}
-                            {{.Content}}
-                    {{end}}
-                {{ end }}
+                {{ (.Site.GetPage "page" "about").Content }}
             </div>
         </div>
     </div><!-- End About container-->
@@ -68,7 +69,7 @@
 </div><!-- End About section -->
 
 <div class="container"><hr></div>
-
+{{ end }}
 
 <!-- Now for some cool projects -->
     {{ if .Site.Params.showProjects }}
@@ -90,15 +91,12 @@
     {{ end }}
 
 <!-- Let's chat, shall we? -->
+{{ if (.Site.GetPage "page" "contact") }}
 <div class="section" id="contact">
     <div class="container has-text-centered">
     <h2 class="title is-2">Contact</h2>
         <div class="markdown">
-            {{ range .Data.Pages }}
-                {{if eq .Title "Contact" }}
-                    {{.Content}}
-                {{end}}
-            {{ end }}
+            {{ (.Site.GetPage "page" "contact").Content }}
         </div>
 
         {{ if .Site.Params.localTime }}
@@ -126,7 +124,7 @@
 </div><!-- End Contact section -->
 
 <div class="container"><hr></div>
-
+{{ end }}
 
 <!-- Nice clean finish -->
 {{ partial "footer.html" . }}

@@ -1,0 +1,74 @@
+{{ partial "header.html" . }}
+<body>
+
+<div class="section" id="top"><!-- Parent section -->
+    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}"><!-- Begin Title -->
+        <h1 class="bold-title is-1">{{ .Title }}</h1>
+    </div><!-- End Title -->
+
+    <!-- Everything below fades in two! -->
+    <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
+
+        <div class="container"><!-- Begin Nav bar -->
+            {{ partial "nav-list.html" . }}
+        </div><!-- End Nav bar -->
+
+        <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
+                <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+                {{ .Content }}
+        </div>
+        <div class="container">
+            <div class="section is-small">
+                <div class="columns is-multiline">
+                    <!-- Ranges through content/projects/*.md -->
+                    {{ range .Data.Pages }}
+                    {{ if eq (mod (len (.Site.GetPage "section" "projects").Pages) 2) 0 }}
+                    <div class="column is-half">
+                    {{ else }}
+                    <div class="column is-one-third">
+                        {{ end }}
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{.Permalink}}{{ end }}">
+                                        <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="card-content has-text-centered top-pad">
+                                <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{.Permalink}}{{ end }}">
+                                    {{ .Title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <div class="container has-text-centered top-pad">
+            <hr>
+            <a href="#top">
+                <i class="fa fa-arrow-up"></i>
+            </a>
+            <hr>
+        </div>
+
+        {{ partial "footer.html" . }}
+    </div><!-- End fade in two -->
+</div><!-- End parent section -->
+
+<!-- Bitty scrolling links script -->
+<script>
+    $('a[href^="{{ .Permalink }}#"]').click(function (e) {
+        e.preventDefault();
+        var target = this.hash;
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 500);
+        return false;
+    })
+</script>
+
+</body>

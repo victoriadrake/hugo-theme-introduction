@@ -1,12 +1,12 @@
 # <a href="https://vickylai.com/introduction/" target="_blank" rel="noopener">Introduction theme for Hugo</a>
 [![Build Status](https://travis-ci.com/vickylai/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/vickylai/hugo-theme-introduction)
 
-A minimal, single page, smooth scrolling theme for Hugo.
+A minimal, smooth-scrolling theme for Hugo. Can be configured as a single page site or full-featured site with many sections.
 
 ![Main page screenshot](https://github.com/vickylai/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
-- Single scrolling home page
+- Minimalist home page
     - About section with profile photo
     - Contact section with option to show your local timezone
     - Optional Projects and Blog sections
@@ -15,9 +15,9 @@ Features:
 - Smooth scroll-to-section navigation
 - Responsive and fast
 
-## Quick start
+# Quick start
 
-### Get the theme
+## Get the theme
 
 From the root of your Hugo site:
 ```sh
@@ -25,22 +25,22 @@ $ cd themes
 $ git clone https://github.com/vickylai/hugo-theme-introduction.git introduction
 ```
 
-### Configure your site
+## Configure your site
 
 From the exampleSite, copy `config.toml` to the root folder of your Hugo site and change the fields as you like.
 
-Start with:
+Important bits:
 
-1. Set your baseurl to your site's domain
-1. Set your blog's title and your first name
-1. Set your introduction header height (use "medium", "large", or "fullheight")
-1. Choose "light" or "dark" theme
-1. Set your avatar image
-1. Set your timezone, if you choose to show it
-1. Choose whether or not to show the Blog and Projects sections, and configure them to your liking
+1. Set `baseURL` to your site's domain and give your site a `title`
+1. Add your `firstName` and `tagLine`
+1. Set the desired `introHeight` for your main page (use "medium", "large", or "fullheight")
+1. Choose a "light" or "dark" `themeStyle`
+1. Set your `avatar` image
+1. Choose whether or not to `showBlog` on the main page
+1. Choose whether or not to `showProjects` on the main page
 1. Input your social site urls and font-awesome icon names - use as many as you like
 
-### Create About and Contact pages
+## Create About and Contact pages
 
 Run:
 ```sh
@@ -94,13 +94,13 @@ If you don't specify a `title`, only the photo will show. You can still add cont
 
 If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
-## Contributing
+# Contributing
 
 Pull requests for bug fixes and suggestions are welcome.
 
 Contributors are listed in [CHANGELOG.md](https://github.com/vickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤
 
-## License
+# License
 Copyright (C) 2018 Vicky Lai
 
 This program is free software: you can redistribute it and/or modify

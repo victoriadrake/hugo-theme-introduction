@@ -9,9 +9,11 @@
       <span class="nav-item">
         <a href="{{ "/" | relURL }}">Main</a>
       </span>
+      {{ if (.Site.GetPage "page" "about") }}
       <span class="nav-item">
         <a href="{{ "/about" | relURL }}">About</a>
       </span>
+      {{ end }}
       {{ if .Site.Params.showProjects }}
       <span class="nav-item">
         {{ if ne .Section "projects" }}
@@ -30,9 +32,11 @@
         {{ end }}
       </span>
       {{ end }}
+      {{ if (.Site.GetPage "page" "contact") }}
       <span class="nav-item">
         <a href="{{ "/contact" | relURL }}">Contact</a>
       </span>
+      {{ end }}
     {{ if .Site.RSSLink }}
       <span class="nav-item">
         <a href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
