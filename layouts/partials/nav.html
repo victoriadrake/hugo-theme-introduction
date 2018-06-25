@@ -2,7 +2,8 @@
 <div class="container">
   <hr>
   <nav class="nav nav-center">
-    {{ if not .Page.IsHome }}
+    {{ $isHome := .Page.IsHome }}
+    {{ if not $isHome }}
     <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
       <span></span>
       <span></span>
@@ -10,41 +11,51 @@
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
     {{ end }}
-      {{ if not .Page.IsHome }}
+      {{ if not $isHome }}
       <a class="nav-item" href="{{ "/" | relURL }}">Main</a>
       {{ end }}
 
-      <a class="nav-item" href="#about">About</a>
+      {{ with .Site.GetPage "page" "about" }}
+      <a class="nav-item" href="{{ if $isHome }}#about{{ else }}{{ "/#about" | relURL }}{{ end }}">{{ .Title }}</a>
+      {{ end }}
 
-      {{ if and (.Site.Params.showProjects) (not (and (eq .Page.Section "projects") (eq .Page.Kind "section") )) }}
-      {{ if .IsHome }}
-      <a class="nav-item" href="#projects">Projects</a>
+      {{ $pageIsInProjects := eq .Page.Section "projects"}}
+      {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
+      {{ with .Site.GetPage "section" "projects" }}
+      {{ if $isHome }}
+      <a class="nav-item" href="#projects">{{ .Title }}</a>
       {{ else }}
       <a class="nav-item" href="{{ "/projects" | relURL }}">
-        {{ if eq .Section "projects" }}
-        Back to Projects
+        {{ if $pageIsInProjects }}
+        Back to {{ .Title }}
         {{ else }}
-        Projects
+        {{ .Title }}
         {{ end }}
       </a>
       {{ end }}
       {{ end }}
+      {{ end }}
 
-      {{ if and (.Site.Params.showBlog) (not (and (eq .Page.Section "blog") (eq .Page.Kind "section") )) }}
-      {{ if .IsHome }}
-      <a class="nav-item" href="#blog">Blog</a>
+      {{ $pageIsInBlog := eq .Page.Section "blog"}}
+      {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
+      {{ with .Site.GetPage "section" "blog" }}
+      {{ if $isHome }}
+      <a class="nav-item" href="#blog">{{ .Title }}</a>
       {{ else }}
       <a class="nav-item" href="{{ "/blog" | relURL }}">
-        {{ if eq .Section "blog" }}
-        Back to Blog
+        {{ if $pageIsInBlog }}
+        Back to {{ .Title | singularize}}
         {{ else }}
-        Blog
+        {{ .Title | singularize}}
         {{ end }}
       </a>
       {{ end }}
       {{ end }}
+      {{ end }}
 
-      <a class="nav-item" href="#contact">Contact</a>
+      {{ with .Site.GetPage "page" "contact" }}
+      <a class="nav-item" href="{{ if $isHome }}#contact{{ else }}{{ "/#contact" | relURL }}{{ end }}">{{ .Title }}</a>
+      {{ end }}
 
       {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
       <a class="nav-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>

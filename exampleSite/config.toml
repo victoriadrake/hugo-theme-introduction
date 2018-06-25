@@ -27,8 +27,6 @@ enforce_ssl             = false
     fadeIn              = true                              # Turn on/off the fade-in effect
     customCSS           = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
-    showBlog            = true                              # Show Blog section on home page
-    showProjects        = true                              # Show Projects section on home page
     projectColumns      = "3"                               # Choose "2" or "3" columns for projects section
     placeHolderimg      = "/img/workday.jpg"                # For Projects without image
     showAllPosts        = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
