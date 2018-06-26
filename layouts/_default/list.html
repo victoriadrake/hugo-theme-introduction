@@ -1,6 +1,5 @@
 {{ partial "header.html" . }}
 <body>
-
 <!-- Parent section -->
 <div class="section" id="top">
     <!-- Begin Title -->
@@ -18,6 +17,7 @@
         <!-- Begin Blog container -->
         <div class="container">
             <ul>
+                <!-- Ranges through content/*/*.md -->
                 {{ range .Data.Pages.ByPublishDate }} {{ if not (eq .Section "blog") }}
                 <li>
                     <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>

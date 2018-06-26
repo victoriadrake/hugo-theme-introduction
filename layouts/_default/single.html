@@ -10,16 +10,16 @@
     <!-- Everything below fades in two! -->
     <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
         {{ partial "nav.html" . }}
-        <!-- Begin blog post content -->
+        <!-- Begin post content -->
         <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
             {{ if .Params.image }}
             <div class="has-text-centered">
-              <img src="{{ .Params.image }}" class="img-responsive">
+              <img src="{{ .Params.image | relURL }}" class="img-responsive">
             </div>
             {{ end }}
             {{ .Content }}
         </div>
-        <!-- End blog post content -->
+        <!-- End post content -->
         <div class="disqus">
             {{ template "_internal/disqus.html" . }}
         </div>
@@ -29,5 +29,4 @@
     <!-- End fade in two -->
 </div>
 <!-- End parent section -->
-
 </body>

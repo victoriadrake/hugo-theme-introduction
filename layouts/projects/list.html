@@ -1,0 +1,58 @@
+{{ partial "header.html" . }}
+<body>
+<!-- Parent section -->
+<div class="section" id="top">
+    <!-- Begin Title -->
+    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
+        <h1 class="bold-title is-1">{{ .Title }}</h1>
+    </div>
+    <!-- End Title -->
+    <!-- Everything below fades in two! -->
+    <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
+        {{ partial "nav.html" . }}
+        <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
+            {{ .Content }}
+        </div>
+        <div class="container">
+            <div class="section is-small">
+                <div class="columns is-multiline">
+                    <!-- Ranges through content/projects/*.md -->
+                    {{ range .Data.Pages }}
+                    {{ if eq (mod (len (.Site.GetPage "section" "projects").Pages) 2) 0 }}
+                    <div class="column is-half">
+                    {{ else }}
+                    <div class="column is-one-third">
+                        {{ end }}
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-3by2">
+                                    <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{.Permalink}}{{ end }}">
+                                        <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="card-content has-text-centered top-pad">
+                                <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{.Permalink}}{{ end }}">
+                                    {{ .Title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <div class="container has-text-centered top-pad">
+            <hr>
+            <a href="#top">
+                <i class="fa fa-arrow-up"></i>
+            </a>
+            <hr>
+        </div>
+
+        {{ partial "footer.html" . }}
+    </div><!-- End fade in two -->
+</div><!-- End parent section -->
+
+</body>
