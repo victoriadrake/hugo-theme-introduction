@@ -38,7 +38,7 @@
         </div>
         {{ if lt $numberOfProjectsToShow $totalProjects }}
         <div class="container has-text-centered top-pad">
-            <a href="{{ "/projects" | relURL }}">ALL PROJECTS</a>
+            <a href="{{ .RelPermalink }}">{{ i18n "index_projects_allProjects" . }}</a>
         </div>
         {{ end }}
     </div>

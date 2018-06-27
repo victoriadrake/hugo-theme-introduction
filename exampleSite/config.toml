@@ -1,6 +1,6 @@
 baseURL                     = "https://example.org/"            # Your domain name. Must end with "/"
 languageCode                = "en-us"                           # languageCode
-title                       = "Introduction"                    # Site title
+DefaultContentLanguage      = "en"
 theme                       = "introduction"
 pygmentsStyle               = "monokai"                         # https://help.farbox.com/pygments.html
 pygmentsCodefences          = true
@@ -9,8 +9,6 @@ enforce_ssl                 = false
 # googleAnalytics           = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
 
 [params]
-    firstName               = "Introduction"                    # First name shows in introduction on main page
-    tagLine                 = "I'm a theme for Hugo."           # Appears after the introduction
     introHeight             = "large"                           # Input either 'medium' or 'large' or 'fullheight'
     themeStyle              = "light"                           # Choose 'light' or 'dark'
     avatar                  = "img/profile.jpg"                 # Path to image in static folder eg. img/avatar.png, or comment out to remove
@@ -20,9 +18,7 @@ enforce_ssl                 = false
     dateForm                = "Jan 2, 2006"
     dateFormFull            = "Mon Jan 2 2006 15:04:05 EST"
     cacheBuster             = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
-    description             = "Website Description"             # Max 160 characters show in search results
     faviconFile             = "img/fav.ico"
-    footerText              = ""                                # Text to override default footer text (markdown allowed)
     fadeIn                  = true                              # Turn on/off the fade-in effect
     showRSSButton           = true                              # Show rss button in navigation
     customCSS               = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
@@ -53,3 +49,25 @@ enforce_ssl                 = false
 [[params.social]]
     url  = "https://linkedin.com/"
     icon = "linkedin"
+
+
+[languages]
+    [languages.en]
+        languageName        = "English"
+        contentDir          = "content/en"
+        weigth              = 10
+        title               = "Introduction"
+        firstName           = "Hi, I'm Introduction"            # First name shows in introduction on main page
+        tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
+        description         = "Website Description"             # Max 160 characters show in search results
+        footerText          = ""                                # Text to override default footer text (markdown allowed)
+
+    [languages.es]
+        languageName        = "Español"
+        contentDir          = "content/es"
+        weigth              = 9
+        title               = "Introducción"
+        firstName           = "Hola, Soy Introducción"          # First name shows in introduction on main page
+        tagLine             = "Soy un tema para Hugo."          # Appears after the introduction
+        description         = "Descripcion del sitio web"       # Max 160 characters show in search results
+        footerText          = ""                                # Text to override default footer text (markdown allowed)

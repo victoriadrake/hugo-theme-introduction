@@ -4,7 +4,7 @@
 <div class="section" id="top">
     <!-- Begin Title -->
     <div class="container hero {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-        <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "blog") .Title }}</h1>
+        <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "blog").Title }}</h1>
     </div>
     <!-- End Title -->
     <!-- Everything below fades in two! -->
@@ -17,11 +17,11 @@
             </h2>
             <div class="post-data">
                 {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
-                {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                {{ i18n "blog_readingTime" .ReadingTime }}
             </div>
             {{ if .Site.Params.shareButtons }}
             <div class="blog-share">
-                Share this:
+                {{ i18n "blog_shareThis" . }}:
                 {{ if .Site.Params.shareTwitter }}
                 <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fa fa-twitter"></i>

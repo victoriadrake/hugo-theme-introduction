@@ -12,11 +12,11 @@
     <div id="nav-menu" class="nav-left nav-menu">
     {{ end }}
       {{ if not $isHome }}
-      <a class="nav-item" href="{{ "/" | relURL }}">Main</a>
+      <a class="nav-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
       {{ end }}
 
       {{ with .Site.GetPage "page" "about" }}
-      <a class="nav-item" href="{{ if $isHome }}#about{{ else }}{{ "/#about" | relURL }}{{ end }}">{{ .Title }}</a>
+      <a class="nav-item" href="{{ if $isHome }}#about{{ else }}{{ "/#about" | relLangURL }}{{ end }}">{{ .Title }}</a>
       {{ end }}
 
       {{ $pageIsInProjects := eq .Page.Section "projects"}}
@@ -25,9 +25,9 @@
       {{ if $isHome }}
       <a class="nav-item" href="#projects">{{ .Title }}</a>
       {{ else }}
-      <a class="nav-item" href="{{ "/projects" | relURL }}">
+      <a class="nav-item" href="{{ .RelPermalink }}">
         {{ if $pageIsInProjects }}
-        Back to {{ .Title }}
+        {{ i18n "nav_backToSection" . }}
         {{ else }}
         {{ .Title }}
         {{ end }}
@@ -42,7 +42,7 @@
       {{ if $isHome }}
       <a class="nav-item" href="#blog">{{ .Title }}</a>
       {{ else }}
-      <a class="nav-item" href="{{ "/blog" | relURL }}">
+      <a class="nav-item" href="{{ .RelPermalink }}">
         {{ if $pageIsInBlog }}
         Back to {{ .Title | singularize}}
         {{ else }}
@@ -54,7 +54,11 @@
       {{ end }}
 
       {{ with .Site.GetPage "page" "contact" }}
-      <a class="nav-item" href="{{ if $isHome }}#contact{{ else }}{{ "/#contact" | relURL }}{{ end }}">{{ .Title }}</a>
+      <a class="nav-item" href="{{ if $isHome }}#contact{{ else }}{{ "/#contact" | relLangURL }}{{ end }}">{{ .Title }}</a>
+      {{ end }}
+
+      {{ range $.Site.Home.AllTranslations.ByWeight }}
+      <a class="nav-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
       {{ end }}
 
       {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}

@@ -3,7 +3,7 @@ license = "GNU Affero General Public License version 3"
 licenselink = "https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE"
 description = "Minimal, single page, smooth scrolling theme for Hugo."
 homepage = "https://github.com/vickylai/hugo-theme-introduction"
-tags = ["clean", "simple", "minimal", "minimalist", "responsive", "single page", "syntax highlighting", "projects", "starter", "white", "dark"]
+tags = ["clean", "simple", "minimal", "minimalist", "multilingual", "responsive", "single page", "syntax highlighting", "projects", "starter", "white", "dark"]
 features = ["responsive", "blog", "portfolio"]
 min_version = "0.30"
 
