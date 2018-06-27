@@ -68,6 +68,11 @@
         $('#close-{{ $index }}').click(function () {
             $('#modal-{{ $index }}').removeClass('is-active');
         });
+        $(document).keypress(function(e) {
+            if(e.which == 0) {
+                $('#modal-{{ $index }}').removeClass('is-active');
+            }
+        });
     </script>
     {{ end }} {{ end }}
     {{ partial "top-icon.html" . }}
