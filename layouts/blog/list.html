@@ -11,14 +11,13 @@
     <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
         {{ partial "nav.html" . }}
         <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-            <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
             {{ .Content }}
         </div>
         <!-- Begin Blog container -->
         <div class="container">
             {{ if .Site.Params.showLatest }}
             <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
-            {{ range first 1 (where .Data.Pages.ByPublishDate.Reverse "Section" "blog") }}
+            {{ range first 1 .Pages.ByPublishDate.Reverse }}
             <div class="summary">{{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }}
                 <h3 class="title is-3 strong-post-title">
                     <a href="{{ .RelPermalink }}">
@@ -36,10 +35,8 @@
             {{ end }}
             <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
             <ul>
-            {{ range .Data.Pages.ByPublishDate }}
-                {{ if eq .Section "blog" }}
-                    {{ partial "li.html" . }}
-                {{ end }}
+            {{ range .Pages.ByPublishDate.Reverse }}
+                {{ partial "li.html" . }}
             {{ end }}
             </ul>
         </div>

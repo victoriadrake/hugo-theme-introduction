@@ -16,7 +16,7 @@
         <!-- Begin Blog container -->
         <div class="container">
             <ul>
-                {{ range .Data.Pages.ByPublishDate }}
+                {{ range .Pages.ByPublishDate }}
                 <li>
                     <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
                 </li>

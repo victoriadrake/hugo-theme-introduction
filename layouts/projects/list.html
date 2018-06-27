@@ -16,13 +16,13 @@
         <div class="container">
             <div class="section is-small">
                 <div class="columns is-multiline">
-                    <!-- Ranges through content/projects/*.md -->
-                    {{ range .Data.Pages }}
-                    {{ if eq (mod (len (.Site.GetPage "section" "projects").Pages) 2) 0 }}
+                    {{ $numberOfPages := len .Pages}}
+                    {{ range .Pages }}
+                    {{ if eq (mod $numberOfPages 2) 0 }}
                     <div class="column is-half">
                     {{ else }}
                     <div class="column is-one-third">
-                        {{ end }}
+                    {{ end }}
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-3by2">
@@ -42,17 +42,10 @@
                 </div>
             </div>
         </div>
-
-        <div class="container has-text-centered top-pad">
-            <hr>
-            <a href="#top">
-                <i class="fa fa-arrow-up"></i>
-            </a>
-            <hr>
-        </div>
-
+        {{ partial "top-icon-with-hr.html" . }}
         {{ partial "footer.html" . }}
-    </div><!-- End fade in two -->
-</div><!-- End parent section -->
-
+    </div>
+    <!-- End fade in two -->
+</div>
+<!-- End parent section -->
 </body>

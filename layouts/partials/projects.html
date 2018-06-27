@@ -5,12 +5,11 @@
         <h2 class="title is-2 has-text-centered">
             {{ .Title }}
         </h2>
-
         <div class="section is-small">
             <div class="columns is-multiline">
-                {{ $totalProjects := (len (.Site.GetPage "section" "projects").Pages) }}
+                {{ $totalProjects := (len .Pages) }}
                 {{ $numberOfProjectsToShow := .Site.Params.numberOfProjectsToShow | default $totalProjects }}
-                {{ range (.Site.GetPage "section" "projects").Pages | first $numberOfProjectsToShow }}
+                {{ range .Pages | first $numberOfProjectsToShow }}
                 {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
                 <div class="column is-half">
                     {{ else }}
@@ -43,9 +42,8 @@
         {{ end }}
     </div>
     <!-- End Projects container -->
-
     <!-- Projects modals -->
-    {{ range (.Site.GetPage "section" "projects").Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
+    {{ range .Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
     <div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" " "}}">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -77,6 +75,5 @@
     {{ partial "top-icon.html" . }}
 </div>
 <!-- End Projects section -->
-
 <div class="container"><hr></div>
 {{ end }}
