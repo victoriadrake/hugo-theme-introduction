@@ -9,7 +9,7 @@
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
                 {{ $numberOfProjectsToShow := .Site.Params.numberOfProjectsToShow | default $totalProjects }}
-                {{ range $index, $element := .Pages | first $numberOfProjectsToShow }}
+                {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
                 {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
                 <div class="column is-half">
                 {{ else }}
@@ -41,7 +41,7 @@
     </div>
     <!-- End Projects container -->
     <!-- Projects modals -->
-    {{ range $index, $element := .Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
+    {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
     <div class="modal" id="modal-{{ $index }}">
         <div class="modal-background"></div>
         <div class="modal-card">

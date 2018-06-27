@@ -17,7 +17,7 @@
             <div class="section is-small">
                 <div class="columns is-multiline">
                     {{ $numberOfPages := len .Pages}}
-                    {{ range .Pages }}
+                    {{ range .Pages.ByWeight }}
                     {{ if eq (mod $numberOfPages 2) 0 }}
                     <div class="column is-half">
                     {{ else }}
