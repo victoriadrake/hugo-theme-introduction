@@ -16,7 +16,6 @@ enforce_ssl                 = false
     localTime               = true                              # Show your current local time in contact section
     timeZone                = "America/Los_Angeles"             # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     dateForm                = "Jan 2, 2006"
-    dateFormFull            = "Mon Jan 2 2006 15:04:05 EST"
     cacheBuster             = false                             # Add the current unix timestamp in query string for cache busting css assets (relevant in development mode)
     faviconFile             = "img/fav.ico"
     fadeIn                  = true                              # Turn on/off the fade-in effect
