@@ -55,19 +55,28 @@ enforce_ssl                 = false
     [languages.en]
         languageName        = "English"
         contentDir          = "content/en"
-        weigth              = 10
+        weigth              = 2
         title               = "Introduction"
         firstName           = "Hi, I'm Introduction"            # First name shows in introduction on main page
         tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
         description         = "Website Description"             # Max 160 characters show in search results
         footerText          = ""                                # Text to override default footer text (markdown allowed)
-
     [languages.es]
         languageName        = "Español"
         contentDir          = "content/es"
-        weigth              = 9
+        weigth              = 1
         title               = "Introducción"
-        firstName           = "Hola, Soy Introducción"          # First name shows in introduction on main page
-        tagLine             = "Soy un tema para Hugo."          # Appears after the introduction
-        description         = "Descripcion del sitio web"       # Max 160 characters show in search results
-        footerText          = ""                                # Text to override default footer text (markdown allowed)
+        firstName           = "Hola, Soy Introducción"
+        tagLine             = "Soy un tema para Hugo."
+        description         = "Descripcion del sitio web"
+        footerText          = ""
+    [languages.de]
+        languageName        = "Deutsch"
+        contentDir          = "content/de"
+        weigth              = 0
+        title               = "Vorstellung"
+        firstName           = "Hallo, ich bin Vorstellung"
+        tagLine             = "Ich bin ein Hugo Theme"
+        description         = "Beschreibung der Webseite"
+        footerText          = ""
+        dateForm            = "2. January 2006"
