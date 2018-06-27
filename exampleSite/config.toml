@@ -2,8 +2,6 @@ baseURL                     = "https://example.org/"            # Your domain na
 languageCode                = "en-us"                           # languageCode
 DefaultContentLanguage      = "en"
 theme                       = "introduction"
-pygmentsStyle               = "monokai"                         # https://help.farbox.com/pygments.html
-pygmentsCodefences          = true
 enforce_ssl                 = false
 # disqusshortname           = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
 # googleAnalytics           = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
@@ -36,19 +34,15 @@ enforce_ssl                 = false
 
 # Social icons appear in introduction and contact section. Add as many more as you like.
 # Find icon names here: http://fontawesome.io/cheatsheet/
-
 [[params.social]]
     url  = "https://twitter.com/"
     icon = "twitter"
-
 [[params.social]]
     url  = "https://facebook.com/"
     icon = "facebook"
-
 [[params.social]]
     url  = "https://linkedin.com/"
     icon = "linkedin"
-
 
 [languages]
     [languages.en]
