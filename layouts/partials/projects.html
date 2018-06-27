@@ -9,30 +9,28 @@
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
                 {{ $numberOfProjectsToShow := .Site.Params.numberOfProjectsToShow | default $totalProjects }}
-                {{ range .Pages | first $numberOfProjectsToShow }}
+                {{ range $index, $element := .Pages | first $numberOfProjectsToShow }}
                 {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
                 <div class="column is-half">
-                    {{ else }}
-                    <div class="column is-one-third">
-                        {{ end }}
-                        <div {{ if not .Params.external_link }} id="project{{ $card := .Title | urlize }}{{ replace $card "%" " "}}" {{ end }}
-                            class="card">
-                            <div class="card-image">
-                                <figure class="image is-3by2">
-                                    <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                        <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="card-content has-text-centered top-pad">
+                {{ else }}
+                <div class="column is-one-third">
+                {{ end }}
+                    <div id="project-{{ $index }}" class="card">
+                        <div class="card-image">
+                            <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                    {{ .Title }}
+                                    <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
                                 </a>
-                            </div>
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered top-pad">
+                            <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                {{ .Title }}
+                            </a>
                         </div>
                     </div>
-                    {{ end }}
                 </div>
+                {{ end }}
             </div>
         </div>
         {{ if lt $numberOfProjectsToShow $totalProjects }}
@@ -43,8 +41,8 @@
     </div>
     <!-- End Projects container -->
     <!-- Projects modals -->
-    {{ range .Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
-    <div class="modal" id="modal{{ $card := .Title | urlize }}{{ replace $card "%" " "}}">
+    {{ range $index, $element := .Pages | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
+    <div class="modal" id="modal-{{ $index }}">
         <div class="modal-background"></div>
         <div class="modal-card">
             {{ with .Title }}
@@ -61,14 +59,14 @@
             </section>
             {{ end }}
         </div>
-        <button class="modal-close is-large" aria-label="close" id="close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}"></button>
+        <button class="modal-close is-large" aria-label="close" id="close-{{ $index }}"></button>
     </div>
     <script>
-        $('#project{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function () {
-            $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').addClass('is-active');
+        $('#project-{{ $index }}').click(function () {
+            $('#modal-{{ $index }}').addClass('is-active');
         });
-        $('#close{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').click(function () {
-            $('#modal{{ $card := .Title | urlize }}{{ replace $card "%" ""}}').removeClass('is-active');
+        $('#close-{{ $index }}').click(function () {
+            $('#modal-{{ $index }}').removeClass('is-active');
         });
     </script>
     {{ end }} {{ end }}
