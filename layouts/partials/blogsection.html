@@ -1,5 +1,5 @@
 {{ with .Site.GetPage "section" "blog" }}
-<div class="section" id="blog">
+<div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Blog container -->
     <div class="container">
         {{ if .Site.Params.showLatest }}

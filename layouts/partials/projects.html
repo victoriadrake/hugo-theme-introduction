@@ -1,5 +1,5 @@
 {{ with .Site.GetPage "section" "projects" }}
-<div class="section" id="projects">
+<div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
         <h2 class="title is-2 has-text-centered">

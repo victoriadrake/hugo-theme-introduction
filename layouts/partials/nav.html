@@ -14,16 +14,15 @@
             {{ if not $isHome }}
             <a class="nav-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
-
             {{ with .Site.GetPage "page" "about" }}
-            <a class="nav-item" href="{{ if $isHome }}#about{{ else }}{{ "/#about" | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="nav-item" href="{{ if $isHome }}#{{ .Title | urlize }}{{ else }}{{ printf "/#%s" (.Title | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
             {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "section" "projects" }}
             {{ if $isHome }}
-            <a class="nav-item" href="#projects">{{ .Title }}</a>
+            <a class="nav-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
             <a class="nav-item" href="{{ .RelPermalink }}">
                 {{ if $pageIsInProjects }}
@@ -40,7 +39,7 @@
             {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "section" "blog" }}
             {{ if $isHome }}
-            <a class="nav-item" href="#blog">{{ .Title }}</a>
+            <a class="nav-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
             <a class="nav-item" href="{{ .RelPermalink }}">
                 {{ if $pageIsInBlog }}
@@ -54,7 +53,7 @@
             {{ end }}
 
             {{ with .Site.GetPage "page" "contact" }}
-            <a class="nav-item" href="{{ if $isHome }}#contact{{ else }}{{ "/#contact" | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="nav-item" href="{{ if $isHome }}#{{ .Title | urlize }}{{ else }}{{ printf "/#%s" (.Title | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ range $.Site.Home.AllTranslations.ByWeight }}

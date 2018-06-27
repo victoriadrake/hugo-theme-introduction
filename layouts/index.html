@@ -36,7 +36,7 @@
 
 <!-- Tell them all about it! -->
 {{ with .Site.GetPage "page" "about" }}
-<div class="section" id="about">
+<div class="section" id="{{ .Title | urlize }}">
     <div class="container">
         <h2 class="title is-2 has-text-centered">{{ .Title }}</h2>
         <div class="columns"><!-- Avatar and about.md side by side except mobile -->
@@ -66,7 +66,7 @@
 
 <!-- Let's chat, shall we? -->
 {{ with .Site.GetPage "page" "contact" }}
-<div class="section" id="contact">
+<div class="section" id="{{ .Title | urlize }}">
     <div class="container has-text-centered">
     <h2 class="title is-2">{{ .Title }}</h2>
         <div class="markdown">
