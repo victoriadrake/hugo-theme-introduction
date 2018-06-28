@@ -1,11 +1,13 @@
 env:
-  - HUGO_VERSION="0.42.1"
+  - HUGO_VERSION="0.42.2"
 
 install:
   - wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
   - tar xf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
   - mv hugo ~/bin/
+  - gem install html-proofer
 
 script:
   - cd exampleSite
-  - hugo --themesDir .. -t .
+  - hugo --themesDir .. -t . -v
+  - htmlproofer public --check-html --disable-external
