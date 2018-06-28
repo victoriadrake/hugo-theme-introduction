@@ -27,7 +27,7 @@
                             <div class="card-image">
                                 <figure class="image is-3by2">
                                     <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{.Permalink}}{{ end }}">
-                                        <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
+                                        <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}" alt="{{ .Title }}">
                                     </a>
                                 </figure>
                             </div>

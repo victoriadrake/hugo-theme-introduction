@@ -19,7 +19,7 @@
                         <div class="card-image">
                             <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                    <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}">
+                                    <img src="{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ (.Site.Params.placeHolderimg | default "/img/workday.jpg") | relURL }}{{ end }}" alt="{{ .Title }}">
                                 </a>
                             </figure>
                         </div>
@@ -51,7 +51,7 @@
             </header>
             {{ end }}
             {{ if .Params.image }}
-                <img src="{{ .Params.image | relURL }}" class="img-responsive img-centered">
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="img-responsive img-centered">
             {{ end }}
             {{ if .Content }}
             <section class="modal-card-body markdown">

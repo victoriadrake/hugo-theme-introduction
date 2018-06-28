@@ -14,7 +14,7 @@
         <div class="container markdown {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
             {{ if .Params.image }}
             <div class="has-text-centered">
-              <img src="{{ .Params.image | relURL }}" class="img-responsive">
+              <img src="{{ .Params.image | relURL }}" class="img-responsive" alt="{{ .Title }}">
             </div>
             {{ end }}
             {{ .Content }}
