@@ -1,5 +1,4 @@
 baseURL                     = "https://example.org/"            # Your domain name. Must end with "/"
-languageCode                = "en-us"                           # languageCode
 DefaultContentLanguage      = "en"
 theme                       = "introduction"
 enforce_ssl                 = false
@@ -47,6 +46,7 @@ enforce_ssl                 = false
 [languages]
     [languages.en]
         languageName        = "English"
+        languageCode        = "en-us"
         contentDir          = "content/en"
         weigth              = 2
         title               = "Introduction"
@@ -56,6 +56,7 @@ enforce_ssl                 = false
         footerText          = ""                                # Text to override default footer text (markdown allowed)
     [languages.es]
         languageName        = "Español"
+        languageCode        = "es"
         contentDir          = "content/es"
         weigth              = 1
         title               = "Introducción"
@@ -65,6 +66,7 @@ enforce_ssl                 = false
         footerText          = ""
     [languages.de]
         languageName        = "Deutsch"
+        languageCode        = "de"
         contentDir          = "content/de"
         weigth              = 0
         title               = "Vorstellung"
