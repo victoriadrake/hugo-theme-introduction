@@ -1,0 +1,10 @@
+<meta property="og:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title }}{{ end }}" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:site_name" content="{{ .Site.Title }}"/>
+{{ if .Params.image }}
+<meta property="og:image" content="{{ .Params.image | absURL }}"/>
+{{ else }}
+<meta property="og:image" content="{{ .Site.Params.avatar | absURL }}"/>
+{{ end }}
