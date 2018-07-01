@@ -15,7 +15,7 @@
                 {{ else }}
                 <div class="column is-one-third">
                 {{ end }}
-                    <div id="project-{{ $index }}" class="card">
+                    <div class="card" data-target="#project-{{ $index }}">
                         <div class="card-image">
                             <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
@@ -60,7 +60,7 @@
             </section>
             {{ end }}
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-large" aria-label="close" data-target="#project-{{ $index }}"></button>
     </div>
     {{ end }}
     {{ end }}

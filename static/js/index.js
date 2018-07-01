@@ -10,10 +10,10 @@ $('a[href^="#"]').click(function(e) {
 
 // Modal closer
 $('.card').click(function () {
-    $('#'+this.id+'.modal').addClass('is-active');
+    $($(this).attr('data-target')).addClass('is-active');
 });
 $('.modal-close').click(function () {
-    $('#'+$(this).parent('.modal').get(0).id+'.modal').removeClass('is-active');
+    $($(this).attr('data-target')).removeClass('is-active');
 });
 $(document).keypress(function(e) {
     if(e.which == 0) {
