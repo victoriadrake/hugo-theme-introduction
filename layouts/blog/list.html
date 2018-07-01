@@ -1,50 +1,34 @@
-{{ partial "header.html" . }}
-<body>
-<!-- Parent section -->
-<div class="section" id="top">
-    <!-- Begin Title -->
-    <div class="container hero {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-        <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ define "main" }}
+    <div class="container markdown top-pad">
+        {{ .Content }}
     </div>
-    <!-- End Title -->
-    <!-- Everything below fades in two! -->
-    <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-        {{ partial "nav.html" . }}
-        <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-            {{ .Content }}
-        </div>
-        <!-- Begin Blog container -->
-        <div class="container">
-            {{ if .Site.Params.showLatest }}
-            <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
-            {{ range first 1 .Pages.ByPublishDate.Reverse }}
-            <div class="summary">{{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }}
-                <h3 class="title is-3 strong-post-title">
-                    <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
-                    </a>
-                </h3>
-                <div class="markdown">
-                    {{ .Summary }}
-                    {{ if .Truncated }}
-                    <a href="{{ .RelPermalink }}">{{ i18n "index_blog_readMore" . }}</a>
-                    {{ end }}
-                </div>
+    <div class="container">
+        {{ if .Site.Params.showLatest }}
+        <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
+        {{ range first 1 .Pages.ByPublishDate.Reverse }}
+        <div class="summary">{{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }}
+            <h3 class="title is-3 strong-post-title">
+                <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                </a>
+            </h3>
+            <div class="markdown">
+                {{ .Summary }}
+                {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                {{ end }}
             </div>
-            {{ end }}
-            {{ end }}
-            <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
-            <ul>
-            {{ range .Pages.ByPublishDate.Reverse }}
-                {{ partial "li.html" . }}
-            {{ end }}
-            </ul>
         </div>
-        <!-- End Blog container -->
-        {{ partial "top-icon-with-hr.html" . }}
-        {{ partial "footer.html" . }}
+        {{ end }}
+
+        {{ end }}
+        <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+        <ul>
+        {{ range .Pages.ByPublishDate.Reverse }}
+            <li class="post-item">
+                <span><a href="{{ .Permalink }}">{{ .Title }}</a></span> - <span>{{ .Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }}</span>
+            </li>
+        {{ end }}
+        </ul>
     </div>
-    <!-- End fade in two -->
-</div>
-<!-- End parent section -->
-</body>
+{{ end }}

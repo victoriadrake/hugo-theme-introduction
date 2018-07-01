@@ -1,0 +1,15 @@
+<!-- Fonts and icon CSS -->
+<link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
+<link rel="stylesheet" href="{{ "/css/nunito_sans.css" | relURL }}">
+
+<!-- Main css -->
+{{ if .Site.Params.cacheBuster }}
+    <link rel="stylesheet" href="{{ (printf "css/%s-style.css?t=%d" (.Site.Params.themeStyle | default "dark") now.Unix) |relURL }}">
+{{ else }}
+    <link rel="stylesheet" href="{{ (printf "css/%s-style.css" .Site.Params.themeStyle | default "dark") | relURL }}">
+{{ end }}
+
+<!-- Custom css -->
+{{ range .Site.Params.customCSS -}}
+    <link rel="stylesheet" href="{{ . | relURL }}">
+{{- end }}

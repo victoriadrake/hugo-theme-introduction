@@ -1,26 +1,13 @@
-{{ partial "header.html" . }}
-<body>
-<!-- Parent section -->
-<div class="section" id="top">
-    <!-- Begin Title -->
-    <div class="container hero is-medium has-text-centered {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
-        <h1 class="bold-title is-1">
-            {{ i18n "404_title" . }}
-        </h1>
+{{ define "title" }}
+    <h1 class="bold-title is-1">{{ i18n "404_title" . }}</h1>
+{{ end }}
+
+{{ define "main" }}
+    <div class="container markdown top-pad">
+        {{ i18n "404_description" . | markdownify }}
     </div>
-    <!-- End Title -->
-    <!-- Everything below fades in two! -->
-    <div class="section {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-        {{ partial "nav.html" . }}
-        <!-- Begin blurb -->
-        <div class="container {{ if .Site.Params.fadeIn }} fade-in two {{ end }} top-pad">
-            {{ i18n "404_description" . | markdownify }}
-        </div>
-        <!-- End blurb -->
-        <div class="container top-pad">
-            <hr>
-        </div>
-    </div>
-    {{ partial "footer.html" . }}
-</div>
-<!-- End parent section -->
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "footer/text.html" . }}
+{{ end }}

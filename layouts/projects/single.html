@@ -1,5 +1,10 @@
 {{ define "main" }}
     <div class="container markdown top-pad">
+        {{ if .Params.image }}
+        <div class="has-text-centered">
+          <img src="{{ .Params.image | relURL }}" class="img-responsive" alt="{{ .Title }}">
+        </div>
+        {{ end }}
         {{ .Content }}
     </div>
     <!-- End post content -->

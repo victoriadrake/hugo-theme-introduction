@@ -1,30 +1,12 @@
-{{ partial "header.html" . }}
-<body>
-<!-- Parent section -->
-<div class="section" id="top">
-    <!-- Begin Title -->
-    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
-        <h1 class="bold-title is-1">{{ .Title }}</h1>
-    </div>
-    <!-- End Title -->
-
-    <!-- Everything below fades in two! -->
-    <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-        {{ partial "nav.html" . }}
+{{ define "main" }}
+    <div class="container">
         <article>
             {{ .Content }}
         </article>
-        <div class="container">
-            <div class="section tags-list">
-                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                <a class="tag-cloud" href="{{"tags/" | relLangURL }}{{ $name | urlize }}">{{ lower $name }} ({{ len $taxonomy }})</a>
-                {{ end }}
-            </div>
+        <div class="section tags-list">
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <a class="tag-cloud" href="{{"tags/" | relLangURL }}{{ $name | urlize }}">{{ lower $name }}&nbsp;({{ len $taxonomy }})</a>
+            {{ end }}
         </div>
-        {{ partial "top-icon-with-hr.html" . }}
-        {{ partial "footer.html" . }}
     </div>
-    <!-- End fade in two -->
-</div>
-<!-- End parent section -->
-</body>
+{{ end }}

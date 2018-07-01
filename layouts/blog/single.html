@@ -1,67 +1,52 @@
-{{ partial "header.html" . }}
-<body>
-<!-- Parent section -->
-<div class="section" id="top">
-    <!-- Begin Title -->
-    <div class="container hero {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-        <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "blog").Title }}</h1>
-    </div>
-    <!-- End Title -->
-    <!-- Everything below fades in two! -->
-    <div class="section {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-        {{ partial "nav.html" . }}
-        <!-- Begin blog title container -->
-        <div class="container {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-            <h2 class="title is-1 top-pad strong-post-title">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h2>
-            <div class="post-data">
-                {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
-                {{ i18n "blog_readingTime" .ReadingTime }}
-            </div>
-            {{ if .Site.Params.shareButtons }}
-            <div class="blog-share">
-                {{ i18n "blog_shareThis" . }}:
-                {{ if .Site.Params.shareTwitter }}
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fa fa-twitter"></i>
-                    <span class="hidden">Twitter</span>
-                </a>
-                {{ end }}
-                {{ if .Site.Params.shareFacebook }}
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <i class="fa fa-facebook"></i>
-                    <span class="hidden">Facebook</span>
-                </a>
-                {{ end }}
-                {{ if .Site.Params.sharePinterest }}
-                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-                    <i class="fa fa-pinterest"></i>
-                    <span class="hidden">Pinterest</span>
-                </a>
-                {{ end }}
-                {{ if .Site.Params.shareGooglePlus }}
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <i class="fa fa-google-plus"></i>
-                    <span class="hidden">Google+</span>
-                </a>
-                {{ end }}
-            </div>
+{{ define "title" }}
+    <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "blog").Title }}</h1>
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-data">
+            {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
+            {{ i18n "blog_readingTime" .ReadingTime }}
+        </div>
+        {{ if .Site.Params.shareButtons }}
+        <div class="blog-share">
+            {{ i18n "blog_shareThis" . }}:
+            {{ if .Site.Params.shareTwitter }}
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.shareFacebook }}
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.sharePinterest }}
+            <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fa fa-pinterest"></i>
+                <span class="hidden">Pinterest</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.shareGooglePlus }}
+            <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
             {{ end }}
         </div>
-        <!-- End blog title container -->
-        <!-- Begin blog post content -->
-        <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-            {{ .Content }}
-        </div>
-        <!-- End blog post content -->
-        <div class="disqus">
-            {{ template "_internal/disqus.html" . }}
-        </div>
-        {{ partial "top-icon-with-hr.html" . }}
-        {{ partial "footer.html" . }}
+        {{ end }}
     </div>
-    <!-- End fade in two -->
-</div>
-<!-- End parent section -->
-</body>
+    <!-- Begin blog post content -->
+    <div class="container markdown top-pad">
+        {{ .Content }}
+    </div>
+    <!-- End blog post content -->
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+{{ end }}

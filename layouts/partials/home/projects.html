@@ -41,8 +41,9 @@
     </div>
     <!-- End Projects container -->
     <!-- Projects modals -->
-    {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }} {{ if not .Params.external_link }}
-    <div class="modal" id="modal-{{ $index }}">
+    {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+    {{ if not .Params.external_link }}
+    <div class="modal" id="project-{{ $index }}">
         <div class="modal-background"></div>
         <div class="modal-card">
             {{ with .Title }}
@@ -59,22 +60,10 @@
             </section>
             {{ end }}
         </div>
-        <button class="modal-close is-large" aria-label="close" id="close-{{ $index }}"></button>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    <script>
-        $('#project-{{ $index }}').click(function () {
-            $('#modal-{{ $index }}').addClass('is-active');
-        });
-        $('#close-{{ $index }}').click(function () {
-            $('#modal-{{ $index }}').removeClass('is-active');
-        });
-        $(document).keypress(function(e) {
-            if(e.which == 0) {
-                $('#modal-{{ $index }}').removeClass('is-active');
-            }
-        });
-    </script>
-    {{ end }} {{ end }}
+    {{ end }}
+    {{ end }}
     {{ partial "top-icon.html" . }}
 </div>
 <!-- End Projects section -->

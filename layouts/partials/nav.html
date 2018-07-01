@@ -3,19 +3,19 @@
     <hr>
     <nav class="nav nav-center">
         {{ $isHome := .Page.IsHome }}
-        {{ if not $isHome }}
+        {{/* if not $isHome */}}
         <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
             <span></span>
             <span></span>
             <span></span>
         </span>
         <div id="nav-menu" class="nav-left nav-menu">
-        {{ end }}
+        {{/* end */}}
             {{ if not $isHome }}
             <a class="nav-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
             {{ with .Site.GetPage "page" "about" }}
-            <a class="nav-item" href="{{ if $isHome }}#{{ .Title | urlize }}{{ else }}{{ printf "/#%s" (.Title | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="nav-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
@@ -53,7 +53,7 @@
             {{ end }}
 
             {{ with .Site.GetPage "page" "contact" }}
-            <a class="nav-item" href="{{ if $isHome }}#{{ .Title | urlize }}{{ else }}{{ printf "/#%s" (.Title | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="nav-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ range $.Site.Home.AllTranslations.ByWeight }}

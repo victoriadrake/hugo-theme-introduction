@@ -1,110 +1,91 @@
-{{ partial "header.html" . }}
-<body>
-
-<div id="top"> <!-- Where all the awesome begins -->
-
-<div class="hero is-{{ .Site.Params.introHeight | default "fullheight" }}">
-<!-- Possible hero-head not used -->
-    <!-- Super sweet Hero body title -->
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <!-- Title and tagline -->
-            <h1 class="bold-title {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-                {{ .Site.Params.firstName | default "Introduction" }}.
-            </h1>
-            <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-                {{ .Site.Params.tagLine }}
-            </h3>
-            <!-- End title and tagline -->
-            <!-- Some social icons -->
-            <div class=" {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
-                {{ partial "social.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{ partial "head/metadata.html" . }}
+        {{ partial "head/favicons.html" . }}
+        {{ partial "head/css.html" . }}
+    </head>
+    <body>
+        <div id="top">
+            <div class="hero is-{{ .Site.Params.introHeight | default "fullheight" }}">
+                <!-- Super sweet Hero body title -->
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <!-- Title and tagline -->
+                        <h1 class="bold-title {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
+                            {{ .Site.Params.firstName | default "Introduction" }}.
+                        </h1>
+                        <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
+                            {{ .Site.Params.tagLine }}
+                        </h3>
+                        <!-- End title and tagline -->
+                        <!-- Some social icons -->
+                        <div class=" {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+                            {{ partial "home/social.html" . }}
+                        </div>
+                        <!-- End top social icons -->
+                    </div>
+                </div>
+                <!-- Hero body title end -->
             </div>
-            <!-- End top social icons -->
-        </div>
-    </div>
-    <!-- Hero body title end -->
-
-    <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
-      {{ partial "nav.html" . }}
-    </div>
-</div>
-<!-- Done with Hero -->
-
-<!-- Everything below fades in three! -->
-<div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
-
-<!-- Tell them all about it! -->
-{{ with .Site.GetPage "page" "about" }}
-<div class="section" id="{{ .Title | urlize }}">
-    <div class="container">
-        <h2 class="title is-2 has-text-centered">{{ .Title }}</h2>
-        <div class="columns"><!-- Avatar and about.md side by side except mobile -->
-            {{ if .Site.Params.avatar }}
-            <div class="column is-one-third has-text-centered">
-                <img class="img-responsive avatar" src="{{ .Site.Params.avatar | relURL }}" alt="{{ i18n "index_avatarAlt" . }}">
+            <!-- Done with Hero -->
+                <!-- Everything below fades in three! -->
+            <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+                <!-- Tell them all about it! -->
+                {{ partial "nav.html" . }}
+                {{ with .Site.GetPage "page" "about" }}
+                <div class="section" id="{{ .File.TranslationBaseName }}">
+                    <div class="container">
+                        <h2 class="title is-2 has-text-centered">{{ .Title }}</h2>
+                        <div class="columns"><!-- Avatar and about.md side by side except mobile -->
+                            {{ if .Site.Params.avatar }}
+                            <div class="column is-one-third has-text-centered">
+                                <img class="img-responsive avatar" src="{{ .Site.Params.avatar | relURL }}" alt="{{ i18n "index_avatarAlt" . }}">
+                            </div>
+                            {{ end }}
+                            <div class="column markdown">
+                                {{.Content}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End About container-->
+                    {{ partial "top-icon.html" . }}
+                </div>
+                <div class="container"><hr></div>
+                <!-- End About section -->
+                {{ end }}
+                <!-- Now for some cool projects -->
+                {{ partial "home/projects.html" . }}
+                <!-- Let's show some blog posts -->
+                {{ partial "home/blog.html" . }}
+                <!-- Let's chat, shall we? -->
+                {{ with .Site.GetPage "page" "contact" }}
+                <div class="section" id="{{ .File.TranslationBaseName }}">
+                    <div class="container has-text-centered">
+                        <h2 class="title is-2">{{ .Title }}</h2>
+                        <div class="markdown">
+                            {{.Content}}
+                        </div>
+                        {{ if .Site.Params.localTime }}
+                         <p>{{ i18n "index_currentTime" . }} <span id='time'></span>.</p>
+                        {{ end }}
+                        {{ if .Site.Params.email }}
+                        <h3 class="subtitle is-3 has-text-centered top-pad">
+                            <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+                        </h3>
+                        {{ end }}
+                        {{ partial "home/social.html" . }}
+                    </div>
+                    <!-- End Contact container -->
+                    {{ partial "top-icon.html" . }}
+                </div>
+                <div class="container"><hr></div>
+                {{ end }}
+                <!-- End Contact section -->
+                {{ partial "footer/text.html" . }}
             </div>
-            {{ end }}
-            <div class="column markdown">
-                {{.Content}}
-            </div>
         </div>
-    </div>
-    <!-- End About container-->
-    {{ partial "top-icon.html" . }}
-</div>
-<!-- End About section -->
-
-<div class="container"><hr></div>
-{{ end }}
-
-<!-- Now for some cool projects -->
-{{ partial "projects.html" . }}
-
-<!-- Let's show some blog posts -->
-{{ partial "blogsection.html" . }}
-
-<!-- Let's chat, shall we? -->
-{{ with .Site.GetPage "page" "contact" }}
-<div class="section" id="{{ .Title | urlize }}">
-    <div class="container has-text-centered">
-    <h2 class="title is-2">{{ .Title }}</h2>
-        <div class="markdown">
-            {{.Content}}
-        </div>
-
-        {{ if .Site.Params.localTime }}
-         <p>{{ i18n "index_currentTime" . }} <span id='time'></span>.</p>
-        <script type="text/javascript" src="{{ "/js/moment.js" | relURL }}"></script>
-        <script type="text/javascript" src="{{ "/js/moment-timezone.js" | relURL }}"></script>
-        <script type="text/javascript" src="{{ "/js/moment-timezone-with-data-2012-2022.js" | relURL }}"></script>
-
-        <script>
-        $(document).ready(function() {
-        var time = moment().tz("{{ .Site.Params.timeZone }}").format("h:mm A");
-        $('#time').html(time);
-        })
-        </script>
-        {{ end }}
-
-        {{ if .Site.Params.email }}
-        <h3 class="subtitle is-3 has-text-centered top-pad"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></h3>
-        {{ end }}
-
-        {{ partial "social.html" . }}
-    </div>
-    <!-- End Contact container -->
-    {{ partial "top-icon.html" . }}
-</div>
-<!-- End Contact section -->
-
-<div class="container"><hr></div>
-{{ end }}
-
-<!-- Nice clean finish -->
-{{ partial "footer.html" . }}
-<!-- Footer done! -->
-</div>
-<!-- End of fade in three section -->
-<!-- Where all the awesome ends. Aww. -->
-</body>
+        <!-- End of fade in three section -->
+        {{ partial "footer/scripts.html" . }}
+    </body>
+</html>

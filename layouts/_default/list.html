@@ -1,33 +1,16 @@
-{{ partial "header.html" . }}
-<body>
-<!-- Parent section -->
-<div class="section" id="top">
-    <!-- Begin Title -->
-    <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
-        <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ define "main" }}
+    <div class="container markdown top-pad">
+        {{ .Content }}
     </div>
-    <!-- End Title -->
-    <!-- Everything below fades in two! -->
-    <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-        {{ partial "nav.html" . }}
-        <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-            {{ .Content }}
-        </div>
-        <!-- Begin container -->
-        <div class="container">
-            <ul>
-                {{ range .Pages.ByPublishDate }}
-                <li>
-                    <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-        <!-- End container -->
-        {{ partial "top-icon-with-hr.html" . }}
-        {{ partial "footer.html" . }}
+    <!-- Begin container -->
+    <div class="container">
+        <ul>
+            {{ range .Pages.ByPublishDate }}
+            <li>
+                <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
+            </li>
+            {{ end }}
+        </ul>
     </div>
-    <!-- End fade in two -->
-</div>
-<!-- End parent section -->
 </body>
+{{ end }}
