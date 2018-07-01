@@ -9,6 +9,33 @@
             <span></span>
         </span>
         <div id="nav-menu" class="nav-left nav-menu">
+            <!-- look for custom menu and include it -->
+            {{ if .Site.Menus.main }}
+            {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+            <a class="nav-item"  href="{{ .URL }}">
+                {{ .Pre }}
+                {{ .Name }}
+                {{ .Post }}
+            </a>
+            {{ range .Children }}
+            <!-- TODO: style children diffrent then parents-->
+            <a class="nav-item" href="{{ .URL }}">
+                {{ .Pre }}
+                {{ .Name }}
+                {{ .Post }}
+            </a>
+            {{ end }}
+            {{ else }}
+            <a class="nav-item" href="{{ .URL }}">
+                {{ .Pre }}
+                {{ .Name }}
+                {{ .Post }}
+            </a>
+            {{ end }}
+            {{ end }}
+            {{ else }}
+            <!-- use default menu -->
             {{ if not $isHome }}
             <a class="nav-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
@@ -60,6 +87,7 @@
 
             {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
             <a class="nav-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+            {{ end }}
             {{ end }}
         </div>
     </nav>

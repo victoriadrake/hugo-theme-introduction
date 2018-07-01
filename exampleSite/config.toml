@@ -42,6 +42,16 @@ theme                       = "introduction"
     url  = "https://linkedin.com/"
     icon = "linkedin"
 
+# If you don`t want to use the default menu, you can define one by yoursel
+# [[menu.main]]
+#     name = "Home"
+#     url = "/"
+#     weight = 0
+# [[menu.main]]
+#     name = "Blog"
+#     url = "/blog"
+#     weight = 1
+
 [languages]
     [languages.en]
         languageName        = "English"
