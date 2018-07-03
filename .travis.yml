@@ -1,5 +1,8 @@
+git:
+  depth: false
+ 
 env:
-  - HUGO_VERSION="0.41"
+  - HUGO_VERSION="0.42.2"
 
 install:
   - wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
@@ -9,5 +12,5 @@ install:
 
 script:
   - cd exampleSite
-  - hugo --themesDir .. -t . -v
+  - HUGO_THEME=hugo-theme-introduction hugo --themesDir ../.. -v
   - htmlproofer public --check-html --disable-external
