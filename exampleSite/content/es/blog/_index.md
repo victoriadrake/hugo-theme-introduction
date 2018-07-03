@@ -2,4 +2,4 @@
 title: "Blog"
 ---
 
-Here is some introduction text for my blog
+Este es un texto introductorio para mi blog.

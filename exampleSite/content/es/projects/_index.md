@@ -2,4 +2,4 @@
 title: "Proyectos"
 ---
 
-Here is some introduction text for my projects
+Este es un texto introductorio para mis proyectos.
