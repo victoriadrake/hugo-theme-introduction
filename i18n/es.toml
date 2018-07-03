@@ -22,4 +22,4 @@
 [blog_shareThis]
     other = "Comparte esto"
 [footer_text]
-    other = "Tema [**Introduction**](https://github.com/vickylai/hugo-theme-introduction/) para [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://vickylai.com) by open source contributors."
+    other = "Tema [**Introduction**](https://github.com/vickylai/hugo-theme-introduction/) para [Hugo](http://gohugo.io/). Hecho con [<i class=\"fa fa-heart\"></i> y <i class=\"fa fa-coffee\"></i>](https://vickylai.com) por colaboradores de código abierto."
