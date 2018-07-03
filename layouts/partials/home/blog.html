@@ -18,11 +18,7 @@
         {{ end }}
         {{ if .Site.Params.showAllPosts }}
         <h2 class="title is-2 has-text-centered top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
-            <ul>
-            {{ range .Pages }}
-                {{ partial "li.html" . }}
-            {{ end }}
-            </ul>
+            {{ partialCached "blog/li.html" . }}
         {{ else }}
         <div class="container has-text-centered top-pad">
             <a href="{{ .RelPermalink }}">{{ i18n "index_blog_allPosts" . }}</a>
