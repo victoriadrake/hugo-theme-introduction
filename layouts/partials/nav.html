@@ -81,8 +81,10 @@
             <a class="nav-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
+            {{ if gt (len  $.Site.Home.AllTranslations.ByWeight) 1 }}
             {{ range $.Site.Home.AllTranslations.ByWeight }}
-            <a class="nav-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                <a class="nav-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ end }}
             {{ end }}
 
             {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
