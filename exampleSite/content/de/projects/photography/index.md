@@ -1,6 +1,5 @@
 ---
 title: "Fotografie"
-image: "img/camera.jpg"
 weight: 1
 ---
 

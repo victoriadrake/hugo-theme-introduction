@@ -1,7 +1,10 @@
 ---
 title: "Design"
-image: "img/plant.jpg"
 weight: 2
+resources:
+    - src: plant.jpg
+      params:
+          weight: -100
 ---
 
 Dieses Theme wurde von [Vicky Lai](https://vickylai.com) entwickelt. Guck es dir an! 💪

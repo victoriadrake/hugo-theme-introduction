@@ -28,7 +28,6 @@ theme                       = "introduction"
     shareGooglePlus         = true
 
     numberOfProjectsToShow  = 3                                 # Maximum number of projects to show on home page. Unset or comment out to show all projects.
-    placeHolderimg          = "/img/workday.jpg"                # For Projects without image
 
 # Social icons appear in introduction and contact section. Add as many more as you like.
 # Find icon names here: http://fontawesome.io/cheatsheet/

@@ -1,6 +1,5 @@
 ---
-title: "Schreiben"
-image: "img/workday.jpg"
+title: "Escribiendo"
 weight: 3
 ---
 

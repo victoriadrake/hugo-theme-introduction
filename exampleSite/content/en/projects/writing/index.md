@@ -1,6 +1,5 @@
 ---
 title: "Writing"
-image: "img/workday.jpg"
 weight: 3
 ---
 

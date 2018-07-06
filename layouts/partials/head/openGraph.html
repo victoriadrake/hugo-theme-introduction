@@ -3,8 +3,11 @@
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
 <meta property="og:url" content="{{ .Permalink }}"/>
 <meta property="og:site_name" content="{{ .Site.Title }}"/>
-{{ if .Params.image }}
-<meta property="og:image" content="{{ .Params.image | absURL }}"/>
+
+{{ with .Resources.ByType "image" }}
+{{ range first 5 (sort . "Params.weight") }}
+<meta property="og:image" content="{{ .Permalink }}"/>
+{{ end }}
 {{ else }}
 <meta property="og:image" content="{{ .Site.Params.avatar | absURL }}"/>
 {{ end }}

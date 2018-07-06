@@ -1,8 +1,24 @@
 {{ define "main" }}
     <div class="container markdown top-pad">
-        {{ if .Params.image }}
+        {{ with .Resources.ByType "image" }}
         <div class="has-text-centered">
-          <img src="{{ .Params.image | relURL }}" class="img-responsive" alt="{{ .Title }}">
+            {{ $moreThenOneImage := gt (len .) 1 }}
+            {{ if $moreThenOneImage }}
+            <div class="owl-carousel owl-theme">
+            {{ end }}
+                {{ range sort . "Params.weight" }}
+                    {{ $image := .Resize "1000x" }}
+                    {{ if $moreThenOneImage }}
+                    <div class="item owl-height">
+                    {{ end }}
+                        <img src="{{ $image.RelPermalink }}" class="img-responsive" alt="{{ $image.Name }}">
+                    {{ if $moreThenOneImage }}
+                    </div>
+                    {{ end }}
+                {{ end }}
+            {{ if $moreThenOneImage }}
+            </div>
+            {{ end }}
         </div>
         {{ end }}
         {{ .Content }}
@@ -11,4 +27,24 @@
     <div class="disqus">
         {{ template "_internal/disqus.html" . }}
     </div>
+{{ end }}
+
+{{ define "customCSS" }}
+<link rel="stylesheet" href="{{ "css/owl.carousel.min.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/owl.theme.default.min.css" | relURL }}">
+{{ end }}
+
+{{ define "customScripts" }}
+<script src="{{ "js/owl.carousel.min.js" | relURL }}"></script>
+<script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+          loop: true,
+          nav: true,
+          margin: 10,
+          items: 1,
+          autoHeight: true
+      });
+  });
+</script>
 {{ end }}
