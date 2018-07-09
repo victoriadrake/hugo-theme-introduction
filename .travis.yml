@@ -1,8 +1,8 @@
 git:
   depth: false
- 
+
 env:
-  - HUGO_VERSION="0.42.2"
+  - HUGO_VERSION="0.43"
 
 install:
   - wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
