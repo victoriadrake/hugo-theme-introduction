@@ -1,33 +1,33 @@
 <!-- Begin Nav bar -->
 <div class="container">
     <hr>
-    <nav class="nav nav-center">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         {{ $isHome := .Page.IsHome }}
-        <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
-        <div id="nav-menu" class="nav-left nav-menu">
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu" id="navMenu">
             <!-- look for custom menu and include it -->
             {{ if .Site.Menus.main }}
             {{ range .Site.Menus.main }}
             {{ if .HasChildren }}
-            <a class="nav-item"  href="{{ .URL }}">
+            <a class="navbar-item"  href="{{ .URL }}">
                 {{ .Pre }}
                 {{ .Name }}
                 {{ .Post }}
             </a>
             {{ range .Children }}
             <!-- TODO: style children diffrent then parents-->
-            <a class="nav-item" href="{{ .URL }}">
+            <a class="navbar-item" href="{{ .URL }}">
                 {{ .Pre }}
                 {{ .Name }}
                 {{ .Post }}
             </a>
             {{ end }}
             {{ else }}
-            <a class="nav-item" href="{{ .URL }}">
+            <a class="navbar-item" href="{{ .URL }}">
                 {{ .Pre }}
                 {{ .Name }}
                 {{ .Post }}
@@ -37,19 +37,19 @@
             {{ else }}
             <!-- use default menu -->
             {{ if not $isHome }}
-            <a class="nav-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
+            <a class="navbar-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
             {{ with .Site.GetPage "page" "about" }}
-            <a class="nav-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
             {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "section" "projects" }}
             {{ if $isHome }}
-            <a class="nav-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
-            <a class="nav-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .RelPermalink }}">
                 {{ if $pageIsInProjects }}
                 {{ i18n "nav_backToSection" . }}
                 {{ else }}
@@ -64,9 +64,9 @@
             {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "section" "blog" }}
             {{ if $isHome }}
-            <a class="nav-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
-            <a class="nav-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .RelPermalink }}">
                 {{ if $pageIsInBlog }}
                 Back to {{ .Title | singularize}}
                 {{ else }}
@@ -78,21 +78,48 @@
             {{ end }}
 
             {{ with .Site.GetPage "page" "contact" }}
-            <a class="nav-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
 
             {{ if gt (len  $.Site.Home.AllTranslations.ByWeight) 1 }}
             {{ range $.Site.Home.AllTranslations.ByWeight }}
-                <a class="nav-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
             {{ end }}
             {{ end }}
 
             {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
-            <a class="nav-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+            <a class="navbar-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
             {{ end }}
             {{ end }}
         </div>
     </nav>
     <hr>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script>
 <!-- End Nav bar -->

@@ -31,7 +31,7 @@
             </div>
             <!-- Done with Hero -->
                 <!-- Everything below fades in three! -->
-            <div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+            <div class="section {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
                 <!-- Tell them all about it! -->
                 {{ partial "nav.html" . }}
                 {{ with .Site.GetPage "page" "about" }}

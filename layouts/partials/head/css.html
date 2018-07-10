@@ -1,12 +1,16 @@
 <!-- Fonts and icon CSS -->
 <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
-<link rel="stylesheet" href="{{ "/css/nunito_sans.css" | relURL }}">
 
-<!-- Main css -->
-{{ if .Site.Params.cacheBuster }}
-    <link rel="stylesheet" href="{{ (printf "css/%s-style.css?t=%d" (.Site.Params.themeStyle | default "dark") now.Unix) |relURL }}">
+{{ $file := "sass/style.sass"  }}
+{{ if .Site.IsServer }}
+{{ $cssOpts := (dict "targetPath" "styles/main.css" "enableSourceMap" true ) }}
+{{ $styles := resources.Get $file  | resources.ExecuteAsTemplate "style/main.tmp.css" . | toCSS $cssOpts }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 {{ else }}
-    <link rel="stylesheet" href="{{ (printf "css/%s-style.css" .Site.Params.themeStyle | default "dark") | relURL }}">
+{{ $cssOpts := (dict "targetPath" "styles/main.css" ) }}
+{{ $postCSSOpts := (dict "use" "autoprefixer" ) }}
+{{ $styles := resources.Get $file  | resources.ExecuteAsTemplate "style/main.tmp.css" . | toCSS $cssOpts | postCSS $postCSSOpts | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 {{ end }}
 
 <!-- Custom css -->

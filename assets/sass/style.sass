@@ -1,0 +1,8 @@
+{{ $themeStyle := .Site.Params.themeStyle | default "light" }}
+
+@import "../vendor/bulma/bulma.sass"
+@import "fonts.sass"
+@import "base-variables.sass"
+@import "{{ $themeStyle }}-variables.sass"
+@import "base.sass"
+@import "{{ $themeStyle }}-style.sass"
