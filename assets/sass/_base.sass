@@ -7,6 +7,9 @@ body
     color: $body-color
     background-color: $background
 
+html.modal-open
+    overflow: hidden
+
 @keyframes fadeIn
     from
         opacity: 0
@@ -108,6 +111,9 @@ hr
 .no-padding
     padding: 0
 
+.no-padding-top
+    padding-top: 0
+
 .strong-post-title
     font-weight: $weight-bold
 
@@ -141,7 +147,7 @@ hr
     text-transform: uppercase
     font-size: 14px
 
-a.navbar-item:hover:hover
+a.navbar-item:hover
     color: $secondary
 
 .expanding-menu
@@ -160,6 +166,9 @@ a.navbar-item:hover:hover
     height: 2rem
     width: 2rem
     margin: 0 10px
+
+.fa
+    font-size: 21px
 
 .footer-text
     font-size: 0.8em
