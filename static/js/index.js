@@ -11,9 +11,11 @@ $('a[href^="#"]').click(function(e) {
 // Modal closer
 $('.card').click(function () {
     $($(this).attr('data-target')).addClass('is-active');
+    $("html").addClass("modal-open");
 });
 $('.modal-close').click(function () {
     $($(this).attr('data-target')).removeClass('is-active');
+    $("html").removeClass("modal-open");
 });
 $(document).keypress(function(e) {
     if(e.which == 0) {
