@@ -35,10 +35,10 @@ theme                       = "introduction"
     icon = "twitter"
 [[params.social]]
     url  = "https://facebook.com/"
-    icon = "facebook"
+    icon = "facebook-f"
 [[params.social]]
     url  = "https://linkedin.com/"
-    icon = "linkedin"
+    icon = "linkedin-in"
 
 # If you don`t want to use the default menu, you can define one by yoursel
 # [[menu.main]]

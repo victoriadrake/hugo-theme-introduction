@@ -1,6 +1,10 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
+$fa-font-path: "/fonts/fontawesome-free/webfonts"
 
 @import "../vendor/bulma/bulma.sass"
+@import "../vendor/fontawesome-free/scss/fontawesome.scss"
+@import "../vendor/fontawesome-free/scss/fa-brands.scss"
+@import "../vendor/fontawesome-free/scss/fa-solid.scss"
 @import "fonts.sass"
 @import "base-variables.sass"
 @import "{{ $themeStyle }}-variables.sass"
