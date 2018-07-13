@@ -5,7 +5,7 @@ description = "Minimal, single page, smooth scrolling theme for Hugo."
 homepage = "https://github.com/vickylai/hugo-theme-introduction"
 tags = ["clean", "simple", "minimal", "minimalist", "multilingual", "responsive", "single page", "syntax highlighting", "projects", "starter", "white", "dark"]
 features = ["responsive", "blog", "portfolio"]
-min_version = "0.30"
+min_version = "0.44"
 
 [author]
   name = "Vicky Lai"
