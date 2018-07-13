@@ -1,21 +1,15 @@
-<!-- jQuery -->
-<script src="{{ "/js/jquery-3.3.1.min.js" | relURL }}"></script>
+{{ $jQuery := resources.Get "vendor/jquery/jquery-3.3.1.min.js" }}
+{{ $index := resources.Get "js/index.js" | resources.ExecuteAsTemplate "js/index.tmp.css" . | minify }}
 
-<!-- index.js -->
-<script defer src="{{ "/js/index.js" | relURL }}"></script>
-
-<!-- local time -->
-{{ if .Site.Params.localTime }}
-<script defer src="{{ "/js/moment.js" | relURL }}"></script>
-<script defer src="{{ "/js/moment-timezone.js" | relURL }}"></script>
-<script defer src="{{ "/js/moment-timezone-with-data-2012-2022.js" | relURL }}"></script>
-<script>
-    $(document).ready(function() {
-        var time = moment().tz("{{ .Site.Params.timeZone }}").format("h:mm A");
-        $('#time').html(time);
-    })
-</script>
+{{ if and .Site.Params.localTime .Page.IsHome }}
+{{ $momentjs := resources.Get "vendor/momentjs/moment.min.js" }}
+{{ $momentTimezone := resources.Get "vendor/momentjs/moment-timezone.min.js" }}
+{{ $momentTimezoneWithData := resources.Get "vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
+{{ $scripts := slice $jQuery $momentjs $momentTimezone $momentTimezoneWithData $index | resources.Concat "/js/bundleMoment.js" | fingerprint }}
+<script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
+{{ else }}
+{{ $scripts := slice $jQuery $index | resources.Concat "/js/bundle.js" | fingerprint }}
+<script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
 {{ end }}
 
-<!-- Google Analytics -->
 {{ template "_internal/google_analytics_async.html" . }}

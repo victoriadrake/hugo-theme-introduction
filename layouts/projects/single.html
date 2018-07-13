@@ -30,12 +30,15 @@
 {{ end }}
 
 {{ define "customCSS" }}
-<link rel="stylesheet" href="{{ "css/owl.carousel.min.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/owl.theme.default.min.css" | relURL }}">
+{{ $owlCarousel := resources.Get "vendor/owlCarousel/owl.carousel.min.css" }}
+{{ $owlCarouselTheme := resources.Get "vendor/owlCarousel/owl.theme.default.min.css" }}
+{{ $owlCarouselBundle := slice $owlCarousel $owlCarouselTheme | resources.Concat "/css/owlCarousel.min.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $owlCarouselBundle.Permalink }}" integrity="{{ $owlCarouselBundle.Data.Integrity }}" media="screen">
 {{ end }}
 
 {{ define "customScripts" }}
-<script src="{{ "js/owl.carousel.min.js" | relURL }}"></script>
+{{ $owlCarousel := resources.Get "vendor/owlCarousel/owl.carousel.min.js" | fingerprint }}
+<script src="{{ $owlCarousel.Permalink }}" integrity="{{ $owlCarousel.Data.Integrity }}"></script>
 <script>
     $(document).ready(function(){
       $(".owl-carousel").owlCarousel({
