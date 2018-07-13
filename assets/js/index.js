@@ -23,7 +23,7 @@ $(document).keypress(function(e) {
     }
 });
 
-{{ if .Site.Params.localTime }}
+{{ if and .Site.Params.localTime .Page.IsHome }}
 $(document).ready(function() {
     var time = moment().tz("{{ .Site.Params.timeZone }}").format("h:mm A");
     $('#time').html(time);
