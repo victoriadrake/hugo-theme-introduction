@@ -2,21 +2,21 @@
     <div class="container markdown top-pad">
         {{ with .Resources.ByType "image" }}
         <div class="has-text-centered">
-            {{ $moreThenOneImage := gt (len .) 1 }}
-            {{ if $moreThenOneImage }}
+            {{ $moreThanOneImage := gt (len .) 1 }}
+            {{ if $moreThanOneImage }}
             <div class="owl-carousel owl-theme">
             {{ end }}
                 {{ range sort . "Params.weight" }}
                     {{ $image := .Resize "1000x" }}
-                    {{ if $moreThenOneImage }}
+                    {{ if $moreThanOneImage }}
                     <div class="item owl-height">
                     {{ end }}
                         <img src="{{ $image.RelPermalink }}" class="img-responsive" alt="{{ $image.Name }}">
-                    {{ if $moreThenOneImage }}
+                    {{ if $moreThanOneImage }}
                     </div>
                     {{ end }}
                 {{ end }}
-            {{ if $moreThenOneImage }}
+            {{ if $moreThanOneImage }}
             </div>
             {{ end }}
         </div>

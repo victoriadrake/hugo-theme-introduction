@@ -40,7 +40,7 @@ theme                       = "introduction"
     url  = "https://linkedin.com/"
     icon = "linkedin-in"
 
-# If you don`t want to use the default menu, you can define one by yoursel
+# If you don't want to use the default menu, you can define one by yourself
 # [[menu.main]]
 #     name = "Home"
 #     url = "/"
@@ -55,7 +55,7 @@ theme                       = "introduction"
         languageName        = "English"
         languageCode        = "en-us"
         contentDir          = "content/en"
-        weigth              = 2
+        weight              = 2
         title               = "Introduction"
         firstName           = "Hi, I'm Introduction"            # First name shows in introduction on main page
         tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
@@ -65,7 +65,7 @@ theme                       = "introduction"
         languageName        = "Español"
         languageCode        = "es"
         contentDir          = "content/es"
-        weigth              = 1
+        weight              = 1
         title               = "Introducción"
         firstName           = "Hola, Soy Introducción"
         tagLine             = "Soy un tema para Hugo."
@@ -75,7 +75,7 @@ theme                       = "introduction"
         languageName        = "Deutsch"
         languageCode        = "de"
         contentDir          = "content/de"
-        weigth              = 0
+        weight              = 0
         title               = "Vorstellung"
         firstName           = "Hallo, ich bin Vorstellung"
         tagLine             = "Ich bin ein Hugo Theme"
