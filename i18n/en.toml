@@ -2,8 +2,6 @@
     other = "404"
 [404_description]
     other = "Oops! Either you've found a bug (in which case, [please tell me](mailto:{{ .Site.Params.email }})) or you're just making things up. This page doesn't exist!"
-[index_avatarAlt]
-    other = "My profile picture"
 [index_projects_allProjects]
     other = "All Projects"
 [index_blog_latestPosts]

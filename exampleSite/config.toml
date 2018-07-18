@@ -7,12 +7,11 @@ theme                       = "introduction"
 [params]
     introHeight             = "large"                           # Input either 'medium' or 'large' or 'fullheight'
     themeStyle              = "light"                           # Choose 'light' or 'dark'
-    avatar                  = "img/profile.jpg"                 # Path to image in static folder eg. img/avatar.png, or comment out to remove
+    faviconFile             = "img/fav.ico"
     email                   = "youremail@email.com"             # Shows in contact section, or leave blank to omit
     localTime               = true                              # Show your current local time in contact section
     timeZone                = "America/Los_Angeles"             # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     dateForm                = "Jan 2, 2006"
-    faviconFile             = "img/fav.ico"
     fadeIn                  = true                              # Turn on/off the fade-in effect
     showRSSButton           = true                              # Show rss button in navigation
     customCSS               = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
@@ -55,30 +54,27 @@ theme                       = "introduction"
         languageName        = "English"
         languageCode        = "en-us"
         contentDir          = "content/en"
-        weigth              = 2
+        weight              = 0
         title               = "Introduction"
-        firstName           = "Hi, I'm Introduction"            # First name shows in introduction on main page
-        tagLine             = "I'm a theme for Hugo."           # Appears after the introduction
-        description         = "Website Description"             # Max 160 characters show in search results
-        footerText          = ""                                # Text to override default footer text (markdown allowed)
+        [languages.en.params]
+            description         = "Website Description"             # Max 160 characters show in search results
+            footerText          = ""                      # Text to override default footer text (markdown allowed)
     [languages.es]
         languageName        = "Español"
         languageCode        = "es"
         contentDir          = "content/es"
-        weigth              = 1
+        weight              = 1
         title               = "Introducción"
-        firstName           = "Hola, Soy Introducción"
-        tagLine             = "Soy un tema para Hugo."
-        description         = "Descripcion del sitio web"
-        footerText          = ""
+        [languages.es.params]
+            description         = "Descripcion del sitio web"
+            footerText          = ""
     [languages.de]
         languageName        = "Deutsch"
         languageCode        = "de"
         contentDir          = "content/de"
-        weigth              = 0
+        weight              = 2
         title               = "Vorstellung"
-        firstName           = "Hallo, ich bin Vorstellung"
-        tagLine             = "Ich bin ein Hugo Theme"
-        description         = "Beschreibung der Webseite"
-        footerText          = ""
-        dateForm            = "2. January 2006"
+        [languages.de.params]
+            description         = "Beschreibung der Webseite"
+            footerText          = ""
+            dateForm            = "2. January 2006"

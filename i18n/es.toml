@@ -2,8 +2,6 @@
     other = "404"
 [404_description]
     other = "Oops! O bien encontraste un bug (en cuyo caso, [por favor avisame](mailto:{{ .Site.Params.email }})) o simplemente estas inventando cosas. Esta página no existe!"
-[index_avatarAlt]
-    other = "Mi foto de perfil"
 [index_blog_latestPosts]
     other = "Últimas Entradas"
 [index_blog_allPosts]

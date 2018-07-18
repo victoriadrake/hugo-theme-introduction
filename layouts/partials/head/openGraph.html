@@ -6,8 +6,12 @@
 
 {{ with .Resources.ByType "image" }}
 {{ range first 5 (sort . "Params.weight") }}
-<meta property="og:image" content="{{ .Permalink }}"/>
+<meta property="og:image" content="{{ .RelPermalink }}"/>
 {{ end }}
 {{ else }}
-<meta property="og:image" content="{{ .Site.Params.avatar | absURL }}"/>
+{{ with .Site.GetPage "page" "home" }}
+{{ range first 5 (.Resources.ByType "image") }}
+<meta property="og:image" content="{{ .RelPermalink }}"/>
+{{ end }}
+{{ end }}
 {{ end }}

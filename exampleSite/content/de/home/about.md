@@ -1,5 +1,7 @@
 ---
 title: "Über mich"
+image: "profile.jpg"
+weight: 0
 ---
 
 Dies ist **Vorstellung**, ein minimales Webseiten Theme für [Hugo](https://gohugo.io)

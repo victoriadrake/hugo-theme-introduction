@@ -1,5 +1,7 @@
 ---
 title: "About"
+image: "profile.jpg"
+weight: 0
 ---
 
 This is **Introduction**, a minimal scrolling website theme made for [Hugo](https://gohugo.io)
