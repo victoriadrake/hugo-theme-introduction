@@ -1,5 +1,7 @@
-# <a href="https://vickylai.com/introduction/" target="_blank" rel="noopener">Introduction theme for Hugo</a>
+# Introduction theme for Hugo
+
 [![Build Status](https://travis-ci.com/vickylai/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/vickylai/hugo-theme-introduction)
+![Latest Release](https://img.shields.io/github/tag/vickylai/hugo-theme-introduction.svg)
 
 A minimal, smooth-scrolling theme for Hugo. Can be configured as a single page site or full-featured site with many sections.
 
@@ -15,17 +17,22 @@ Features:
 - Smooth scroll-to-section navigation
 - Responsive and fast
 
-# Quick start
+## Quick start
 
-## Get the theme
+### Get the theme
 
-From the root of your Hugo site:
+Run from the root of your Hugo site:
 ```sh
-$ cd themes
-$ git clone https://github.com/vickylai/hugo-theme-introduction.git introduction
+$ git clone https://github.com/vickylai/hugo-theme-introduction.git themes/introduction
 ```
 
-## Configure your site
+Alternatively you can include this repository as a [git submodule](https://git-scm.com/book/de/v1/Git-Tools-Submodule). This makes it easier to update this theme if you have your Hugo site in git as well. For this you need to run:
+
+```sh
+$ git submodule add https://github.com/vickylai/hugo-theme-introduction.git themes/introduction
+```
+
+### Configure your site
 
 From the exampleSite, copy `config.toml` to the root folder of your Hugo site and change the fields as you like.
 
@@ -36,11 +43,9 @@ Important bits:
 1. Set the desired `introHeight` for your main page (use "medium", "large", or "fullheight")
 1. Choose a "light" or "dark" `themeStyle`
 1. Set your `avatar` image
-1. Choose whether or not to `showBlog` on the main page
-1. Choose whether or not to `showProjects` on the main page
 1. Input your social site urls and font-awesome icon names - use as many as you like
 
-## Create About and Contact pages
+### Create About and Contact pages
 
 Run:
 ```sh
@@ -49,7 +54,7 @@ $ hugo new contact.md
 ```
 Then edit the markdown files with the content you'd like shown in your main page's About and Contact sections.
 
-## Preview your site locally
+### Preview your site locally
 
 Use Hugo's built-in server to see your site in action as you make changes.
 
@@ -94,24 +99,13 @@ If you don't specify a `title`, only the photo will show. You can still add cont
 
 If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
 
-# Contributing
+## Contributing
 
 Pull requests for bug fixes and suggestions are welcome.
 
 Contributors are listed in [CHANGELOG.md](https://github.com/vickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤
 
-# License
-Copyright (C) 2018 Vicky Lai
+## License
+Copyright (C) 2018 [Vicky Lai](https://vickylai.com/introduction/)
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+Licensed under [AGPL-3.0](https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE)
