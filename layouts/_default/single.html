@@ -23,7 +23,7 @@
                 <!-- Begin content -->
                 {{ if .Params.image }}
                 <div class="has-text-centered">
-                    <img src="{{ .Params.image }}" class="img-responsive">
+                    <img src="{{ .Params.image | relURL }}" class="img-responsive">
                 </div>
                 {{ end }} {{ .Content }}
             </div>
