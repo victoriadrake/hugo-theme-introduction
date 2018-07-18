@@ -40,7 +40,6 @@
                 {{ with .Site.GetPage "page" "home" }}
                 {{ $home := . }}
                 {{ range sort (.Resources.ByType "page") "Params.weight" }}
-
                 {{ if ne .Name "contact.md" }}
                 <!-- Range through all sections in /home execept contact.md -->
                 <div class="section" id="{{ .File.TranslationBaseName }}">

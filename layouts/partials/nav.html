@@ -39,8 +39,13 @@
             {{ if not $isHome }}
             <a class="navbar-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
-            {{ with .Site.GetPage "page" "about" }}
+
+            {{ with .Site.GetPage "page" "home" }}
+            {{ range sort (.Resources.ByType "page") "Params.weight" }}
+            {{ if ne .Name "contact.md" }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            {{ end }}
+            {{ end }}
             {{ end }}
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
@@ -77,8 +82,10 @@
             {{ end }}
             {{ end }}
 
-            {{ with .Site.GetPage "page" "contact" }}
+            {{ with .Site.GetPage "page" "home" }}
+            {{ with .Resources.GetMatch "contact.md" }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            {{ end }}
             {{ end }}
 
             {{ if gt (len  $.Site.Home.AllTranslations.ByWeight) 1 }}
