@@ -22,10 +22,3 @@ $(document).keypress(function(e) {
         $('.modal.is-active').removeClass('is-active');
     }
 });
-
-{{ if and .Site.Params.localTime .Page.IsHome }}
-$(document).ready(function() {
-    var time = moment().tz("{{ .Site.Params.timeZone }}").format("h:mm A");
-    $('#time').html(time);
-})
-{{ end }}
