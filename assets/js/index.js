@@ -20,5 +20,6 @@ $('.modal-close').click(function () {
 $(document).keypress(function(e) {
     if(e.which == 0) {
         $('.modal.is-active').removeClass('is-active');
+        $("html").removeClass("modal-open");
     }
 });
