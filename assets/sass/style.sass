@@ -1,5 +1,6 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
-$fa-font-path: "/fonts/fontawesome-free/webfonts"
+$fa-font-path: {{ "/fonts/fontawesome-free/webfonts" | relURL }}
+$nunito-font-path: {{ "/fonts/NunitoSans" | relURL }}
 
 @import "bulma-import"
 @import "../vendor/fontawesome-free/scss/fontawesome.scss"
