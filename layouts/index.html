@@ -34,7 +34,7 @@
             {{ end }}
 
             <!-- Done with Hero -->
-            <div class="section no-padding-top {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+            <div class="{{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
                 <!-- Tell them all about it! -->
                 {{ partial "nav.html" . }}
 

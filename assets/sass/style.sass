@@ -2,12 +2,10 @@
 $fa-font-path: {{ "/fonts/fontawesome-free/webfonts" | relURL }}
 $nunito-font-path: {{ "/fonts/NunitoSans" | relURL }}
 
-@import "bulma-import"
-@import "../vendor/fontawesome-free/scss/fontawesome.scss"
-@import "../vendor/fontawesome-free/scss/fa-brands.scss"
-@import "../vendor/fontawesome-free/scss/fa-solid.scss"
 @import "fonts"
-@import "base-variables"
 @import "{{ $themeStyle }}-variables"
+@import "base-variables"
+@import "bulma-import"
+@import "fontawesome-import"
 @import "base"
 @import "{{ $themeStyle }}-style"
