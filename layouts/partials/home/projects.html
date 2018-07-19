@@ -58,9 +58,22 @@
             {{ end }}
 
             {{ with .Resources.ByType "image" }}
-            {{ range first 1 (sort . "Params.weight") }}
-            {{ $image := .Resize "640x"  }}
-            <img src="{{ $image.Permalink }}" alt ="{{ $image.Name }}">
+            {{ $moreThenOneImage := gt (len .) 1 }}
+            {{ if $moreThenOneImage }}
+            <div class="owl-carousel owl-theme">
+            {{ end }}
+                {{ range sort . "Params.weight" }}
+                    {{ $image := .Resize "640x" }}
+                    {{ if $moreThenOneImage }}
+                    <div class="item owl-height">
+                    {{ end }}
+                        <img src="{{ $image.RelPermalink }}" class="img-responsive" alt="{{ $image.Name }}">
+                    {{ if $moreThenOneImage }}
+                    </div>
+                    {{ end }}
+                {{ end }}
+            {{ if $moreThenOneImage }}
+            </div>
             {{ end }}
             {{ end }}
 
