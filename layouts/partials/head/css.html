@@ -12,5 +12,5 @@
 
 <!-- Custom css -->
 {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ . | relURL }}">
+    <link rel="stylesheet" href="{{ . | absURL }}">
 {{- end }}

@@ -6,11 +6,11 @@
         <h2 class="title is-2 has-text-centered">{{ i18n "index_blog_latestPosts" . }}</h2>
             {{ range first 1 .Pages.ByPublishDate.Reverse }}
             <div class="summary">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}
-                <h3 class="title is-3 latest-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <h3 class="title is-3 latest-post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
                     <div class="markdown">
                     {{ .Summary }}
                     {{ if .Truncated }}
-                    <a href="{{ .RelPermalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                    <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
                     {{ end }}
                     </div>
             </div>
@@ -21,7 +21,7 @@
             {{ partialCached "blog/li.html" . }}
         {{ else }}
         <div class="container has-text-centered top-pad">
-            <a href="{{ .RelPermalink }}">{{ i18n "index_blog_allPosts" . }}</a>
+            <a href="{{ .Permalink }}">{{ i18n "index_blog_allPosts" . }}</a>
         </div>
         {{ end }}
     </div>

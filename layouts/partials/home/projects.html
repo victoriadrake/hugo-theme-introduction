@@ -30,6 +30,7 @@
                         </div>
                         <div class="card-content has-text-centered top-pad">
                             <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                {{ .Params.external_link }}
                                 {{ .Title }}
                             </a>
                         </div>
@@ -40,7 +41,7 @@
         </div>
         {{ if lt $numberOfProjectsToShow $totalProjects }}
         <div class="container has-text-centered top-pad">
-            <a href="{{ .RelPermalink }}">{{ i18n "index_projects_allProjects" . }}</a>
+            <a href="{{ .Permalink }}">{{ i18n "index_projects_allProjects" . }}</a>
         </div>
         {{ end }}
     </div>
@@ -67,7 +68,7 @@
                     {{ if $moreThenOneImage }}
                     <div class="item owl-height">
                     {{ end }}
-                        <img src="{{ $image.RelPermalink }}" class="img-responsive" alt="{{ $image.Name }}">
+                        <img src="{{ $image.Permalink }}" class="img-responsive" alt="{{ $image.Name }}">
                     {{ if $moreThenOneImage }}
                     </div>
                     {{ end }}

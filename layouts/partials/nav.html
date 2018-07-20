@@ -37,13 +37,13 @@
             {{ else }}
             <!-- use default menu -->
             {{ if not $isHome }}
-            <a class="navbar-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
+            <a class="navbar-item" href="{{ "/" | absLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
 
             {{ with .Site.GetPage "page" "home" }}
             {{ range sort (.Resources.ByType "page") "Params.weight" }}
             {{ if ne .Name "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
             {{ end }}
@@ -54,7 +54,7 @@
             {{ if $isHome }}
             <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
-            <a class="navbar-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInProjects }}
                 {{ i18n "nav_backToSection" . }}
                 {{ else }}
@@ -71,7 +71,7 @@
             {{ if $isHome }}
             <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
             {{ else }}
-            <a class="navbar-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInBlog }}
                 Back to {{ .Title | singularize}}
                 {{ else }}
@@ -84,7 +84,7 @@
 
             {{ with .Site.GetPage "page" "home" }}
             {{ with .Resources.GetMatch "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
 
