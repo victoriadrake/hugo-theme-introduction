@@ -1,16 +1,18 @@
-{{ $file := "sass/style.sass"  }}
+{{ $bundleRaw := resources.Get "sass/style.sass" | resources.ExecuteAsTemplate "style/main.tmp.css" . }}
+
 {{ if .Site.IsServer }}
 {{ $cssOpts := (dict "targetPath" "styles/main.css" "enableSourceMap" true ) }}
-{{ $styles := resources.Get $file  | resources.ExecuteAsTemplate "style/main.tmp.css" . | toCSS $cssOpts }}
-<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+{{ $bundle := $bundleRaw | toCSS $cssOpts }}
+<link rel="stylesheet" href="{{ $bundle.Permalink }}" media="screen">
 {{ else }}
 {{ $cssOpts := (dict "targetPath" "styles/main.css" ) }}
 {{ $postCSSOpts := (dict "use" "autoprefixer" ) }}
-{{ $styles := resources.Get $file  | resources.ExecuteAsTemplate "style/main.tmp.css" . | toCSS $cssOpts | postCSS $postCSSOpts | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+{{ $bundle := $bundleRaw | toCSS $cssOpts | postCSS $postCSSOpts | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}" media="screen">
 {{ end }}
 
 <!-- Custom css -->
 {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ $style := resources.Get . }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">
 {{- end }}
