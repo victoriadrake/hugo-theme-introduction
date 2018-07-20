@@ -10,17 +10,18 @@ DefaultContentLanguage           = "en"                    # Default language fo
     showRSSButton                = false                   # Show rss button in navigation
     fadeIn                       = true                    # Turn on/off the fade-in effect
     dateFormat                   = "Jan 2, 2006"
-    customCSS                    = ["css/foo.css"]         # Include custom css files
+    email                        = "youremail@email.com"   # E-mail address for contact section
+    # customCSS                    = ["foo.css"]             # Include custom css files
 
     # Configure the home page
     [params.home]
-        introHeight             = "large"                  # Input either "medium" or "large" or "fullheight"
-        showLatest              = true                     # Show latest blog post summary
-        showAllPosts            = false                    # Set true to list all posts on home page, or set false to link to separate blog list page
-        numberOfProjectsToShow  = 3                        # Maximum number of projects to show on home page. Unset or comment out to show all projects
-        email                   = "youremail@email.com"    # Shows in contact section, or leave blank to omit
-        localTime               = true                     # Show your current local time in contact section
-        timeZone                = "America/Los_Angeles"    # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        introHeight              = "large"                 # Input either "medium" or "large" or "fullheight"
+        showLatest               = true                    # Show latest blog post summary
+        showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
+        numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
+
+        localTime                = true                    # Show your current local time in contact section
+        timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
     # Share buttons on blog post pages
     [params.share]
