@@ -1,80 +1,85 @@
-baseURL                     = "https://example.org/"            # Your domain name. Must end with "/"
-DefaultContentLanguage      = "en"
-theme                       = "introduction"
-# disqusshortname           = ""                                # Enable Disqus for comments https://gohugo.io/content-management/comments
-# googleAnalytics           = ""                                # Enable Google Analytics https://gohugo.io/templates/internal/#google-analytics
+baseURL                          = "https://example.org/"  # Your domain name. Must end with "/"
+theme                            = "introduction"
+DefaultContentLanguage           = "en"                    # Default language for multilingual sites
+# disqusshortname                 = ""                       # https://gohugo.io/content-management/comments
+# googleAnalytics                 = ""                       # https://gohugo.io/templates/internal/#google-analytics
 
 [params]
-    introHeight             = "large"                           # Input either 'medium' or 'large' or 'fullheight'
-    themeStyle              = "light"                           # Choose 'light' or 'dark'
-    faviconFile             = "img/fav.ico"
-    email                   = "youremail@email.com"             # Shows in contact section, or leave blank to omit
-    localTime               = true                              # Show your current local time in contact section
-    timeZone                = "America/Los_Angeles"             # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    dateForm                = "Jan 2, 2006"
-    fadeIn                  = true                              # Turn on/off the fade-in effect
-    showRSSButton           = true                              # Show rss button in navigation
-    customCSS               = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
+    themeStyle                   = "light"                 # Choose "light" or "dark"
+    favicon                      = "/img/fav.ico"          # Path to favicon file
+    showRSSButton                = false                   # Show rss button in navigation
+    fadeIn                       = true                    # Turn on/off the fade-in effect
+    dateFormat                   = "Jan 2, 2006"
+    customCSS                    = ["css/foo.css"]         # Include custom css files
 
-    showAllPosts            = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
-    showLatest              = true                              # Show latest blog post summary
+    # Configure the home page
+    [params.home]
+        introHeight             = "large"                  # Input either "medium" or "large" or "fullheight"
+        showLatest              = true                     # Show latest blog post summary
+        showAllPosts            = false                    # Set true to list all posts on home page, or set false to link to separate blog list page
+        numberOfProjectsToShow  = 3                        # Maximum number of projects to show on home page. Unset or comment out to show all projects
+        email                   = "youremail@email.com"    # Shows in contact section, or leave blank to omit
+        localTime               = true                     # Show your current local time in contact section
+        timeZone                = "America/Los_Angeles"    # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
     # Share buttons on blog post pages
-    shareButtons            = true                              # Show "Share this:" social buttons
-    shareTwitter            = true
-    shareFacebook           = true
-    sharePinterest          = false
-    shareGooglePlus         = true
+    [params.share]
+        twitter                 = true
+        facebook                = true
+        googlePlus              = true
+        pinterest               = true
 
-    numberOfProjectsToShow  = 3                                 # Maximum number of projects to show on home page. Unset or comment out to show all projects.
+    # Social icons appear in introduction and contact section. Add as many more as you like.
+    # Find icon names here: https://fontawesome.com/cheatsheet/
+    [[params.social]]
+        url   = "https://twitter.com/"
+        icon  = "twitter"
+    [[params.social]]
+        url   = "https://facebook.com/"
+        icon  = "facebook-f"
+    [[params.social]]
+        url   = "https://linkedin.com/"
+        icon  = "linkedin-in"
 
-# Social icons appear in introduction and contact section. Add as many more as you like.
-# Find icon names here: http://fontawesome.io/cheatsheet/
-[[params.social]]
-    url  = "https://twitter.com/"
-    icon = "twitter"
-[[params.social]]
-    url  = "https://facebook.com/"
-    icon = "facebook-f"
-[[params.social]]
-    url  = "https://linkedin.com/"
-    icon = "linkedin-in"
-
-# If you don`t want to use the default menu, you can define one by yoursel
+# If you don`t want to use the default menu, you can define one by yourself
 # [[menu.main]]
-#     name = "Home"
-#     url = "/"
-#     weight = 0
+#     name    = "Home"
+#     url     = "/"
+#     weight  = 0
 # [[menu.main]]
-#     name = "Blog"
-#     url = "/blog"
-#     weight = 1
+#     name    = "Blog"
+#     url     = "/blog/"
+#     weight  = 1
 
+#
 [languages]
     [languages.en]
-        languageName        = "English"
-        languageCode        = "en-us"
-        contentDir          = "content/en"
-        weight              = 0
-        title               = "Introduction"
+        languageName     = "English"
+        languageCode     = "en-us"
+        contentDir       = "content/en"
+        weight           = 0
+        title            = "Introduction"
         [languages.en.params]
-            description         = "Website Description"             # Max 160 characters show in search results
-            footerText          = ""                      # Text to override default footer text (markdown allowed)
+            description  = "Website Description"   # Max 160 characters show in search results
+            # footerText   = ""                      # Text to override default footer text (markdown allowed)
+
     [languages.es]
-        languageName        = "Español"
-        languageCode        = "es"
-        contentDir          = "content/es"
-        weight              = 1
-        title               = "Introducción"
+        languageName     = "Español"
+        languageCode     = "es"
+        contentDir       = "content/es"
+        weight           = 1
+        title            = "Introducción"
         [languages.es.params]
-            description         = "Descripcion del sitio web"
-            footerText          = ""
+            description  = "Descripcion del sitio web"
+            # footerText   = ""
+
     [languages.de]
-        languageName        = "Deutsch"
-        languageCode        = "de"
-        contentDir          = "content/de"
-        weight              = 2
-        title               = "Vorstellung"
+        languageName     = "Deutsch"
+        languageCode     = "de"
+        contentDir       = "content/de"
+        weight           = 2
+        title            = "Vorstellung"
         [languages.de.params]
-            description         = "Beschreibung der Webseite"
-            footerText          = ""
-            dateForm            = "2. January 2006"
+            dateForm     = "2. January 2006"
+            description  = "Beschreibung der Webseite"
+            # footerText   = ""

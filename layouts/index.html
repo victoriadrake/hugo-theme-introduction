@@ -10,7 +10,7 @@
     <body>
         <div id="top">
             {{ with .Site.GetPage "page" "home" }}
-            <div class="hero is-{{ .Site.Params.introHeight | default "fullheight" }}">
+            <div class="hero is-{{ .Site.Params.home.introHeight | default "large" }}">
                 <!-- Super sweet Hero body title -->
                 <div class="hero-body">
                     <div class="container has-text-centered">
@@ -83,12 +83,12 @@
                         <div class="markdown">
                             {{ .Content }}
                         </div>
-                        {{ if .Site.Params.localTime }}
+                        {{ if .Site.Params.home.localTime }}
                          <p>{{ i18n "index_currentTime" . }} <span id='time'></span>.</p>
                         {{ end }}
-                        {{ if .Site.Params.email }}
+                        {{ with .Site.Params.home.email }}
                         <h3 class="subtitle is-3 has-text-centered top-pad">
-                            <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+                            <a href="mailto:{{ . }}">{{ . }}</a>
                         </h3>
                         {{ end }}
                         {{ partial "home/social.html" . }}
@@ -107,5 +107,14 @@
         <!-- End of fade in three section -->
         {{ partial "footer/scripts.html" . }}
         {{ partial "js/owlCarousel.html" . }}
+
+        {{ if .Site.Params.home.localTime }}
+        {{ $momentjs := resources.Get "vendor/momentjs/moment.min.js" }}
+        {{ $momentTimezone := resources.Get "vendor/momentjs/moment-timezone.min.js" }}
+        {{ $momentTimezoneWithData := resources.Get "vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
+        {{ $initMomentjs := resources.Get "js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
+        {{ $bundleMoment := slice $momentjs $momentTimezone $momentTimezoneWithData $initMomentjs | resources.Concat "/js/bundleMoment.js" | fingerprint }}
+        <script src="{{ $bundleMoment.Permalink }}" integrity="{{ $bundleMoment.Data.Integrity }}"></script>
+        {{ end }}
     </body>
 </html>
