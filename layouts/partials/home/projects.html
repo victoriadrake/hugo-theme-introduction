@@ -1,4 +1,4 @@
-{{ with .Site.GetPage "section" "projects" }}
+{{ with .Site.GetPage "section" "/projects" }}
 <div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
@@ -8,7 +8,7 @@
         <div class="section is-small">
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
-                {{ $numberOfProjectsToShow := .Site.Params.numberOfProjectsToShow | default $totalProjects }}
+                {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
                 {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
                 {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
                 <div class="column is-half">

@@ -9,7 +9,7 @@
 <meta property="og:image" content="{{ .Permalink }}"/>
 {{ end }}
 {{ else }}
-{{ with .Site.GetPage "page" "home" }}
+{{ with .Site.GetPage "page" "/home" }}
 {{ range first 5 (.Resources.ByType "image") }}
 <meta property="og:image" content="{{ .Permalink }}"/>
 {{ end }}
