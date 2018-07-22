@@ -1,5 +1,7 @@
 {{ define "title" }}
-    <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "/blog").Title }}</h1>
+{{ with .Site.GetPage "section" "/blog" }}
+    <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ end }}
 {{ end }}
 
 {{ define "main" }}
