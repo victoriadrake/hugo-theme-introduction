@@ -5,12 +5,12 @@
         <h2 class="title is-2 has-text-centered">
             {{ .Title }}
         </h2>
-        <div class="section is-small">
+        <div class="section">
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
                 {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
                 {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
-                {{ if eq (mod $numberOfProjectsToShow 2) 0 }}
+                {{ if .Site.Params.projects.useTwoColumns }}
                 {{ .Scratch.Set "width" "490x" }}
                 <div class="column is-half">
                 {{ else }}

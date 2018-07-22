@@ -22,13 +22,15 @@ DefaultContentLanguage           = "en"                    # Default language fo
 
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    [params.projects]
+        useTwoColumns            = false                   # Use a layout with two columns instead of three
 
     # Share buttons on blog post pages
     [params.share]
-        twitter                 = true
-        facebook                = true
-        googlePlus              = true
-        pinterest               = true
+        twitter                  = true
+        facebook                 = true
+        googlePlus               = true
+        pinterest                = true
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Find icon names here: https://fontawesome.com/cheatsheet/
