@@ -54,9 +54,9 @@
             {{ $totalProjects := (len .Pages) }}
             {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
             {{ if $isHome }}
-            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
             {{ else if le $totalProjects $numberOfProjectsToShow }}
-            <a class="navbar-item" href="/#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ printf "/#%s" (.Title | urlize) | relLangURL }}">{{ .Title }}</a>
             {{ else }}
             <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInProjects }}
@@ -73,7 +73,7 @@
             {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "section" "/blog" }}
             {{ if $isHome }}
-            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
             {{ else }}
             <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInBlog }}
