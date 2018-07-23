@@ -40,7 +40,7 @@
             <a class="navbar-item" href="{{ "/" | absLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
 
-            {{ with .Site.GetPage "page" "/home" }}
+            {{ with .Site.GetPage "/home" }}
             {{ range sort (.Resources.ByType "page") "Params.weight" }}
             {{ if ne .Name "contact.md" }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
@@ -50,7 +50,7 @@
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
             {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "section" "/projects" }}
+            {{ with .Site.GetPage "/projects" }}
             {{ $totalProjects := (len .Pages) }}
             {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
             {{ if $isHome }}
@@ -71,7 +71,7 @@
 
             {{ $pageIsInBlog := eq .Page.Section "blog"}}
             {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "section" "/blog" }}
+            {{ with .Site.GetPage "/blog" }}
             {{ if $isHome }}
             <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
             {{ else }}
@@ -86,7 +86,7 @@
             {{ end }}
             {{ end }}
 
-            {{ with .Site.GetPage "page" "/home" }}
+            {{ with .Site.GetPage "/home" }}
             {{ with .Resources.GetMatch "contact.md" }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}

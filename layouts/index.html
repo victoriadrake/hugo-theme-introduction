@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="top">
-            {{ with .Site.GetPage "page" "/home" }}
+            {{ with .Site.GetPage "/home" }}
             <div class="hero is-{{ .Site.Params.home.introHeight | default "large" }}">
                 <!-- Super sweet Hero body title -->
                 <div class="hero-body">
@@ -38,7 +38,7 @@
                 <!-- Tell them all about it! -->
                 {{ partial "nav.html" . }}
 
-                {{ with .Site.GetPage "page" "/home" }}
+                {{ with .Site.GetPage "/home" }}
                 {{ $home := . }}
                 {{ range sort (.Resources.ByType "page") "Params.weight" }}
                 {{ if ne .Name "contact.md" }}
