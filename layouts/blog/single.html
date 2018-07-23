@@ -42,6 +42,14 @@
             {{ end }}
         </div>
         {{ end }}
+        {{ if .Params.tags }}
+        <p>
+            Tag{{ if gt (len .Params.tags) 1 }}s{{ end }}:
+            {{ range $index, $tag := .Params.tags }}
+            {{ if gt $index 0 }}, {{ end }}<a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+        </p>
+        {{ end }}
     </div>
     <!-- Begin blog post content -->
     <div class="container markdown top-pad">

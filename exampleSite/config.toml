@@ -54,7 +54,11 @@ DefaultContentLanguage           = "en"                    # Default language fo
 #     url     = "/blog/"
 #     weight  = 1
 
-#
+# We only use tag as a taxonomies
+# You can add more by yourself
+[taxonomies]
+  tag = "tags"
+
 [languages]
     [languages.en]
         languageName     = "English"
@@ -83,6 +87,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
         weight           = 2
         title            = "Vorstellung"
         [languages.de.params]
-            dateForm     = "2. January 2006"
+            dateFormat   = "2. January 2006"
             description  = "Beschreibung der Webseite"
             # footerText   = ""

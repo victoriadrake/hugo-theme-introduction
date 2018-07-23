@@ -1,12 +1,9 @@
 {{ define "title" }}
-    <h1 class="bold-title is-1">Tagged "{{ lower .Title }}"</h1>
+    <h1 class="bold-title is-1">{{ .Data.Singular | humanize }}: {{ lower .Title }}</h1>
 {{ end }}
 
 {{ define "main" }}
     <div class="container">
-        <article>
-            {{ .Content }}
-        </article>
         <ul>
             {{ range .Pages.ByPublishDate.Reverse }}
             <li>
