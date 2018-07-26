@@ -1,2 +1,3 @@
-<!-- Icon -->
-<link rel="shortcut icon" href="{{ .Site.Params.faviconFile | default "img/favicon.ico" | relURL }}">
+{{ with .Site.Params.favicon }}
+<link rel="shortcut icon" href="{{ . | absURL }}">
+{{ end }}

@@ -1,12 +1,9 @@
 {{ define "main" }}
     <div class="container">
-        <article>
-            {{ .Content }}
-        </article>
         <div class="section tags-list">
-            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <a class="tag-cloud" href="{{"tags/" | relLangURL }}{{ $name | urlize }}">{{ lower $name }}&nbsp;({{ len $taxonomy }})</a>
-            {{ end }}
+            {{- range $key, $value:= .Data.Terms -}}
+            <a class="tag-cloud" href="{{ "/" | absLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">{{  $key }}&nbsp;({{ $value.Count }})</a>
+            {{- end -}}
         </div>
     </div>
 {{ end }}

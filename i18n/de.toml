@@ -1,9 +1,7 @@
 [404_title]
     other = "404"
 [404_description]
-    other = "Oop! Endweder hast du einen Fehler gefunden ([dann kontaktiere mich bitte](mailto:{{ .Site.Params.email }})) oder du versucht etwas zu finden, was es nicht gibt. Diese Seite exisiert nicht!"
-[index_avatarAlt]
-    other = "Mein Profil Bild"
+    other = "Oop! Endweder hast du einen Fehler gefunden{{ with .Site.Params.email }} ([dann kontaktiere mich bitte](mailto:{{ . }})) {{ end }} oder du versucht etwas zu finden, was es nicht gibt. Diese Seite exisiert nicht!"
 [index_projects_allProjects]
     other = "Alle Projekte"
 [index_blog_latestPosts]

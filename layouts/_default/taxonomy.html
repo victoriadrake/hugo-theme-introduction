@@ -1,16 +1,13 @@
 {{ define "title" }}
-    <h1 class="bold-title is-1">Tagged "{{ lower .Title }}"</h1>
+    <h1 class="bold-title is-1">{{ .Data.Singular | humanize }}: {{ lower .Title }}</h1>
 {{ end }}
 
 {{ define "main" }}
     <div class="container">
-        <article>
-            {{ .Content }}
-        </article>
         <ul>
-            {{ range .Pages.ByPublishDate }}
+            {{ range .Pages.ByPublishDate.Reverse }}
             <li>
-                <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
+                <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title }}</a>
             </li>
             {{ end }}
         </ul>

@@ -1,7 +1,7 @@
 ---
 title: "Startup Ipsum - Español"
 date: 2017-11-06T12:04:06-05:00
-tags: ['code','ipsum','words']
+tags: ["code", "ipsum", "words"]
 ---
 
 SpaceTeam affordances quantitative vs. qualitative SpaceTeam physical computing earned media thinker-maker-doer pair programming. Bootstrapping pitch deck physical computing driven cortado human-centered design innovate human-centered design driven. Grok pitch deck fund pitch deck sticky note affordances minimum viable product integrate paradigm viral iterate. Driven fund thought leader personas workflow SpaceTeam viral pair programming physical computing intuitive 360 campaign latte bootstrapping minimum viable product. Bootstrapping physical computing responsive pitch deck SpaceTeam parallax long shadow pitch deck bootstrapping ideate.

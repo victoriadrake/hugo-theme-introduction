@@ -2,12 +2,11 @@
     <div class="container markdown top-pad">
         {{ .Content }}
     </div>
-    <!-- Begin container -->
     <div class="container">
         <ul>
-            {{ range .Pages.ByPublishDate }}
+            {{ range .Pages.ByPublishDate.Reverse }}
             <li>
-                <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
+                <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title }}</a>
             </li>
             {{ end }}
         </ul>

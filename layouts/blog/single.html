@@ -1,5 +1,7 @@
 {{ define "title" }}
-    <h1 class="bold-title is-1">{{ (.Site.GetPage "section" "blog").Title }}</h1>
+{{ with .Site.GetPage "/blog" }}
+    <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ end }}
 {{ end }}
 
 {{ define "main" }}
@@ -8,37 +10,45 @@
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h2>
         <div class="post-data">
-            {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} |
+            {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} |
             {{ i18n "blog_readingTime" .ReadingTime }}
         </div>
-        {{ if .Site.Params.shareButtons }}
+        {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
         <div class="blog-share">
             {{ i18n "blog_shareThis" . }}:
-            {{ if .Site.Params.shareTwitter }}
+            {{ if .Site.Params.share.twitter }}
             <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
                 <span class="hidden">Twitter</span>
             </a>
             {{ end }}
-            {{ if .Site.Params.shareFacebook }}
+            {{ if .Site.Params.share.facebook }}
             <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fab fa-facebook-f"></i>
                 <span class="hidden">Facebook</span>
             </a>
             {{ end }}
-            {{ if .Site.Params.sharePinterest }}
+            {{ if .Site.Params.share.pinterest }}
             <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
                 <i class="fab fa-pinterest-p"></i>
                 <span class="hidden">Pinterest</span>
             </a>
             {{ end }}
-            {{ if .Site.Params.shareGooglePlus }}
+            {{ if .Site.Params.share.googlePlus }}
             <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                 <i class="fab fa-google-plus-g"></i>
                 <span class="hidden">Google+</span>
             </a>
             {{ end }}
         </div>
+        {{ end }}
+        {{ if .Params.tags }}
+        <p>
+            Tag{{ if gt (len .Params.tags) 1 }}s{{ end }}:
+            {{ range $index, $tag := .Params.tags }}
+            {{ if gt $index 0 }}, {{ end }}<a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+        </p>
         {{ end }}
     </div>
     <!-- Begin blog post content -->

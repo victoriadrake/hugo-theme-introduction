@@ -37,19 +37,28 @@
             {{ else }}
             <!-- use default menu -->
             {{ if not $isHome }}
-            <a class="navbar-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
+            <a class="navbar-item" href="{{ "/" | absLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
-            {{ with .Site.GetPage "page" "about" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+
+            {{ with .Site.GetPage "/home" }}
+            {{ range sort (.Resources.ByType "page") "Params.weight" }}
+            {{ if ne .Name "contact.md" }}
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
+            {{ end }}
+            {{ end }}
             {{ end }}
 
             {{ $pageIsInProjects := eq .Page.Section "projects"}}
             {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "section" "projects" }}
+            {{ with .Site.GetPage "/projects" }}
+            {{ $totalProjects := (len .Pages) }}
+            {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
             {{ if $isHome }}
-            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
+            {{ else if le $totalProjects $numberOfProjectsToShow }}
+            <a class="navbar-item" href="{{ printf "/#%s" (.Title | urlize) | relLangURL }}">{{ .Title }}</a>
             {{ else }}
-            <a class="navbar-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInProjects }}
                 {{ i18n "nav_backToSection" . }}
                 {{ else }}
@@ -62,11 +71,11 @@
 
             {{ $pageIsInBlog := eq .Page.Section "blog"}}
             {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "section" "blog" }}
+            {{ with .Site.GetPage "/blog" }}
             {{ if $isHome }}
-            <a class="navbar-item" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
             {{ else }}
-            <a class="navbar-item" href="{{ .RelPermalink }}">
+            <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInBlog }}
                 Back to {{ .Title | singularize}}
                 {{ else }}
@@ -77,8 +86,10 @@
             {{ end }}
             {{ end }}
 
-            {{ with .Site.GetPage "page" "contact" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | relLangURL }}{{ end }}">{{ .Title }}</a>
+            {{ with .Site.GetPage "/home" }}
+            {{ with .Resources.GetMatch "contact.md" }}
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
+            {{ end }}
             {{ end }}
 
             {{ if gt (len  $.Site.Home.AllTranslations.ByWeight) 1 }}
@@ -95,31 +106,4 @@
     </nav>
     <hr>
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-
-      });
-    });
-  }
-
-});
-</script>
 <!-- End Nav bar -->

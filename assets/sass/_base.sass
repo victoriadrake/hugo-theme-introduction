@@ -1,10 +1,4 @@
-html
-    background-color: $background
-
 body
-    font-size: $body-size
-    font-family: $family-sans-serif
-    color: $body-color
     background-color: $background
 
 html.modal-open
@@ -21,21 +15,12 @@ html.modal-open
     animation: fadeIn ease-in 1
     animation-fill-mode: forwards
     animation-duration: 1s
-
-.fade-in.one
-    animation-delay: 0.7s
-
-.fade-in.two
-    animation-delay: 1.4s
-
-.fade-in.three
-    animation-delay: 1.8s
-
-.section
-    background-color: $background
-
-.hero
-    background-color: $background
+    &.one
+        animation-delay: 0.7s
+    &.two
+        animation-delay: 1.4s
+    &.three
+        animation-delay: 1.8s
 
 a
     color: $primary
@@ -45,20 +30,11 @@ a
     &:active
         color: $primary
 
+h1, h2, .title, .subtitle
+    color: $h-color
+
 .title
-    color: $h-color
     font-weight: 400
-
-.subtitle
-    color: $h-color
-
-h1
-    color: $h-color
-    font-family: $title-stack
-
-h2
-    color: $h-color
-    font-family: $title-stack
 
 ul
     padding: 0
@@ -80,6 +56,9 @@ hr
     border: none
     box-shadow: none
 
+.hidden
+    display: none
+
 .img-responsive
     border-radius: 5px
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4)
@@ -100,22 +79,11 @@ hr
         font-size: 3rem
         text-align: center
 
-.tagline
-    font-size: 2.5rem
-    @include mobile
-        font-size: 1.5rem
-
 .top-pad
     padding-top: 1rem
 
 .bottom-pad
     padding-bottom: 1rem
-
-.no-padding
-    padding: 0
-
-.no-padding-top
-    padding-top: 0
 
 .strong-post-title
     font-weight: $weight-bold
@@ -137,30 +105,15 @@ hr
         vertical-align: baseline
         margin: 0 5px
 
-.navbar
-    background-color: $background
-
 .navbar-burger
     margin-right: auto
 
 .navbar-burger:hover
-    background-color: $background
+    background-color: $navbar-background-color
 
 .navbar-item
     text-transform: uppercase
     font-size: 14px
-
-a.navbar-item:hover
-    color: $secondary
-
-.expanding-menu
-    ul
-        list-style: none
-        display: none
-
-.expanding-menu:hover ul
-    display: block
-    transition: height 1s ease
 
 .social-icons
     padding: 0 10px
@@ -185,7 +138,6 @@ a.navbar-item:hover
     width: 70%
     margin: 0 auto
     text-align: center
-    font-family: $h-color
     font-size: 1.5rem
     @include mobile
         width: 100%
@@ -203,9 +155,6 @@ a.navbar-item:hover
 .card-content
     background-color: $background
     font-size: 1.5rem
-
-.hidden
-    display: none
 
 .markdown
     p
@@ -234,12 +183,8 @@ a.navbar-item:hover
     h6
         font-size: $size-6
     a
-        color: $primary
-        :hover
+        &:hover
             color: $secondary
-            font-style: none
-        :active
-            color: $primary
     ul
         margin-bottom: 1.25rem
         margin-left: 1.5em

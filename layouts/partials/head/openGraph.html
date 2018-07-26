@@ -9,5 +9,9 @@
 <meta property="og:image" content="{{ .Permalink }}"/>
 {{ end }}
 {{ else }}
-<meta property="og:image" content="{{ .Site.Params.avatar | absURL }}"/>
+{{ with .Site.GetPage "page" "/home" }}
+{{ range first 5 (.Resources.ByType "image") }}
+<meta property="og:image" content="{{ .Permalink }}"/>
+{{ end }}
+{{ end }}
 {{ end }}
