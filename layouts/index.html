@@ -73,9 +73,9 @@
                 {{ end }}
                 <!-- Now for some cool projects -->
                 {{ partial "home/projects.html" . }}
-                <!-- Let's show some blog posts -->
+                <!-- Let`s show some blog posts -->
                 {{ partial "home/blog.html" . }}
-                <!-- Let's chat, shall we? -->
+                <!-- Let`s chat, shall we? -->
                 {{ with .Resources.GetMatch "contact.md" }}
                 <div class="section" id="{{ .File.TranslationBaseName }}">
                     <div class="container has-text-centered">
@@ -84,7 +84,7 @@
                             {{ .Content }}
                         </div>
                         {{ if .Site.Params.home.localTime }}
-                         <p>{{ i18n "index_currentTime" . }} <span id='time'></span>.</p>
+                         <p>{{ i18n "index_currentTime" . }} <span id="time"></span>.</p>
                         {{ end }}
                         {{ with .Site.Params.email }}
                         <h3 class="subtitle is-3 has-text-centered top-pad">
