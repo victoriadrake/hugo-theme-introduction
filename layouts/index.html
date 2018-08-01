@@ -8,7 +8,7 @@
         {{ partial "css/owlCarousel.html" . }}
     </head>
     <body>
-        <div id="top">
+        <section id="top" class="section">
             {{ with .Site.GetPage "/home" }}
             <div class="hero is-{{ .Site.Params.home.introHeight | default "large" }}">
                 <!-- Super sweet Hero body title -->
@@ -103,7 +103,7 @@
 
                 {{ partial "footer/text.html" . }}
             </div>
-        </div>
+        </section>
         <!-- End of fade in three section -->
         {{ partial "footer/scripts.html" . }}
         {{ partial "js/owlCarousel.html" . }}
