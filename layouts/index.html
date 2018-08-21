@@ -9,22 +9,22 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <!-- Title and tagline -->
-            <h1 class="bold-title {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
+            <h1 class="bold-title {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }}">
                 Hi, I'm {{ .Site.Params.firstName | default "Introduction" }}.
             </h1>
-            <h3 class="subtitle is-3 {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
+            <h3 class="subtitle is-3 {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
                 {{ .Site.Params.tagLine }}
             </h3>
             <!-- End title and tagline -->
             <!-- Some social icons -->
-            <div class=" {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+            <div class=" {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
                 {{ partial "social.html" . }}
             </div>
             <!-- End top social icons -->
         </div>
     </div> <!-- Hero body title end -->
     <!-- Hero foot has nav bar -->
-    <div class="hero-foot {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+    <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
     <hr>
     <nav class="nav-center">
         {{ if (.Site.GetPage "page" "about") }}
@@ -45,7 +45,7 @@
 </div><!-- Done with Hero -->
 
 <!-- Everything below fades in three! -->
-<div class="section no-padding {{ if .Site.Params.fadeIn | default true }}fade-in three{{ end }}">
+<div class="section no-padding {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
 
 <!-- Tell them all about it! -->
 {{ if (.Site.GetPage "page" "about") }}
