@@ -41,7 +41,11 @@
 
                 <h2 class="title is-2 top-pad">All Posts</h2>
                 <ul>
-                    {{ range .Data.Pages.ByPublishDate }} {{ if eq .Section "blog" }} {{ partial "li.html" . }} {{ end }} {{ end }}
+                    {{ if .Site.Params.reverseAllPosts }}
+                        {{ range .Data.Pages.ByPublishDate.Reverse }} {{ if eq .Section "blog" }} {{ partial "li.html" . }} {{ end }} {{ end }}
+                    {{ else }}
+                        {{ range .Data.Pages.ByPublishDate }} {{ if eq .Section "blog" }} {{ partial "li.html" . }} {{ end }} {{ end }}
+                    {{ end }}
                 </ul>
 
             </div>

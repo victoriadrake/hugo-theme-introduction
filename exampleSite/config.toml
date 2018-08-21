@@ -24,10 +24,12 @@ enforce_ssl                 = false
     faviconFile             = "img/fav.ico"
     footerText              = ""                                # Text to override default footer text (markdown allowed)
     fadeIn                  = true                              # Turn on/off the fade-in effect
+    fadeInIndex             = false                             # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
     customCSS               = []                                # Include custom css files e.g. ["css/foo.css", "css/bar.css"]
 
     showBlog                = true                              # Show Blog section on home page
     showAllPosts            = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
+    reverseAllPosts         = false                             # Set 'true' to list all posts with the newest on top
     showLatest              = true                              # Show latest blog post summary
     # Share buttons on blog post pages
     shareButtons            = true                              # Show "Share this:" social buttons

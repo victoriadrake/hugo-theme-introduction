@@ -34,23 +34,23 @@
                 <div class="blog-share">
                     Share this: {{ if .Site.Params.shareTwitter }}
                     <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                        <i class="fa fa-twitter"></i>
+                        <i class="fab fa-twitter"></i>
                         <span class="hidden">Twitter</span>
                     </a>
                     {{ end }} {{ if .Site.Params.shareFacebook }}
                     <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                        <i class="fa fa-facebook"></i>
+                        <i class="fab fa-facebook"></i>
                         <span class="hidden">Facebook</span>
                     </a>
                     {{ end }} {{ if .Site.Params.sharePinterest }}
                     <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
                         onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-                        <i class="fa fa-pinterest"></i>
+                        <i class="fab fa-pinterest"></i>
                         <span class="hidden">Pinterest</span>
                     </a>
                     {{ end }} {{ if .Site.Params.shareGooglePlus }}
                     <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                        <i class="fa fa-google-plus"></i>
+                        <i class="fab fa-google-plus"></i>
                         <span class="hidden">Google+</span>
                     </a>
                     {{ end }}
