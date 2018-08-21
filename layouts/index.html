@@ -8,7 +8,7 @@
         {{ partial "css/owlCarousel.html" . }}
     </head>
     <body>
-        <div id="top">
+        <section id="top" class="section">
             {{ with .Site.GetPage "/home" }}
             <div class="hero is-{{ .Site.Params.home.introHeight | default "large" }}">
                 <!-- Super sweet Hero body title -->
@@ -73,9 +73,9 @@
                 {{ end }}
                 <!-- Now for some cool projects -->
                 {{ partial "home/projects.html" . }}
-                <!-- Let's show some blog posts -->
+                <!-- Let`s show some blog posts -->
                 {{ partial "home/blog.html" . }}
-                <!-- Let's chat, shall we? -->
+                <!-- Let`s chat, shall we? -->
                 {{ with .Resources.GetMatch "contact.md" }}
                 <div class="section" id="{{ .File.TranslationBaseName }}">
                     <div class="container has-text-centered">
@@ -84,7 +84,7 @@
                             {{ .Content }}
                         </div>
                         {{ if .Site.Params.home.localTime }}
-                         <p>{{ i18n "index_currentTime" . }} <span id='time'></span>.</p>
+                         <p>{{ i18n "index_currentTime" . }} <span id="time"></span>.</p>
                         {{ end }}
                         {{ with .Site.Params.email }}
                         <h3 class="subtitle is-3 has-text-centered top-pad">
@@ -103,16 +103,16 @@
 
                 {{ partial "footer/text.html" . }}
             </div>
-        </div>
+        </section>
         <!-- End of fade in three section -->
         {{ partial "footer/scripts.html" . }}
         {{ partial "js/owlCarousel.html" . }}
 
         {{ if .Site.Params.home.localTime }}
-        {{ $momentjs := resources.Get "vendor/momentjs/moment.min.js" }}
-        {{ $momentTimezone := resources.Get "vendor/momentjs/moment-timezone.min.js" }}
-        {{ $momentTimezoneWithData := resources.Get "vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
-        {{ $initMomentjs := resources.Get "js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
+        {{ $momentjs := resources.Get "/vendor/momentjs/moment.min.js" }}
+        {{ $momentTimezone := resources.Get "/vendor/momentjs/moment-timezone.min.js" }}
+        {{ $momentTimezoneWithData := resources.Get "/vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
+        {{ $initMomentjs := resources.Get "/js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
         {{ $bundleMoment := slice $momentjs $momentTimezone $momentTimezoneWithData $initMomentjs | resources.Concat "/js/bundleMoment.js" | fingerprint }}
         <script src="{{ $bundleMoment.Permalink }}" integrity="{{ $bundleMoment.Data.Integrity }}"></script>
         {{ end }}

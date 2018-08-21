@@ -43,7 +43,7 @@
             {{ with .Site.GetPage "/home" }}
             {{ range sort (.Resources.ByType "page") "Params.weight" }}
             {{ if ne .Name "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | absLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
             {{ end }}
@@ -88,17 +88,17 @@
 
             {{ with .Site.GetPage "/home" }}
             {{ with .Resources.GetMatch "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" .File.TranslationBaseName | absLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | absLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
 
-            {{ if gt (len  $.Site.Home.AllTranslations.ByWeight) 1 }}
             {{ range $.Site.Home.AllTranslations.ByWeight }}
-                <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ if ne .Language.LanguageName $.Language.LanguageName }}
+            <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
             {{ end }}
             {{ end }}
 
-            {{ if and .Site.Params.showRSSButton .Site.RSSLink  }}
+            {{ if and .Site.Params.showRSSButton .Site.RSSLink }}
             <a class="navbar-item" href="{{ .Site.RSSLink }}"><i class="fas fa-rss"></i></a>
             {{ end }}
             {{ end }}

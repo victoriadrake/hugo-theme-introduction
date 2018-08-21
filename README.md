@@ -1,5 +1,4 @@
 # Introduction theme for Hugo
-
 [![Build Status](https://travis-ci.com/vickylai/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/vickylai/hugo-theme-introduction)
 ![Latest Release](https://img.shields.io/github/tag/vickylai/hugo-theme-introduction.svg)
 
@@ -17,10 +16,13 @@ Features:
 - Smooth scroll-to-section navigation
 - Responsive and fast
 
-## Quick start
+## Getting started
+### Requirements
+- [Hugo](https://gohugo.io/getting-started/installing/) extended version 0.45 or greater
+- [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
+- [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
 
 ### Get the theme
-
 Run from the root of your Hugo site:
 ```sh
 $ git clone https://github.com/vickylai/hugo-theme-introduction.git themes/introduction
@@ -33,74 +35,49 @@ $ git submodule add https://github.com/vickylai/hugo-theme-introduction.git them
 ```
 
 ### Configure your site
-
 From the exampleSite, copy `config.toml` to the root folder of your Hugo site and change the fields as you like.
 
-Important bits:
+The following explains how to add content to your hugo site. Introduction ships with an fully configured example site. For a quick preview just go into `exampleSite/` and run `hugo  --themesDir ../..`. If you have configuration problems, you might want to check out how its done in `exampleSite/`.
 
-1. Set `baseURL` to your site's domain and give your site a `title`
-1. Add your `firstName` and `tagLine`
-1. Set the desired `introHeight` for your main page (use "medium", "large", or "fullheight")
-1. Choose a "light" or "dark" `themeStyle`
-1. Set your `avatar` image
-1. Input your social site urls and font-awesome icon names - use as many as you like
+### Home page
+Content for the home page lives under `content/home/`. Create `index.md` (`hugo new home/index.md`) and set a *title*. The content of this file will be shown as a tag line. You might want to set [*headless*](https://gohugo.io/content-management/page-bundles/#headless-bundle) to `true`. You may add more files to the home section. They show up automaticity on the home page and can be ordered via *weight*. You can set *image* for a page to show an image on the left side. The image has to be placed inside `content/home`.
 
-### Create About and Contact pages
+You may add a contact section by creating
+`contact.md` (`hugo new home/contact.md`). This will allways be shown last on the home page.
 
-Run:
-```sh
-$ hugo new about.md
-$ hugo new contact.md
+### Projects section
+Introduction provides an easy way to your projects. You can even add a gallery to your projects. Start by creating an index file (`hugo new projects/_index.md`), which you needs a *title*. You can also add some text.
+
+Now you are ready to add some projects. Jet again, create an index file (`hugo new creating/YourProjectName/index.md`). You can add *external_link* to create a link to a website. Or add images to your project by placing them in the same folder as the index file you just created. If you add more then one photo, a gallery will be created. Images are ordered by there filename. The first image will be used as a project preview image. If you want to change the order of your image, you can do this by adding *weight* to some image via font matter in your index file:
 ```
-Then edit the markdown files with the content you'd like shown in your main page's About and Contact sections.
-
-### Preview your site locally
-
-Use Hugo's built-in server to see your site in action as you make changes.
-
+resources:
+    - src: NameOfYourImage.jpg
+      params:
+          weight: -100
 ```
-$ hugo serve -t introduction
-```
+The projects themself can also be ordered by *weight*.
 
-Visit `localhost:1313` in your browser to see a live preview of your site.
+### Blog section
+Creating a blog section is quite simple with Introduction. Just add an index file for the section (`hugo new blog/_index.md`). Then you can create as many blog entry as you like via (`hugo new blog/YourEntryTitle.md`). They will also automaticity appear on the home page.
 
-## Blog posts
+## Advanced configuration
+### Multilingual Mode
+You can create a multilingual website with Introduction. The default config file even contains all necessary configuration option. You just have to adjust the accordingly.
 
-To create a new blog post, run:
-```
-$ hugo new blog/your-post-title.md
-```
+Introduction ships with some translation. If you want to add a new language, you have to add a necessary translations to `i18n`. See the [hugo documentation](https://gohugo.io/content-management/multilingual/) for more details.
 
-## Projects
+### Menu
+Introduction contains a default menu. If you want to override this, you can do so by defining a *menu.main* in your config file.
 
-To create a new project entry, run:
-```
-$ hugo new projects/your-project-name.md
-```
+### Disqus and Google Analytics
+Introduction supports comments from Disqus. You just have to set *disqusshortname* in your config file.
 
-### Project front matter
+It also offers tracking via Google Analytics. For this to work, you have to set *googleAnalytics*.
 
-Project parameters look like this:
-```
----
-title: "Design"
-date: 2017-11-13T12:21:16-05:00
-image: "img/plant.jpg"
-external_link: ""
-weight: 2
----
-```
-
-Projects are ordered on the main page by `weight` first, then by `date`.
-
-The `image` will show up on the main page and in the project's details view. If you don't specify an image, the `placeholderimg` from your site's `config.toml` file will be used.
-
-If you don't specify a `title`, only the photo will show. You can still add content to the file to "caption" the image, and this will show in the popup. (Great way to create a simple gallery!)
-
-If you leave `external_link` empty, clicking on a project on your main page will pop up a window with the project's details. If you specify a url instead, clicking on the project on your main page will take you to that url.
+## Custom css
+You can add custom css files by placing them under `assets/` and adding the path to your css file to *customCSS* in your config file.
 
 ## Contributing
-
 Pull requests for bug fixes and suggestions are welcome.
 
 Contributors are listed in [CHANGELOG.md](https://github.com/vickylai/hugo-theme-introduction/blob/master/CHANGELOG.md). Thank you so much! 🖤
