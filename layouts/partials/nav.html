@@ -43,7 +43,7 @@
             {{ with .Site.GetPage "/home" }}
             {{ range sort (.Resources.ByType "page") "Params.weight" }}
             {{ if ne .Name "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | absLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
             {{ end }}
@@ -88,7 +88,7 @@
 
             {{ with .Site.GetPage "/home" }}
             {{ with .Resources.GetMatch "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | absLangURL }}{{ end }}">{{ .Title }}</a>
+            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
             {{ end }}
 
