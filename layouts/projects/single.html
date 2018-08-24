@@ -1,0 +1,38 @@
+{{ define "main" }}
+    <div class="container markdown top-pad">
+        {{ with .Resources.ByType "image" }}
+        <div class="has-text-centered">
+            {{ $moreThanOneImage := gt (len .) 1 }}
+            {{ if $moreThanOneImage }}
+            <div class="owl-carousel owl-theme">
+            {{ end }}
+                {{ range sort . "Params.weight" }}
+                    {{ $image := .Resize "1000x" }}
+                    {{ if $moreThanOneImage }}
+                    <div class="item owl-height">
+                    {{ end }}
+                        <img src="{{ $image.RelPermalink }}" class="img-responsive" alt="{{ $image.Name }}">
+                    {{ if $moreThanOneImage }}
+                    </div>
+                    {{ end }}
+                {{ end }}
+            {{ if $moreThanOneImage }}
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ .Content }}
+    </div>
+    <!-- End post content -->
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+{{ end }}
+
+{{ define "customCSS" }}
+{{ partial "css/owlCarousel.html" . }}
+{{ end }}
+
+{{ define "customScripts" }}
+{{ partial "js/owlCarousel.html" . }}
+{{ end }}

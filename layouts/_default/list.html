@@ -1,63 +1,15 @@
-{{ partial "header.html" . }}
-
-<body>
-
-    <div class="section" id="top">
-        <!-- Parent section -->
-        <div class="container hero {{ if .Site.Params.fadeIn }} fade-in one {{ end }}">
-            <!-- Begin Title -->
-            <h1 class="bold-title is-1">{{ .Title }}</h1>
-        </div>
-        <!-- End Title -->
-
-        <!-- Everything below fades in two! -->
-        <div class="section no-padding {{ if .Site.Params.fadeIn }} fade-in two {{ end }}">
-
-            <div class="container">
-                <!-- Begin Nav bar -->
-                {{ partial "nav-list.html" . }}
-            </div>
-            <!-- End Nav bar -->
-
-            <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-                <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
-                {{ .Content }}
-            </div>
-            <div class="container">
-                <ul>
-                    <!-- Ranges through content/*/*.md -->
-                    {{ range .Data.Pages.ByPublishDate }} {{ if not (eq .Section "blog") }}
-                    <li>
-                        <a href="{{.Permalink}}">{{.Date.Format (.Site.Params.dateform | default "Jan 02, 2006") }} | {{.Title}}</a>
-                    </li>
-                    {{ end }} {{ end }}
-                </ul>
-            </div>
-
-            <div class="container has-text-centered top-pad">
-                <hr>
-                <a href="#top">
-                    <i class="fa fa-arrow-up"></i>
-                </a>
-                <hr>
-            </div>
-
-            {{ partial "footer.html" . }}
-        </div>
-        <!-- End fade in two -->
+{{ define "main" }}
+    <div class="container markdown top-pad">
+        {{ .Content }}
     </div>
-    <!-- End parent section -->
-
-    <!-- Bitty scrolling links script -->
-    <script>
-        $('a[href^="{{ .Permalink }}#"]').click(function (e) {
-            e.preventDefault();
-            var target = this.hash;
-            $('html, body').animate({
-                scrollTop: $(target).offset().top
-            }, 500);
-            return false;
-        })
-    </script>
-
+    <div class="container">
+        <ul>
+            {{ range .Pages.ByPublishDate.Reverse }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
 </body>
+{{ end }}

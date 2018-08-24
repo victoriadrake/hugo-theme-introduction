@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{ block "head" . }}
+        {{ partial "head/metadata.html" . }}
+        {{ partial "head/openGraph.html" . }}
+        {{ partial "head/favicons.html" . }}
+        {{ partial "head/css.html" . }}
+        {{ end }}
+        <!-- Include page specific css -->
+        {{ block "customCSS" . }}
+        {{ end }}
+    </head>
+    <body>
+        <section id="top" class="section">
+            <!-- Begin Title -->
+            <div class="container hero {{ if .Site.Params.fadeIn | default true }} fade-in one {{ end }}">
+                {{ block "title" . }}
+                <h1 class="bold-title is-1">{{ .Title }}</h1>
+                {{ end }}
+            </div>
+            <!-- End Title -->
+            <div class="section {{ if .Site.Params.fadeIn | default true }} fade-in two {{ end }}">
+                {{ partial "nav.html" . }}
+
+                {{ block "main" . }}
+                {{ end }}
+
+                {{ block "footer" . }}
+                {{ partial "top-icon-with-hr.html" . }}
+                {{ partial "footer/text.html" . }}
+                {{ end }}
+            </div>
+        </section>
+        {{ block "js-include" . }}
+        {{ partial "footer/scripts.html" . }}
+        {{ end }}
+        <!-- Include page specific scritps -->
+        {{ block "customScripts" . }}
+        {{ end }}
+    </body>
+</html>

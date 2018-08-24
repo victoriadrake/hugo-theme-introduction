@@ -1,3 +1,7 @@
+## Version 4.0.0 - XXX XX 2018
+
+TODO
+
 ## Version 3.4.0 - Jun 24 2018
 
 Changes to Projects display options:
@@ -38,7 +42,7 @@ Bug fixes:
 ## Version 3.3.0 - Mar 25 2018
 
 - Default parameters implemented so theme renders without custom config parameters
-- Local assets placed 
+- Local assets placed
 
 *Thank you very much to @paskal and @Hanzei for your important contributions!*
 

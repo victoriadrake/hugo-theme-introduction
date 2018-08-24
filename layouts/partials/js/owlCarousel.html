@@ -1,0 +1,4 @@
+{{ $owlCarousel := resources.Get "/vendor/owlCarousel/owl.carousel.min.js" }}
+{{ $initOwlCarousel := resources.Get "/js/initOwlCarousel.js" | minify }}
+{{ $bundleOwlCarousel := slice $owlCarousel $initOwlCarousel | resources.Concat "/js/bundleOwlCarousel.js" | fingerprint }}
+<script src="{{ $bundleOwlCarousel.Permalink }}" integrity="{{ $bundleOwlCarousel.Data.Integrity }}"></script>

@@ -1,99 +1,62 @@
-{{ partial "header.html" . }}
+{{ define "title" }}
+{{ with .Site.GetPage "/blog" }}
+    <h1 class="bold-title is-1">{{ .Title }}</h1>
+{{ end }}
+{{ end }}
 
-<body>
-
-    <div class="section" id="top">
-        <!-- Parent section -->
-
-        <div class="container hero {{ if .Site.Params.fadeIn | default true }}fade-in one{{ end }}">
-            <!-- Begin Title -->
-            <h1 class="bold-title is-1">{{ .Site.Params.blogHead | default "Blog" }}</h1>
+{{ define "main" }}
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-data">
+            {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} |
+            {{ i18n "blog_readingTime" .ReadingTime }}
         </div>
-        <!-- End Title -->
-
-        <!-- Everything below fades in two! -->
-        <div class="section {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-
-            <div class="container">
-                <!-- Begin Nav bar -->
-                {{ partial "nav-single.html" . }}
-            </div>
-            <!-- End Nav bar -->
-
-            <div class="container {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }}">
-                <!-- Begin blog title container -->
-                <h2 class="title is-1 top-pad strong-post-title">
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </h2>
-                <div class="post-data">
-                    {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} | {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute
-                    read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
-                </div>
-
-                {{ if .Site.Params.shareButtons }}
-                <div class="blog-share">
-                    Share this: {{ if .Site.Params.shareTwitter }}
-                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                        <i class="fa fa-twitter"></i>
-                        <span class="hidden">Twitter</span>
-                    </a>
-                    {{ end }} {{ if .Site.Params.shareFacebook }}
-                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                        <i class="fa fa-facebook"></i>
-                        <span class="hidden">Facebook</span>
-                    </a>
-                    {{ end }} {{ if .Site.Params.sharePinterest }}
-                    <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
-                        onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-                        <i class="fa fa-pinterest"></i>
-                        <span class="hidden">Pinterest</span>
-                    </a>
-                    {{ end }} {{ if .Site.Params.shareGooglePlus }}
-                    <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                        <i class="fa fa-google-plus"></i>
-                        <span class="hidden">Google+</span>
-                    </a>
-                    {{ end }}
-                </div>
-                {{ end }}
-
-            </div>
-            <!-- End blog title container -->
-
-            <div class="container markdown {{ if .Site.Params.fadeIn | default true }}fade-in two{{ end }} top-pad">
-                <!-- Begin blog post content -->
-                {{ .Content }}
-            </div>
-            <!-- End blog post content -->
-
-            <div class="disqus">
-                {{ template "_internal/disqus.html" . }}
-            </div>
-
-            <div class="container has-text-centered top-pad">
-                <hr>
-                <a href="{{ .Permalink }}#top">
-                    <i class="fa fa-arrow-up"></i>
-                </a>
-                <hr>
-            </div>
-
-            {{ partial "footer.html" . }}
+        {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
+        <div class="blog-share">
+            {{ i18n "blog_shareThis" . }}:
+            {{ if .Site.Params.share.twitter }}
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.share.facebook }}
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fab fa-facebook-f"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.share.pinterest }}
+            <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fab fa-pinterest-p"></i>
+                <span class="hidden">Pinterest</span>
+            </a>
+            {{ end }}
+            {{ if .Site.Params.share.googlePlus }}
+            <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fab fa-google-plus-g"></i>
+                <span class="hidden">Google+</span>
+            </a>
+            {{ end }}
         </div>
-        <!-- End fade in two -->
+        {{ end }}
+        {{ if .Params.tags }}
+        <p>
+            Tag{{ if gt (len .Params.tags) 1 }}s{{ end }}:
+            {{ range $index, $tag := .Params.tags }}
+            {{ if gt $index 0 }}, {{ end }}<a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+        </p>
+        {{ end }}
     </div>
-    <!-- End parent section -->
-
-    <!-- Bitty scrolling links script -->
-    <script>
-        $('a[href^="{{ .Permalink }}#"]').click(function (e) {
-            e.preventDefault();
-            var target = this.hash;
-            $('html, body').animate({
-                scrollTop: $(target).offset().top
-            }, 500);
-            return false;
-        })
-    </script>
-
-</body>
+    <!-- Begin blog post content -->
+    <div class="container markdown top-pad">
+        {{ .Content }}
+    </div>
+    <!-- End blog post content -->
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+{{ end }}
