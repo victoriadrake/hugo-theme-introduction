@@ -36,6 +36,9 @@
         {{ if .Site.Params.showBlog }}
         <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
+        {{ if .Site.Params.showTags }}
+        <a class="nav-item" href="/tags">Tags</a>
+        {{ end }}
         {{ if (.Site.GetPage "page" "contact") }}
         <a class="nav-item" href="#contact">Contact</a>
         {{ end }}

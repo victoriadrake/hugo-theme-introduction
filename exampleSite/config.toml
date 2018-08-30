@@ -29,6 +29,7 @@ enforce_ssl                 = false
     showBlog                = true                              # Show Blog section on home page
     showAllPosts            = false                             # Set 'true' to list all posts on home page, or set 'false' to link to separate blog list page
     showLatest              = true                              # Show latest blog post summary
+    showTags                = false                             # Set 'true' to display a tags link in the menu and list tags on posts
     # Share buttons on blog post pages
     shareButtons            = true                              # Show "Share this:" social buttons
     shareTwitter            = true

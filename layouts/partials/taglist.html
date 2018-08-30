@@ -1,0 +1,7 @@
+{{ if isset .Params "tags" }}
+    {{ $tags := .Params.tags }}
+    {{ $len := (len $tags) }}
+    Tags: {{ range $index, $tag := $tags }}
+    <a href="/tags/{{ $tag | urlize }}">{{ $tag | title }}</a>{{ if ne (add $index 1) $len }},{{ end }}
+    {{ end }}
+{{ end }}

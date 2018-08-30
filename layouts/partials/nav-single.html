@@ -32,6 +32,11 @@
         {{ end }}
       </span>
       {{ end }}
+      {{ if .Site.Params.showTags }}
+      <span class="nav-item">
+        <a href="{{ "/tags" | relURL }}">Tags</a>
+      </span>
+      {{ end }}
       {{ if (.Site.GetPage "page" "contact") }}
       <span class="nav-item">
         <a href="{{ "/contact" | relURL }}">Contact</a>

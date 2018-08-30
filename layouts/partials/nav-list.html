@@ -24,6 +24,16 @@
         <a href="{{ "/blog" | relURL }}">Blog</a>
       </span>
       {{ end }}
+      {{ $tagsPage := .Site.GetPage "/tags" }}
+      {{ if and (.Site.Params.showTags) (ne .Page $tagsPage) }}
+      <span class="nav-item">
+        {{ if ne .Page.Section "tags" }}
+        <a href="{{ "/tags" | relURL }}">Tags</a>
+        {{ else }}
+        <a href="{{ "/tags" | relURL }}">Back to Tags</a>
+        {{ end }}
+      </span>
+      {{ end }}
       {{ if (.Site.GetPage "page" "contact") }}
       <span class="nav-item">
         <a href="{{ "/contact" | relURL }}">Contact</a>
