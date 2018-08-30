@@ -27,7 +27,7 @@
                 </h2>
                 <div class="post-data">
                     {{ .Date.Format (.Site.Params.dateForm | default "Jan 02, 2006") }} | {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute
-                    read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                    read{{ else }}{{ .ReadingTime }} minutes read{{ end }} {{ if .Site.Params.showTags }}| {{ partial "taglist.html" . }}{{ end }}
                 </div>
 
                 {{ if .Site.Params.shareButtons }}
