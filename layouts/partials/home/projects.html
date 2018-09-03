@@ -10,18 +10,17 @@
                 {{ $totalProjects := (len .Pages) }}
                 {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
                 {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+                {{ $width := "302x" }}
+                {{ $columWidth := "is-one-third" }}
                 {{ if .Site.Params.projects.useTwoColumns }}
-                {{ .Scratch.Set "width" "490x" }}
-                <div class="column is-half">
-                {{ else }}
-                {{ .Scratch.Set "width" "302x" }}
-                <div class="column is-one-third">
-                {{ end }}
+                  {{ $columWidth = "is-half" }}
+                  {{ $width = "490x" }}
+                {{ end}}
+                <div class="column {{ $columWidth }}">
                     <div class="card" data-target="#project-{{ $index }}">
                         <div class="card-image">
                             <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                    {{ $width := ( .Scratch.Get "width" ) }}
                                     {{ with .Resources.ByType "image" }}
                                     {{ range first 1 (sort . "Params.weight") }}
                                     {{ $image := .Resize $width }}
