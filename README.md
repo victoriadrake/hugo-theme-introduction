@@ -164,7 +164,7 @@ You can add custom css files by placing them under `assets/` and adding the path
 If you have a question or get stuck, please [open an issue](https://github.com/vickylai/hugo-theme-introduction/issues) for help and to help those who come after you. The more information you can provide, the better!
 
 # Contributing
-This theme would not be nearly as awesome without its amazing community of open source contributors, who are [listed here.]() Thank you so much! 🖤
+This theme would not be nearly as awesome without its amazing community of open source contributors, who are [listed here.](https://github.com/vickylai/hugo-theme-introduction/releases) Thank you so much! 🖤
 
 Pull requests for bug fixes and improvements are welcome. 
 
