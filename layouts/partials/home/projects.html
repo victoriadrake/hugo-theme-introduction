@@ -13,8 +13,8 @@
                 {{ $width := "302x" }}
                 {{ $columWidth := "is-one-third" }}
                 {{ if .Site.Params.projects.useTwoColumns }}
-                  {{ $columWidth = "is-half" }}
-                  {{ $width = "490x" }}
+                  {{ $columWidth := "is-half" }}
+                  {{ $width := "490x" }}
                 {{ end}}
                 <div class="column {{ $columWidth }}">
                     <div class="card" data-target="#project-{{ $index }}">
