@@ -8,7 +8,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div class="navbar-menu" id="navMenu">
+        <div class="navbar-menu {{ if $isHome }}has-content-centered{{ end }}" id="navMenu">
             <!-- look for custom menu and include it -->
             {{ if .Site.Menus.main }}
             {{ range .Site.Menus.main }}
