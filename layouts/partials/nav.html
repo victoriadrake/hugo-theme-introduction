@@ -8,7 +8,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div class="navbar-menu" id="navMenu">
+        <div class="navbar-menu {{ if $isHome }}has-content-centered{{ end }}" id="navMenu">
             <!-- look for custom menu and include it -->
             {{ if .Site.Menus.main }}
             {{ range .Site.Menus.main }}
@@ -52,11 +52,8 @@
             {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
             {{ with .Site.GetPage "/projects" }}
             {{ $totalProjects := (len .Pages) }}
-            {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
             {{ if $isHome }}
             <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
-            {{ else if le $totalProjects $numberOfProjectsToShow }}
-            <a class="navbar-item" href="{{ printf "/#%s" (.Title | urlize) | relLangURL }}">{{ .Title }}</a>
             {{ else }}
             <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInProjects }}
