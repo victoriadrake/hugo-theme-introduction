@@ -74,7 +74,7 @@
             {{ else }}
             <a class="navbar-item" href="{{ .Permalink }}">
                 {{ if $pageIsInBlog }}
-                Back to {{ .Title | singularize}}
+                {{ i18n "nav_backToSection" . }}
                 {{ else }}
                 {{ .Title | singularize}}
                 {{ end }}
