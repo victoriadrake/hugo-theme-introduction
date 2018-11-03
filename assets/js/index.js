@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 $("a[href^=\"#\"]").click(function(e) {
     e.preventDefault();
     $("html, body").animate({
-        scrollTop: $(this.hash).offset().top
+        scrollTop: $(document.getElementById(this.hash.substr(1))).offset().top
     }, 500);
     $("#nav-menu").removeClass("is-active");
     return true;
