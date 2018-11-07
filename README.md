@@ -22,7 +22,7 @@ Developer-friendly:
 
 # Getting started
 ## Requirements
-- [Hugo](https://gohugo.io/getting-started/installing/) Static Site Generator (latest version recommended)
+- Extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 - To make changes to the theme CSS:
   - [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
   - [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
@@ -65,13 +65,13 @@ hugo new home/index.md
 
 The `title` frontmatter will be the first large heading.
 
-The content of `index.md` will be shown as a subtitle line. 
+The content of `index.md` will be shown as a subtitle line.
 
 You might want to set `headless` to `true` in the frontmatter. See [headless bundles](https://gohugo.io/content-management/page-bundles/#headless-bundle) for more information.
 
 ## Home page
 
-Content for the home page lives under `content/home/`. You may add as many files as you want to in markdown format. 
+Content for the home page lives under `content/home/`. You may add as many files as you want to in markdown format.
 
 Each markdown file will show as a section on the home page and can be ordered by the `weight` value in the file's frontmatter. You can set `image` to show an image on the left side of the section. The image file must be in the `content/home/` folder.
 
@@ -86,7 +86,7 @@ This will always be shown as the last section on the home page.
 
 ## Projects section
 
-Introduction provides an easy way to showcase your projects. Each project can even have its own gallery, shown as an image carousel. 
+Introduction provides an easy way to showcase your projects. Each project can even have its own gallery, shown as an image carousel.
 
 Start by creating an index file for the projects section:
 
@@ -102,7 +102,7 @@ To create a project, run:
 hugo new projects/YourProjectName/index.md
 ```
 
-The frontmatter of your new file contains some comments to help your configure your project. 
+The frontmatter of your new file contains some comments to help your configure your project.
 
 You can set `external_link` to make the project link to another website.
 
@@ -140,7 +140,7 @@ From `exampleSite/`, copy `config.toml` to the root folder of your Hugo site and
 
 Introduction currently ships with support for English, German, and Spanish. Contributions for other language translations are welcome.
 
-To create a new language translation, add the `.toml` file to the `i18n/` folder. See the existing files for the necessary fields. 
+To create a new language translation, add the `.toml` file to the `i18n/` folder. See the existing files for the necessary fields.
 
 See the [hugo documentation](https://gohugo.io/content-management/multilingual/) for more details.
 
@@ -152,7 +152,7 @@ Introduction contains a default menu. If you want to override this, you can do s
 
 Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analytics template](https://gohugo.io/templates/internal/#google-analytics).
 
-## Disqus 
+## Disqus
 
 Set `disqusshortname` in `config.toml` to activate Hugo's [internal Disqus template](https://gohugo.io/templates/internal/#disqus).
 
@@ -166,7 +166,7 @@ If you have a question or get stuck, please [open an issue](https://github.com/v
 # Contributing
 This theme would not be nearly as awesome without its amazing community of open source contributors, who are [listed here.](https://github.com/vickylai/hugo-theme-introduction/releases) Thank you so much! 🖤
 
-Pull requests for bug fixes and improvements are welcome. 
+Pull requests for bug fixes and improvements are welcome.
 
 # License
 Copyright (C) 2018 [Vicky Lai](https://vickylai.com/)
