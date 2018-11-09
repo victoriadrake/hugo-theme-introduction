@@ -17,7 +17,7 @@
         <div class="blog-share">
             {{ i18n "blog_shareThis" . }}:
             {{ if .Site.Params.share.twitter }}
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20{{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ .Title }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
                 <span class="hidden">Twitter</span>
             </a>
