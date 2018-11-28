@@ -1,6 +1,6 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
-$fa-font-path: {{ "/fonts/fontawesome-free/webfonts" | relURL }}
-$nunito-font-path: {{ "/fonts/NunitoSans" | relURL }}
+$fa-font-path: '{{ "fonts/fontawesome-free/webfonts" | absURL }}'
+$nunito-font-path: '{{ "fonts/NunitoSans" | absURL }}'
 
 @import "fonts"
 @import "{{ $themeStyle }}-variables"
