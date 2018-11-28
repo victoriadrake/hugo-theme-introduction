@@ -37,7 +37,7 @@
             {{ else }}
             <!-- use default menu -->
             {{ if not $isHome }}
-            <a class="navbar-item" href="{{ "/" | absLangURL }}">{{ i18n "nav_main" . }}</a>
+            <a class="navbar-item" href="{{ "/" | relLangURL }}">{{ i18n "nav_main" . }}</a>
             {{ end }}
 
             {{ with .Site.GetPage "/home" }}
