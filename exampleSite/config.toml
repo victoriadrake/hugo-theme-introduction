@@ -34,16 +34,25 @@ DefaultContentLanguage           = "en"                    # Default language fo
         pinterest                = true
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
-    # Find icon names here: https://fontawesome.com/cheatsheet/
+    # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
+    # Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
     [[params.social]]
         url   = "https://twitter.com/"
-        icon  = "twitter"
+        icon  = "twitter" # icon name without the 'fa-'
+        icon_pack = "fab"
     [[params.social]]
         url   = "https://facebook.com/"
-        icon  = "facebook-f"
+        icon  = "facebook-f" # icon name without the 'fa-'
+        icon_pack = "fab"
     [[params.social]]
         url   = "https://linkedin.com/"
-        icon  = "linkedin-in"
+        icon  = "linkedin-in" # icon name without the 'fa-'
+        icon_pack = "fab"
+    [[params.social]]
+        url = "mailto:youremail@email.com"  # For a direct email link, use "mailto:test@example.org".
+        icon = "paper-plane" # icon name without the 'fa-'
+        icon_pack = "fas"
+
 
 # If you don't want to use the default menu, you can define one by yourself
 # [[menu.main]]
