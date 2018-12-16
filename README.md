@@ -138,7 +138,7 @@ From `exampleSite/`, copy `config.toml` to the root folder of your Hugo site and
 
 ## Multilingual Mode
 
-Introduction currently ships with support for English, German, and Spanish. Contributions for other language translations are welcome.
+Introduction currently ships with support for English, German, Spanish and French. Contributions for other language translations are welcome.
 
 To create a new language translation, add the `.toml` file to the `i18n/` folder. See the existing files for the necessary fields.
 
