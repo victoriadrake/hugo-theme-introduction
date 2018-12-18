@@ -23,3 +23,23 @@
     other = "Teilen"
 [footer_text]
     other = "[**Vorstellung**](https://github.com/vickylai/hugo-theme-introduction/), ein Theme für [Hugo](http://gohugo.io/). Entwickelt mit [<i class=\"fa fa-heart\"></i> und <i class=\"fa fa-coffee\"></i>](https://vickylai.com) von Open Source Mitwirkenden"
+
+# Staticman
+[shortdateFormat]
+    other = "2 Jan, 2006 15:04:05"
+[noComment]
+    other = "Kein Kommentar"
+[oneComment]
+    other = "Kommentar"
+[moreComment]
+    other = "Kommentare"
+[useMarkdown]
+    other = "Sie können Markdown-Syntax verwenden"
+[yourName]
+    other = "Irh Name"
+[yourEmail]
+    other = "Ihre Emailadresse"
+[yourWebsite]
+    other = "Ihre Website"
+[replyToMsg]
+    other = "Auf diesen Kommentar antworten"

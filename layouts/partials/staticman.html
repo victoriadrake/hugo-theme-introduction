@@ -5,13 +5,13 @@
   {{ if .Site.Data.comments }}
     {{ $comments := index $.Site.Data.comments $slug }}
     {{ if $comments }}
-      {{ if gt (len $comments) 1 }}
-        <h3>{{ len $comments }} comments</h3>
+      {{ if gt (len $comments) 1  }}
+        <h3>{{ len $comments  }} {{ i18n "moreComment" }}</h3>
       {{ else }}
-        <h3>{{ len $comments }} comment</h3>
+        <h3>{{ len $comments  }} {{ i18n "oneComment" }}</h3>
       {{ end }}
     {{ else }}
-      <h3>No comment</h3>
+      <h3>{{ i18n "noComment" }}</h3>
     {{ end }}
 
     {{ $.Scratch.Set "hasComments" 0 }}
@@ -27,10 +27,10 @@
           {{ else }}
           <h4 class="comment-author">{{ .name }}</h4>
           {{ end }}
-          <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat "02 Jan 2006" .date }}</time></a></div>
+          <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time></a></div>
           <div class="comment-content"><p>{{ .comment | markdownify }}</p></div>
           <div class="comment-reply-btn">
-            <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ ._id }}">Reply to this comment</a>
+            <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ ._id }}">{{ i18n "replyToMsg" }}</a>
           </div>
         </article>
 
@@ -45,10 +45,10 @@
               <h4 class="comment-author">{{ .name }}</h4>
               {{ end }}
               <h5 class="comment-reply-target"><a href="#{{ .replyID }}"><i class="fas fa-reply"></i> {{ .replyName }}</a></h5>
-              <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}r{{ $.Scratch.Get "hasReplies" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat "02 Jan 2006" .date }}</time></a></div>
+              <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}r{{ $.Scratch.Get "hasReplies" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time></a></div>
               <div class="comment-content"><p>{{ .comment | markdownify }}</p></div>
               <div class="comment-reply-btn">
-                <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ $.Scratch.Get "threadID" }}">Reply to this message</a>
+                <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ $.Scratch.Get "threadID" }}">{{ i18n "replyToMsg" }}</a>
               </div>
             </article>
           {{ end }}
@@ -57,57 +57,57 @@
     {{ end }}
   {{ end }}
 
-<form id="comment-form" class="js-form form" method="post" action="{{ .Site.Params.staticman.api }}">
-  <input type="hidden" name="options[slug]" value="{{ replace .URL "/" "" }}">
-  <input type="hidden" name="options[parent]" value="">
-  <input type="hidden" name="fields[replyThread]" value="">
-  <input type="hidden" name="fields[replyID]" value="">
-  <input type="hidden" name="fields[replyName]" value="">
+  <form id="comment-form" class="js-form form" method="post" action="{{ .Site.Params.staticman.api }}">
+    <input type="hidden" name="options[slug]" value="{{ replace .URL "/" "" }}">
+    <input type="hidden" name="options[parent]" value="">
+    <input type="hidden" name="fields[replyThread]" value="">
+    <input type="hidden" name="fields[replyID]" value="">
+    <input type="hidden" name="fields[replyName]" value="">
 
-  {{ if .Site.Params.staticman.recaptcha }}
-  <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.recaptcha.sitekey }}">
-  <input type="hidden" name="options[reCaptcha][secret]"  value="{{ .Site.Params.staticman.recaptcha.secret }}">
-  {{ end }}
+    {{ if .Site.Params.staticman.recaptcha }}
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.recaptcha.sitekey }}">
+    <input type="hidden" name="options[reCaptcha][secret]"  value="{{ .Site.Params.staticman.recaptcha.secret }}">
+    {{ end }}
 
-  <fieldset>
-  <div class="textfield">
-    <textarea name="fields[comment]" type="text" placeholder="You can use Markdown syntax"></textarea>
-  </div>
-  </fieldset>
-
-  <fieldset>
+    <fieldset>
     <div class="textfield">
-      <input name="fields[name]" type="text" placeholder="Your name"/>
+      <textarea name="fields[comment]" type="text" placeholder="{{ i18n "useMarkdown" }}"></textarea>
     </div>
-  </fieldset>
+    </fieldset>
 
-  <fieldset>
-    <div class="textfield">
-      <input type="email" name="fields[email]"  placeholder="Your email"/>
-    </div>
-  </fieldset>
+    <fieldset>
+      <div class="textfield">
+        <input name="fields[name]" type="text" placeholder="{{ i18n "yourName" }}"/>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <div class="textfield">
-      <input type="text" name="fields[website]"  placeholder="Your website"/>
-    </div>
-  </fieldset>
+    <fieldset>
+      <div class="textfield">
+        <input type="email" name="fields[email]"  placeholder="{{ i18n "yourEmail" }}"/>
+      </div>
+    </fieldset>
 
-  {{ if .Site.Params.staticman.recaptcha }}
-  <fieldset>
-    <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}"></div>
-  </fieldset>
-  {{ end }}
+    <fieldset>
+      <div class="textfield">
+        <input type="text" name="fields[website]"  placeholder="{{ i18n "yourWebsite" }}"/>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <button type="submit" class="button">
-      Submit
-    </button>
-    <button type="reset" value="Reset">
-      Reset
-    </button>
-  </fieldset>
-</form>
+    {{ if .Site.Params.staticman.recaptcha }}
+    <fieldset>
+      <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}"></div>
+    </fieldset>
+    {{ end }}
+
+    <fieldset>
+      <button type="submit" class="button">
+        Submit
+      </button>
+      <button type="reset" value="Reset">
+        Reset
+      </button>
+    </fieldset>
+  </form>
 </section>
 
 <article class="modal">
