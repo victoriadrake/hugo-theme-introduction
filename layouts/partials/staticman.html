@@ -1,14 +1,13 @@
-<section class="js-comments staticman-comments">
-
+<div class="page__comments">
   {{ $slug := replace .URL "/" "" }}
 
   {{ if .Site.Data.comments }}
     {{ $comments := index $.Site.Data.comments $slug }}
     {{ if $comments }}
-      {{ if gt (len $comments) 1  }}
-        <h3>{{ len $comments  }} {{ i18n "moreComment" }}</h3>
+      {{ if gt (len $comments) 1 }}
+        <h3>{{ len $comments }} {{ i18n "moreComment" }}</h3>
       {{ else }}
-        <h3>{{ len $comments  }} {{ i18n "oneComment" }}</h3>
+        <h3>{{ len $comments }} {{ i18n "oneComment" }}</h3>
       {{ end }}
     {{ else }}
       <h3>{{ i18n "noComment" }}</h3>
@@ -20,35 +19,51 @@
         {{ $.Scratch.Add "hasComments" 1 }}
         {{ $.Scratch.Set "hasReplies" 0 }}
         {{ $.Scratch.Set "threadID" ._id }}
-        <article id="comment-{{ $.Scratch.Get "hasComments" }}" class="static-comment">
-          <img class="comment-avatar" src="https://www.gravatar.com/avatar/{{ .email }}?s=48">
-          {{ if .website }}
-          <h4 class="comment-author"><a rel="external nofollow" href="{{ .website }}">{{ .name }}</a></h4>
-          {{ else }}
-          <h4 class="comment-author">{{ .name }}</h4>
-          {{ end }}
-          <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time></a></div>
-          <div class="comment-content"><p>{{ .comment | markdownify }}</p></div>
-          <div class="comment-reply-btn">
-            <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ ._id }}">{{ i18n "replyToMsg" }}</a>
+        <article id="comment-{{ $.Scratch.Get "hasComments" }}" class="js-comment comment">
+          <div class="comment__avatar-wrapper">
+            <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ .email }}?d=mm&s=80" alt="{{ .name }}">
+          </div>
+          <div class="comment__content-wrapper">
+            <h3 class="comment__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              {{ if .website }}
+                <span itemprop="name"><a rel="external nofollow" itemprop="url" href="{{ .url }}">{{ .name }}</a></span>
+              {{ else }}
+                <span itemprop="name">{{ .name }}</span>
+              {{ end }}
+            </h3>
+            <p class="comment__date"><a href="#comment-{{ $.Scratch.Get "hasComments" }}" title="Permalink to this comment">
+              <time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
+            </a></p>
+            <div class="comment___content"><p>{{ .comment | markdownify }}</p></div>
+            <div class="comment-reply-btn">
+              <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ ._id }}">{{ i18n "replyToMsg" }}</a>
+            </div>
           </div>
         </article>
 
         {{ range $comments }}
           {{ if eq .replyThread ($.Scratch.Get "threadID") }}
             {{ $.Scratch.Add "hasReplies" 1 }}
-            <article id="comment-{{ $.Scratch.Get "hasComments" }}r{{ $.Scratch.Get "hasReplies" }}" class="static-comment static-comment-reply">
-              <img class="comment-avatar" src="https://www.gravatar.com/avatar/{{ .email }}?s=48">
-              {{ if .website }}
-              <h4 class="comment-author"><a rel="external nofollow" href="{{ .website }}">{{ .name }}</a></h4>
-              {{ else }}
-              <h4 class="comment-author">{{ .name }}</h4>
-              {{ end }}
-              <h5 class="comment-reply-target"><a href="#{{ .replyID }}"><i class="fas fa-reply"></i> {{ .replyName }}</a></h5>
-              <div class="comment-timestamp"><a href="#comment-{{ $.Scratch.Get "hasComments" }}r{{ $.Scratch.Get "hasReplies" }}" title="Permalink to this comment"><time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time></a></div>
-              <div class="comment-content"><p>{{ .comment | markdownify }}</p></div>
-              <div class="comment-reply-btn">
-                <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ $.Scratch.Get "threadID" }}">{{ i18n "replyToMsg" }}</a>
+            <article id="comment-{{ $.Scratch.Get "hasComments" }}r{{ $.Scratch.Get "hasReplies" }}" class="js-comment comment reply">
+              <div class="comment__avatar-wrapper">
+                <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ .email }}?d=mm&s=80" alt="{{ .name }}">
+              </div>
+              <div class="comment__content-wrapper">
+                <h3 class="comment__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  {{ if .website }}
+                    <span itemprop="name"><a rel="external nofollow" itemprop="url" href="{{ .url }}">{{ .name }}</a></span>
+                  {{ else }}
+                    <span itemprop="name">{{ .name }}</span>
+                  {{ end }}
+                </h3>
+                <h4 class="comment-reply-target"><a href="#{{ .replyID }}"><i class="fas fa-reply"></i> {{ .replyName }}</a></h4>
+                <p class="comment__date"><a href="#comment-{{ $.Scratch.Get "hasComments" }}" title="Permalink to this comment">
+                  <time datetime="{{ .date }}">{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
+                </a></p>
+                <div class="comment__content"><p>{{ .comment | markdownify }}</p></div>
+                <div class="comment-reply-btn">
+                  <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ $.Scratch.Get "threadID" }}">{{ i18n "replyToMsg" }}</a>
+                </div>
               </div>
             </article>
           {{ end }}
@@ -57,72 +72,64 @@
     {{ end }}
   {{ end }}
 
-  <form id="comment-form" class="js-form form" method="post" action="{{ .Site.Params.staticman.api }}">
-    <input type="hidden" name="options[slug]" value="{{ replace .URL "/" "" }}">
-    <input type="hidden" name="options[parent]" value="">
-    <input type="hidden" name="fields[replyThread]" value="">
-    <input type="hidden" name="fields[replyID]" value="">
-    <input type="hidden" name="fields[replyName]" value="">
+    <!-- Start comment form -->
+    <div class="page__comments-form">
+      <h3 class="page__comments-title">Leave a comment</h3>
+      <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+      <form id="new_comment" class="page__comments-form js-form form" method="post" action="{{ .Site.Params.staticman.api }}">
+        <!-- Hidden fields -->
+        <div class="form-group hidden">
+          <input type="hidden" name="options[slug]" value="{{ replace .URL "/" "" }}">
+          <input type="hidden" name="options[parent]" value="">
+          <input type="hidden" name="fields[replyThread]" value="">
+          <input type="hidden" name="fields[replyID]" value="">
+          <input type="hidden" name="fields[replyName]" value="">
+          {{ if .Site.Params.staticman.recaptcha }}
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.recaptcha.sitekey }}">
+            <input type="hidden" name="options[reCaptcha][secret]"  value="{{ .Site.Params.staticman.recaptcha.secret }}">
+          {{ end }}
+        </div>
 
-    {{ if .Site.Params.staticman.recaptcha }}
-    <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.recaptcha.sitekey }}">
-    <input type="hidden" name="options[reCaptcha][secret]"  value="{{ .Site.Params.staticman.recaptcha.secret }}">
-    {{ end }}
+        <!-- User input -->
+        <div class="form-group">
+          <label for="comment-form-message">Comment <small class="required">*</small></label><br>
+          <textarea type="text" rows="12" cols="36" id="comment-form-message" name="fields[comment]" placeholder="{{ i18n "useMarkdown" }}" tabindex="1"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="comment-form-name">Name <small class="required">*</small></label>
+          <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+        </div>
+        <div class="form-group">
+          <label for="comment-form-email">Email <small class="required">*</small></label>
+          <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
+        </div>
+        <div class="form-group">
+          <label for="comment-form-url">Website</label>
+          <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+        </div>
 
-    <fieldset>
-    <div class="textfield">
-      <textarea name="fields[comment]" type="text" placeholder="{{ i18n "useMarkdown" }}"></textarea>
+        <!-- Start comment form alert messaging -->
+        <p class="hidden js-notice"><strong class="js-notice-text"></strong></p>
+        <!-- End comment form alert messaging -->
+
+        {{ if .Site.Params.staticman.recaptcha }}
+          <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}"></div>
+          </div>
+        {{ end }}
+
+        <!-- Submit and reset buttons -->
+        <div class="form-group">
+          <button type="submit" id="comment-form-submit" tabindex="6" class="btn btn--primary btn--large" value="Submit">Submit comment</button>
+          <button type="reset" id="comment-form-submit" tabindex="7" class="btn btn--primary btn--large" value="Reset">Reset</button>
+        </div>
+      </form>
     </div>
-    </fieldset>
+</div>
 
-    <fieldset>
-      <div class="textfield">
-        <input name="fields[name]" type="text" placeholder="{{ i18n "yourName" }}"/>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <div class="textfield">
-        <input type="email" name="fields[email]"  placeholder="{{ i18n "yourEmail" }}"/>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <div class="textfield">
-        <input type="text" name="fields[website]"  placeholder="{{ i18n "yourWebsite" }}"/>
-      </div>
-    </fieldset>
-
-    {{ if .Site.Params.staticman.recaptcha }}
-    <fieldset>
-      <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}"></div>
-    </fieldset>
-    {{ end }}
-
-    <fieldset>
-      <button type="submit" class="button">
-        Submit
-      </button>
-      <button type="reset" value="Reset">
-        Reset
-      </button>
-    </fieldset>
-  </form>
-</section>
-
-<article class="modal">
-  <div class="title">
-    <h2 class="js-modal-title"></h2>
-  </div>
-  <div class="js-modal-text"></div>
-  <div>
-    <button class="js-close-modal">Close</button>
-  </div>
-</article>
-
-<!-- Static comments -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- Script for handling comment form submission and reset -->
 <!-- from: https://github.com/eduardoboucas/popcorn/blob/gh-pages/js/main.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
   (function ($) {
     var $comments = $('.js-comments');
@@ -130,7 +137,7 @@
     $('.js-form').submit(function () {
       var form = this;
 
-      $(form).addClass('form--loading');
+      $(form).addClass('disabled');
 
       $.ajax({
         type: $(this).attr('method'),
@@ -138,34 +145,32 @@
         data: $(this).serialize(),
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
-          showModal('Perfect !', 'Thanks for your comment! It will show on the site once it has been approved. .');
-          $(form).removeClass('form--loading');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('Thanks for your comment! It will show on the site once it has been approved. .');
+
         },
         error: function (err) {
           console.log(err);
-          showModal('Error', 'Sorry, there was an error with the submission!');
-          $(form).removeClass('form--loading');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('Sorry, there was an error with the submission!');
+          $(form).removeClass('disabled');
         }
       });
 
       return false;
     });
 
-    $('.js-close-modal').click(function () {
-      $('body').removeClass('show-modal');
-    });
-
-    function showModal(title, message) {
-      $('.js-modal-title').text(title);
-      $('.js-modal-text').html(message);
-
-      $('body').addClass('show-modal');
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
     }
 
     $('.comment-reply-btn a').click(function (){
       $('input[name="fields[replyThread]"]').val(this.title);
       $('input[name="fields[replyID]"]').val(this.id);
-      authorTag = $(this).parents('.static-comment').children('h4.comment-author');
+      authorTag = $(this).parents('.js-comment').children('div.comment__content-wrapper').children('h3.comment__author');
       $('input[name="fields[replyName]"]').val(authorTag.text());
       $('.js-form fieldset button.button').text('Submit reply');
     });
@@ -177,10 +182,11 @@
       $('.js-form fieldset button.button').text('Submit');
     });
 
+    // smooth scroll to different link anchor
     $('.comment-reply-target a[href^="#"]').click(function (){
       targetPostID = $(this).attr('href');
-      targetID = "#" + $(targetPostID).parents('.static-comment').attr('id');
-      $('html, body').animate({ scrollTop: $(targetID).offset().top-$('nav').height() }, 500);
+      targetID = "#" + $(targetPostID).parents('.js-comment').attr('id');
+      $('html, body').animate({ scrollTop: $(targetID).offset().top }, 500);
     });
   })(jQuery);
 </script>
