@@ -1,69 +1,46 @@
-/*    .form-group    ==========================================================================
-
-.form-group
-  margin-bottom: 5px
-  padding: 0
-  border-width: 0
-
-  textarea
-    width: 100%
-
-/*    Comments    ==========================================================================
-
 .page__comments
-  float: left
-  margin-left: 0
-  margin-right: 0
-  width: 100%
-  clear: both
+  // HTML form
+  .page__comments-title
+    font-size: $size-3
+    @include mobile
+      font-size: $size-4
 
-.page__comments-title
-  margin-top: 2rem
-  margin-bottom: 10px
-  padding-top: 2rem
-  font-size: 20px
-  border-top: 1px solid $border-color
-  text-transform: uppercase
+  .page__comments-form
+    margin-top: 1rem;
+    &.disabled
+      input, button, textarea, label
+        pointer-events: none
+        cursor: not-allowed
+        filter: alpha(opacity = 65)
+        box-shadow: none
+        opacity: 0.65
 
-.page__comments-form
-  &amp;.disabled
-    input, button, textarea, label
-      pointer-events: none
-      cursor: not-allowed
-      filter: alpha(opacity = 65)
-      box-shadow: none
-      opacity: 0.65
+    .form-group
+      margin: 0.6rem 0 0.6rem 0
+      textarea
+        width: 100%
+        padding: 0.3rem
 
-.comment
-  @extend %clearfix
+  // Static comments
+  .comment
+    margin: 1em 0
 
-  margin: 1em 0
+  .comment__avatar-wrapper
+    float: left
+    width: 60px
+    height: 60px
 
-  &amp;:not(:last-child)
-    border-bottom: 1px solid $border-color
+  .comment__avatar
+    width: 40px
+    height: 40px
+    border-radius: 50%
 
-.comment__avatar-wrapper
-  float: left
-  width: 60px
-  height: 60px
+  .comment__content-wrapper
+    float: right
+    width: calc(100% - 60px)
 
-.comment__avatar
-  width: 40px
-  height: 40px
-  border-radius: 50%
+  .comment__author
+    margin: 0
 
-.comment__content-wrapper
-  float: right
-  width: calc(100% - 60px)
-
-.comment__author
-  margin: 0
-
-  a
-    text-decoration: none
-
-.comment__date
-  margin: 0
-
-  a
-    text-decoration: none
+  .comment__date
+    margin: 0

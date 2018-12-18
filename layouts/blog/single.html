@@ -61,7 +61,7 @@
         {{ template "_internal/disqus.html" . }}
     </div>
     {{ if .Site.Params.staticman }}
-      <div class="staticman-comments">
+      <div class="staticman-comments container has-content-centered">
         {{ partial "staticman.html" . }}
       </div>
     {{ end }}
@@ -73,7 +73,7 @@
 
 {{ define "customScripts" }}
 {{ partial "js/owlCarousel.html" . }}
-{{- if .Site.Params.staticman -}}
+{{ if .Site.Params.staticman }}
     {{ partial "js/staticman.html" . }}
-{{- end -}}
+{{ end }}
 {{ end }}

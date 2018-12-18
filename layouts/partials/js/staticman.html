@@ -1,2 +1,5 @@
 {{ $staticman := resources.Get "/js/staticman.js" }}
 <script src="{{ $staticman.Permalink }}"></script>
+{{ if .Site.Params.staticman.recaptcha }}
+  <script async src="https://www.google.com/recaptcha/api.js"></script>
+{{ end }}

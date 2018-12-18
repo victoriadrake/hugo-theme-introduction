@@ -9,6 +9,6 @@ $nunito-font-path: '{{ "fonts/NunitoSans" | absURL }}'
 @import "fontawesome-import"
 @import "base"
 @import "{{ $themeStyle }}-style"
-{{- if .Site.Params.staticman -}}
-//@import "staticman"
-{{- end -}}
+{{ if .Site.Params.staticman }}
+@import "staticman"
+{{ end }}
