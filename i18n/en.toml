@@ -43,3 +43,19 @@
     other = "You website"
 [replyToMsg]
     other = "Reply to this comment"
+[comments_label]
+    other = "Leave a comment"
+[comment_form_info]
+    other = "Your email address will not be published. Required fields are marked"
+[comment_btn_submit]
+    other = "Submit comment"
+[comment_btn_submit_reply]
+    other = "Submit reply"
+[comment_btn_reset]
+    other = "Reset"
+[comment_btn_submitted]
+    other = "Submitted"
+[comment_success_msg]
+    other = "Thanks for your comment! It will show on the site once it has been approved."
+[comment_error_msg]
+    other = "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again."

@@ -75,8 +75,8 @@
 
     <!-- Start comment form -->
     <div class="page__comments-form">
-      <h3 class="page__comments-title">Leave a comment</h3>
-      <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+      <h3 class="page__comments-title">{{ i18n "comments_label" }}</h3>
+      <p class="small">{{ i18n "comment_form_info" }} <span class="required">*</span></p>
       <form id="new_comment" class="page__comments-form js-form form" method="post" action="{{ .Site.Params.staticman.api }}">
         <!-- Hidden fields -->
         <div class="form-group hidden">
@@ -93,19 +93,19 @@
 
         <!-- User input -->
         <div class="form-group">
-          <label for="comment-form-message">Comment <small class="required">*</small></label><br>
+          <label for="comment-form-message">{{ i18n "oneComment" | title }} <small class="required">*</small></label><br>
           <textarea type="text" rows="12" cols="36" id="comment-form-message" name="fields[comment]" placeholder="{{ i18n "useMarkdown" }}" tabindex="1"></textarea>
         </div>
         <div class="form-group">
-          <label for="comment-form-name">Name <small class="required">*</small></label>
+          <label for="comment-form-name">{{ i18n "yourName" }} <small class="required">*</small></label>
           <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
         </div>
         <div class="form-group">
-          <label for="comment-form-email">Email <small class="required">*</small></label>
+          <label for="comment-form-email">{{ i18n "yourEmail" }} <small class="required">*</small></label>
           <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
         </div>
         <div class="form-group">
-          <label for="comment-form-url">Website</label>
+          <label for="comment-form-url">{{ i18n "yourWebsite" }}</label>
           <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
         </div>
 
@@ -115,14 +115,14 @@
 
         {{ if .Site.Params.staticman.recaptcha }}
           <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}"></div>
+            <div class="g-recaptcha" data-sitekey="{{ .Site.Params.staticman.recaptcha.sitekey }}" tabindex="5"></div>
           </div>
         {{ end }}
 
         <!-- Submit and reset buttons -->
         <div class="form-group">
-          <button type="submit" id="comment-form-submit" tabindex="6" class="btn btn--primary btn--large" value="Submit">Submit comment</button>
-          <button type="reset" id="comment-form-submit" tabindex="7" class="btn btn--primary btn--large" value="Reset">Reset</button>
+          <button type="submit" id="comment-form-submit" tabindex="6" class="btn btn--primary btn--large" value="Submit">{{ i18n "comment_btn_submit" }}</button>
+          <button type="reset" id="comment-form-submit" tabindex="7" class="btn btn--primary btn--large" value="Reset">{{ i18n "comment_btn_reset" }}</button>
         </div>
       </form>
     </div>

@@ -43,3 +43,19 @@
     other = "Tu sitio web"
 [replyToMsg]
     other = "Contestar a este comentario"
+[comments_label]
+    other = "Dejar un comentario"
+[comment_form_info]
+    other = "Su dirección de correo no será publicada. Se han resaltado los campos requeridos"
+[comment_btn_submit]
+    other = "Enviar Commentario"
+[comment_btn_submit_reply]
+    other = "Enviar respuesta"
+[comment_btn_reset]
+    other = "Limpar"
+[comment_btn_submitted]
+    other = "Enviado"
+[comment_success_msg]
+    other = "Gracias por su comentario!, Este se visualizará en el sitio una vez haya sido aprobado"
+[comment_error_msg]
+    other = "Lo sentimos, ha ocurrido un error al enviar su comentario. Por favor asegurese que todos los campos han sido diligenciados e intente de nuevo"

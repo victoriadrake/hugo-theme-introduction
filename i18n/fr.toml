@@ -43,3 +43,19 @@
     other = "Votre site web"
 [replyToMsg]
     other = "Répondre à ce commentaire"
+[comments_label]
+    other = "Laisser un commentaire"
+[comment_form_info]
+    other = "Votre adresse email ne sera pas visible. Les champs obligatoires sont marqués"
+[comment_btn_submit]
+    other = "Envoyer"
+[comment_btn_submit_reply]
+    other = "Envoyer votre réponse"
+[comment_btn_reset]
+    other = "Annuler"
+[comment_btn_submitted]
+    other = "Envoyé"
+[comment_success_msg]
+    other = "Merci pour votre commentaire, il sera visible sur le site une fois approuvé."
+[comment_error_msg]
+    other = "Désolé, une erreur est survenue lors de la soumission. Vérifiez que les champs obligatoires ont été remplis et réessayez."
