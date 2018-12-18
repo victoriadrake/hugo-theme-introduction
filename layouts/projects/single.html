@@ -40,4 +40,7 @@
 
 {{ define "customScripts" }}
 {{ partial "js/owlCarousel.html" . }}
+{{- if .Site.Params.staticman -}}
+    {{ partial "js/staticman.html" . }}
+{{- end -}}
 {{ end }}
