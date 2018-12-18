@@ -52,10 +52,10 @@
     $('input[name="fields[replyID]"]').val(this.id);
     authorTag = $(this).parents('.js-comment').children('div.comment__content-wrapper').children('h3.comment__author');
     $('input[name="fields[replyName]"]').val(authorTag.text());
-    $('.js-form fieldset button.button').text('{{ i18n "comment_btn_submit_reply" }}');
+    $('.js-form .form-group button[type="submit"]').text('{{ i18n "comment_btn_submit_reply" }}');
   });
 
-  $('.js-form fieldset button[type="reset"]').click(function (){
+  $('.js-form .form-group button[type="reset"]').click(function (){
     clearForm();
   });
 

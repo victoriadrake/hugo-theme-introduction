@@ -37,7 +37,7 @@
             </a></p>
             <div class="comment___content"><p>{{ .comment | markdownify }}</p></div>
             <div class="comment-reply-btn">
-              <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ ._id }}">{{ i18n "replyToMsg" }}</a>
+              <a id="{{ ._id }}" class="btn" href="#new_comment" title="{{ ._id }}">{{ i18n "replyToMsg" }}</a>
             </div>
           </div>
         </article>
@@ -63,7 +63,7 @@
                 </a></p>
                 <div class="comment__content"><p>{{ .comment | markdownify }}</p></div>
                 <div class="comment-reply-btn">
-                  <a id="{{ ._id }}" class="btn" href="#comment-form" title="{{ $.Scratch.Get "threadID" }}">{{ i18n "replyToMsg" }}</a>
+                  <a id="{{ ._id }}" class="btn" href="#new_comment" title="{{ $.Scratch.Get "threadID" }}">{{ i18n "replyToMsg" }}</a>
                 </div>
               </div>
             </article>
