@@ -27,6 +27,11 @@
     <div class="disqus">
         {{ template "_internal/disqus.html" . }}
     </div>
+    {{ if .Site.Params.staticman }}
+      <div class="staticman-comments">
+        {{ partial "staticman.html" . }}
+      </div>
+    {{ end }}
 {{ end }}
 
 {{ define "customCSS" }}

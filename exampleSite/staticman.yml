@@ -1,0 +1,21 @@
+comments:
+  allowedFields: ["name", "email", "website", "comment", "replyThread", "replyName", "replyID"]
+  branch            : "master"
+  commitMessage     : "New comment from {fields.name}"
+  path: "data/comments/{options.slug}"
+  filename          : "comment-{@timestamp}"
+  format            : "yaml"
+  moderation        : false
+  requiredFields    : ["name", "email", "comment"]
+  transforms:
+    email           : md5
+  generatedFields:
+    date:
+      type          : "date"
+      options:
+        format      : "iso8601"
+
+  reCaptcha:
+    enabled: true
+    siteKey: "6Lcv8G8UAAAAAEqV1Y-XEPum00C_DxhD6O--qkFo"
+    secret: "p5uHlH9hCqpMJaGKXdt5MEWFo7K6fX8hoYUwR3aIafOI6rtItLauaDCkGOucysJtrVZy+sHffioGzMsOU64JFDSyPQgrXujegcOHFRXHhD4fOUuBXSvV+OZ8JhSPTGWaRcQcoiGX4pT5hlebLddOl59b6sn6kU1ODQcEbhP83xVLZlaTWOrNrF5Wvy3TMXpH5gyl1tZEORxADAShMYyUbNR7XZYLEg1DfgIBHfIg3cKwdFt7KVLejFGKIiBYRAZDE2JuHItNmzJ2x9JgSK3E+XnShV5tuWpncnyFonJVHGEky/zRfUVLHobDMcJ/u9nlZqE8u47W+833F1WaIYuwNw=="

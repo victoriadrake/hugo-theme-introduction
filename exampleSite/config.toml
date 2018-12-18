@@ -26,6 +26,16 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [params.projects]
         useTwoColumns            = false                   # Use a layout with two columns instead of three
 
+    # Staticman support
+    # Input your API endpoint and info of your target GitHub/GitLab repo
+    # ReCAPTCHA is optional.  If enabled, use your own site key and encrypted site secrets.
+    # The site secret should be encrypted via https://{STATICMAN-API}/v3/encrypt/{SITE-SECRET}
+    # [Params.staticman]
+    # api = "https://staticman3.herokuapp.com/v3/entry/{GITLAB|GITHUB}/{USERNAME}/{REPO}/{BRANCH}/comments"
+    # [Params.staticman.recaptcha]
+    # sitekey = "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
+    # secret = "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
+
     # Share buttons on blog post pages
     [params.share]
         twitter                  = true
