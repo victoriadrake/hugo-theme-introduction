@@ -41,10 +41,8 @@
   }
 
   function clearForm() {
-    $('input[name="fields[replyThread]"]').val("");
-    $('input[name="fields[replyID]"]').val("");
-    $('input[name="fields[replyName]"]').val("");
-    $('.js-form fieldset button.button').text('{{ i18n "comment_btn_submit" }}');
+    $('input').val("");
+    $('.js-form .form-group button.button').text('{{ i18n "comment_btn_submit" }}');
   }
 
   $('.comment-reply-btn a').click(function (){
