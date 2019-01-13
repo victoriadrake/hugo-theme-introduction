@@ -53,6 +53,11 @@ DefaultContentLanguage           = "en"                    # Default language fo
         url = "mailto:youremail@email.com"  # For a direct email link, use "mailto:test@example.org".
         icon = "paper-plane" # icon name without the 'fa-'
         icon_pack = "fas"
+    [[params.social]]
+        url   = "https://mastodon.social/"
+        icon  = "mastodon" # icon name without the 'fa-'
+        icon_pack = "fab"
+        html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
 
 
 # If you don't want to use the default menu, you can define one by yourself
