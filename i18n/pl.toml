@@ -3,23 +3,23 @@
 [404_description]
     other = "Oops! Either you've found a bug{{ with .Site.Params.email }} (in which case, [please tell me](mailto:{{ . }})) {{ end }} or you're just making things up. This page doesn't exist!"
 [index_projects_allProjects]
-    other = "All Projects"
+    other = "Wszystkie projekty"
 [index_blog_latestPosts]
-    other = "Latest Post"
+    other = "Ostatnie posty"
 [index_blog_allPosts]
-    other = "All Posts"
+    other = "Wszystkie posty"
 [index_blog_readMore]
-    other = "Read more"
+    other = "Więcej"
 [index_currentTime]
-    other = "My current local time is"
+    other = "Mój lokalny czas to"
 [nav_backToSection]
-    other = "Back to {{ .Title }}"
+    other = "Wróć do {{ .Title }}"
 [nav_main]
-    other = "main"
+    other = "główna"
 [blog_readingTime]
-    one = "{{ .Count }} minute read"
-    other = "{{ .Count }} minutes read"
+    one = "{{ .Count }} minut"
+    other = "{{ .Count }} minut"
 [blog_shareThis]
-    other = "Share this"
+    other = "Podziel się"
 [footer_text]
-    other = "[**Introduction**](https://github.com/vickylai/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://vickylai.com) by open source contributors."
+    other = "[**Introduction**](https://github.com/vickylai/hugo-theme-introduction/) szablon dla [Hugo](http://gohugo.io/). Stworzony z [<i class=\"fa fa-heart\"></i> i <i class=\"fa fa-coffee\"></i>](https://vickylai.com) przez społeczność open source."
