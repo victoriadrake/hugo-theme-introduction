@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "Oops! Either you've found a bug{{ with .Site.Params.email }} (in which case, [please tell me](mailto:{{ . }})) {{ end }} or you're just making things up. This page doesn't exist!"
+[index_projects_allProjects]
+    other = "All Projects"
+[index_blog_latestPosts]
+    other = "Latest Post"
+[index_blog_allPosts]
+    other = "All Posts"
+[index_blog_readMore]
+    other = "Read more"
+[index_currentTime]
+    other = "My current local time is"
+[nav_backToSection]
+    other = "Back to {{ .Title }}"
+[nav_main]
+    other = "main"
+[blog_readingTime]
+    one = "{{ .Count }} minute read"
+    other = "{{ .Count }} minutes read"
+[blog_shareThis]
+    other = "Share this"
+[footer_text]
+    other = "[**Introduction**](https://github.com/vickylai/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://vickylai.com) by open source contributors."
