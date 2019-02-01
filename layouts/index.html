@@ -10,7 +10,11 @@
     <body>
         <section id="top" class="section">
             {{ with .Site.GetPage "/home" }}
-            <div class="hero is-{{ .Site.Params.home.introHeight | default "large" }}">
+	    {{ $introClass := .Site.Params.home.introHeight | default "bottom-menu" }}
+	    {{ if eq $introClass "large" }}
+	        {{ $introClass = "bottom-menu" }}
+	    {{ end }}
+            <div class="hero is-{{ $introClass }}">
                 <!-- Super sweet Hero body title -->
                 <div class="hero-body">
                     <div class="container has-text-centered">
