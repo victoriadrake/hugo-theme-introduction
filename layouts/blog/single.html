@@ -57,7 +57,5 @@
         {{ .Content }}
     </div>
     <!-- End blog post content -->
-    <div class="disqus">
-        {{ template "_internal/disqus.html" . }}
-    </div>
+    {{ partial "comments.html" . }}
 {{ end }}
