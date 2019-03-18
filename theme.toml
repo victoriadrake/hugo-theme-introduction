@@ -1,12 +1,12 @@
 name = "Introduction"
 license = "Apache-2.0"
-licenselink = "https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE"
+licenselink = "https://github.com/victoriadotdev/hugo-theme-introduction/blob/master/LICENSE"
 description = "Minimal, single page, smooth scrolling theme for Hugo."
-homepage = "https://github.com/vickylai/hugo-theme-introduction"
+homepage = "https://github.com/victoriadotdev/hugo-theme-introduction"
 tags = ["blog", "bulma", "clean", "dark", "disqus", "font awesome", "gallery", "minimal", "minimalist", "mobile", "multilingual", "one page", "personal", "responsive", "simple", "single page", "starter", "syntax highlighting", "projects", "white" ]
 features = ["responsive", "blog", "portfolio", "gallery"]
 min_version = "0.48"
 
 [author]
-  name = "Vicky Lai"
-  homepage = "https://vickylai.com"
+  name = "Victoria Lai"
+  homepage = "https://victoria.dev"
