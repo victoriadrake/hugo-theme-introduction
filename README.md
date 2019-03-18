@@ -1,10 +1,10 @@
 # Introduction theme for Hugo
-[![Build Status](https://travis-ci.com/vickylai/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/vickylai/hugo-theme-introduction)
-![Latest Release](https://img.shields.io/github/tag/vickylai/hugo-theme-introduction.svg)
+[![Build Status](https://travis-ci.com/victoriadotdev/hugo-theme-introduction.svg?branch=master)](https://travis-ci.com/victoriadotdev/hugo-theme-introduction)
+![Latest Release](https://img.shields.io/github/tag/victoriadotdev/hugo-theme-introduction.svg)
 
 Introduction is a minimalist, highly-versatile theme for Hugo. It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
-![Main page screenshot](https://github.com/vickylai/hugo-theme-introduction/blob/master/images/screenshot.png)
+![Main page screenshot](https://github.com/victoriadotdev/hugo-theme-introduction/blob/master/images/screenshot.png)
 
 Features:
 
@@ -30,13 +30,13 @@ Developer-friendly:
 ## Get the theme
 Run from the root of your Hugo site:
 ```sh
-$ git clone https://github.com/vickylai/hugo-theme-introduction.git themes/introduction
+$ git clone https://github.com/victoriadotdev/hugo-theme-introduction.git themes/introduction
 ```
 
 Alternatively, you can include this repository as a [git submodule](https://git-scm.com/book/de/v1/Git-Tools-Submodule). This makes it easier to update this theme if you have your Hugo site in git as well:
 
 ```sh
-$ git submodule add https://github.com/vickylai/hugo-theme-introduction.git themes/introduction
+$ git submodule add https://github.com/victoriadotdev/hugo-theme-introduction.git themes/introduction
 ```
 
 ## Preview the theme
@@ -161,14 +161,14 @@ You can add custom css files by placing them under `assets/` and adding the path
 
 # Issues
 
-If you have a question or get stuck, please [open an issue](https://github.com/vickylai/hugo-theme-introduction/issues) for help and to help those who come after you. The more information you can provide, the better!
+If you have a question or get stuck, please [open an issue](https://github.com/victoriadotdev/hugo-theme-introduction/issues) for help and to help those who come after you. The more information you can provide, the better!
 
 # Contributing
-This theme would not be nearly as awesome without its amazing community of open source contributors, who are [listed here.](https://github.com/vickylai/hugo-theme-introduction/releases) Thank you so much! 🖤
+This theme would not be nearly as awesome without its amazing community of open source contributors, who are [listed here.](https://github.com/victoriadotdev/hugo-theme-introduction/releases) Thank you so much! 🖤
 
 Pull requests for bug fixes and improvements are welcome.
 
 # License
-Copyright (C) 2018 [Vicky Lai](https://vickylai.com/)
+Copyright (C) 2018 [Victoria Lai](https://victoria.dev/)
 
-Licensed under [Apache-2.0](https://github.com/vickylai/hugo-theme-introduction/blob/master/LICENSE)
+Licensed under [Apache-2.0](https://github.com/victoriadotdev/hugo-theme-introduction/blob/master/LICENSE)

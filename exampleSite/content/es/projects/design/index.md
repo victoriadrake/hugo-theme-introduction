@@ -6,6 +6,6 @@ resources:
       params:
           weight: -100
 ---
-Este tema fue diseñado por [Vicky Lai](https://vickylai.io). Ve, explora! 💪
+Este tema fue diseñado por [Victoria Lai](https://victoria.dev). Ve, explora! 💪
 
 Si deseas usarlo en tu sitio web, revisa la sección al final de la página principal. 👍
