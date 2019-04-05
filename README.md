@@ -95,6 +95,7 @@ hugo new projects/_index.md
 ```
 
 Add a `title` and some optional content to the file.
+Add an optional `weight` for ordering projects section.
 
 To create a project, run:
 
@@ -122,6 +123,7 @@ Create an index file for the blog:
 ```
 hugo new blog/_index.md
 ```
+Add an optional `weight` for ordering blog section on your homepage
 
 Create a new blog post with:
 
