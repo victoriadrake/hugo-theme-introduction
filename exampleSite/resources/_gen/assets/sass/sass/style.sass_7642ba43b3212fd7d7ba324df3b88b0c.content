@@ -7177,7 +7177,7 @@ hr {
 .fab {
   font-size: 21px; }
 
-.blog-share a {
+.blog-share .icon {
   height: 1rem;
   width: 1rem;
   vertical-align: baseline;
