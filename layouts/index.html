@@ -42,13 +42,18 @@
         </section> <!-- Done with Hero -->
 
         {{ with .Site.GetPage "/home" }}
-
-        {{ $blog := .Site.GetPage "/blog" }}
-        {{ $projects := .Site.GetPage "/projects" }}
         {{ $home := . }}
+        {{ $pages := .Resources.ByType "page" }}
 
-        {{ $pages := sort (.Resources.ByType "page" | append $blog | append $projects) "Params.weight" }}
-        {{ range $pages }}
+        {{ with .Site.GetPage "/blog" }} 
+            {{ $pages = $pages | append . }}
+        {{ end }}
+
+        {{ with .Site.GetPage "/projects" }} 
+            {{ $pages = $pages | append . }}
+        {{ end }}
+
+        {{ range sort $pages "Params.weight" }}
         {{ if ne .Name "contact.md" }}
         {{ if eq .File.Dir "projects/" }}
             <!-- Now for some cool projects -->
