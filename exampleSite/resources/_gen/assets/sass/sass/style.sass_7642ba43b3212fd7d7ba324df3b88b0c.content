@@ -7123,6 +7123,9 @@ hr {
 .hidden {
   display: none; }
 
+pre {
+  background-color: #dddddd; }
+
 .img-responsive {
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); }
@@ -7177,7 +7180,7 @@ hr {
 .fab {
   font-size: 21px; }
 
-.blog-share a {
+.blog-share .icon {
   height: 1rem;
   width: 1rem;
   vertical-align: baseline;
