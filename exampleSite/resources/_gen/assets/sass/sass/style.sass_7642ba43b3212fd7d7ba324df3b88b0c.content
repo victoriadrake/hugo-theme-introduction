@@ -7124,7 +7124,7 @@ hr {
   display: none; }
 
 pre {
-  background-color: #dddddd; }
+  background-color: #eee; }
 
 .img-responsive {
   border-radius: 5px;
