@@ -41,44 +41,53 @@
             {{ end }}
 
             {{ with .Site.GetPage "/home" }}
-            {{ range sort (.Resources.ByType "page") "Params.weight" }}
+            {{ $pages := .Resources.ByType "page" }}
+
+            {{ with .Site.GetPage "/blog" }}
+                {{ $pages = $pages | append . }}
+            {{ end }}
+
+            {{ with .Site.GetPage "/projects" }}
+                {{ $pages = $pages | append . }}
+            {{ end }}
+
+            {{ range sort $pages "Params.weight" }}
             {{ if ne .Name "contact.md" }}
+            {{ if eq .File.Dir "projects/" }}
+                <!-- Now for some cool projects -->
+                {{ if $isHome }}
+                <a class="navbar-item" href="{{ printf "/#%s" ( .Title | urlize) | relLangURL }}">{{ .Title }}</a>
+                {{ else }}
+                {{ $pageIsInProjects := eq $.Page.Section "project"}}
+                {{ if not (and $pageIsInProjects (eq $.Page.Kind "section")) }}
+                  <a class="navbar-item" href="{{ .Permalink }}">
+                  {{ if $pageIsInProjects }}
+                  {{ i18n "nav_backToSection" . }}
+                  {{ else }}
+                  {{ .Title | singularize}}
+                  {{ end }}
+                  </a>
+                {{ end }}
+                {{ end }}
+            {{ else if eq .File.Dir "blog/" }}
+                <!-- Let`s show some blog posts -->
+                {{ if $isHome }}
+                <a class="navbar-item" href="{{ printf "/#%s" ( .Title | urlize) | relLangURL }}">{{ .Title }}</a>
+                {{ else }}
+                {{ $pageIsInBlog := eq $.Page.Section "blog"}}
+                {{ if not (and $pageIsInBlog (eq $.Page.Kind "section")) }}
+                  <a class="navbar-item" href="{{ .Permalink }}">
+                  {{ if $pageIsInBlog }}
+                  {{ i18n "nav_backToSection" . }}
+                  {{ else }}
+                  {{ .Title | singularize}}
+                  {{ end }}
+                  </a>
+                {{ end }}
+                {{ end }}
+            {{ else }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "/#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title }}</a>
             {{ end }}
-            {{ end }}
-            {{ end }}
-
-            {{ $pageIsInProjects := eq .Page.Section "projects"}}
-            {{ if not (and $pageIsInProjects (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "/projects" }}
-            {{ $totalProjects := (len .Pages) }}
-            {{ if $isHome }}
-            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
-            {{ else }}
-            <a class="navbar-item" href="{{ .Permalink }}">
-                {{ if $pageIsInProjects }}
-                {{ i18n "nav_backToSection" . }}
-                {{ else }}
-                {{ .Title }}
-                {{ end }}
-            </a>
-            {{ end }}
-            {{ end }}
-            {{ end }}
-
-            {{ $pageIsInBlog := eq .Page.Section "blog"}}
-            {{ if not (and $pageIsInBlog (eq .Page.Kind "section")) }}
-            {{ with .Site.GetPage "/blog" }}
-            {{ if $isHome }}
-            <a class="navbar-item" href="{{ printf "#%s" (.Title | urlize) }}">{{ .Title }}</a>
-            {{ else }}
-            <a class="navbar-item" href="{{ .Permalink }}">
-                {{ if $pageIsInBlog }}
-                {{ i18n "nav_backToSection" . }}
-                {{ else }}
-                {{ .Title | singularize}}
-                {{ end }}
-            </a>
             {{ end }}
             {{ end }}
             {{ end }}
