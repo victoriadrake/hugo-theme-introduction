@@ -55,6 +55,7 @@
 
         {{ range sort $pages "Params.weight" }}
         {{ if ne .Name "contact.md" }}
+        {{ if .File }}
         {{ if eq .File.Dir "projects/" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
@@ -92,6 +93,7 @@
         <div class="container">
             <hr>
         </div>
+        {{ end }}
         {{ end }}
         {{ end }}
         {{ end }}
