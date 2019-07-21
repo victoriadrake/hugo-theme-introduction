@@ -171,6 +171,6 @@ This theme would not be nearly as awesome without its amazing community of open 
 Pull requests for bug fixes and improvements are welcome.
 
 # License
-Copyright (C) 2018 [Victoria Lai](https://victoria.dev/)
+Copyright (C) 2018 [Victoria Drake](https://victoria.dev/)
 
 Licensed under [Apache-2.0](https://github.com/victoriadotdev/hugo-theme-introduction/blob/master/LICENSE)
