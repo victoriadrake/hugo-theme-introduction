@@ -24,7 +24,14 @@
         {{ .Content }}
     </div>
     <!-- End post content -->
-    {{ partial "comments.html" . }}
+    <div class="disqus">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+    {{ if .Site.Params.staticman }}
+      <div class="staticman-comments container has-text-centered">
+        {{ partial "staticman.html" . }}
+      </div>
+    {{ end }}
 {{ end }}
 
 {{ define "customCSS" }}
@@ -33,4 +40,7 @@
 
 {{ define "customScripts" }}
 {{ partial "js/owlCarousel.html" . }}
+{{- if .Site.Params.staticman -}}
+    {{ partial "js/staticman.html" . }}
+{{- end -}}
 {{ end }}

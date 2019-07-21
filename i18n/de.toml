@@ -23,3 +23,39 @@
     other = "Teilen"
 [footer_text]
     other = "[**Vorstellung**](https://github.com/victoriadotdev/hugo-theme-introduction/), ein Theme für [Hugo](http://gohugo.io/). Entwickelt mit [<i class=\"fa fa-heart\"></i> und <i class=\"fa fa-coffee\"></i>](https://victoria.dev) von Open Source Mitwirkenden"
+
+# Staticman
+[shortdateFormat]
+    other = "2 Jan, 2006 15:04:05"
+[noComment]
+    other = "Kein Kommentar"
+[oneComment]
+    other = "Kommentar"
+[moreComment]
+    other = "Kommentare"
+[useMarkdown]
+    other = "Sie können Markdown-Syntax verwenden"
+[yourName]
+    other = "Irh Name"
+[yourEmail]
+    other = "Ihre Emailadresse"
+[yourWebsite]
+    other = "Ihre Website"
+[replyToMsg]
+    other = "Auf diesen Kommentar antworten"
+[comments_label]
+    other = "Hinterlassen Sie einen Kommentar"
+[comment_form_info]
+    other = "Ihre E-Mail Adresse wird nicht veröffentlicht. Benötigte Felder sind markiert"
+[comment_btn_submit]
+    other = "Kommentar absenden"
+[comment_btn_submit_reply]
+    other = "Antwort schicken"
+[comment_btn_reset]
+    other = "Zurücksetzen"
+[comment_btn_submitted]
+    other = "Versendet"
+    [comment_success_msg]
+    other = "Danke für Ihren Kommentar! Er wird auf der Seite angezeigt, nachdem er geprüft wurde."
+[comment_error_msg]
+    other = "Entschuldigung, es gab einen Fehler. Bitte füllen Sie alle benötigten Felder aus und versuchen Sie es erneut."
