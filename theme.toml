@@ -8,5 +8,5 @@ features = ["responsive", "blog", "portfolio", "gallery"]
 min_version = "0.49"
 
 [author]
-  name = "Victoria Lai"
+  name = "Victoria Drake"
   homepage = "https://victoria.dev"
