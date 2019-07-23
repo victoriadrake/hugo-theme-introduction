@@ -1,7 +1,7 @@
 ---
 title: "Sobre"
 image: "profile.jpg"
-weight: 0
+weight: 8
 ---
 
 Esto es **Introducción**, un tema mínimo con desplazamiento para sitios web hechos con [Hugo](https://gohugo.io).

@@ -16,13 +16,14 @@ DefaultContentLanguage           = "en"                    # Default language fo
 
     # Configure the home page
     [params.home]
-        introHeight              = "large"                 # Input either "medium" or "large" or "fullheight"
+        introHeight              = "fullheight"            # Input either "medium" or "large" or "fullheight"
         showLatest               = true                    # Show latest blog post summary
         showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
         numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
 
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        timeFormat               = "h:mm A"                # https://momentjs.com/docs/#/displaying/format/
     [params.projects]
         useTwoColumns            = false                   # Use a layout with two columns instead of three
 
@@ -62,6 +63,11 @@ DefaultContentLanguage           = "en"                    # Default language fo
         url = "mailto:youremail@email.com"  # For a direct email link, use "mailto:test@example.org".
         icon = "paper-plane" # icon name without the 'fa-'
         icon_pack = "fas"
+    [[params.social]]
+        url   = "https://mastodon.social/"
+        icon  = "mastodon" # icon name without the 'fa-'
+        icon_pack = "fab"
+        html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
 
 
 # If you don't want to use the default menu, you can define one by yourself

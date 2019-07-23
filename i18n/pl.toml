@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "Oops! Ta strona nie istnieje! Albo trafiłeś na błąd {{ with .Site.Params.email }} (w takim wypadku, [powiadom mnie](mailto:{{ . }}) ) {{ end }} albo próbujesz wejść na stronę, której nie ma."
+[index_projects_allProjects]
+    other = "Wszystkie projekty"
+[index_blog_latestPosts]
+    other = "Ostatnie posty"
+[index_blog_allPosts]
+    other = "Wszystkie posty"
+[index_blog_readMore]
+    other = "Więcej"
+[index_currentTime]
+    other = "Mój lokalny czas to"
+[nav_backToSection]
+    other = "Wróć do {{ .Title }}"
+[nav_main]
+    other = "główna"
+[blog_readingTime]
+    one = "{{ .Count }} minut"
+    other = "{{ .Count }} minut"
+[blog_shareThis]
+    other = "Podziel się"
+[footer_text]
+    other = "[**Introduction**](https://github.com/victoriadotdev/hugo-theme-introduction/) szablon dla [Hugo](http://gohugo.io/). Stworzony z [<i class=\"fa fa-heart\"></i> i <i class=\"fa fa-coffee\"></i>](https://victoria.dev) przez społeczność open source."
