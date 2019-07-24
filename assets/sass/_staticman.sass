@@ -19,7 +19,18 @@
       margin: 0.6rem 0 0.6rem 0
       textarea
         width: 100%
-        padding: 0.3rem
+      textarea, input
+        padding: 0.5rem
+        border: 1px solid #dbdbdb
+        background: $background
+        color: $body-color
+        border-radius: 4px
+
+    button
+        border-radius: 4px
+        background: $secondary
+        border: 1px solid $secondary
+        padding: 0.5em
 
   // Static comments
   .comment
@@ -36,6 +47,7 @@
     border-radius: 50%
 
   .comment__content-wrapper
+    float: right
     width: calc(100% - 60px)
 
   .comment__author
