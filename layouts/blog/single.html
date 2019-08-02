@@ -59,3 +59,9 @@
     <!-- End blog post content -->
     {{ partial "comments.html" . }}
 {{ end }}
+
+{{- define "customScripts" -}}
+{{- if .Site.Params.staticman -}}
+    {{- partial "js/staticman.html" . -}}
+{{- end -}}
+{{- end -}}

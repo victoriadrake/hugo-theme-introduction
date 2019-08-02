@@ -1,12 +1,7 @@
 .page__comments
   /* HTML form */
-  .page__comments-title
-    font-size: $size-3
-    @include mobile
-      font-size: $size-4
-
   .page__comments-form
-    margin-top: 1rem;
+    margin-top: 1rem
     &.disabled
       input, button, textarea, label
         pointer-events: none
@@ -26,17 +21,21 @@
         color: $body-color
         border-radius: 4px
 
-    .reply-notice   
+    .reply-notice
+      .reply-arrow
+        vertical-align: middle
       .comment__avatar
         display: inline-block
         float: none
         width: 2rem
         height: 2rem
         margin: 0 .6rem
+        vertical-align: text-bottom
+        border-radius: 50%
       .close-btn
         margin: 0 .6rem
-        &:hover
-          text-decoration: none
+        &:after
+          content: '\2716'
 
     .required
       font-weight: bold
@@ -45,28 +44,52 @@
       border-radius: 4px
       background: $secondary
       border: 1px solid $secondary
-      padding: 0.5em
+      padding: 0.5rem
+      margin-right: 0.6rem
 
   /* Static comments */
+  $avatar__size: 5rem
+  $avatar__sep: 3rem
+  $reply__indent: 2rem
+
   .comment
-    margin: 1em 0
+    margin: 1rem 0 1rem 0
+    float: left
+    width: 100%
+    clear: both
 
     .comment__avatar-wrapper
       float: left
-      width: 60px
-      height: 60px
-
-    .comment__avatar
-      width: 40px
-      height: 40px
-      border-radius: 50%
+      width: $avatar__size
+      height: $avatar__size
+      margin-right: $avatar__sep
+      .comment__avatar
+        width: 100%
+        height: 100%
+        border-radius: 50%
 
     .comment__content-wrapper
       float: right
-      width: calc(100% - 60px)
+      width: calc(100% - #{$avatar__size} - #{$avatar__sep} - 1px)
+      border-bottom: 1px solid $secondary
+      .comment__author
+        margin-bottom: 0.3rem
+      .comment__content
+        margin: 0.5rem 0 0.5rem 0
+      .comment__reply-button
+        margin-top: 0.6rem
+        margin-bottom: 0.6rem
 
-    .comment__author
-      margin: 0
+    &.reply
+      margin-left: 2rem
+      width: calc(100% - #{$reply__indent} - 1px)
 
-    .comment__date
-      margin: 0
+      span[itemprop="name"]
+        &::after
+          font-family: 'Font Awesome 5 Free'
+          content: "\f064"
+          display: inline-block
+          padding-left: .5rem
+          padding-right: .5rem
+          vertical-align: middle
+          font-weight: 900

@@ -6,12 +6,12 @@
     {{ $comments := index $.Site.Data.comments $slug }}
     {{ if $comments }}
       {{ if gt (len $comments) 1 }}
-        <h3>{{ len $comments }} {{ i18n "moreComment" }}</h3>
+        <h3 class="title is-3">{{ len $comments }} {{ i18n "moreComment" }}</h3>
       {{ else }}
-        <h3>{{ len $comments }} {{ i18n "oneComment" }}</h3>
+        <h3 class="title is-3">{{ len $comments }} {{ i18n "oneComment" }}</h3>
       {{ end }}
     {{ else }}
-      <h3>{{ i18n "noComment" }}</h3>
+      <h3 class="title is-3">{{ i18n "noComment" }}</h3>
     {{ end }}
 
     {{ $.Scratch.Set "hasComments" 0 }}
@@ -23,17 +23,17 @@
             <img class='comment__avatar' src='https://www.gravatar.com/avatar/{{ .email }}?d=mm&s=80' alt='{{ .name }}'>
           </div>
           <div class='comment__content-wrapper'>
-            <h3 class='comment__author' itemprop='author' itemscope itemtype='https://schema.org/Person'>
+            <h4 class='comment__author title is-5' itemprop='author' itemscope itemtype='https://schema.org/Person'>
               {{ if .website }}
                 <span itemprop='name'><a rel='external nofollow' itemprop='url' href='{{ .url }}'>{{ .name }}</a></span>
               {{ else }}
                 <span itemprop='name'>{{ .name }}</span>
               {{ end }}
-              <a class='comment__date' href='#{{ ._id }}' title='Permalink to this comment'>
-                <time datetime='{{ .date }}'>{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
-              </a>
-            </h3>
-            <div class='comment___content'><p>{{ .comment | markdownify }}</p></div>
+            </h4>
+            <a class='comment__date' href='#{{ ._id }}' title='Permalink to this comment'>
+              <time datetime='{{ .date }}'>{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
+            </a>
+            <div class='comment__content'><p>{{ .comment | markdownify }}</p></div>
             <div class='comment__reply-button'>
               <a class='reply-btn' href='#comment-form' title='{{ ._id }}'>{{ i18n "replyToMsg" }}</a>
             </div>
@@ -47,17 +47,17 @@
                 <img class='comment__avatar' src='https://www.gravatar.com/avatar/{{ .email }}?d=mm&s=80' alt='{{ .name }}'>
               </div>
               <div class='comment__content-wrapper'>
-                <h3 class='comment__author' itemprop='author' itemscope itemtype='https://schema.org/Person'>
+                <h4 class='comment__author title is-5' itemprop='author' itemscope itemtype='https://schema.org/Person'>
                   {{ if .website }}
                     <span itemprop='name'><a rel='external nofollow' itemprop='url' href='{{ .url }}'>{{ .name }}</a></span>
                   {{ else }}
                     <span itemprop='name'>{{ .name }}</span>
                   {{ end }}
-                  <a class='comment-reply-target' href='#{{ .replyID }}'><i class='fas fa-reply'></i> {{ .replyName }}</a>
-                  <a class='comment__date' href='#{{ ._id }}' title='Permalink to this comment'>
-                    <time datetime='{{ .date }}'>{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
-                  </a>
-                </h3>
+                  <a class='comment__reply-target' href='#{{ .replyID }}'>{{ .replyName }}</a>
+                </h4>
+                <a class='comment__date' href='#{{ ._id }}' title='Permalink to this comment'>
+                  <time datetime='{{ .date }}'>{{ dateFormat (default (i18n "shortdateFormat") .Site.Params.dateformat) .date }}</time>
+                </a>
                 <div class='comment__content'><p>{{ .comment | markdownify }}</p></div>
                 <div class='comment__reply-button'>
                   <a class='reply-btn' href='#comment-form' title='{{ .replyThread }}'>{{ i18n "replyToMsg" }}</a>
@@ -72,9 +72,9 @@
 
     <!-- Start comment form -->
     <div class='page__comments-form'>
-      <h3 class='page__comments-title'>{{ i18n "comments_label" }}</h3>
-      <p class='small'>{{ i18n "comment_form_info" }} <span class='required'>*</span></p>
-      <form id='comment-form' class='page__comments-form form' method='post' action='https://example.com'>
+      <h3 class='title is-4'>{{ i18n "comments_label" }}</h3>
+      <p>{{ i18n "comment_form_info" }} <span class='required'>*</span></p>
+      <form id='comment-form' class='page__comments-form form' method='POST'>
         <!-- Hidden fields -->
         <div class='form-group hidden'>
           <input type='hidden' name='options[slug]' value='{{ replace .RelPermalink "/" "" }}'>
@@ -90,11 +90,11 @@
         </div>
 
         <!-- Start comment form display reply target -->
-        <div class='reply-target-notice'>
-          <p class='reply-notice hidden'>
-            <strong class='reply-arrow'><i class='fas fa-share'></i></strong>
-            <strong class='reply-name'></strong>
-          </p>
+        <div class='form-group reply-target-notice'>
+          <h5 class='reply-notice hidden title is-5'>
+            <span class='reply-arrow'><i class='fas fa-share'></i></span>
+            <span class='reply-name'></span>
+          </h5>
         </div>
         <!-- End comment form display reply target -->
 

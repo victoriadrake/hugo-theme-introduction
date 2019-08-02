@@ -1,7 +1,5 @@
 (function ($) {
-  var $comments = $('.js-comments');
-
-  $('.page__comments').submit(function () {
+  $('.page__comments-form').submit(function () {
     var form = this;
 
     $(form).addClass('disabled');
@@ -27,6 +25,8 @@
         console.log(err);
         showAlert('failed');
         $(form).disabled = false;
+        $('button[type="submit"]:enabled').removeClass('hidden'); // hide "submit"
+        $('button[type="submit"]:disabled').addClass('hidden'); // show "sub
       }
     });
 
@@ -74,7 +74,7 @@
     $('.page__comments input[name="fields[replyThread]"]').val(this.title);
     $('.page__comments input[name="fields[replyID]"]').val(cmt.attr('id'));
     authorTag = cmt.find('.comment__author');
-    replyName = authorTag.text();
+    replyName = authorTag.find('span[itemprop="name"]').text();
     $('.page__comments input[name="fields[replyName]"]').val(replyName);
 
     // display reply target avatar and name
@@ -84,7 +84,7 @@
     // use clone to avoid removal of avatar in comments by resetReplyTarget()
     $('.page__comments .reply-arrow').after(avatarTag.clone());
     // add button for removing reply target (static method would give error msg)
-    closeBtn = $("<a class='close-btn'>×</a>");
+    closeBtn = $("<a class='close-btn'></a>");
     $('.page__comments .reply-notice').append(closeBtn);
   });
 

@@ -27,15 +27,16 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [params.projects]
         useTwoColumns            = false                   # Use a layout with two columns instead of three
 
-    # Staticman support
-    # Input your API endpoint and info of your target GitHub/GitLab repo
-    # ReCAPTCHA is optional.  If enabled, use your own site key and encrypted site secrets.
-    # The site secret should be encrypted via https://{STATICMAN-API}/v3/encrypt/{SITE-SECRET}
-    # [params.staticman]
-    #     api = "https://staticman3.herokuapp.com/v3/entry/{GITLAB|GITHUB}/{USERNAME}/{REPO}/{BRANCH}/comments"
-    #     [params.staticman.recaptcha]
-    #         sitekey = "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
-    #         secret = "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
+  # [Params.staticman]
+  #   endpoint =  "" # URL of your own API deployment (without trailing slash), default: "https://staticman-frama.herokuapp.com"
+  #   gitProvider = "gitlab"  # either "github" or "gitlab"
+  #   repo = "user/repo"  # your GitHub/GitLab repository
+  #   branch = "master"  # branch on which you want to receive comments
+
+  #   # # If you use reCAPTCHA v2, you must also set these parameters in staticman.yml
+  #   # [Params.staticman.reCaptcha]
+  #   #   siteKey = ""  # Use your OWN site key, you need to apply for one on Google
+  #   #   secret  = ""  # ENCRYPT your password by going to https://<staticman-endpoint>/v3/encrypt/<your-site-secret>
 
     # Share buttons on blog post pages
     [params.share]

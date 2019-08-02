@@ -1,6 +1,6 @@
 comments:
-  allowedFields: ["name", "email", "website", "comment", "replyThread", "replyName", "replyID"]
-  branch            : "master"
+  allowedFields: ["name", "email", "url", "comment", "replyThread", "replyName", "replyID"]
+  branch            : "master"  # should match your config.toml
   commitMessage     : "New comment from {fields.name}"
   path: "data/comments/{options.slug}"
   filename          : "comment-{@timestamp}"
@@ -15,7 +15,13 @@ comments:
       options:
         format      : "iso8601"
 
-  reCaptcha:
-    enabled: true
-    siteKey: "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
-    secret: "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
+  # # reCAPTCHA (OPTIONAL)
+  # # Register your domain at https://www.google.com/recaptcha/ and choose reCAPTCHA V2
+  # # Use your OWN siteKey and secret.
+  # reCaptcha:
+  #   # siteKey and secret should match your config.toml
+  #   siteKey: "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
+  #   # (!) ENCRYPT reCaptcha secret key using Staticman /encrypt endpoint
+  #   # i.e. https://{staticman-endpoint}/v3/encrypt/{your-site-secret}
+  #   # For more information, https://staticman.net/docs/encryption
+  #   secret: "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
