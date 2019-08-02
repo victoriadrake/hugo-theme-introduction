@@ -1,5 +1,5 @@
 .page__comments
-  // HTML form
+  /* HTML form */
   .page__comments-title
     font-size: $size-3
     @include mobile
@@ -21,37 +21,52 @@
         width: 100%
       textarea, input
         padding: 0.5rem
-        border: 1px solid #dbdbdb
+        border: 1px solid $secondary
         background: $background
         color: $body-color
         border-radius: 4px
 
-    button
-        border-radius: 4px
-        background: $secondary
-        border: 1px solid $secondary
-        padding: 0.5em
+    .reply-notice   
+      .comment__avatar
+        display: inline-block
+        float: none
+        width: 2rem
+        height: 2rem
+        margin: 0 .6rem
+      .close-btn
+        margin: 0 .6rem
+        &:hover
+          text-decoration: none
 
-  // Static comments
+    .required
+      font-weight: bold
+
+    button
+      border-radius: 4px
+      background: $secondary
+      border: 1px solid $secondary
+      padding: 0.5em
+
+  /* Static comments */
   .comment
     margin: 1em 0
 
-  .comment__avatar-wrapper
-    float: left
-    width: 60px
-    height: 60px
+    .comment__avatar-wrapper
+      float: left
+      width: 60px
+      height: 60px
 
-  .comment__avatar
-    width: 40px
-    height: 40px
-    border-radius: 50%
+    .comment__avatar
+      width: 40px
+      height: 40px
+      border-radius: 50%
 
-  .comment__content-wrapper
-    float: right
-    width: calc(100% - 60px)
+    .comment__content-wrapper
+      float: right
+      width: calc(100% - 60px)
 
-  .comment__author
-    margin: 0
+    .comment__author
+      margin: 0
 
-  .comment__date
-    margin: 0
+    .comment__date
+      margin: 0

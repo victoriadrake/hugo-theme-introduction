@@ -49,8 +49,6 @@
     other = "Ihre E-Mail Adresse wird nicht veröffentlicht. Benötigte Felder sind markiert"
 [comment_btn_submit]
     other = "Kommentar absenden"
-[comment_btn_submit_reply]
-    other = "Antwort schicken"
 [comment_btn_reset]
     other = "Zurücksetzen"
 [comment_btn_submitted]

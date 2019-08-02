@@ -23,3 +23,37 @@
     other = "Podziel się"
 [footer_text]
     other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) szablon dla [Hugo](http://gohugo.io/). Stworzony z [<i class=\"fa fa-heart\"></i> i <i class=\"fa fa-coffee\"></i>](https://victoria.dev) przez społeczność open source."
+
+# Staticman
+[shortdateFormat]
+    other = "2 Jan, 2006 15:04:05"
+[noComment]
+    other = "Bez komentarza"
+[oneComment]
+    other = "komentarz"
+[moreComment]
+    other = "komentarzy"
+[useMarkdown]
+    other = "Możesz użyć składni Markdown"
+[yourName]
+    other = "Twoje imię"
+[yourEmail]
+    other = "Twój adres email"
+[yourWebsite]
+    other = "Twoja strona internetowa"
+[replyToMsg]
+    other = "Odpowiedz na ten komentarz"
+[comments_label]
+    other = "Laisser un commentaire"
+[comment_form_info]
+    other = "Twój adres email nie będzie udostępiony. Wymagane pola są oznaczone"
+[comment_btn_submit]
+    other = "Skomentuj"
+[comment_btn_reset]
+    other = "Wyzeruj"
+[comment_btn_submitted]
+    other = "Komentarz dodany"
+[comment_success_msg]
+    other = "Dziękuję za Twój komentarz! Zostanie dodany po akceptacji."
+[comment_error_msg]
+    other = "Niestety wystąpił błąd. Proszę upewnij się, że wszystkie wymagane pola zostały wypełnione i spróbuj ponownie."

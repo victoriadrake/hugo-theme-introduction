@@ -48,9 +48,7 @@
 [comment_form_info]
     other = "Your email address will not be published. Required fields are marked"
 [comment_btn_submit]
-    other = "Submit comment"
-[comment_btn_submit_reply]
-    other = "Submit reply"
+    other = "Submit"
 [comment_btn_reset]
     other = "Reset"
 [comment_btn_submitted]

@@ -49,8 +49,6 @@
     other = "Su dirección de correo no será publicada. Se han resaltado los campos requeridos"
 [comment_btn_submit]
     other = "Enviar Commentario"
-[comment_btn_submit_reply]
-    other = "Enviar respuesta"
 [comment_btn_reset]
     other = "Limpar"
 [comment_btn_submitted]

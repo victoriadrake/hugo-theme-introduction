@@ -49,8 +49,6 @@
     other = "Votre adresse email ne sera pas visible. Les champs obligatoires sont marqués"
 [comment_btn_submit]
     other = "Envoyer"
-[comment_btn_submit_reply]
-    other = "Envoyer votre réponse"
 [comment_btn_reset]
     other = "Annuler"
 [comment_btn_submitted]
