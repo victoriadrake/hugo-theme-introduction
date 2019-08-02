@@ -158,6 +158,89 @@ Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analy
 
 Set `disqusshortname` in `config.toml` to activate Hugo's [internal Disqus template](https://gohugo.io/templates/internal/#disqus).
 
+## Staticman
+
+Procedures to start using Staticman:
+
+1. Add Staticman bot/app, depending on your Git service provider.
+    - GitHub: choose either one of the following method
+        + GitHub App: refer to issue
+        [https://github.com/eduardoboucas/staticman/issues/243](https://github.com/eduardoboucas/staticman/issues/243)
+        for detailed procedures.
+        + GitHub bot: invite
+        **[@staticmanlab](https://github.com/staticmanlab)** as a collaborator
+        to your repository (by going to your repository's **Settings** page,
+        navigating to the **Collaborators** tab.
+
+            ![add staticmanlab on GitHub](https://user-images.githubusercontent.com/5748535/62385579-c5fc3a80-b555-11e9-9a87-a71e00022d13.png)
+
+            Then help **[@staticmanlab](https://github.com/staticmanlab)**
+            accept the invitation by going to
+
+                https://staticman3.herokuapp.com/v3/connect/github/<username>/<repo-name>
+
+            ![help staticmanlab accept invitation](https://user-images.githubusercontent.com/5748535/62385576-c563a400-b555-11e9-988b-d6c43226ca53.png)
+
+            Now, **[@staticmanlab](https://github.com/staticmanlab)** has been
+            invited to your repository.
+
+            ![staticmanlab invited to GitHub repo](https://user-images.githubusercontent.com/5748535/62385578-c5fc3a80-b555-11e9-80ca-f687930a0917.png)
+
+    - GitLab: Add the GitLab user associated with your Staticman API endpoint
+      (e.g. **[@staticmanlab](https://github.com/staticmanlab)** as a
+      "**developer**" for your project by going to **Settings → Members → Invite
+      member**.
+
+      There's *no* invitation acceptance mechanism on GitLab.  The invited
+      member enjoys the privileges once the invitation is sent.  Therefore,
+      there's *no* need to hit `/connect`.
+
+    - Framagit: Since Framagit is a fork of GitLab, the overall setup is similar
+      to that on GitLab.  (Note that the Framagit bot is named as
+      **[@statimcanlab1](https://framagit.org/staticmanlab1)**.)
+
+        ![@staticmanlab1 invited to Framagit repo](https://user-images.githubusercontent.com/5748535/62385580-c5fc3a80-b555-11e9-94b4-277cfccc32d7.png)
+
+2. Fill in the site config file `config.toml` with reference to the instructions
+in the comments.
+
+    Framagit users may choose `gitlab` for `gitProvider` in `config.toml`.
+
+    In case of empty `endpoint`, the public Framagit instance will be used.
+
+    | instance | `endpoint` |
+    | --- | --- |
+    | official production | `https://api.staticman.net` |
+    | GitLab | `https://staticman3.herokuapp.com` |
+    | Framagit | `https://staticman-frama.herokuapp.com` |
+
+3. Proceed to the **root-level** repo config file `staticman.yml`.  Note that
+the name and path of this file *can't* be changed.
+
+    The parameter `moderation` is for comment moderation, and it defaults to
+    `true`, so each new comment is created as a pull/merge request.  If it is
+    switched to `false`, then Staticman will directly commit against the
+    configured `branch`.
+
+    If you are working on GitLab/Framagit and you have set `moderation: false`,
+    depending on your `branch`, you might need the following steps.
+
+    - protected branch (e.g. `master`): Go to **Settings → Repository →
+      Protected Branches** and permit the GitLab bot to push against that
+      branch.
+    - unprotected branch (GitHub's default): *no* measures needed
+
+4. (Optional, GitHub only) To prevent old inactive branches (representing
+approved comments) from piling up, you may set up a webhook according to
+[Staticman's documenation](https://staticman.net/docs/webhooks).  Make sure to
+input the **Payload URL** according to your chosen `endpoint`.  For example, the
+default `endpoint` is `https://staticman3.herokuapp.com`, so the corresponding
+**Payload URL** should be `https://staticman3.herokuapp.com/v1/webhook`.
+
+5. (Optional, but recommended) To stop spam bots, it's suggested to enable
+[reCAPTCHA](https://developers.google.com/recaptcha/docs/display).  You may
+refer to the site config file for details.
+
 ## Custom css
 You can add custom css files by placing them under `assets/` and adding the path to the file to `customCSS` in `config.toml`.
 
