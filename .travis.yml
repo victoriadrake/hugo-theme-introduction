@@ -9,6 +9,7 @@ env:
   - HUGO_VERSION="0.53"
   - HUGO_VERSION="0.54.0"
   - HUGO_VERSION="0.55.0"
+  - HUGO_VERSION="0.56.0"
 
 install:
   - wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
