@@ -24,8 +24,8 @@ Developer-friendly:
 ## Requirements
 - Extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 - To make changes to the theme CSS:
-  - [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
-  - [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
+  - [autoprefixer](https://github.com/postcss/autoprefixer): `npm install autoprefixer`
+  - [postcss-cli](https://github.com/postcss/postcss-cli):`npm install postcss-cli`
 
 ## Get the theme
 Run from the root of your Hugo site:
