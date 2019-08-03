@@ -41,8 +41,8 @@
       $('.page__comments .submit-success').addClass('hidden'); // hide submit success message
       $('.page__comments .submit-failed').removeClass('hidden');  // show submit failed message
     }
-    $('input[type="submit"]:enabled').removeClass('hidden'); // show "submit"
-    $('input[type="submit"]:disabled').addClass('hidden');  // hide "submitted"
+    $('button[type="submit"]:enabled').removeClass('hidden'); // show "submit"
+    $('button[type="submit"]:disabled').addClass('hidden');  // hide "submitted"
   }
 
   function clearForm() {
