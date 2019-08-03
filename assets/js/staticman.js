@@ -25,8 +25,6 @@
         console.log(err);
         showAlert('failed');
         $(form).disabled = false;
-        $('button[type="submit"]:enabled').removeClass('hidden'); // hide "submit"
-        $('button[type="submit"]:disabled').addClass('hidden'); // show "sub
       }
     });
 
