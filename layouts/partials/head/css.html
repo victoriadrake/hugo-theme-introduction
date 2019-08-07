@@ -1,11 +1,11 @@
-{{ $bundleRaw := resources.Get "/sass/style.sass" | resources.ExecuteAsTemplate "/css/main.tmp.css" . }}
+{{ $bundleRaw := resources.Get "sass/style.sass" | resources.ExecuteAsTemplate "css/main.tmp.css" . }}
 
 {{ if .Site.IsServer }}
-{{ $cssOpts := (dict "targetPath" "/css/main.css" "enableSourceMap" true ) }}
+{{ $cssOpts := (dict "targetPath" "css/main.css" "enableSourceMap" true ) }}
 {{ $bundle := $bundleRaw | toCSS $cssOpts }}
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" media="screen">
 {{ else }}
-{{ $cssOpts := (dict "targetPath" "/css/main.css" ) }}
+{{ $cssOpts := (dict "targetPath" "css/main.css" ) }}
 {{ $postCSSOpts := (dict "use" "autoprefixer" ) }}
 {{ $bundle := $bundleRaw | toCSS $cssOpts | postCSS $postCSSOpts | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous" media="screen">

@@ -132,11 +132,11 @@
         {{ partial "js/owlCarousel.html" . }}
 
         {{ if .Site.Params.home.localTime }}
-        {{ $momentjs := resources.Get "/vendor/momentjs/moment.min.js" }}
-        {{ $momentTimezone := resources.Get "/vendor/momentjs/moment-timezone.min.js" }}
-        {{ $momentTimezoneWithData := resources.Get "/vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
-        {{ $initMomentjs := resources.Get "/js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
-        {{ $bundleMoment := slice $momentjs $momentTimezone $momentTimezoneWithData $initMomentjs | resources.Concat "/js/bundleMoment.js" | fingerprint }}
+        {{ $momentjs := resources.Get "vendor/momentjs/moment.min.js" }}
+        {{ $momentTimezone := resources.Get "vendor/momentjs/moment-timezone.min.js" }}
+        {{ $momentTimezoneWithData := resources.Get "vendor/momentjs/moment-timezone-with-data-2012-2022.min.js" }}
+        {{ $initMomentjs := resources.Get "js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
+        {{ $bundleMoment := slice $momentjs $momentTimezone $momentTimezoneWithData $initMomentjs | resources.Concat "js/bundleMoment.js" | fingerprint }}
         <script src="{{ $bundleMoment.Permalink }}" integrity="{{ $bundleMoment.Data.Integrity }}"></script>
         {{ end }}
     </body>

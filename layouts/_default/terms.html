@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section tags-list">
             {{- range $key, $value:= .Data.Terms -}}
-            <a class="tag-cloud" href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">{{ $key }}&nbsp;({{ $value.Count }})</a>
+            <a class="tag-cloud" href="{{ "" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">{{ $key }}&nbsp;({{ $value.Count }})</a>
             {{- end -}}
         </div>
     </div>
