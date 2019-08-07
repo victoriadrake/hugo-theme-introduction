@@ -27,6 +27,14 @@ Developer-friendly:
   - [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
   - [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
 
+Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the above two Node.js packages have to be [installed locally inside `exampleSite`](https://gohugo.io/hugo-pipes/postcss/).
+
+```
+cd exampleSite/
+npm install autoprefixer
+npm install postcss-cli
+```
+
 ## Get the theme
 Run from the root of your Hugo site:
 ```sh
