@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "噢！要麼網站連結出錯 {{ with .Site.Params.email }}（[回報錯誤](mailto:{{ . }})）{{ end }} ，要麼您輸入的網址有誤。這頁面不存在！"
+[index_projects_allProjects]
+    other = "所有項目"
+[index_blog_latestPosts]
+    other = "最新文章"
+[index_blog_allPosts]
+    other = "所有文章"
+[index_blog_readMore]
+    other = "閱讀全文"
+[index_currentTime]
+    other = "我的現在本地時間是"
+[nav_backToSection]
+    other = "返回 {{ .Title }}"
+[nav_main]
+    other = "主頁"
+[blog_readingTime]
+    one = "{{ .Count }} 分鐘"
+    other = "{{ .Count }} 分鐘"
+[blog_shareThis]
+    other = "分享"
+[footer_text]
+    other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) 主題為 [Hugo](http://gohugo.io/) 而設。由開源社群貢獻者以 [<i class=\"fa fa-heart\"></i> 和 <i class=\"fa fa-coffee\"></i>](https://victoria.dev) 創造。"
