@@ -1,7 +1,7 @@
 [404_title]
     other = "404"
 [404_description]
-    other = "Oups ! Vous avez soit trouvé un bug{{ with .Site.Params.email }} (auquel cas, [dites-le moi](mailto:{{ . }})) {{ end }} ou vous vous imaginez des choses. Cette page n'existe pas !"
+    other = "Oups ! Vous avez soit trouvé un bogue{{ with .Site.Params.email }} (auquel cas, [dites-le moi](mailto:{{ . }})) {{ end }} ou vous vous imaginez des choses. Cette page n'existe pas !"
 [index_projects_allProjects]
     other = "Tous les projets"
 [index_blog_latestPosts]
