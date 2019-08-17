@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Bitty scrolling links script
-$("a[href^=\"#\"]").click(function(e) {
+$("[href*='#']").click(function(e) {
     e.preventDefault();
     $("html, body").animate({
         scrollTop: $(document.getElementById(this.hash.substr(1))).offset().top
