@@ -1,4 +1,6 @@
 $(document).ready(function() {
-    var time = moment().tz("{{ .Site.Params.home.timeZone }}").format("{{ .Site.Params.home.timeFormat }}");
+    var time = moment()
+        .tz("{{ or .Site.Params.timeZone .Site.Params.home.timeZone }}")
+        .format("{{ or .Site.Params.timeFormat .Site.Params.home.timeFormat }}");
     $("#time").html(time);
 })
