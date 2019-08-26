@@ -33,7 +33,7 @@
                     <!-- End top social icons -->
                 </div>
             </div> <!-- End of Hero body -->
-            {{ end }}
+            {{ end }}{{/* with */}}
 
             <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
                 <!-- Tell them all about it! -->
@@ -54,8 +54,8 @@
         {{ end }}
 
         {{ range sort $pages "Params.weight" }}
-        {{ if ne .Name "contact.md" }}
         {{ if .File }}
+        {{ if or (ne (os.Stat .File.Dir).Name "home") (ne .File.TranslationBaseName "contact") }}
         {{ if eq (os.Stat .File.Dir).Name "projects" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
@@ -64,7 +64,7 @@
             {{ partial "home/blog.html" . }}
         {{ else }}
 
-        <!-- Range through all sections in /home execept contact.md -->
+        <!-- Range through all sections in /home except contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
                 <h2 class="title is-2 has-text-centered">{{ .Title }}</h2>
@@ -74,8 +74,8 @@
                         {{ with $home.Resources.GetMatch .Params.Image }}
                         {{ with .Resize "320x" }}
                         <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
-                        {{ end }}
-                        {{ end }}
+                        {{ end }}{{/* with */}}
+                        {{ end }}{{/* with */}}
                     </div>
                     <div class="markdown column">
                         {{ .Content }}
@@ -85,7 +85,7 @@
                 <div class="markdown has-text-centered">
                     {{ .Content }}
                 </div>
-                {{ end }}
+                {{ end }}{{/* if */}}
             </div>
             <!-- End About container-->
             {{ partial "top-icon.html" . }}
@@ -93,12 +93,15 @@
         <div class="container">
             <hr>
         </div>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-        {{ end }}
+        {{ end }}{{/* if */}}
+        {{ end }}{{/* if */}}
+        {{ end }}{{/* if */}}
+        {{ end }}{{/* range */}}
+
         <!-- Let`s chat, shall we? -->
-        {{ with .Resources.GetMatch "contact.md" }}
+        {{ range $pages }}
+        {{ if .File }}
+        {{ if and (eq (os.Stat .File.Dir).Name "home") (eq .File.TranslationBaseName "contact") }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container has-text-centered">
                 <h2 class="title is-2">{{ .Title }}</h2>
@@ -121,9 +124,11 @@
         <div class="container">
             <hr>
         </div>
-        {{ end }}
+        {{ end }}{{/* if */}}
+        {{ end }}{{/* if */}}
+        {{ end }}{{/* range */}}
         <!-- End Contact section -->
-        {{ end }}
+        {{ end }}{{/* with */}}
 
         {{ partial "footer/text.html" . }}
 
@@ -138,7 +143,7 @@
         {{ $initMomentjs := resources.Get "js/initMoment.js" | resources.ExecuteAsTemplate "js/initMoment.tmp.js" . }}
         {{ $bundleMoment := slice $momentjs $momentTimezone $momentTimezoneWithData $initMomentjs | resources.Concat "js/bundleMoment.js" | fingerprint }}
         <script src="{{ $bundleMoment.Permalink }}" integrity="{{ $bundleMoment.Data.Integrity }}"></script>
-        {{ end }}
+        {{ end }}{{/* if */}}
     </body>
 
 </html>
