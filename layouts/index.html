@@ -55,7 +55,7 @@
 
         {{ range sort $pages "Params.weight" }}
         {{ if .File }}
-        {{ if or (ne (os.Stat .File.Dir).Name "home") (ne .File.TranslationBaseName "contact") }}
+        {{ if ne .File.TranslationBaseName "contact" }}
         {{ if eq (os.Stat .File.Dir).Name "projects" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
@@ -101,7 +101,7 @@
         <!-- Let`s chat, shall we? -->
         {{ range $pages }}
         {{ if .File }}
-        {{ if and (eq (os.Stat .File.Dir).Name "home") (eq .File.TranslationBaseName "contact") }}
+        {{ if eq .File.TranslationBaseName "contact" }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container has-text-centered">
                 <h2 class="title is-2">{{ .Title }}</h2>
