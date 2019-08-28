@@ -24,7 +24,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         timeFormat               = "h:mm A"                # https://momentjs.com/docs/#/displaying/format/
-        timeUpdatePeriod         = 0                       # Update the localtime every timeUpdatePeriod milliseconds. This is usually either 0 (disabled) or 1000 (every second) 
+        timeRefresh              = 0                       # Update the localtime every timeRefresh milliseconds. This is usually either 0 (disabled) or 1000 (every second) 
 
     [params.projects]
         useTwoColumns            = false                   # Use a layout with two columns instead of three
