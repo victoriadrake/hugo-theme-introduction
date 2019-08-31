@@ -7,8 +7,5 @@ $(document).ready(function() {
         tnode.html(time);
     }
     update_localtime();
-    const refresh = Number(tnode.attr("data-refresh"))
-    if (refresh > 0) {
-        setInterval(update_localtime, refresh);
-    }    
+    setInterval(update_localtime, 1000);
 })
