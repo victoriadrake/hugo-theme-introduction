@@ -1,4 +1,11 @@
 $(document).ready(function() {
-    var time = moment().tz("{{ .Site.Params.home.timeZone }}").format("{{ .Site.Params.home.timeFormat }}");
-    $("#time").html(time);
+    const tnode = $("#time")
+    const update_localtime = function(){
+        var time = moment()
+            .tz(tnode.attr("data-time-zone"))
+            .format(tnode.attr("data-time-format"));
+        tnode.html(time);
+    }
+    update_localtime();
+    setInterval(update_localtime, 1000);
 })
