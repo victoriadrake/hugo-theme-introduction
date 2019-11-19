@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        {{ with .Site.GetPage "/home" }}
+        {{ with .Site.GetPage "/home" }} 
         <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}" style="background-image: url({{ .Site.Params.logo }}); background-attachment: fixed; background-position: center 25%; background-repeat: no-repeat;">
             <!-- Hero head section to play nice with Bulma -->
             <div class="hero-head"></div>
