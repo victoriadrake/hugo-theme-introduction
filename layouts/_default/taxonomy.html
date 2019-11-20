@@ -4,18 +4,50 @@
 
 {{ define "main" }}
     <div class="container">
-        <ul>
+        {{ if .Site.Params.blog.useGrid}}
+          <div class="cols3">
+            <ul>
             {{ range .Pages.ByPublishDate.Reverse }}
-            {{ if .Date }}
-            <li>
-                <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title }}</a>
-            </li>
-            {{ else }}
-            <li>
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
+                <li class="post-item" style="text-align: center center;">
+                  <a  href="{{ .Permalink }}" >
+                    <div class="column-blog" > 
+                        {{ if isset .Params "featured_image" }}
+                          <img src="{{ .Params.featured_image }}"> 
+                        {{ else }} 
+                           <img src="/img/empty_img.png" class="mock-img"> 
+                        {{ end }}
+                        <div class="column-blog-mid">
+                          <p style="font-size: calc(.3vw + .3vh + 1vmin);" >
+                            {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} <br>
+                          </p>
+                          {{ .Title }}
+                        </div>
+                    </div>
+                  </a>
+                </li>
             {{ end }}
+        {{ else }}
+            <ul>
+            {{ range .Pages.ByPublishDate.Reverse }}
+                {{ if .Date }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title }}</a>
+                </li>
+                {{ else }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </li>
+                {{ end }}
             {{ end }}
+        {{ end }}
         </ul>
     </div>
+    <hr>
+    <h1 class="title"> Other tags</h1>
+    <div class=".tag-cloud">
+        {{ range .Site.Taxonomies.tags }}
+            <a href="{{ .Page.Permalink }}" style="font-size: calc({{ .Count }}vw *3);">{{ .Page.Title }}</a> 
+        {{ end }}
+    </div>
 {{ end }}
+

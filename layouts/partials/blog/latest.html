@@ -1,0 +1,20 @@
+{{ if isset .Params "featured_image"}}
+    <div class="columns"><!-- featured img and content side by side except mobile -->
+          <div class="column is-one-third has-text-centered">
+            {{ with .Params.featured_image }}<img src="{{ . }}">{{ end }}
+          </div>
+        <div class="column markdown">
+            {{ .Summary }} 
+            {{ if .Truncated }}
+              <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+            {{ end }}
+        </div>
+    </div>
+{{ else }}
+    <div class="markdown">
+        {{ .Summary }}
+        {{ if .Truncated }}
+        <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+        {{ end }}
+    </div>
+{{ end }}

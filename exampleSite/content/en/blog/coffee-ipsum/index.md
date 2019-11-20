@@ -1,6 +1,6 @@
 ---
 title: "Coffee Ipsum"
-date: 2017-12-01T12:04:16-05:00
+date: 2017-11-01T12:04:16-05:00
 tags: ["coffee", "ipsum", "images"]
 featured_image: "/blog/coffee-ipsum/workday.jpg"
 ---

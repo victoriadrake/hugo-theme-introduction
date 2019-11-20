@@ -1,31 +1,32 @@
-<!-- {{ range .Pages.ByPublishDate.Reverse }}
+
+{{ if .Site.Params.blog.useGrid}}
+  <div class="cols3">
+    <ul>
+      {{ range .Pages.ByPublishDate.Reverse }}
+        <li class="post-item" style="text-align: center center;">
+          <a href="{{ .Permalink }}" >
+            <div class="column-blog" > 
+                {{ if isset .Params "featured_image" }}
+                  <img src="{{ .Params.featured_image }}"> 
+                {{ else }} 
+                   <img src="/img/empty_img.png" class="mock-img"> 
+                {{ end }}
+                <div class="column-blog-mid">
+                  <p style="font-size: calc(.3vw + .3vh + 1vmin);" >
+                    {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} <br>
+                  </p>
+                  {{ .Title }}
+                </div>
+            </div>
+          </a>
+        </li>
+      {{ end }}
+    </ul> 
+  </div>
+{{ else }}
+  {{ range .Pages.ByPublishDate.Reverse }}
     <li class="post-item">
         <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>{{ if .Params.date }} - <span>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</span>{{ end }}
     </li>
-{{ end }} -->
-
-
-<div class="cols3">
-  <ul>
-    {{ range .Pages.ByPublishDate.Reverse }}
-      <li class="post-item" style="text-align: center center;">
-        <a style="color: white;" href="{{ .Permalink }}" >
-          <div class="column-blog" > 
-              {{ if isset .Params "featured_image" }}
-                <img src="{{ .Params.featured_image }}"> 
-              {{ else }} 
-                 <img src="/img/empty_img.png" class="mock-img"> 
-              {{ end }}
-              <div class="column-blog-mid">
-                <p style="font-size: calc(.3vw + .3vh + 1vmin);" >
-                  {{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} <br>
-                </p>
-                {{ .Title }}
-              </div>
-          </div>
-        </a>
-      </li>
-    {{ end }}
-  </ul> 
-</div>
-
+  {{ end }}
+{{ end }}
