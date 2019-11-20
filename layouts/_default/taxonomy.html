@@ -27,7 +27,6 @@
                 </li>
             {{ end }}
         {{ else }}
-            <ul>
             {{ range .Pages.ByPublishDate.Reverse }}
                 {{ if .Date }}
                 <li>
