@@ -29,7 +29,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
         useTwoColumns            = false                   # Use a layout with two columns instead of three
 
     [params.blog]
-        useGrid                  = false                    # Show blogpost list as grid
+        useGrid                  = true                    # Show blogpost list as grid
     
     # Share buttons on blog post pages
     [params.share]

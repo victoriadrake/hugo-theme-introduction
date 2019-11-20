@@ -44,7 +44,7 @@
     </div>
     <hr>
     <h1 class="title"> Other tags</h1>
-    <div class=".tag-cloud">
+    <div >
         {{ range .Site.Taxonomies.tags }}
             <a href="{{ .Page.Permalink }}" style="font-size: calc({{ .Count }}vw *3);">{{ .Page.Title }}</a> 
         {{ end }}
