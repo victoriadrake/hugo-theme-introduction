@@ -26,8 +26,10 @@
                   </a>
                 </li>
             {{ end }}
+            </ul>
             </div>
         {{ else }}
+         <ul>
             {{ range .Pages.ByPublishDate.Reverse }}
                 {{ if .Date }}
                 <li>
@@ -39,8 +41,8 @@
                 </li>
                 {{ end }}
             {{ end }}
+          </ul>
         {{ end }}
-        </ul>
     </div>
     <hr>
     <h1 class="title"> Other tags</h1>
