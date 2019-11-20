@@ -7,17 +7,19 @@
         <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
         <div class="summary">{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}{{ end }}
-            <h3 class="title is-3 strong-post-title">
-                <a href="{{ .Permalink }}">
-                    {{ .Title }}
-                </a>
-            </h3>
-            <div class="markdown">
-                {{ .Summary }}
-                {{ if .Truncated }}
-                <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
-                {{ end }}
-            </div>
+            <h3 class="title is-3 strong-post-title"> <a href="{{ .Permalink }}">
+                    {{ .Title }} </a> </h3>
+                    <div class="columns"><!-- featured img and content side by side except mobile -->
+                          <div class="column is-one-third has-text-centered">
+                            {{ with .Params.featured_image }}<img src="{{ . }}">{{ end }}
+                          </div>
+                        <div class="column markdown">
+                            {{ .Summary }} 
+                            {{ if .Truncated }}
+                              <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                            {{ end }}
+                        </div>
+                    </div>
         </div>
         {{ end }}
 
