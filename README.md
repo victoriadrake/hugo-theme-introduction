@@ -43,7 +43,7 @@ Run from the root of your Hugo site:
 $ git clone https://github.com/victoriadrake/hugo-theme-introduction.git themes/introduction
 ```
 
-Alternatively, you can include this repository as a [git submodule](https://git-scm.com/book/de/v1/Git-Tools-Submodule). This makes it easier to update this theme if you have your Hugo site in git as well:
+Alternatively, you can include this repository as a [git submodule](https://git-scm.com/docs/gitsubmodules). This makes it easier to update this theme if you have your Hugo site in git as well:
 
 ```sh
 $ git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git themes/introduction
@@ -181,6 +181,6 @@ This theme would not be nearly as awesome without its amazing community of open 
 Pull requests for bug fixes and improvements are welcome.
 
 # License
-Copyright (C) 2017-2019 [Victoria Drake](https://victoria.dev/)
+Copyright (C) 2017-2020 [Victoria Drake](https://victoria.dev/)
 
 Licensed under [Apache-2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE)
