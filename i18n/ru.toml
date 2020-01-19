@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "Упс! Кажется вы нашли ошибку{{ with .Site.Params.email }} (если это так, [сообщите](mailto:{{ . }})) {{ end }} или такой страницы не существует!"
+[index_projects_allProjects]
+    other = "Проекты"
+[index_blog_latestPosts]
+    other = "Свежее сообщение"
+[index_blog_allPosts]
+    other = "Всё подряд"
+[index_blog_readMore]
+    other = "Читать дальше"
+[index_currentTime]
+    other = "Текущее время"
+[nav_backToSection]
+    other = "Вернуться к {{ .Title }}"
+[nav_main]
+    other = "Главная"
+[blog_readingTime]
+    one = "Читаете {{ .Count }} минуту"
+    other = "Читаете {{ .Count }} минут"
+[blog_shareThis]
+    other = "Поделиться"
+[footer_text]
+    other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) тема для [Hugo](http://gohugo.io/). Создано с использованием [<i class=\"fa fa-heart\"></i> и <i class=\"fa fa-coffee\"></i>](https://victoria.dev) участниками open source сообщества."
