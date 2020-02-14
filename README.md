@@ -24,7 +24,7 @@ Developer-friendly:
 
 ## Getting started
 
-- Requres extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
+- Requires extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 
 To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You can install them using `npm`:
 
@@ -60,7 +60,7 @@ git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git t
 Introduction ships with an fully configured example site. For a quick preview:
 
 ```sh
-cd exampleSite/
+cd themes/introduction/exampleSite/
 hugo serve  --themesDir ../..
 ```
 
