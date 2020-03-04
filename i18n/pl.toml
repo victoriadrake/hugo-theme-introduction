@@ -17,8 +17,10 @@
 [nav_main]
     other = "główna"
 [blog_readingTime]
-    one = "{{ .Count }} minut"
-    other = "{{ .Count }} minut"
+    one = "{{ .Count }} minuta"
+    few = "{{ .Count }} minuty"
+    many = "{{ .Count }} minuty"
+    other = "{{ .Count }} minuty"
 [blog_shareThis]
     other = "Podziel się"
 [footer_text]
