@@ -3,7 +3,7 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB; }
 
 /* latin-ext */
@@ -11,7 +11,7 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 /* latin */
@@ -19,10 +19,10 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
-.modal-close, .is-unselectable {
+.is-unselectable, .modal-close {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -110,7 +110,7 @@
     min-width: 32px;
     width: 32px; }
 
-.is-overlay, .image.is-square img, .image.is-1by1 img, .image.is-5by4 img, .image.is-4by3 img, .image.is-3by2 img, .image.is-5by3 img, .image.is-16by9 img, .image.is-2by1 img, .image.is-3by1 img, .image.is-4by5 img, .image.is-3by4 img, .image.is-2by3 img, .image.is-3by5 img, .image.is-9by16 img, .image.is-1by2 img, .image.is-1by3 img, .modal, .modal-background, .hero-video {
+.hero-video, .modal-background, .modal, .image.is-square img, .image.is-1by1 img, .image.is-5by4 img, .image.is-4by3 img, .image.is-3by2 img, .image.is-5by3 img, .image.is-16by9 img, .image.is-2by1 img, .image.is-3by1 img, .image.is-4by5 img, .image.is-3by4 img, .image.is-2by3 img, .image.is-3by5 img, .image.is-9by16 img, .image.is-1by2 img, .image.is-1by3 img, .is-overlay {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -593,7 +593,7 @@ table th {
   color: white !important; }
 
 a.has-text-white:hover, a.has-text-white:focus {
-  color: #e6e5e5 !important; }
+  color: #e6e6e6 !important; }
 
 .has-background-white {
   background-color: white !important; }
@@ -1058,7 +1058,6 @@ a.has-text-danger:hover, a.has-text-danger:focus {
     .container {
       max-width: 1344px;
       width: 1344px; } }
-
 .image {
   display: block;
   position: relative; }
@@ -1277,7 +1276,6 @@ a.has-text-danger:hover, a.has-text-danger:focus {
       margin: 0 auto;
       max-height: calc(100vh - 40px);
       width: 640px; } }
-
 .modal-close {
   background: none;
   height: 40px;
@@ -2826,7 +2824,6 @@ a.navbar-item,
       width: 100%; }
     .column.is-offset-12-fullhd {
       margin-left: 100%; } }
-
 .columns {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -2860,7 +2857,6 @@ a.navbar-item,
   @media screen and (min-width: 1088px) {
     .columns.is-desktop {
       display: flex; } }
-
 .columns.is-variable {
   --columnGap: 0.75rem;
   margin-left: calc(-1 * var(--columnGap));
@@ -2936,10 +2932,10 @@ a.navbar-item,
       border-color: #0a0a0a;
       color: white; }
     .hero.is-white.is-bold {
-      background-image: linear-gradient(141deg, #e6e5e5 0%, white 71%, white 100%); }
+      background-image: linear-gradient(141deg, #e8e3e4 0%, white 71%, white 100%); }
       @media screen and (max-width: 768px) {
         .hero.is-white.is-bold .navbar-menu {
-          background-image: linear-gradient(141deg, #e6e5e5 0%, white 71%, white 100%); } }
+          background-image: linear-gradient(141deg, #e8e3e4 0%, white 71%, white 100%); } }
   .hero.is-black {
     background-color: #0a0a0a;
     color: white; }
@@ -3372,7 +3368,6 @@ a.navbar-item,
   @media screen and (max-width: 768px) {
     .hero-video {
       display: none; } }
-
 .hero-buttons {
   margin-top: 1.5rem; }
   @media screen and (max-width: 768px) {
@@ -3386,7 +3381,6 @@ a.navbar-item,
       justify-content: center; }
       .hero-buttons .button:not(:last-child) {
         margin-right: 1.5rem; } }
-
 .hero-head,
 .hero-foot {
   flex-grow: 0;
@@ -3404,7 +3398,6 @@ a.navbar-item,
       padding: 9rem 1.5rem; }
     .section.is-large {
       padding: 18rem 1.5rem; } }
-
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
@@ -7040,8 +7033,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.eot");
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.woff") format("woff"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.ttf") format("truetype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("/fonts/fontawesome-free/webfonts/fa-brands-400.eot");
+  src: url("/fonts/fontawesome-free/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.woff") format("woff"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.ttf") format("truetype"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
@@ -7054,8 +7047,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.eot");
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.woff") format("woff"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.ttf") format("truetype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+  src: url("/fonts/fontawesome-free/webfonts/fa-solid-900.eot");
+  src: url("/fonts/fontawesome-free/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.woff") format("woff"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.ttf") format("truetype"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
 .fas {
@@ -7135,7 +7128,6 @@ pre {
   @media screen and (max-width: 768px) {
     .avatar {
       max-width: 50%; } }
-
 .thumbnail {
   border: none; }
 
@@ -7147,7 +7139,6 @@ pre {
     .bold-title {
       font-size: 3rem;
       text-align: center; } }
-
 .top-pad {
   padding-top: 1rem; }
 
@@ -7221,7 +7212,6 @@ pre {
   @media screen and (max-width: 768px) {
     .tags-list {
       width: 100%; } }
-
 .tag-cloud {
   font-size: 1.5rem;
   margin-right: 1.5rem; }
@@ -7229,7 +7219,6 @@ pre {
     .tag-cloud {
       font-size: 1.5rem;
       margin-right: 1rem; } }
-
 .card {
   box-shadow: none; }
 
@@ -7248,7 +7237,6 @@ pre {
   @media screen and (max-width: 768px) {
     .markdown h1 {
       font-size: 2.5rem; } }
-
 .markdown h2 {
   font-size: 2.5rem;
   line-height: 1em;
@@ -7257,19 +7245,16 @@ pre {
   @media screen and (max-width: 768px) {
     .markdown h2 {
       font-size: 2rem; } }
-
 .markdown h3 {
   font-size: 2rem; }
   @media screen and (max-width: 768px) {
     .markdown h3 {
       font-size: 1.5rem; } }
-
 .markdown h4 {
   font-size: 1.5rem; }
   @media screen and (max-width: 768px) {
     .markdown h4 {
       font-size: 1.25rem; } }
-
 .markdown h5 {
   font-size: 1.25rem; }
 
@@ -7282,13 +7267,26 @@ pre {
 .markdown ul {
   margin-bottom: 1.25rem;
   margin-left: 1.5em;
-  list-style: none; }
+  list-style: disc; }
+
+.markdown ul ul {
+  margin-bottom: 0; }
 
 .markdown li {
-  list-style-type: disc;
   margin-left: 1.5em;
   list-style-position: outside;
   padding-left: 1em; }
+
+.markdown ol {
+  margin-bottom: 1.25rem;
+  margin-left: 1.5em; }
+
+.markdown ol ol {
+  list-style-type: lower-alpha;
+  margin-bottom: 0; }
+
+.markdown ol ol ol {
+  list-style-type: lower-roman; }
 
 .markdown em {
   font-style: italic; }
@@ -7334,7 +7332,7 @@ pre {
 
 .markdown tbody tr:nth-child(odd) td,
 .markdown tbody tr:nth-child(odd) th {
-  background-color: #dedddd; }
+  background-color: #dedede; }
 
 .markdown tbody tr:nth-child(even) td,
 .markdown tbody tr:nth-child(even) th {

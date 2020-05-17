@@ -6,7 +6,7 @@
 
 Introduction is a minimalist, highly-versatile theme for Hugo. It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
-![Main page screenshot](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/screenshot.png)
+![Device mockups](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/mockup.png)
 
 Features:
 
