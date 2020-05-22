@@ -1,0 +1,31 @@
+        
+        {{ with .Site.GetPage "/home" }}
+        <section id="top" class="hero {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }} is-{{ .Site.Params.home.introHeight | default "fullheight" }}"  style="background-image: url({{ .Site.Params.logo }}); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: auto 50%;">
+            <!-- Hero head section to play nice with Bulma -->
+            <div class="hero-head"></div>
+
+            <!-- Super sweet Hero body title -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <!-- Title and tagline -->
+                    <h1 class="bold-title {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }}">
+                        {{ .Title }}
+                    </h1>
+                    <div class="subtitle is-3 {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
+                        {{ .Content }}
+                    </div>
+                    <!-- End title and tagline -->
+                    <!-- Some social icons -->
+                    <div class="{{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
+                        {{ partial "home/social.html" . }}
+                    </div>
+                    <!-- End top social icons -->
+                </div>
+            </div> <!-- End of Hero body -->
+            {{ end }}
+
+            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
+                <!-- Tell them all about it! -->
+                {{ partial "nav.html" . }}
+            </div>
+        </section> <!-- Done with Hero -->

@@ -7,39 +7,15 @@
         {{ partial "head/favicons.html" . }}
         {{ partial "head/css.html" . }}
         {{ partial "css/owlCarousel.html" . }}
+        
+        {{if isset .Site.Params "customhead" }}
+            {{ partial .Site.Params.customHead . }}
+        {{end}}
+        
     </head>
 
     <body>
-        {{ with .Site.GetPage "/home" }}
-        <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}">
-            <!-- Hero head section to play nice with Bulma -->
-            <div class="hero-head"></div>
-
-            <!-- Super sweet Hero body title -->
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <!-- Title and tagline -->
-                    <h1 class="bold-title {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }}">
-                        {{ .Title }}
-                    </h1>
-                    <div class="subtitle is-3 {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
-                        {{ .Content }}
-                    </div>
-                    <!-- End title and tagline -->
-                    <!-- Some social icons -->
-                    <div class="{{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
-                        {{ partial "home/social.html" . }}
-                    </div>
-                    <!-- End top social icons -->
-                </div>
-            </div> <!-- End of Hero body -->
-            {{ end }}
-
-            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
-                <!-- Tell them all about it! -->
-                {{ partial "nav.html" . }}
-            </div>
-        </section> <!-- Done with Hero -->
+        {{ partial "hero.html" . }}
 
         {{ with .Site.GetPage "/home" }}
         {{ $home := . }}
@@ -72,7 +48,7 @@
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
                         {{ with $home.Resources.GetMatch .Params.Image }}
-                        {{ with .Resize "320x" }}
+                        {{ with .Fill "320x320 center" }}
                         <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
                         {{ end }}
                         {{ end }}
@@ -84,7 +60,7 @@
                 {{ else }}
                 <div class="markdown has-text-centered">
                     {{ .Content }}
-                </div>
+                </div> 
                 {{ end }}
             </div>
             <!-- End About container-->

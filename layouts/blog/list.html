@@ -12,17 +12,38 @@
                     {{ .Title }}
                 </a>
             </h3>
-            <div class="markdown">
-                {{ .Summary }}
-                {{ if .Truncated }}
-                <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+
+            {{ if .Params.featured_image }}
+                <div class="columns">
+                    <div class="column is-one-third has-text-centered">
+                        {{ with .Params.featured_image }}<img src="{{ . }}">{{ end }}
+                    </div>
+                    <div class="markdown column">
+                        {{ .Summary }}
+                        {{ if .Truncated }}
+                        <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ else }}
+                <div class="markdown">
+                    {{ .Summary }}
+                    {{ if .Truncated }}
+                    <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                    {{ end }}
+                </div>
                 {{ end }}
-            </div>
         </div>
         {{ end }}
 
         {{ end }}
         <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
         {{ partialCached "blog/li.html" . }}
+        
     </div>
 {{ end }}
+
+
+
+
+
