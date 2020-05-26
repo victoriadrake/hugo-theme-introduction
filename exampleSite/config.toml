@@ -7,7 +7,8 @@ DefaultContentLanguage           = "en"                    # Default language fo
 [params]
     themeStyle                   = "light"                 # Choose "light" or "dark"
     favicon                      = "/img/fav.ico"          # Path to favicon file
-    logo                         = "/img/logo-light.png"
+    #logo                         = "/img/logo-light.png"
+    postStyle                    = "hex"                  # Blog list/grid, either list, square, circle or hex
     showRSSButton                = false                   # Show rss button in navigation
     fadeIn                       = true                    # Turn on/off the fade-in effect
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
