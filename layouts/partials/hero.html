@@ -1,6 +1,6 @@
         
         {{ with .Site.GetPage "/home" }}
-        <section id="top" class="hero {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }} is-{{ .Site.Params.home.introHeight | default "fullheight" }}"  style="background-image: url({{ .Site.Params.logo }}); background-position: center 20%; background-repeat: no-repeat; background-attachment: fixed; background-size: auto {{.Site.Params.logo_size  | default "10%"}};">
+        <section id="top" class="hero {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }} is-{{ .Site.Params.home.introHeight | default "fullheight" }}"  style="background-image: url({{ .Site.Params.logo }}); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: auto {{.Site.Params.logo_size  | default "10%"}};">
             <!-- Hero head section to play nice with Bulma -->
             <div class="hero-head"></div>
 
