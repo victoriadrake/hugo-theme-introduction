@@ -3,7 +3,7 @@
     <!-- Begin Projects container -->
     <div class="container">
         <h2 class="title is-2 has-text-centered">
-            {{ .Title }}
+            {{ .Title | markdownify }}
         </h2>
         <div class="section">
             <div class="columns is-multiline">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="card-content has-text-centered top-pad">
                             <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                {{ .Title }}
+                                {{ .Title | markdownify }}
                             </a>
                         </div>
                     </div>

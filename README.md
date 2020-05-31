@@ -15,7 +15,8 @@ Features:
 - Projects and Blog sections
 - Page load fade-in CSS effect and smooth scrolling to anchor links
 - Straightforward customization via `config.toml`
-- Styled Markdown throughout with syntax highlighting
+- Styled Markdown throughout, including post titles
+- Syntax highlighting
 
 Developer-friendly:
 
