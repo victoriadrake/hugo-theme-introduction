@@ -1288,7 +1288,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 40px);
-  overflow: hidden; }
+  overflow: auto; }
 
 .modal-card-head,
 .modal-card-foot {
@@ -1324,7 +1324,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   background-color: white;
   flex-grow: 1;
   flex-shrink: 1;
-  overflow: auto;
+  overflow: unset;
   padding: 20px; }
 
 .navbar {
