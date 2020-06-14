@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "おや，バグでしょうか{{ with .Site.Params.email }} （お手数ですがご連絡ください [please tell me](mailto:{{ . }})） {{ end }}，あるいは存在しないページにアクセスしようとしているかもしれません．"
+[index_projects_allProjects]
+    other = "全プロジェクト"
+[index_blog_latestPosts]
+    other = "最新の記事"
+[index_blog_allPosts]
+    other = "全記事"
+[index_blog_readMore]
+    other = "つづきを読む"
+[index_currentTime]
+    other = "現在時間は"
+[nav_backToSection]
+    other = "{{ .Title }}に戻る"
+[nav_main]
+    other = "メインページ"
+[blog_readingTime]
+    one = "約{{ .Count }}分で読めます"
+    other = "約{{ .Count }}分で読めます"
+[blog_shareThis]
+    other = "記事を共有する"
+[footer_text]
+    other = "[Hugo](http://gohugo.io/)の[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/)テーマを使用しています． オープンソースコントリビューターの[<i class=\"fa fa-heart\"></i>と<i class=\"fa fa-coffee\"></i>](https://victoria.dev)によって作られています．"
