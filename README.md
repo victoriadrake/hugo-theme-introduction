@@ -29,7 +29,7 @@ Developer-friendly:
 
 To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You can install them using `npm`:
 
-- [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
+- [postcss-cli](https://github.com/postcss/postcss-cli): `npm install -g postcss-cli`
 - [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
 
 [Learn how to install and use npm here](https://www.npmjs.com/get-npm).
@@ -41,6 +41,14 @@ cd exampleSite/
 npm install postcss-cli
 npm install autoprefixer
 ```
+
+If you see an error message like:
+
+```text
+Error: Error building site: POSTCSS: failed to transform "css/main.css" (text/css): resource "sass/sass/style..." not found in file cache
+```
+
+You may need to install these dependencies globally. See [issue #210](https://github.com/victoriadrake/hugo-theme-introduction/issues/210#issuecomment-645661326) for more information.
 
 ## Get the theme
 
