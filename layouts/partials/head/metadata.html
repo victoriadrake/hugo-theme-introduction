@@ -6,7 +6,7 @@
 <meta name="referrer" content="no-referrer">
 {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
 <title>
-{{ .Title | markdownify }}{{ if ne .Title .Site.Title }} - {{ .Site.Title | markdownify }}{{ end }}
+{{ .Title | humanize | title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title | markdownify }}{{ end }}
 </title>
 <!-- RSS -->
 {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}

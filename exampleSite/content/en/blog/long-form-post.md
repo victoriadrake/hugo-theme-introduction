@@ -1,5 +1,5 @@
 ---
-title: "_Long_ Form Post"
+title: "**Long** Form Post!"
 date: 2020-05-30T20:18:53-05:00
 showDate: true
 draft: false
