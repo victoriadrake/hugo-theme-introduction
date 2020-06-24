@@ -24,7 +24,7 @@
                                     {{ with .Resources.ByType "image" }}
                                     {{ range first 1 (sort . "Params.weight") }}
                                     {{ $image := .Resize $width }}
-                                    <img src="{{ $image.Permalink }}" alt ="{{ $image.Name }}">
+                                    <img class="card-thumbnail" src="{{ $image.Permalink }}" alt ="{{ $image.Name }}">
                                     {{ end }}
                                     {{ end }}
                                 </a>
