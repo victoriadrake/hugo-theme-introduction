@@ -1,8 +1,8 @@
-baseURL                          = "http://example.com/"  # Your domain name. Must end with "/"
+baseURL                          = "http://example.com/"   # Your domain name. Must end with "/"
 theme                            = "introduction"
 DefaultContentLanguage           = "en"                    # Default language for multilingual sites
-# disqusshortname                 = ""                       # https://gohugo.io/content-management/comments
-# googleAnalytics                 = ""                       # https://gohugo.io/templates/internal/#google-analytics
+# disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
+# googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
 
 [params]
     themeStyle                   = "light"                 # Choose "light" or "dark"
@@ -12,7 +12,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
     dateFormat                   = "Jan 2, 2006"
     email                        = "youremail@email.com"   # E-mail address for contact section
-    # customCSS                    = ["foo.css"]             # Include custom css files placed under assets/
+    # customCSS                  = ["foo.css"]             # Include custom css files placed under assets/
 
     # Configure the home page
     [params.home]
@@ -20,7 +20,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
         showLatest               = true                    # Show latest blog post summary
         showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
         numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
-
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         timeFormat               = "h:mm A"                # https://momentjs.com/docs/#/displaying/format/
@@ -74,6 +73,23 @@ DefaultContentLanguage           = "en"                    # Default language fo
 # You can add more by yourself
 [taxonomies]
   tag = "tags"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    # For styles, see https://xyproto.github.io/splash/docs/longer/all.html
+    style = "friendly"
+    tabWidth = 4
 
 [languages]
     [languages.en]

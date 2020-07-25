@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Introduction</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Nov 2017 11:58:39 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 02:04:06 -0500</lastBuildDate>
     
 	<atom:link href="http://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>code</title>
+      <link>http://example.com/tags/code/</link>
+      <pubDate>Sat, 25 Jul 2020 02:04:06 -0500</pubDate>
+      
+      <guid>http://example.com/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>http://example.com/tags/blog/</link>
+      <pubDate>Sat, 30 May 2020 20:18:53 -0500</pubDate>
+      
+      <guid>http://example.com/tags/blog/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ipsum</title>
@@ -26,15 +44,6 @@
       <pubDate>Mon, 13 Nov 2017 11:58:39 -0500</pubDate>
       
       <guid>http://example.com/tags/words/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>code</title>
-      <link>http://example.com/tags/code/</link>
-      <pubDate>Mon, 06 Nov 2017 12:04:06 -0500</pubDate>
-      
-      <guid>http://example.com/tags/code/</guid>
       <description></description>
     </item>
     
