@@ -7058,6 +7058,9 @@ readers do not read off random characters that represent icons */
 html, body {
   background-color: #ffffff; }
 
+html {
+  scroll-behavior: smooth; }
+
 html.modal-open {
   overflow: hidden; }
 
@@ -7089,6 +7092,8 @@ a {
 
 h1, h2, .title, .subtitle {
   color: #222222; }
+  h1 a, h2 a, .title a, .subtitle a {
+    color: #222222; }
 
 .title {
   font-weight: 400; }

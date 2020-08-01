@@ -1,6 +1,9 @@
 html, body
     background-color: $background
 
+html
+    scroll-behavior: smooth
+
 html.modal-open
     overflow: hidden
 
@@ -32,6 +35,8 @@ a
 
 h1, h2, .title, .subtitle
     color: $h-color
+    & a
+        color: $h-color
 
 .title
     font-weight: 400
