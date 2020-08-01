@@ -21,8 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
 // Bitty scrolling links script
 $("a[href^=\"#\"]").click(function(e) {
     e.preventDefault();
+    //BUG fix: https://github.com/victoriadrake/hugo-theme-introduction/issues/108
+    //
+    //let's get the right attribute `id` of the heading
+    v = e.target.href.replace(/http.*#/, '')
+    id = decodeURI(v)
+
     $("html, body").animate({
-        scrollTop: $(document.getElementById(this.hash.substr(1))).offset().top
+        //scrollTop: $(document.getElementById(this.hash.substr(1))).offset().top
+        scrollTop: $(document.getElementById(id)).offset().top
     }, 500);
     $("#nav-menu").removeClass("is-active");
     return true;
