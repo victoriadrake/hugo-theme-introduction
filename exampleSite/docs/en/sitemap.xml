@@ -80,7 +80,7 @@
   
   <url>
     <loc>http://example.com/blog/</loc>
-    <lastmod>2017-11-13T11:58:39-05:00</lastmod>
+    <lastmod>2020-07-25T02:04:06-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -99,23 +99,28 @@
   </url>
   
   <url>
-    <loc>http://example.com/blog/hipster-ipsum/</loc>
-    <lastmod>2017-11-13T11:58:39-05:00</lastmod>
+    <loc>http://example.com/tags/code/</loc>
+    <lastmod>2020-07-25T02:04:06-05:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://example.com/es/tags/code/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="http://example.com/de/blog/hipster-ipsum/"
+                href="http://example.com/de/tags/code/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://example.com/blog/hipster-ipsum/"
+                href="http://example.com/tags/code/"
                 />
   </url>
   
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2017-11-13T11:58:39-05:00</lastmod>
+    <lastmod>2020-07-25T02:04:06-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -130,6 +135,56 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://example.com/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/</loc>
+    <lastmod>2020-07-25T02:04:06-05:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://example.com/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="http://example.com/de/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://example.com/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://example.com/blog/configuration/</loc>
+    <lastmod>2020-07-25T02:04:06-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.com/blog/long-form-post/</loc>
+    <lastmod>2020-05-30T20:18:53-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/blog/</loc>
+    <lastmod>2020-05-30T20:18:53-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.com/blog/hipster-ipsum/</loc>
+    <lastmod>2017-11-13T11:58:39-05:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="http://example.com/de/blog/hipster-ipsum/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://example.com/blog/hipster-ipsum/"
                 />
   </url>
   
@@ -154,26 +209,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/</loc>
-    <lastmod>2017-11-13T11:58:39-05:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://example.com/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="http://example.com/de/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://example.com/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/words/</loc>
     <lastmod>2017-11-13T11:58:39-05:00</lastmod>
     <xhtml:link
@@ -190,26 +225,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://example.com/tags/words/"
-                />
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/code/</loc>
-    <lastmod>2017-11-06T12:04:06-05:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://example.com/es/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="http://example.com/de/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://example.com/tags/code/"
                 />
   </url>
   

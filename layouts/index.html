@@ -20,7 +20,7 @@
                 <div class="container has-text-centered">
                     <!-- Title and tagline -->
                     <h1 class="bold-title {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in one{{ end }}">
-                        {{ .Title }}
+                        {{ .Title | markdownify }}
                     </h1>
                     <div class="subtitle is-3 {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
                         {{ .Content }}
@@ -67,7 +67,7 @@
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <h2 class="title is-2 has-text-centered">{{ .Title }}</h2>
+                <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
                 {{ if .Params.Image }}
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
@@ -101,7 +101,7 @@
         {{ with .Resources.GetMatch "contact.md" }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container has-text-centered">
-                <h2 class="title is-2">{{ .Title }}</h2>
+                <h2 class="title is-2">{{ .Title | markdownify }}</h2>
                 <div class="markdown">
                     {{ .Content }}
                 </div>

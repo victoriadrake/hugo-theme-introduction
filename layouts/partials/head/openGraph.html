@@ -1,8 +1,8 @@
-<meta property="og:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title }}{{ end }}" />
+<meta property="og:title" content="{{ .Title | markdownify }}{{ if ne .Title .Site.Title }} - {{ .Site.Title | markdownify }}{{ end }}" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
 <meta property="og:url" content="{{ .Permalink }}"/>
-<meta property="og:site_name" content="{{ .Site.Title }}"/>
+<meta property="og:site_name" content="{{ .Site.Title | markdownify }}"/>
 
 {{ with .Resources.ByType "image" }}
 {{ range first 5 (sort . "Params.weight") }}
