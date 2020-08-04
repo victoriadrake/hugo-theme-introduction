@@ -1,27 +1,27 @@
 {
-  "_from": "bulma@0.7.1",
-  "_id": "bulma@0.7.1",
+  "_from": "bulma@0.9.0",
+  "_id": "bulma@0.9.0",
   "_inBundle": false,
-  "_integrity": "sha512-wRSO2LXB+qI9Pyz2id+uZr4quz5aftSN7Ay1ysr1+krzVp3utD+Ci4CeKuZdrYGc800t65b7heXBL6qw2Wo/lQ==",
+  "_integrity": "sha512-rV75CJkubNUroAt0qCRkjznZLoaXq/ctfMXsMvKSL84UetbSyx5REl96e8GoQ04G4Tkw0XF3STECffTOQrbzOQ==",
   "_location": "/bulma",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "bulma@0.7.1",
+    "raw": "bulma@0.9.0",
     "name": "bulma",
     "escapedName": "bulma",
-    "rawSpec": "0.7.1",
+    "rawSpec": "0.9.0",
     "saveSpec": null,
-    "fetchSpec": "0.7.1"
+    "fetchSpec": "0.9.0"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/bulma/-/bulma-0.7.1.tgz",
-  "_shasum": "73c2e3b2930c90cc272029cbd19918b493fca486",
-  "_spec": "bulma@0.7.1",
+  "_resolved": "https://registry.npmjs.org/bulma/-/bulma-0.9.0.tgz",
+  "_shasum": "948c5445a49e9d7546f0826cb3820d17178a814f",
+  "_spec": "bulma@0.9.0",
   "_where": "/Users/jthomas/Desktop",
   "author": {
     "name": "Jeremy Thomas",
@@ -35,11 +35,11 @@
   "deprecated": false,
   "description": "Modern CSS framework based on Flexbox",
   "devDependencies": {
-    "autoprefixer": "^8.2.0",
-    "clean-css-cli": "^4.1.11",
-    "node-sass": "^4.8.3",
-    "postcss-cli": "^5.0.0",
-    "rimraf": "^2.6.2"
+    "autoprefixer": "^9.8.0",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.1",
+    "rimraf": "^3.0.2"
   },
   "files": [
     "css",
@@ -64,14 +64,19 @@
     "url": "git+https://github.com/jgthms/bulma.git"
   },
   "scripts": {
-    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
     "build-autoprefix": "postcss --use autoprefixer --map false --output css/bulma.css css/bulma.css",
-    "build-clean": "rimraf css",
     "build-cleancss": "cleancss -o css/bulma.min.css css/bulma.css",
     "build-sass": "node-sass --output-style expanded --source-map true bulma.sass css/bulma.css",
-    "deploy": "npm run build",
+    "clean": "rimraf css",
+    "deploy": "npm run clean && npm run build && npm run rtl",
+    "rtl": "npm run rtl-sass && npm run rtl-autoprefix && npm run rtl-cleancss",
+    "rtl-autoprefix": "postcss --use autoprefixer --map false --output css/bulma-rtl.css css/bulma-rtl.css",
+    "rtl-cleancss": "cleancss -o css/bulma-rtl.min.css css/bulma-rtl.css",
+    "rtl-sass": "node-sass --output-style expanded --source-map true bulma-rtl.sass css/bulma-rtl.css",
     "start": "npm run build-sass -- --watch"
   },
   "style": "bulma/css/bulma.min.css",
-  "version": "0.7.1"
+  "unpkg": "css/bulma.css",
+  "version": "0.9.0"
 }
