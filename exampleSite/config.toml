@@ -13,6 +13,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
     dateFormat                   = "Jan 2, 2006"
     email                        = "youremail@email.com"   # E-mail address for contact section
     # customCSS                  = ["foo.css"]             # Include custom css files placed under assets/
+    # customJS                   = ["foo.js"]              # Include custom JavaScript files placed under assets/
 
     # Configure the home page
     [params.home]

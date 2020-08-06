@@ -4,3 +4,9 @@
 <script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
 
 {{ template "_internal/google_analytics_async.html" . }}
+
+<!-- Custom JavaScript -->
+{{ range .Site.Params.customJS -}}
+    {{ $script := resources.Get . | minify }}
+    <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+{{- end }}

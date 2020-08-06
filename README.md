@@ -184,7 +184,11 @@ Set `disqusshortname` in `config.toml` to activate Hugo's [internal Disqus templ
 
 ## Custom CSS
 
-You can add custom CSS files by placing them under `assets/` and adding the path to the file to `customCSS` in `config.toml`.
+You can add custom CSS files by placing them under `assets/` and adding the paths to the files to the `customCSS` list in `config.toml`.
+
+## Custom JavaScript
+
+You can add custom JavaScript files by placing them under `assets/` and adding the paths to the files to the `customJS` list in `config.toml`.
 
 ## Issues
 
