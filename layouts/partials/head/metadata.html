@@ -4,7 +4,7 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-{{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+{{ if .Description }}<meta name="description" content="{{ .Description }}">{{ else if $.Site.Params.description }}<meta name="description" content="{{ $.Site.Params.description }}">{{ end }}
 <title>
 {{ .Title | humanize | title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title | markdownify }}{{ end }}
 </title>
