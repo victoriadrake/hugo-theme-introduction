@@ -64,7 +64,9 @@
                   {{ if $pageIsInProjects }}
                   {{ i18n "nav_backToSection" . }}
                   {{ else }}
-                  {{ .Title | singularize}}
+                  <!-- fix-224 -->
+                  {{ .Title }}
+                  <!-- end fix-224 -->
                   {{ end }}
                   </a>
                 {{ end }}
