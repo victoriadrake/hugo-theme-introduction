@@ -1,4 +1,4 @@
-{{ $jQuery := resources.Get "vendor/jquery/jquery-3.3.1.min.js" }}
+{{ $jQuery := resources.Get "vendor/jquery/jquery-3.5.1.min.js" }}
 {{ $index := resources.Get "js/index.js" | minify }}
 {{ $scripts := slice $jQuery $index | resources.Concat "js/bundle.js" | fingerprint }}
 <script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
