@@ -1,6 +1,6 @@
 ---
-title: "Hi, I'm Introduction"
+title: "Hi, I'm Erik"
 headless: true
 ---
 
-I'm a theme for Hugo
+I'm a student of university of Bologna
