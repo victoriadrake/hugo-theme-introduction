@@ -5,13 +5,13 @@ DefaultContentLanguage           = "en"                    # Default language fo
 # googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
 
 [params]
-    themeStyle                   = "light"                 # Choose "light" or "dark"
+    themeStyle                   = "dark"                 # Choose "light" or "dark"
     favicon                      = "/img/fav.ico"          # Path to favicon file
-    showRSSButton                = false                   # Show rss button in navigation
-    fadeIn                       = true                    # Turn on/off the fade-in effect
+    showRSSButton                = true                   # Show rss button in navigation
+    fadeIn                       = false                    # Turn on/off the fade-in effect
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
     dateFormat                   = "Jan 2, 2006"
-    email                        = "youremail@email.com"   # E-mail address for contact section
+    email                        = "kocierik@email.com"   # E-mail address for contact section
     # customCSS                  = ["foo.css"]             # Include custom css files placed under assets/
     # customJS                   = ["foo.js"]              # Include custom JavaScript files placed under assets/
 
@@ -20,12 +20,12 @@ DefaultContentLanguage           = "en"                    # Default language fo
         introHeight              = "fullheight"            # Input either "medium" or "large" or "fullheight"
         showLatest               = true                    # Show latest blog post summary
         showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
-        numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
+        numberOfProjectsToShow   = 2                    # Maximum number of projects to show on home page. Unset or comment out to show all projects
         localTime                = true                    # Show your current local time in contact section
-        timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        timeZone                 = "Europe/Rome"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         timeFormat               = "h:mm A"                # https://momentjs.com/docs/#/displaying/format/
     [params.projects]
-        useTwoColumns            = false                   # Use a layout with two columns instead of three
+        useTwoColumns            = true                   # Use a layout with two columns instead of three
 
     # Share buttons on blog post pages
     [params.share]
@@ -38,28 +38,13 @@ DefaultContentLanguage           = "en"                    # Default language fo
     # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
     # Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
     [[params.social]]
-        url   = "https://twitter.com/"
-        icon  = "twitter" # icon name without the 'fa-'
+        url   = "https://instagram.com/erikkkke"
+        icon  = "instagram" # icon name without the 'fa-'
         icon_pack = "fab"
     [[params.social]]
-        url   = "https://facebook.com/"
-        icon  = "facebook-f" # icon name without the 'fa-'
-        icon_pack = "fab"
-    [[params.social]]
-        url   = "https://linkedin.com/"
-        icon  = "linkedin-in" # icon name without the 'fa-'
-        icon_pack = "fab"
-    [[params.social]]
-        url = "mailto:youremail@email.com"  # For a direct email link, use "mailto:test@example.org".
+        url = "mailto:kocierik@email.com"  # For a direct email link, use "mailto:test@example.org".
         icon = "paper-plane" # icon name without the 'fa-'
         icon_pack = "fas"
-    [[params.social]]
-        url   = "https://mastodon.social/"
-        icon  = "mastodon" # icon name without the 'fa-'
-        icon_pack = "fab"
-        html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
-
-
 # If you don't want to use the default menu, you can define one by yourself
 # [[menu.main]]
 #     name    = "Home"
@@ -103,23 +88,3 @@ DefaultContentLanguage           = "en"                    # Default language fo
             description  = "Website Description"   # Max 160 characters show in search results
             # footerText   = ""                      # Text to override default footer text (markdown allowed)
 
-    [languages.es]
-        languageName     = "Español"
-        languageCode     = "es"
-        contentDir       = "content/es"
-        weight           = 1
-        title            = "Introducción"
-        [languages.es.params]
-            description  = "Descripcion del sitio web"
-            # footerText   = ""
-
-    [languages.de]
-        languageName     = "Deutsch"
-        languageCode     = "de"
-        contentDir       = "content/de"
-        weight           = 2
-        title            = "Vorstellung"
-        [languages.de.params]
-            dateFormat   = "2. January 2006"
-            description  = "Beschreibung der Webseite"
-            # footerText   = ""

@@ -1,12 +1,14 @@
 ---
-title: "Design"
+title: "Jumpball"
 weight: 2
 resources:
     - src: plant.jpg
       params:
-          weight: -100
+          weight: 0
 ---
 
-This theme was designed by [Victoria Drake](https://victoria.dev). Go on, explore! 💪
+##  Game in P5
 
-If you want to use it for your website, check out the section at the bottom of the main page. 👍
+A simple game based from geometry dash. I used P5 which is a framework for javascript.
+
+Click [here](https://github.com/kocierik/JumpBall) for the project!
