@@ -74,6 +74,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
 # You can add more by yourself
 [taxonomies]
   tag = "tags"
+  series = "series"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
