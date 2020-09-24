@@ -51,6 +51,20 @@
         {{ end }}
     </p>
     {{ end }}
+    <!-- Start fix 236 -->
+    {{ range $taxonomy_term, $taxonomy := .Params }}
+      {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
+        <p>
+         {{ if (ne $taxonomy_term "tags") }} 
+         {{ $taxonomy_term | title }}: 
+           <a href="{{ .Permalink }}">{{ range $key, $value := $taxonomy }}
+             {{ $value }}</a>
+        </p>
+        {{ end }}
+        {{ end }}
+      {{ end }}
+   {{ end }}
+    <!-- End fix 236 -->
 </div>
 <!-- Begin blog post content -->
 <div class="container markdown top-pad">
