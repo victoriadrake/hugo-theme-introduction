@@ -42,7 +42,6 @@
         {{ end }}
     </div>
     {{ end }}
-    <!-- Start fix 236 -->
     {{ range $taxonomy_term, $taxonomy := .Params }}
       {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
         <p>
@@ -53,7 +52,6 @@
         </p>
       {{ end }}
     {{ end }}
-    <!-- End fix 236 -->
 </div>
 <!-- Begin blog post content -->
 <div class="container markdown top-pad">
