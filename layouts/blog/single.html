@@ -42,14 +42,17 @@
         {{ end }}
     </div>
     {{ end }}
-    {{ if .Params.tags }}
-    {{ $len := (len .Params.tags) }}
-    <p>
-        Tag{{ if gt $len 1 }}s{{ end }}:
-        {{ range $index, $tag := .Params.tags }}
-        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>{{ if ne (add $index 1) $len }},{{ end }}
-        {{ end }}
-    </p>
+    {{ range $taxonomy_term, $taxonomy := .Params }}
+      {{ with $.Site.GetPage $taxonomy_term }}
+      {{ $len := (len $taxonomy) }}
+     <p>
+         {{ $taxonomy_term | title }}: 
+          {{ range $key, $value := $taxonomy }}
+           <a href="{{ (printf "/%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
+             {{ $value }}</a>{{ if ne (add $key 1) $len }},{{ end }}
+         {{ end }}
+        </p>
+      {{ end }}
     {{ end }}
 </div>
 <!-- Begin blog post content -->
