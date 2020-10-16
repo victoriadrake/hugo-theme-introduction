@@ -27,10 +27,11 @@ Developer-friendly:
 
 - Requires extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 
-To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You can install them using `npm`:
+To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer` which you can install using `npm`:
 
-- [postcss-cli](https://github.com/postcss/postcss-cli): `npm install -g postcss-cli`
-- [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
+```sh
+npm i -g postcss postcss-cli autoprefixer
+```
 
 [Learn how to install and use npm here](https://www.npmjs.com/get-npm).
 
@@ -38,8 +39,7 @@ Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the abov
 
 ```sh
 cd exampleSite/
-npm install postcss-cli
-npm install autoprefixer
+npm i -g postcss postcss-cli autoprefixer
 ```
 
 If you see an error message like:
