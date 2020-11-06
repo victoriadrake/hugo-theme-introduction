@@ -22,4 +22,4 @@
 [blog_shareThis]
     other = "Teilen"
 [footer_text]
-    other = "[**Vorstellung**](https://github.com/victoriadrake/hugo-theme-introduction/), ein Theme für [Hugo](http://gohugo.io/). Entwickelt mit [<i class=\"fa fa-heart\"></i> und <i class=\"fa fa-coffee\"></i>](https://victoria.dev) von Open Source Mitwirkenden"
+    other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/), ein Theme für [Hugo](http://gohugo.io/). Entwickelt mit [<i class=\"fa fa-heart\"></i> und <i class=\"fa fa-coffee\"></i>](https://victoria.dev) von Open Source Mitwirkenden"
