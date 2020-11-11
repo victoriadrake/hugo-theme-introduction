@@ -27,10 +27,12 @@ Developer-friendly:
 
 - Requires extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 
-To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer` which you can install using `npm`:
+To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer` which you can install using `npm`.
+
+To temporarily address [this issue](https://github.com/postcss/autoprefixer/issues/1358), please pin `autoprefixer@9.8.6`.
 
 ```sh
-npm i -g postcss postcss-cli autoprefixer
+npm i -g postcss postcss-cli autoprefixer@9.8.6
 ```
 
 [Learn how to install and use npm here](https://www.npmjs.com/get-npm).
