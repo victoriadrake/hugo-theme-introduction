@@ -3,7 +3,7 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB; }
 
 /* latin-ext */
@@ -11,7 +11,7 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 /* latin */
@@ -19,7 +19,7 @@
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(http://localhost:1313/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/NunitoSans/NunitoSans-Regular.ttf) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 .is-unselectable, .modal-close {
@@ -7840,8 +7840,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.eot");
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.woff") format("woff"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.ttf") format("truetype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("/fonts/fontawesome-free/webfonts/fa-brands-400.eot");
+  src: url("/fonts/fontawesome-free/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.woff2") format("woff2"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.woff") format("woff"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.ttf") format("truetype"), url("/fonts/fontawesome-free/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
@@ -7854,8 +7854,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.eot");
-  src: url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.woff") format("woff"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.ttf") format("truetype"), url("http://localhost:1313/fonts/fontawesome-free/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+  src: url("/fonts/fontawesome-free/webfonts/fa-solid-900.eot");
+  src: url("/fonts/fontawesome-free/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.woff") format("woff"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.ttf") format("truetype"), url("/fonts/fontawesome-free/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
 .fas {
@@ -7899,8 +7899,6 @@ a {
 
 h1, h2, .title, .subtitle {
   color: #222222; }
-  h1 a, h2 a, .title a, .subtitle a {
-    color: #222222; }
 
 .title {
   font-weight: 300; }
@@ -7995,7 +7993,8 @@ pre {
   margin: 0 5px; }
 
 .navbar-burger {
-  margin-right: auto; }
+  margin-right: auto;
+  color: #00b8d4; }
 
 .navbar-burger:hover {
   background-color: #ffffff; }
