@@ -23,7 +23,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
         numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-        timeFormat               = "h:mm A"                # https://momentjs.com/docs/#/displaying/format/
+        timeFormat               = "en-US"                 # Language specific format to use
     [params.projects]
         useTwoColumns            = false                   # Use a layout with two columns instead of three
 
