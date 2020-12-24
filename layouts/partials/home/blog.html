@@ -16,22 +16,28 @@
             </div>
             {{ end }}
         {{ end }}
-        {{ if .Site.Params.home.showAllPosts }}
     </div>
 </div>
-<div class="section" id="all-posts">
-    <div class="container">
-        <h2 class="title is-2 has-text-centered top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
-            {{ partialCached "blog/li.html" . }}
-        {{ else }}
+    {{ if .Site.Params.home.showAllPosts }}
+    <div class="section" id="all-posts">
+        <div class="container">
+            <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+            {{if .Site.Params.home.allPostsArchiveFormat}}
+                {{ partialCached "blog/archive.html" .}}
+            {{else}}
+                {{ partialCached "blog/li.html" . }}
+            {{end}}
+        </div>
+    </div>
+    {{ else }}
         <div class="container has-text-centered top-pad">
             <a href="{{ .Permalink }}">{{ i18n "index_blog_allPosts" . }}</a>
         </div>
-        {{ end }}
-    </div>
-    <!-- End Blog container -->
-    {{ partial "top-icon.html" . }}
-</div>
+    {{ end }}
+
+<!-- End Blog container -->
+{{ partial "top-icon.html" . }}
+
 <!-- End Blog section -->
 <div class="container"><hr></div>
 {{ end }}

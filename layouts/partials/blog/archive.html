@@ -1,0 +1,18 @@
+<section>
+    {{ $prev := 2100}} <!--start at year 2100-->
+    {{range .Pages.ByPublishDate.Reverse}}
+      {{if .Date}}
+      {{$curr := .Date.Format "2006"}}
+        {{if gt $prev ($curr)}}
+            <h2 class="title is-2 top-pad">{{ $curr }}</h2>
+        {{end}}
+      <li class="post-item">
+        {{ if .Params.date }}
+            <span>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</span> -
+        {{ end }}
+        <span><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></span>
+      </li>
+        {{ $prev = $curr}}
+      {{end}}
+    {{end}}   
+</section>
