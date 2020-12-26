@@ -1,6 +1,11 @@
 <section>
   {{ $prev := now.Format "2006"}} <!--start from the current year-->
-  <h2 class="title is-2 top-pad">{{ $prev }}</h2>
+  {{ range first 1 .Pages.ByPublishDate.Reverse }} 
+    {{if .Date}} <!--also add the header if there are posts during the current year-->
+      {{if eq $prev (.Date.Format "2006")}} <h2 class="title is-2 top-pad"> {{ $prev }}</h2> {{end}}
+    {{end}}
+  {{end}}
+
   {{range .Pages.ByPublishDate.Reverse}}
     {{if .Date}}
     {{$curr := .Date.Format "2006"}}
