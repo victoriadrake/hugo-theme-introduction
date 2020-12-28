@@ -58,7 +58,7 @@
                 {{ if $isHome }}
                 <a class="navbar-item" href="{{ printf "#%s" ( .Title | urlize) | relLangURL }}">{{ .Title | markdownify }}</a>
                 {{ else }}
-                {{ $pageIsInProjects := eq $.Page.Section "project"}}
+                {{ $pageIsInProjects := eq $.Page.Section "projects"}}
                 {{ if not (and $pageIsInProjects (eq $.Page.Kind "section")) }}
                   <a class="navbar-item" href="{{ .Permalink }}">
                   {{ if $pageIsInProjects }}

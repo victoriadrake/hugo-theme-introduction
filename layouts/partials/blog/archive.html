@@ -1,0 +1,24 @@
+<section>
+  {{ $prev := now.Format "2006"}} <!--start from the current year-->
+  {{ range first 1 .Pages.ByPublishDate.Reverse }} 
+    {{if .Date}} <!--also add the header if there are posts during the current year-->
+      {{if eq $prev (.Date.Format "2006")}} <h2 class="title is-2 top-pad"> {{ $prev }}</h2> {{end}}
+    {{end}}
+  {{end}}
+
+  {{range .Pages.ByPublishDate.Reverse}}
+    {{if .Date}}
+    {{$curr := .Date.Format "2006"}}
+      {{if lt $curr $prev }}
+          <h2 class="title is-2 top-pad">{{ $curr }}</h2>
+      {{end}}
+    <li class="post-item">
+      {{ if .Params.date }}
+          <span>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</span> -
+      {{ end }}
+      <span><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></span>
+    </li>
+      {{ $prev = $curr}}
+    {{end}}
+  {{end}}   
+</section>
