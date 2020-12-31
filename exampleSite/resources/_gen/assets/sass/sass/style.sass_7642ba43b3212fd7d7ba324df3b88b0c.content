@@ -7929,6 +7929,20 @@ hr {
   background-color: #dbdbdb;
   height: 1px; }
 
+details {
+  padding: .5em .5em 0; }
+
+summary {
+  margin: -.5em -.5em 0;
+  padding: .5em;
+  cursor: pointer; }
+
+details[open] {
+  padding: .5em; }
+
+details[open] summary {
+  margin-bottom: .5em; }
+
 .container {
   max-width: 1000px; }
 

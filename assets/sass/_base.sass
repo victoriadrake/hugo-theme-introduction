@@ -34,7 +34,7 @@ a
         color: $primary
 
 h1, h2, .title, .subtitle
-    color: $h-color    
+    color: $h-color
 
 .title
     font-weight: $title-weight
@@ -50,6 +50,20 @@ img
 hr
     background-color: $secondary
     height: 1px
+
+details
+    padding: .5em .5em 0
+
+summary
+    margin: -.5em -.5em 0
+    padding: .5em
+    cursor: pointer
+
+details[open]
+    padding: .5em
+
+details[open] summary
+    margin-bottom: .5em
 
 .container
     max-width: 1000px
@@ -78,9 +92,9 @@ pre
     border: none
 
 .card-thumbnail
-  width: 100%
-  height: 100%
-  object-fit: cover
+    width: 100%
+    height: 100%
+    object-fit: cover
 
 .bold-title
     font-size: 6rem

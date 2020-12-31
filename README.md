@@ -176,6 +176,14 @@ See the [hugo documentation](https://gohugo.io/content-management/multilingual/)
 
 Introduction contains a default menu. If you want to override this, you can do so by defining a `menu.main` in `config.toml`.
 
+## Contact section clock
+
+Introduction can optionally show your current local time in your [contact section](https://hugo-introduction.netlify.app/#contact). This uses vanilla JS and variables you provide. You can set this up by copying the settings in the exampleSite `config.toml` for `localTime`, `timeZone`, and `timeFormat`.
+
+## Plausible
+
+You can easily use Plausible.io for analytics by setting `plausible = true` in your `config.toml`. Plausible offers a privacy-friendly alternative to Google Analytics. You'll need your own Plausible account - see [plausible.io](https://plausible.io/) for more.
+
 ## Google Analytics
 
 Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analytics template](https://gohugo.io/templates/internal/#google-analytics).

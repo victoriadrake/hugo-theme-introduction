@@ -7,6 +7,20 @@ series: ["quickstart"]
 
 Here are some helpful tips for setting up this theme.
 
+## Configuration
+
+Most of what you'll want to configure is demonstrated in the exampleSite `config.toml`. This is [Hugo's configuration file](https://gohugo.io/getting-started/configuration/). You can copy the `config.toml` in the `exampleSite/` to your site root get started.
+
+<details><summary>Here are all the options included in the configuration file for this example site!</summary>
+
+```toml
+{{% md %}}
+{{< readfile file="config.toml" >}}
+{{% /md %}}
+```
+
+</details>
+
 ## Syntax Highlighting
 
 Introduction allows the use of Hugo's rich built-in syntax highlighting capabilities. See [Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) in the Hugo docs.
@@ -44,16 +58,4 @@ defaultMarkdownHandler = "goldmark"
 
 [markup.goldmark.renderer]
 unsafe = true
-```
-
-## Configuration
-
-Introduction can be easily configured using [Hugo's configuration file](https://gohugo.io/getting-started/configuration/). You can copy the `config.toml` in the `exampleSite/` to your site root get started.
-
-Here are all the options included in the configuration file for this example site!
-
-```toml
-{{% md %}}
-{{< readfile file="config.toml" >}}
-{{% /md %}}
 ```
