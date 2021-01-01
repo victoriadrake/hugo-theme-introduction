@@ -25,7 +25,7 @@ jobs:
       - name: Install tools
         run: |
           sudo apt install curl jq
-          npm i -g postcss postcss-cli autoprefixer@9.8.6
+          npm i -g postcss postcss-cli autoprefixer
 
       - name: Test with Hugo ${{ matrix.hugo }}
         uses: peaceiris/actions-hugo@v2

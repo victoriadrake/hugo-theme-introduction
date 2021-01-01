@@ -1,19 +1,29 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
 
 {{ if eq $themeStyle "auto" }}
+@import "fonts"
 @import "light-variables"
+@import "base-variables"
+@import "bulma-import"
+@import "fontawesome-import"
+@import "base"
 @import "light-style"
 
 @media (prefers-color-scheme: dark)
+    @import "fonts"
     @import "dark-variables"
+    @import "base-variables"
+    @import "bulma-import"
+    @import "fontawesome-import"
+    @import "base"
     @import "dark-style"
 
 {{ else }}
-@import "{{ $themeStyle }}-variables"
-@import "{{ $themeStyle }}-style"
-{{ end }}
-
 @import "fonts"
+@import "{{ $themeStyle }}-variables"
 @import "base-variables"
 @import "bulma-import"
+@import "fontawesome-import"
 @import "base"
+@import "{{ $themeStyle }}-style"
+{{ end }}
