@@ -191,7 +191,17 @@
   +block
 
 =delete
-  @extend %unselectable
+  // Fix begins. Added to patch this error:
+  // "You may not @extend an outer selector from within @media.
+  // You may only @extend selectors within the same directive.
+  // From "@extend %unselectable" on line 194..."
+  //@extend %unselectable
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  // Fix ends
   -moz-appearance: none
   -webkit-appearance: none
   background-color: bulmaRgba($scheme-invert, 0.2)
