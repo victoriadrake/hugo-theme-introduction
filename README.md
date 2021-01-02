@@ -25,9 +25,9 @@ Developer-friendly:
 
 ## Getting started
 
-- Requires extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
+Requires the **extended** version of Hugo. You can find [installation instructions here](https://gohugo.io/getting-started/installing/) (latest version recommended). Here's a handy [Bash function for downloading a specific Hugo version](https://victoria.dev/blog/how-to-do-twice-as-much-with-half-the-keystrokes-using-.bashrc/#bash-function-for-downloading-extended-hugo).
 
-To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer` which you can install using `npm`.
+To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer`. Install these globally with `npm`.
 
 ```sh
 npm i -g postcss postcss-cli autoprefixer
@@ -35,11 +35,11 @@ npm i -g postcss postcss-cli autoprefixer
 
 [Learn how to install and use npm here](https://www.npmjs.com/get-npm).
 
-Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the above two Node.js packages have to be [installed locally inside `exampleSite`](https://gohugo.io/hugo-pipes/postcss/).
+Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the above Node.js packages have to be [installed locally inside `exampleSite`](https://gohugo.io/hugo-pipes/postcss/).
 
 ```sh
 cd exampleSite/
-npm i -g postcss postcss-cli autoprefixer
+npm i postcss postcss-cli autoprefixer
 ```
 
 If you see an error message like:
@@ -48,7 +48,7 @@ If you see an error message like:
 Error: Error building site: POSTCSS: failed to transform "css/main.css" (text/css): resource "sass/sass/style..." not found in file cache
 ```
 
-You may need to install these dependencies globally. See [issue #210](https://github.com/victoriadrake/hugo-theme-introduction/issues/210#issuecomment-645661326) for more information.
+See [issue #210](https://github.com/victoriadrake/hugo-theme-introduction/issues/210#issuecomment-645661326) for more information.
 
 ## Get the theme
 
@@ -206,10 +206,12 @@ If you have a question or get stuck, please [open an issue](https://github.com/v
 
 Contributions for new translations, fixes, and features are welcome.
 
-This theme would not be nearly as awesome without its amazing community of open source [contributors](https://github.com/victoriadrake/hugo-theme-introduction/graphs/contributors). Thank you so much! 🖤
+This theme would not be nearly as awesome without its amazing community of open source [contributors](https://github.com/victoriadrake/hugo-theme-introduction/graphs/contributors). Thank you so much! ❤
 
 ## License
 
-Copyright (C) 2017-2020 [Victoria Drake](https://victoria.dev/)
+Copyright (C) 2017-2021 [Victoria Drake](https://victoria.dev/)
 
-Licensed under [Apache-2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE)
+Licensed under the [Apache License, Version 2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
