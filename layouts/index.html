@@ -73,9 +73,7 @@
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
                         {{ with $home.Resources.GetMatch .Params.Image }}
-                        {{ with .Resize "320x" }}
                         <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
-                        {{ end }}
                         {{ end }}
                     </div>
                     <div class="markdown column">
