@@ -3,7 +3,7 @@
     <head>
         {{ block "head" . }}
         {{ partial "head/metadata.html" . }}
-        {{ partial "head/plausible.html" . }}
+        {{ if .Site.Params.plausible }}{{ partial "head/plausible.html" . }}{{ end }}
         {{ partial "head/openGraph.html" . }}
         {{ partial "head/favicons.html" . }}
         {{ partial "head/css.html" . }}
