@@ -34,12 +34,6 @@
             <span class="hidden">Pinterest</span>
         </a>
         {{ end }}
-        {{ if .Site.Params.share.googlePlus }}
-        <a class="icon-google-plus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-            <i class="fab fa-google-plus-g"></i>
-            <span class="hidden">Google+</span>
-        </a>
-        {{ end }}
     </div>
     {{ end }}
     {{ range $taxonomy_term, $taxonomy := .Params }}

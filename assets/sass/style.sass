@@ -1,6 +1,4 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
-$fa-font-path:     '{{ urls.Parse "/fonts/fontawesome-free/webfonts" }}'
-$nunito-font-path: '{{ urls.Parse "/fonts/NunitoSans" }}'
 
 {{ if eq $themeStyle "auto" }}
 @import "fonts"
@@ -15,7 +13,6 @@ $nunito-font-path: '{{ urls.Parse "/fonts/NunitoSans" }}'
     @import "fonts"
     @import "dark-variables"
     @import "base-variables"
-    @import "bulma-import"
     @import "fontawesome-import"
     @import "base"
     @import "dark-style"
