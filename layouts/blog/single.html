@@ -13,7 +13,7 @@
         {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} |{{ end }}
         {{ i18n "blog_readingTime" .ReadingTime }}
     </div>
-    {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
+    {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest }}
     <div class="blog-share">
         {{ i18n "blog_shareThis" . }}:
         {{ if .Site.Params.share.twitter }}

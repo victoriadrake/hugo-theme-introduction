@@ -33,7 +33,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [params.share]
         twitter                  = true
         facebook                 = true
-        googlePlus               = true
         pinterest                = true
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
