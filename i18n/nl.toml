@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "Oeps! Of je hebt een bug gevonden{{ with .Site.Params.email }} (in dat geval, [neem contact met me op](mailto:{{ . }})) {{ end }} of de pagina bestaat simpelweg niet!"
+[index_projects_allProjects]
+    other = "Alle projecten"
+[index_blog_latestPosts]
+    other = "Laatste bericht"
+[index_blog_allPosts]
+    other = "Alle berichten"
+[index_blog_readMore]
+    other = "Lees verder"
+[index_currentTime]
+    other = "Mijn huidige lokale tijd is"
+[nav_backToSection]
+    other = "Terug naar {{ .Title }}"
+[nav_main]
+    other = "Start"
+[blog_readingTime]
+    one = "{{ .Count }} minuut leestijd"
+    other = "{{ .Count }} minuten leestijd"
+[blog_shareThis]
+    other = "Deel dit"
+[footer_text]
+    other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) thema voor [Hugo](http://gohugo.io/). Gemaakt met [<i class=\"fa fa-heart\"></i> en <i class=\"fa fa-coffee\"></i>](https://victoria.dev) door open-source auteurs."
