@@ -140,6 +140,8 @@ resources:
           weight: -100
 ```
 
+If project timeline or start of the project is important and should be displayed in the projects summary on home page, as well as in modal description you can add `project_timeline` string to the frontmatter.
+
 ## Blog section
 
 Create an index file for the blog:
