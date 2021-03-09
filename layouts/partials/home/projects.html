@@ -34,6 +34,9 @@
                             <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
                                 {{ .Title | markdownify }}
                             </a>
+                            {{ if .Params.project_timeframe }}
+                            <p class="fa-xs">{{ .Params.project_timeframe }}</p>
+                            {{ end }}
                         </div>
                     </div>
                 </div>
@@ -58,7 +61,9 @@
                 <p class="modal-card-title has-text-centered">{{ . }}</p>
             </header>
             {{ end }}
-
+            {{ if .Params.project_timeframe }}
+            <p class="fa-xs">{{ .Params.project_timeframe }}</p>
+            {{ end }}
             {{ with .Resources.ByType "image" }}
             {{ $moreThenOneImage := gt (len .) 1 }}
             {{ if $moreThenOneImage }}
