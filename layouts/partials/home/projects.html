@@ -18,6 +18,7 @@
                 {{ end}}
                 <div class="column {{ $columWidth }}">
                     <div class="card" data-target="#project-{{ $index }}">
+                        {{ if .Resources.ByType "image" }}
                         <div class="card-image">
                             <figure class="image is-3by2">
                                 <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
@@ -30,6 +31,7 @@
                                 </a>
                             </figure>
                         </div>
+                        {{ end }}
                         <div class="card-content has-text-centered top-pad">
                             <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
                                 {{ .Title | markdownify }}
