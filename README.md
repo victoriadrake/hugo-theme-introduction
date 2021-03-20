@@ -138,7 +138,10 @@ resources:
     - src: NameOfYourImage.jpg
       params:
           weight: -100
+project_timeframe: "June-December"
 ```
+
+You can add a `project_timeframe` parameter to the frontmatter of your project to optionally display an arbitrary string on the homepage and modal.
 
 ## Blog section
 
