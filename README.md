@@ -138,9 +138,10 @@ resources:
     - src: NameOfYourImage.jpg
       params:
           weight: -100
+project_timeframe: "June-December"
 ```
 
-If project timeline or start of the project is important and should be displayed in the projects summary on home page, as well as in modal description you can add `project_timeline` string to the frontmatter.
+You can add a `project_timeframe` parameter to the frontmatter of your project to optionally display an arbitrary string on the homepage and modal.
 
 ## Blog section
 
