@@ -5,7 +5,7 @@ resources:
     - src: plant.jpg
       params:
           weight: -100
-project_timeline: June-December
+project_timeframe: June-December
 ---
 
 This theme was designed by [Victoria Drake](https://victoria.dev). Go on, explore! 💪
