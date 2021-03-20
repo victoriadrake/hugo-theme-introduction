@@ -8021,6 +8021,8 @@ pre {
 .navbar-item {
   text-transform: uppercase;
   font-size: 0.875rem; }
+  .navbar-item:hover {
+    background-color: #ffffff !important; }
 
 .owl-nav {
   height: 50px; }
@@ -10797,6 +10799,8 @@ readers do not read off random characters that represent icons */
   .navbar-item {
     text-transform: uppercase;
     font-size: 0.875rem; }
+    .navbar-item:hover {
+      background-color: #121212 !important; }
   .owl-nav {
     height: 50px; }
   .owl-next, .owl-prev {
@@ -10939,6 +10943,10 @@ readers do not read off random characters that represent icons */
   .modal-card-body {
     background-color: #121212; }
   .markdown strong {
-    color: #dfdfdf; } }
+    color: #dfdfdf; }
+  .modal-background {
+    background-color: rgba(0, 0, 0, 0.8); }
+  .modal-close {
+    background-color: #ed6a5a; } }
 
 /*# sourceMappingURL=main.css.map */
