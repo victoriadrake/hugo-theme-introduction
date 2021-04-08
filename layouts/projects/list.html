@@ -30,9 +30,9 @@
                         </div>
                         {{ end }}
                         <div class="card-content has-text-centered top-pad">
-                            <a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{ .Permalink }}{{ end }}">
+                            <h1><a href="{{ if .Params.external_link }}{{ .Params.external_link }}{{ else }}{{ .Permalink }}{{ end }}">
                                 {{ .Title | markdownify }}
-                            </a>
+                            </a></h1>
                         </div>
                     </div>
                 </div>

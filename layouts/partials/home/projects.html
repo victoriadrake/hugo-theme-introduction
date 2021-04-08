@@ -33,9 +33,9 @@
                         </div>
                         {{ end }}
                         <div class="card-content has-text-centered top-pad">
-                            <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                            <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
                                 {{ .Title | markdownify }}
-                            </a>
+                            </a></h1>
                             {{ if .Params.project_timeframe }}
                             <p class="fa-xs">{{ .Params.project_timeframe }}</p>
                             {{ end }}
@@ -60,7 +60,7 @@
         <div class="modal-card">
             {{ with .Title }}
             <header class="modal-card-header bottom-pad">
-                <p class="modal-card-title has-text-centered">{{ . }}</p>
+                <h1 class="modal-card-title has-text-centered">{{ . }}</h1>
             </header>
             {{ end }}
             {{ if .Params.project_timeframe }}
