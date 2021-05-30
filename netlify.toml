@@ -14,3 +14,6 @@
 
   # Default build command.
   command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
+
+[build.environment]
+  HUGO_VERSION = "0.80.0"
