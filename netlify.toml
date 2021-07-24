@@ -13,7 +13,7 @@
   publish = "exampleSite/docs/"
 
   # Default build command.
-  command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
+  command = "hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/"
 
 [build.environment]
   HUGO_VERSION = "0.80.0"
