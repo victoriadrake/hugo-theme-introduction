@@ -16,4 +16,4 @@
   command = "hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/"
 
 [build.environment]
-  HUGO_VERSION = "0.80.0"
+  HUGO_VERSION = "0.86.0"
