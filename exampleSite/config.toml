@@ -35,6 +35,21 @@ DefaultContentLanguage           = "en"                    # Default language fo
         facebook                 = true
         pinterest                = true
 
+    # To enable giscus, the github discussions based comment section,
+    # Follow the steps described to enable giscus and get the values
+    # needed to populate the below information.
+    # https://www.joelnitta.com/posts/2021-11-24_using-giscus/
+    [params.giscus]
+        # repo = "github-user/github-repo" # Entering repo will enable giscus
+        repo-id = "enter-repo-id"
+        category = "Comments"
+        category-id = "enter-category-id"
+        mapping = "pathname"
+        reactions-enabled = "1"
+        emit-metadata = "0"
+        theme = "light"
+        lang = "en"
+
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
     # Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
