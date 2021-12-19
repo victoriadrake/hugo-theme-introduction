@@ -13,7 +13,9 @@
   publish = "exampleSite/docs/"
 
   # Default build command.
-  command = "hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/"
+  command = "npm run build"
 
 [build.environment]
   HUGO_VERSION = "0.86.0"
+  NODE_VERSION = "16.9.1"
+  NPM_VERSION = "8.3.0"

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "npm install -g postcss postcss-cli autoprefixer && cd exampleSite && hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/"
+  },
+  "dependencies": {
+    "postcss-cli": "^9.1.0"
+  }
+}
