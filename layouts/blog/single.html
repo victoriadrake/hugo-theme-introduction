@@ -10,8 +10,8 @@
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h2>
         <div class="post-data">
-            {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} |{{ end }}
-            {{ i18n "blog_readingTime" .ReadingTime }}
+        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}{{ end }}
+        {{ if .Site.Params.showReadingTime }} | {{ i18n "blog_readingTime" .ReadingTime }} {{ end }}
         </div>
         {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest .Site.Params.share.googlePlus }}
         <div class="blog-share">
