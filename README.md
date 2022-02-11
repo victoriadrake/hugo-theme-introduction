@@ -6,6 +6,8 @@
 
 Introduction is a minimalist, highly-versatile theme for Hugo. It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
+New to the Hugo static site generator? [Learn the fundamentals here](https://gohugo.io/categories/fundamentals).
+
 ![Device mockups](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/mockup.png)
 
 Features:
@@ -213,7 +215,7 @@ This theme would not be nearly as awesome without its amazing community of open 
 
 ## License
 
-Copyright (C) 2017-2021 [Victoria Drake](https://victoria.dev/)
+Copyright (C) 2017-2022 [Victoria Drake](https://victoria.dev/)
 
 Licensed under the [Apache License, Version 2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
