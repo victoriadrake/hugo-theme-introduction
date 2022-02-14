@@ -9,9 +9,11 @@
     <h2 class="title is-1 top-pad strong-post-title">
         <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h2>
+    {{ if .Params.author }}
     <h4 class="title is-4">
         By {{ .Params.author | markdownify }}
     </h4>
+    {{ end }}
     <div class="post-data">
         {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}{{ end }}
         {{ if .Site.Params.showReadingTime | default true }} 
