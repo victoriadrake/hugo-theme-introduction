@@ -1,21 +1,22 @@
 {{ define "title" }}
-    <h1 class="bold-title is-1">{{ .Data.Singular | humanize }}: {{ lower .Title | markdownify }}</h1>
+<h1 class="bold-title is-1">{{ .Data.Singular | humanize }}: {{ lower .Title | markdownify }}</h1>
 {{ end }}
 
 {{ define "main" }}
-    <div class="container">
-        <ul>
-            {{ range .Pages.ByPublishDate.Reverse }}
-            {{ if .Date }}
-            <li>
-                <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} | {{ .Title | markdownify }}</a>
-            </li>
-            {{ else }}
-            <li>
-                <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-            </li>
-            {{ end }}
-            {{ end }}
-        </ul>
-    </div>
+<div class="container">
+    <ul>
+        {{ range .Pages.ByPublishDate.Reverse }}
+        {{ if .Date }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }} |
+                {{ .Title | markdownify }}</a>
+        </li>
+        {{ else }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</div>
 {{ end }}
