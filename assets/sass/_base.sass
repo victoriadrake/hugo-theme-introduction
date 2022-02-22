@@ -36,6 +36,9 @@ a
 h1, h2, .title, .subtitle
     color: $h-color
 
+p
+    color: $body-color
+
 .title
     font-weight: $title-weight
 
@@ -116,9 +119,10 @@ details[open] summary
     list-style-position: outside
     margin-left: 0
 
-.post-data
+.post-data, .blog-share, .footer-text
     font-size: 1rem
     line-height: 2rem
+    color: $body-color
 
 .social-icons
     padding: 0 10px
@@ -153,7 +157,8 @@ details[open] summary
 .navbar-item
     text-transform: uppercase
     font-size: 0.875rem
-    &:hover
+    color: $body-color
+    &:hover, &:active
         background-color: $navbar-background-color !important
 
 .owl-nav
@@ -199,8 +204,9 @@ details[open] summary
     justify-content: center
 
 .markdown
+    color: $body-color !important
     p
-        margin-bottom: 1em
+        margin: 1em 0
     h1
         font-size: $size-1
         @include mobile
@@ -229,18 +235,18 @@ details[open] summary
             color: $secondary
     ul
         margin-bottom: 1.25rem
-        margin-left: 1.5em
         list-style: disc
     ul ul
+        margin-left: 0.5em
         margin-bottom: 0
     li
-        margin-left: 1.5em
+        margin-left: 1em
         list-style-position: outside
-        padding-left: 1em
+        padding-left: 0.25em
     ol
         margin-bottom: 1.25rem
-        margin-left: 1.5em
     ol ol
+        margin-left: 0.5em
         list-style-type: lower-alpha
         margin-bottom: 0
     ol ol ol
@@ -287,7 +293,17 @@ details[open] summary
         background-color: #f7f7f7
     code, pre
         border-radius: 3px
+    p>code, p>a>code
+        background-color: rgba($secondary, 0.3) !important
     img
         display: block
         margin: 2rem auto
         max-width: 100%
+    figure > img
+        margin: auto
+    figcaption
+        margin: 0.5rem auto
+        max-width: 500px
+        text-align: center
+    figcaption > h4
+        font-size: 0.8rem
