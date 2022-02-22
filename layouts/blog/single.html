@@ -11,7 +11,13 @@
     </h2>
     {{ if .Params.author }}
     <h4 class="title is-4">
-        By {{ .Params.author | markdownify }}
+        {{ $data := .Params.author }}
+        By&nbsp;{{- range first 1 $data -}}
+            {{ . | markdownify }}
+        {{- end -}}
+        {{- range after 1 $data -}}
+            ,&nbsp;{{ . | markdownify }}
+        {{- end -}}
     </h4>
     {{ end }}
     <div class="post-data">
@@ -55,7 +61,7 @@
     <p>
         {{ $taxonomy_term | title }}:
         {{ range $key, $value := $taxonomy }}
-        <a href="{{ (printf " /%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
+        <a href="{{ (printf "/%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
             {{ $value }}</a>{{ if ne (add $key 1) $len }},{{ end }}
         {{ end }}
     </p>
