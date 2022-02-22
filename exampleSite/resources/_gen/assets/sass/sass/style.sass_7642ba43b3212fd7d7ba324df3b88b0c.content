@@ -9021,7 +9021,7 @@ details[open] summary {
 .markdown {
   color: #4a4a4a !important; }
   .markdown p {
-    margin-bottom: 1em; }
+    margin: 1em 0; }
   .markdown h1 {
     font-size: 3rem; }
     @media screen and (max-width: 768px) {
@@ -12422,7 +12422,7 @@ readers do not read off random characters that represent icons */
   .markdown {
     color: #ffffff !important; }
     .markdown p {
-      margin-bottom: 1em; }
+      margin: 1em 0; }
     .markdown h1 {
       font-size: 3rem; } }
     @media screen and (prefers-color-scheme: dark) and (max-width: 768px) {
