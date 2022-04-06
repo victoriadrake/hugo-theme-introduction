@@ -22,4 +22,16 @@
 [blog_shareThis]
     other = "Share this"
 [footer_text]
-    other = "[NASA](https://www.nasa.gov/) | [Caltech](https://www.caltech.edu/) | [PRIVACY](https://www.jpl.nasa.gov/copyrights.php) | [IMAGE POLICY](https://www.jpl.nasa.gov/jpl-image-use-policy) | [FAQ](https://www.jpl.nasa.gov/frequently-asked-questions) | [FEEDBACK](https://www.jpl.nasa.gov/contact-jpl) <BR>  Site Manager: Alex Gardner <BR> Webmasters: Jon Nelson, Anil Natha, Luis Lopez CL#18-7388"
+    other = '''
+        <div class="is-flex is-justify-content-space-between is-flex-direction-row">
+            <div>[NASA](https://www.nasa.gov/) </div> |
+            <div>[Caltech](https://www.caltech.edu/) </div> |
+            <div>[PRIVACY](https://www.jpl.nasa.gov/copyrights.php) </div> |
+            <div>[IMAGE POLICY](https://www.jpl.nasa.gov/jpl-image-use-policy) </div> |
+            <div>[FAQ](https://www.jpl.nasa.gov/frequently-asked-questions) </div> |
+            <div>[FEEDBACK](https://www.jpl.nasa.gov/contact-jpl) </div>
+        </div>
+        <BR>
+        Site Manager: Alex Gardner
+        <BR>
+        Webmasters: Jon Nelson, Anil Natha, Luis Lopez CL#18-7388'''
