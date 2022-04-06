@@ -23,15 +23,4 @@
     other = "Share this"
 [footer_text]
     other = '''
-        <div class="is-flex is-justify-content-space-between is-flex-direction-row">
-            <div>[NASA](https://www.nasa.gov/) </div> |
-            <div>[Caltech](https://www.caltech.edu/) </div> |
-            <div>[PRIVACY](https://www.jpl.nasa.gov/copyrights.php) </div> |
-            <div>[IMAGE POLICY](https://www.jpl.nasa.gov/jpl-image-use-policy) </div> |
-            <div>[FAQ](https://www.jpl.nasa.gov/frequently-asked-questions) </div> |
-            <div>[FEEDBACK](https://www.jpl.nasa.gov/contact-jpl) </div>
-        </div>
-        <BR>
-        Site Manager: Alex Gardner
-        <BR>
-        Webmasters: Jon Nelson, Anil Natha, Luis Lopez CL#18-7388'''
+'''

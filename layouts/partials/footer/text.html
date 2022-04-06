@@ -1,11 +1,14 @@
-<div class="section" id="footer">
-    <div class="container has-text-centered">
-    {{ with .Site.Params.footerText }}
-        {{ . | markdownify }}
-    {{ else }}
-        <span class="footer-text">
-            {{ i18n "footer_text" . | markdownify }}
-        </span>
-    {{ end }}
+<div class="section has-text-centered" id="footer">
+    <div class="has-content-centered is-flex is-justify-content-space-between is-flex-direction-row" style="text-indent: 3em;">
+        <div><a href="https://www.nasa.gov/">NASA</a> </div> <b>|</b>
+        <div><a href="https://www.caltech.edu">CALTECH</a> </div> <b>|</b>
+        <div><a href="https://www.jpl.nasa.gov/copyrights.php">PRIVACY</a></div> <b>|</b>
+        <div><a href="https://www.jpl.nasa.gov/jpl-image-use-policy">IMAGE POLICY</a> </div> <b>|</b>
+        <div><a href="https://www.jpl.nasa.gov/frequently-asked-questions">FAQ</a> </div> <b>|</b>
+        <div><a href="https://www.jpl.nasa.gov/contact-jpl">FEEDBACK</a></div>
     </div>
+    <BR>
+    Site Manager: Alex Gardner
+    <BR>
+    Webmasters: Jon Nelson, Anil Natha, Luis Lopez CL#18-7388
 </div>
