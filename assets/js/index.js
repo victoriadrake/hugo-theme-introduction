@@ -18,6 +18,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Functions to open and close a modal
+  function openModal($el) {
+    $el.classList.add('is-active');
+  }
+
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+
+  // Add a keyboard event to close all modals
+  document.addEventListener('keydown', (event) => {
+    const e = event || window.event;
+
+    if (e.keyCode === 27) { // Escape key
+      closeAllModals();
+      $('html').removeClass('modal-open')
+    }
+  });
+});
+
 // Modal closer
 $('.card').click(function () {
   $($(this).attr('data-target')).addClass('is-active')
@@ -27,9 +55,4 @@ $('.modal-close').click(function () {
   $($(this).attr('data-target')).removeClass('is-active')
   $('html').removeClass('modal-open')
 })
-$(document).keypress(function (e) {
-  if (e.which === 0) {
-    $('.modal.is-active').removeClass('is-active')
-    $('html').removeClass('modal-open')
-  }
-})
+
