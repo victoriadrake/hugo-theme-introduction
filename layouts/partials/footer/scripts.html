@@ -3,8 +3,6 @@
 {{ $scripts := slice $jQuery $index | resources.Concat "js/bundle.js" | fingerprint }}
 <script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
 
-{{ template "_internal/google_analytics_async.html" . }}
-
 <!-- Custom JavaScript -->
 {{ range .Site.Params.customJS -}}
     {{ $script := resources.Get . | minify }}

@@ -189,7 +189,7 @@ You can easily use Plausible.io for analytics by setting `plausible = true` in y
 
 ## Google Analytics
 
-Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analytics template](https://gohugo.io/templates/internal/#google-analytics).
+Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analytics template](https://gohugo.io/templates/internal/#google-analytics). This supports both Google Analytics 3 (Universal Analytics) and Google Analytics 4. Google Analytics 3 tracking id is of the form 'UA-PROPERTY_ID', and Google Analytics 4 tracking is of the form 'G-MEASUREMENT_ID'.
 
 ## Disqus
 
