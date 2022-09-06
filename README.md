@@ -179,6 +179,8 @@ See the [hugo documentation](https://gohugo.io/content-management/multilingual/)
 
 Introduction contains a default menu. If you want to override this, you can do so by defining a `menu.main` in `config.toml`.
 
+Optionally, you can disable this menu by setting `showMenu` to `false` in your `config.toml`.
+
 ## Contact section clock
 
 Introduction can optionally show your current local time in your [contact section](https://hugo-introduction.netlify.app/#contact). This uses vanilla JS and variables you provide. You can set this up by copying the settings in the exampleSite `config.toml` for `localTime`, `timeZone`, and `timeFormat`.
