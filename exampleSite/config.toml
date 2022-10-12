@@ -1,4 +1,4 @@
-baseURL                          = "http://example.com/"   # Your domain name. Must end with "/"
+baseURL                          = "https://example.com/"   # Your domain name. Must end with "/"; Secure by default if you need you can fall back to http:// only
 theme                            = "introduction"
 DefaultContentLanguage           = "en"                    # Default language for multilingual sites
 # disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
