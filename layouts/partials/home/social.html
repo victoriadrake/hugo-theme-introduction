@@ -1,7 +1,27 @@
+<!----Latest version 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
+---->
+
+<!----Stable version 1.1 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+---->
+
 <div class="social-icons">
     {{ range .Site.Params.social }}
-    <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
-        <i class="{{ .icon_pack}} fab fa-{{ .icon}}"></i>
-    </a>
-    {{ end }}
+      {{ if eq .icon_pack "fab" }}
+        <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} fab fa-{{ .icon}}"></i>
+        </a>
+      {{ end }}
+      {{ if eq .icon_pack "fas" }}
+      <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} fas fa-{{ .icon}}"></i>
+        </a>
+      {{ end }}
+      {{ if eq .icon_pack "ai" }}
+      <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+        <i class="{{ .icon_pack}} ai-{{ .icon}} ai-1.9x"></i>
+      </a>
+      {{ end }}
+  {{ end }}
 </div>
