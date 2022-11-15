@@ -1,7 +1,7 @@
 [404_title]
     other = "404"
 [404_description]
-    other = "噢！要么网站链接出错 {{ with .Site.Params.email }}（[上报错误](mailto:{{ . }})）{{ end }} ，要么您输入的网址有误。这页面不存在！"
+    other = "噢！要么网站连接出错 {{ with .Site.Params.email }}（[上报错误](mailto:{{ . }})）{{ end }} ，要么您输入的网址有误。这页面不存在！"
 [index_projects_allProjects]
     other = "所有项目"
 [index_blog_latestPosts]
