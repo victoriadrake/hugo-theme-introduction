@@ -1,0 +1,25 @@
+[404_title]
+    other = "404"
+[404_description]
+    other = "Vaja! O bé has trobat un error{{ with .Site.Params.email }} (en aquest cas, [si us plau, avisa'm](mailto:{{ . }})) {{ end }} o simplement t'estàs inventant alguna cosa. Aquesta pàgina no existeix!"
+[index_projects_allProjects]
+    other = "Tots els projectes"
+[index_blog_latestPosts]
+    other = "Últimes entrades"
+[index_blog_allPosts]
+    other = "Totes les entrades"
+[index_blog_readMore]
+    other = "Llegir-ne més"
+[index_currentTime]
+    other = "La meva hora local és"
+[nav_backToSection]
+    other = "Tornar a {{ .Title }}"
+[nav_main]
+    other = "Inici"
+[blog_readingTime]
+    one = "Temps de lectura: {{ .Count }} minut"
+    other = "Temps de lectura: {{ .Count }} minuts"
+[blog_shareThis]
+    other = "Comparteix-ho"
+[footer_text]
+    other = "Tema [**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) per [Hugo](http://gohugo.io/). Fet amb [<i class=\"fa fa-heart\"></i> i <i class=\"fa fa-coffee\"></i>](https://victoria.dev) per col·laboradors de codi obert."
