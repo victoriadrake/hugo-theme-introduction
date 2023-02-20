@@ -217,7 +217,7 @@ This theme would not be nearly as awesome without its amazing community of open 
 
 ## License
 
-Copyright (C) 2017-2022 [Victoria Drake](https://victoria.dev/)
+Copyright (C) 2017-2023 [Victoria Drake](https://victoria.dev/)
 
 Licensed under the [Apache License, Version 2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE) (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
