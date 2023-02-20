@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        hugo: ['0.49.2', '0.50', '0.60.0', '0.70.0', '0.80.0', '0.90.0', '0.91.0', '0.92.0']
+        hugo: ['0.106.0', '0.107.0', '0.108.0', '0.108.0', '0.110.0']
     
       fail-fast: true
 
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
 
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: lts/*
       - name: Install tools
         run: |
           sudo apt install curl jq
