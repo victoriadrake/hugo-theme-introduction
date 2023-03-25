@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/stale@v1
+    - uses: actions/stale@v7
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'It looks like this has been idle a while, so I am marking it as stale. Remove the label or comment if this issue should remain open.'
@@ -18,5 +18,6 @@ jobs:
         stale-issue-label: 'no-activity'
         stale-pr-label: 'no-activity'
         exempt-pr-labels: 'help wanted'
+        exempt-issue-labels: 'help wanted'
         days-before-stale: 30
-        days-before-close: 5
+        days-before-close: 7
