@@ -2,7 +2,7 @@
     {{ range .Site.Params.social }}
       {{ if eq .icon_pack "fa" }}
         <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
-          <i class="{{ .icon_pack}} fa-{{ .icon}}"></i>
+          <i class="{{ .icon_pack}} fa-{{ .icon}} {{ .style}}"></i>
         </a>
       {{ end }}
       {{ if eq .icon_pack "fab" }}

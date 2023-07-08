@@ -1,11 +1,16 @@
 {{ $themeStyle := .Site.Params.themeStyle | default "light" }}
+{{ $forkAwesome := .Site.Params.forkAwesome | default false }}
 
 {{ if eq $themeStyle "auto" }}
 @import "fonts"
 @import "light-variables"
 @import "base-variables"
 @import "bulma-import"
+{{ if $forkAwesome }}
+@import "forkawesome-import"
+{{ else }}
 @import "fontawesome-import"
+{{ end }}
 @import "academicons-import"
 @import "base"
 @import "light-style"
@@ -15,7 +20,11 @@
     @import "dark-variables"
     @import "base-variables"
     @import "bulma-import"
+    {{ if $forkAwesome }}
+    @import "forkawesome-import"
+    {{ else }}
     @import "fontawesome-import"
+    {{ end }}
     @import "academicons-import"
     @import "base"
     @import "dark-style"
@@ -25,7 +34,11 @@
 @import "{{ $themeStyle }}-variables"
 @import "base-variables"
 @import "bulma-import"
+{{ if $forkAwesome }}
+@import "forkawesome-import"
+{{ else }}
 @import "fontawesome-import"
+{{ end }}
 @import "academicons-import"
 @import "base"
 @import "{{ $themeStyle }}-style"

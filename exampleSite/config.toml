@@ -16,6 +16,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
     # customCSS                  = ["foo.css"]             # Include custom css files placed under assets/
     # customJS                   = ["foo.js"]              # Include custom JavaScript files placed under assets/
     # plausible                  = true                    # Use Plausible analytics (requires an account at Plausible.io)
+    # forkAwesome                = true                    # Use Fork Awesome instead of Font Awesome
 
     # Configure the home page
     [params.home]
@@ -75,6 +76,11 @@ DefaultContentLanguage           = "en"                    # Default language fo
         icon  = "mastodon" # icon name without the 'fa-'
         icon_pack = "fab"
         html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
+    [[params.social]]
+        url   = "https://matrix.org/"
+        icon  = "matrix-org"
+        icon_pack = "fa" # forkAwesome = true
+        style = "fa-2x" # Add additional style
 
 
 # If you don't want to use the default menu, you can define one by yourself
