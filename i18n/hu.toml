@@ -1,0 +1,25 @@
+[404_title]
+other = "404"
+[404_description]
+other = "Hoppá! Vagy hibát találtál{{ with .Site.Params.email }} (ebben az esetben [kérem, mondja meg](mailto:{{ . }})) {{ end }}, vagy csak kitaláltad a dolgokat. Ez az oldal nem létezik!"
+[index_projects_allProjects]
+other = "Minden Projekt"
+[index_blog_latestPosts]
+other = "Legújabb Poszt"
+[index_blog_allPosts]
+other = "Összes Poszt"
+[index_blog_readMore]
+other = "Olvass tovább"
+[index_currentTime]
+other = "A helyi idő"
+[nav_backToSection]
+other = "Vissza a {{ .Title }}"
+[nav_main]
+other = "Főoldal"
+[blog_readingTime]
+one = "{{ .Count }} perc elolvasni"
+other = "{{ .Count }} perc elolvasni"
+[blog_shareThis]
+other = "Megosztás"
+[footer_text]
+other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) sablon a [Hugo](http://gohugo.io/)-hoz. Készítették [<i class=\"fa fa-heart\"></i> és <i class=\"fa fa-coffee\"></i>](https://victoria.dev) a nyílt forráskódú közreműködők."
