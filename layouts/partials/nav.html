@@ -107,8 +107,8 @@
             {{ end }}
             {{ end }}
 
-            {{ if and .Site.Params.showRSSButton .Site.RSSLink }}
-            <a class="navbar-item" href="{{ .Site.RSSLink }}"><i class="fas fa-rss"></i></a>
+            {{ if and .Site.Params.showRSSButton }}
+            <a class="navbar-item" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}"><i class="fas fa-rss"></i></a>
             {{ end }}
             {{ end }}
         </div>
