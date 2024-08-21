@@ -1,31 +1,32 @@
 {{ define "main" }}
-    <div class="container markdown top-pad">
-        {{ .Content }}
-    </div>
-    <div class="container">
-        {{ if .Site.Params.home.showLatest | default true }}
-        <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
-            {{ range first 1 .Pages.ByPublishDate.Reverse }}
-            <div class="summary">{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}{{ end }}
-                <h3 class="title is-3 strong-post-title">
-                    <a href="{{ .Permalink }}">
-                        {{ .Title | markdownify }}
-                    </a>
-                </h3>
-                <div class="markdown">
-                    {{ .Summary }}
-                    {{ if .Truncated }}
-                    <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
-                    {{ end }}
-                </div>
-            </div>
+<div class="container markdown top-pad">
+    {{ .Content }}
+</div>
+<div class="container">
+    {{ if .Site.Params.home.showLatest | default true }}
+    <h2 class="title is-2 top-pad">{{ i18n "index_blog_latestPosts" . }}</h2>
+    {{ range first 1 .Pages.ByPublishDate.Reverse }}
+    <div class="summary">
+        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
+        <h3 class="title is-3 strong-post-title">
+            <a href="{{ .Permalink }}">
+                {{ .Title | markdownify }}
+            </a>
+        </h3>
+        <div class="markdown">
+            {{ .Summary }}
+            {{ if .Truncated }}
+            <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
             {{ end }}
-        {{ end }}
-        <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
-        {{if .Site.Params.home.allPostsArchiveFormat}}
-            {{ partialCached "blog/archive.html" .}}
-        {{else}}
-            {{ partialCached "blog/li.html" . }}
-        {{end}}
+        </div>
     </div>
+    {{ end }}
+    {{ end }}
+    <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+    {{if .Site.Params.home.allPostsArchiveFormat}}
+    {{ partialCached "blog/archive.html" .}}
+    {{else}}
+        {{ partialCached "blog/li.html" . }}
+        {{end}}
+</div>
 {{ end }}

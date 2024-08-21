@@ -3,3 +3,21 @@
         {{ template "_internal/disqus.html" . }}
     </div>
 {{- end }}
+
+{{- if .Site.Params.giscus.repo }}
+<div class="container giscus my-4">
+    <script src="https://giscus.app/client.js"
+        data-repo={{ .Site.Params.giscus.repo }}
+        data-repo-id={{ .Site.Params.giscus.repo_id }}
+        data-category={{ .Site.Params.giscus.category }}
+        data-category-id={{ .Site.Params.giscus.category_id }}
+        data-mapping={{ .Site.Params.giscus.mapping }}
+        data-reactions-enabled={{ .Site.Params.giscus.reactions_enabled | default 0}}
+        data-emit-metadata={{ .Site.Params.giscus.emit_metadata | default 0 }}
+        data-theme={{ .Site.Params.giscus.theme }}
+        data-lang={{ .Site.Params.giscus.lang }}
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+{{- end }}

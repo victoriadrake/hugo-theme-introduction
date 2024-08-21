@@ -1,7 +1,24 @@
 <div class="social-icons">
     {{ range .Site.Params.social }}
-    <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
-        <i class="{{ .icon_pack}} fab fa-{{ .icon}}"></i>
-    </a>
-    {{ end }}
+      {{ if eq .icon_pack "fa" }}
+        <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} fa-{{ .icon}}"></i>
+        </a>
+      {{ end }}
+      {{ if eq .icon_pack "fab" }}
+        <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} fab fa-{{ .icon}}"></i>
+        </a>
+      {{ end }}
+      {{ if eq .icon_pack "fas" }}
+        <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} fas fa-{{ .icon}}"></i>
+        </a>
+      {{ end }}
+      {{ if eq .icon_pack "ai" }}
+        <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+          <i class="{{ .icon_pack}} ai-{{ .icon}} ai-1.9x"></i>
+        </a>
+      {{ end }}
+  {{ end }}
 </div>

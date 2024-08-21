@@ -33,9 +33,9 @@
                         </div>
                         {{ end }}
                         <div class="card-content has-text-centered top-pad">
-                            <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                            <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
                                 {{ .Title | markdownify }}
-                            </a>
+                            </a></h1>
                             {{ if .Params.project_timeframe }}
                             <p class="fa-xs">{{ .Params.project_timeframe }}</p>
                             {{ end }}
@@ -60,37 +60,34 @@
         <div class="modal-card">
             {{ with .Title }}
             <header class="modal-card-header bottom-pad">
-                <p class="modal-card-title has-text-centered">{{ . }}</p>
+                <h1 class="modal-card-title has-text-centered">{{ . }}</h1>
             </header>
             {{ end }}
             {{ if .Params.project_timeframe }}
             <p class="fa-xs">{{ .Params.project_timeframe }}</p>
-            {{ end }}
-            {{ with .Resources.ByType "image" }}
-            {{ $moreThenOneImage := gt (len .) 1 }}
-            {{ if $moreThenOneImage }}
-            <div class="owl-carousel owl-theme">
-            {{ end }}
-                {{ range sort . "Params.weight" }}
-                    {{ $image := .Resize "640x" }}
-                    {{ if $moreThenOneImage }}
-                    <div class="item owl-height">
-                    {{ end }}
-                        <img src="{{ $image.Permalink }}" class="img-responsive" alt="{{ $image.Name }}">
-                    {{ if $moreThenOneImage }}
-                    </div>
-                    {{ end }}
-                {{ end }}
-            {{ if $moreThenOneImage }}
-            </div>
-            {{ end }}
-            {{ end }}
-
-            {{ with .Content }}
+            {{ end }}         
             <section class="modal-card-body markdown">
-                {{ . }}
+                {{ with .Resources.ByType "image" }}
+                {{ $moreThenOneImage := gt (len .) 1 }}
+                {{ if $moreThenOneImage }}
+                <div class="owl-carousel owl-theme">
+                {{ end }}
+                    {{ range sort . "Params.weight" }}
+                        {{ $image := .Resize "640x" }}
+                        {{ if $moreThenOneImage }}
+                        <div class="item owl-height">
+                        {{ end }}
+                            <img src="{{ $image.Permalink }}" class="img-responsive" alt="{{ $image.Name }}">
+                        {{ if $moreThenOneImage }}
+                        </div>
+                        {{ end }}
+                    {{ end }}
+                {{ if $moreThenOneImage }}
+                </div>
+                {{ end }}
+                {{ end }}
+                {{ .Content }}
             </section>
-            {{ end }}
         </div>
         <button class="modal-close is-large" aria-label="close" data-target="#project-{{ $index }}"></button>
     </div>

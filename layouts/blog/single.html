@@ -9,27 +9,46 @@
     <h2 class="title is-1 top-pad strong-post-title">
         <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h2>
+    {{ if .Params.author }}
+    <h4 class="title is-4">
+        {{ $data := .Params.author }}
+        By&nbsp;{{- range first 1 $data -}}
+            {{ . | markdownify }}
+        {{- end -}}
+        {{- range after 1 $data -}}
+            ,&nbsp;{{ . | markdownify }}
+        {{- end -}}
+    </h4>
+    {{ end }}
     <div class="post-data">
-        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }} |{{ end }}
+        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
+        {{ if .Site.Params.showReadingTime | default true }}
+        {{ if .Params.date }} | {{ end }}
         {{ i18n "blog_readingTime" .ReadingTime }}
+        {{ end }}
     </div>
     {{ if or .Site.Params.share.twitter .Site.Params.share.facebook .Site.Params.share.pinterest }}
     <div class="blog-share">
         {{ i18n "blog_shareThis" . }}:
         {{ if .Site.Params.share.twitter }}
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ .Title | markdownify }}%20{{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?text={{ .Title | markdownify }}%20{{ .Permalink }}"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fab fa-twitter"></i>
             <span class="hidden">Twitter</span>
         </a>
         {{ end }}
         {{ if .Site.Params.share.facebook }}
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <i class="fab fa-facebook-f"></i>
             <span class="hidden">Facebook</span>
         </a>
         {{ end }}
         {{ if .Site.Params.share.pinterest }}
-        <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+        <a class="icon-pinterest"
+            href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}{{ if .Params.pinterestMedia }}&amp;media={{ .Site.BaseURL }}{{ .Params.pinterestMedia }}{{ end }}&amp;description={{ .Title | safeHTML}}"
+            onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
             <i class="fab fa-pinterest-p"></i>
             <span class="hidden">Pinterest</span>
         </a>
@@ -37,16 +56,16 @@
     </div>
     {{ end }}
     {{ range $taxonomy_term, $taxonomy := .Params }}
-      {{ with $.Site.GetPage $taxonomy_term }}
-      {{ $len := (len $taxonomy) }}
-     <p>
-         {{ $taxonomy_term | title }}: 
-          {{ range $key, $value := $taxonomy }}
-           <a href="{{ (printf "/%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
-             {{ $value }}</a>{{ if ne (add $key 1) $len }},{{ end }}
-         {{ end }}
-        </p>
-      {{ end }}
+    {{ with $.Site.GetPage $taxonomy_term }}
+    {{ $len := (len $taxonomy) }}
+    <p>
+        {{ $taxonomy_term | title }}:
+        {{ range $key, $value := $taxonomy }}
+        <a href="{{ (printf "/%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
+            {{ $value }}</a>{{ if ne (add $key 1) $len }},{{ end }}
+        {{ end }}
+    </p>
+    {{ end }}
     {{ end }}
 </div>
 <!-- Begin blog post content -->

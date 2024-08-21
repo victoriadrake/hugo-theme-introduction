@@ -7,6 +7,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
 [params]
     themeStyle                   = "auto"                  # Choose "light" or "dark" or "auto"
     favicon                      = "/img/fav.ico"          # Path to favicon file
+    showMenu                     = true                    # Show navigation menu
     showRSSButton                = false                   # Show rss button in navigation
     fadeIn                       = true                    # Turn on/off the fade-in effect
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
@@ -34,6 +35,21 @@ DefaultContentLanguage           = "en"                    # Default language fo
         twitter                  = true
         facebook                 = true
         pinterest                = true
+
+    # To enable giscus, the GitHub-discussions-based comment section,
+    # input the repository for the discussions below. For more details, see
+    # https://www.joelnitta.com/posts/2021-11-24_using-giscus/
+    # and https://github.com/giscus/giscus
+    [params.giscus]
+        # repo = "github-user/github-repo" # Entering repo will enable giscus
+        repo-id = "enter-repo-id"
+        category = "Comments"
+        category-id = "enter-category-id"
+        mapping = "pathname"
+        reactions-enabled = "1"
+        emit-metadata = "0"
+        theme = "light"
+        lang = "en"
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
@@ -89,9 +105,9 @@ DefaultContentLanguage           = "en"                    # Default language fo
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
-    noClasses = true
+    # noClasses = true
     # For styles, see https://xyproto.github.io/splash/docs/longer/all.html
-    style = "friendly"
+    style = "solarized-dark"
     tabWidth = 4
 
 [languages]

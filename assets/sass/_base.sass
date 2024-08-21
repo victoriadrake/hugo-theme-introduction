@@ -36,6 +36,9 @@ a
 h1, h2, .title, .subtitle
     color: $h-color
 
+p
+    color: $body-color
+
 .title
     font-weight: $title-weight
 
@@ -75,9 +78,6 @@ details[open] summary
 
 .hidden
     display: none
-
-pre
-    background-color: #eee
 
 .img-responsive
     border-radius: 5px
@@ -119,9 +119,10 @@ pre
     list-style-position: outside
     margin-left: 0
 
-.post-data
+.post-data, .blog-share, .footer-text
     font-size: 1rem
     line-height: 2rem
+    color: $body-color
 
 .social-icons
     padding: 0 10px
@@ -143,6 +144,9 @@ pre
         vertical-align: baseline
         margin: 0 5px
 
+.navbar
+    background-color: $navbar-background-color
+
 .navbar-burger
     margin-right: auto
     color: $primary
@@ -153,7 +157,8 @@ pre
 .navbar-item
     text-transform: uppercase
     font-size: 0.875rem
-    &:hover
+    color: $body-color
+    &:hover, &:active
         background-color: $navbar-background-color !important
 
 .owl-nav
@@ -189,18 +194,19 @@ pre
         margin-right: 1rem
 
 .card
+    background-color: transparent
     box-shadow: none
 
 .card-content
-    background-color: $background
     font-size: 1.5rem
 
 .has-content-centered
     justify-content: center
 
 .markdown
+    color: $body-color !important
     p
-        margin-bottom: 1em
+        margin: 1em 0
     h1
         font-size: $size-1
         @include mobile
@@ -229,18 +235,18 @@ pre
             color: $secondary
     ul
         margin-bottom: 1.25rem
-        margin-left: 1.5em
         list-style: disc
     ul ul
+        margin-left: 0.5em
         margin-bottom: 0
     li
-        margin-left: 1.5em
+        margin-left: 1em
         list-style-position: outside
-        padding-left: 1em
+        padding-left: 0.25em
     ol
         margin-bottom: 1.25rem
-        margin-left: 1.5em
     ol ol
+        margin-left: 0.5em
         list-style-type: lower-alpha
         margin-bottom: 0
     ol ol ol
@@ -285,5 +291,15 @@ pre
     tbody tr:nth-child(even) td,
     tbody tr:nth-child(even) th
         background-color: #f7f7f7
-    pre
+    code, pre
         border-radius: 3px
+    p>code, p>a>code
+        background-color: rgba($secondary, 0.3) !important
+    figure > img
+        margin: auto
+    figcaption
+        margin: 0.5rem auto
+        max-width: 500px
+        text-align: center
+    figcaption > h4
+        font-size: 0.8rem

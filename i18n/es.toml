@@ -1,25 +1,25 @@
 [404_title]
     other = "404"
 [404_description]
-    other = "Oops! O bien encontraste un bug{{ with .Site.Params.email }} (en cuyo caso, [por favor avisame](mailto:{{ . }})) {{ end }} o simplemente estas inventando cosas. Esta página no existe!"
+    other = "¡Vaya! O bien encontraste un error{{ with .Site.Params.email }} (en cuyo caso, [por favor avísame](mailto:{{ . }})) {{ end }} o simplemente estás inventando cosas. ¡Esta página no existe!"
 [index_projects_allProjects]
     other = "Todos los proyectos"
 [index_blog_latestPosts]
-    other = "Últimas Entradas"
+    other = "Últimas entradas"
 [index_blog_allPosts]
-    other = "Todas las Entradas"
+    other = "Todas las entradas"
 [index_blog_readMore]
     other = "Leer más"
 [index_currentTime]
-    other = "Mi hora local actual es"
+    other = "Mi hora local es"
 [nav_backToSection]
     other = "Volver a {{ .Title }}"
 [nav_main]
     other = "Principal"
 [blog_readingTime]
-    one = "{{ .Count }} minuto de lectura"
-    other = "{{ .Count }} minutos de lectura"
+    one = "Tiempo de lectura: {{ .Count }} minuto"
+    other = "Tiempo de lectura: {{ .Count }} minutos"
 [blog_shareThis]
-    other = "Comparte esto"
+    other = "Compártelo"
 [footer_text]
     other = "Tema [**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) para [Hugo](http://gohugo.io/). Hecho con [<i class=\"fa fa-heart\"></i> y <i class=\"fa fa-coffee\"></i>](https://victoria.dev) por colaboradores de código abierto."
