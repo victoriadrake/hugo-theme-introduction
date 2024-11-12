@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        hugo: ['0.106.0', '0.107.0', '0.108.0', '0.108.0', '0.110.0']
+        hugo: ['0.135.0', '0.136.5', '0.137.1', '0.138.0']
     
       fail-fast: true
 
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install tools
@@ -28,7 +28,7 @@ jobs:
           npm i -g postcss postcss-cli autoprefixer
 
       - name: Test with Hugo ${{ matrix.hugo }}
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ matrix.hugo }}
           extended: true

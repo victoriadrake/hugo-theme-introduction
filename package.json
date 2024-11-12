@@ -1,11 +1,17 @@
 {
-  "scripts": {
-    "build": "npm install -g postcss postcss-cli autoprefixer && cd exampleSite && hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/",
-    "dev": "cd exampleSite && ENVIRONMENT=development hugo -t ../.. server"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^9.1.0"
-  }
+    "name": "hugo-theme-introduction",
+    "version": "6.0.1",
+    "description": "A Hugo theme for personal and professional introductions.",
+    "repository": {
+        "url": "https://github.com/victoriadrake/hugo-theme-introduction"
+    },
+    "scripts": {
+        "build": "npm install -g postcss postcss-cli autoprefixer && cd exampleSite && hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/",
+        "dev": "cd exampleSite && ENVIRONMENT=development hugo -t ../.. server"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "postcss": "^8.4.31",
+        "postcss-cli": "^9.1.0"
+    }
 }
