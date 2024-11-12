@@ -71,7 +71,7 @@ git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git t
 Introduction ships with an fully configured example site. For a quick preview:
 
 ```sh
-cd exampleSite && HUGO_THEME="hugo-theme-introduction" hugo server --themesDir ../.. -v
+cd exampleSite && HUGO_THEME="hugo-theme-introduction" hugo server --themesDir ../..
 ```
 
 Then visit `http://localhost:1313/` in your browser to view the example site.
