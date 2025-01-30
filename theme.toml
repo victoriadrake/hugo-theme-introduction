@@ -2,6 +2,7 @@ name = "Introduction"
 license = "Apache-2.0"
 licenselink = "https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE"
 description = "Minimal, single page, smooth scrolling theme for Hugo."
+demosite = "https://hugo-introduction.netlify.app/"
 homepage = "https://github.com/victoriadrake/hugo-theme-introduction"
 tags = ["blog", "bulma", "clean", "dark", "disqus", "font awesome", "gallery", "minimal", "minimalist", "mobile", "multilingual", "one page", "personal", "responsive", "simple", "single page", "starter", "syntax highlighting", "projects", "white" ]
 features = ["responsive", "blog", "portfolio", "gallery"]
