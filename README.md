@@ -27,30 +27,21 @@ Developer-friendly:
 
 ## Getting started
 
-Requires the **extended** version of Hugo. You can find [installation instructions here](https://gohugo.io/getting-started/installing/) (latest version recommended). Here's a handy [Bash function for downloading a specific Hugo version](https://victoria.dev/blog/how-to-do-twice-as-much-with-half-the-keystrokes-using-.bashrc/#bash-function-for-downloading-extended-hugo).
+Requires **Hugo extended 0.163.0 or later**. See the [Hugo installation instructions](https://gohugo.io/getting-started/installing/). The minimum supported version and the latest release are tested in CI.
 
-To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer`. Install these globally with `npm`.
-
-```sh
-npm i -g postcss postcss-cli autoprefixer
-```
-
-[Learn how to install and use npm here](https://www.npmjs.com/get-npm).
-
-Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the above Node.js packages have to be [installed locally inside `exampleSite`](https://gohugo.io/hugo-pipes/postcss/).
+Production builds also require **Node.js 22.12 or later** and the theme's local PostCSS dependencies. From the theme directory, install the locked versions:
 
 ```sh
-cd exampleSite/
-npm i postcss postcss-cli autoprefixer
+npm ci --ignore-scripts
 ```
 
-If you see an error message like:
+When using the theme inside another Hugo site, put the theme's local tools on your path before building. From your site's root:
 
-```text
-Error: Error building site: POSTCSS: failed to transform "css/main.css" (text/css): resource "sass/sass/style..." not found in file cache
+```sh
+PATH="$PWD/themes/introduction/node_modules/.bin:$PATH" hugo
 ```
 
-See [issue #210](https://github.com/victoriadrake/hugo-theme-introduction/issues/210#issuecomment-645661326) for more information.
+`hugo server` previews compile Sass without PostCSS. Production builds use PostCSS to add browser prefixes; no global npm packages are required.
 
 ## Get the theme
 
@@ -68,13 +59,27 @@ git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git t
 
 ## Preview the theme
 
-Introduction ships with an fully configured example site. For a quick preview:
+Introduction ships with a fully configured example site. From the theme directory:
 
 ```sh
-cd exampleSite && HUGO_THEME="hugo-theme-introduction" hugo server --themesDir ../..
+npm run dev
 ```
 
 Then visit `http://localhost:1313/` in your browser to view the example site.
+
+To build the example site, run `npm run build`. Output goes to `docs/`. Override the example URL with `HUGO_BASEURL=https://example.org/ npm run build` when needed.
+
+Run `npm test` for the build regressions (Python 3.9+ and Google Chrome required) and `npm run check:html` after building to check internal links and assets, including accidental `example.com` URLs. The tests use temporary copies and leave local content and generated resources untouched.
+
+This modernization keeps the existing content and configuration model. Navigation and project dialogs use native JavaScript; the existing Owl Carousel still uses bundled jQuery.
+
+## Netlify demo
+
+The [live demo](https://hugo-introduction.netlify.app/) automatically builds and publishes successful pushes to `master`. [netlify.toml](netlify.toml) controls the build: it runs `npm run build && npm run check:html` from the repository root and publishes `docs/`.
+
+The demo pins **Hugo 0.165.0** and **Node.js 24**. This is separate from the theme's minimum supported Hugo version, 0.163.0. New Hugo releases are tested by CI, but the demo's pin must be updated explicitly. Settings in `netlify.toml` take precedence over matching settings in the Netlify dashboard.
+
+After deploying, verify the Hugo version in the production build log and check that images load from the demo domain. A failed build leaves the previous successful deployment live.
 
 ## Add content
 
@@ -190,7 +195,14 @@ You can easily use Plausible.io for analytics by setting `plausible = true` in y
 
 ## Google Analytics
 
-Set `googleAnalytics` in `config.toml` to activate Hugo's [internal Google Analytics template](https://gohugo.io/templates/internal/#google-analytics). This supports both Google Analytics 3 (Universal Analytics) and Google Analytics 4. Google Analytics 3 tracking id is of the form 'UA-PROPERTY_ID', and Google Analytics 4 tracking is of the form 'G-MEASUREMENT_ID'.
+For Google Analytics 4, set the measurement ID in your configuration:
+
+```toml
+[services.googleAnalytics]
+  id = "G-MEASUREMENT_ID"
+```
+
+The theme loads Google's `gtag.js` when this ID is present.
 
 ## Disqus
 

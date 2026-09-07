@@ -307,3 +307,24 @@ details[open] summary
         text-align: center
     figcaption > h4
         font-size: 0.8rem
+
+// Native button reset keeps the existing burger appearance.
+button.navbar-burger
+    border: 0
+    background: transparent
+
+// Give thumbnail links a box for pointer and keyboard interaction.
+.card-image .image > a
+    position: absolute
+    inset: 0
+
+*:focus-visible
+    outline: 2px solid currentColor
+    outline-offset: 3px
+
+@media (prefers-reduced-motion: reduce)
+    html
+        scroll-behavior: auto
+    .fade-in
+        opacity: 1
+        animation: none

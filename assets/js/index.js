@@ -1,35 +1,87 @@
-// Nav burger animation
 document.addEventListener('DOMContentLoaded', function () {
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target
-        var $target = document.getElementById(target)
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active')
-        $target.classList.toggle('is-active')
-      })
+  document.querySelectorAll('.navbar-burger').forEach(function (button) {
+    const menu = document.getElementById(button.dataset.target)
+    if (!menu) return
+    function setExpanded(expanded) {
+      button.classList.toggle('is-active', expanded)
+      menu.classList.toggle('is-active', expanded)
+      button.setAttribute('aria-expanded', String(expanded))
+    }
+    button.addEventListener('click', function () {
+      setExpanded(button.getAttribute('aria-expanded') !== 'true')
+    })
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a[href]')) setExpanded(false)
+    })
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+        setExpanded(false)
+        button.focus()
+      }
+    })
+  })
+
+  let activeModal = null
+  let returnFocus = null
+  const focusableSelector = 'a[href], button, input, select, textarea, [tabindex]'
+
+  function focusableElements() {
+    return Array.from(activeModal.querySelectorAll(focusableSelector)).filter(function (element) {
+      return !element.disabled && element.tabIndex >= 0 && element.getClientRects().length > 0
     })
   }
-})
 
-// Modal closer
-$('.card').click(function () {
-  $($(this).attr('data-target')).addClass('is-active')
-  $('html').addClass('modal-open')
-})
-$('.modal-close').click(function () {
-  $($(this).attr('data-target')).removeClass('is-active')
-  $('html').removeClass('modal-open')
-})
-$(document).keypress(function (e) {
-  if (e.which === 0) {
-    $('.modal.is-active').removeClass('is-active')
-    $('html').removeClass('modal-open')
+  function closeModal() {
+    if (!activeModal) return
+    activeModal.classList.remove('is-active')
+    document.documentElement.classList.remove('modal-open')
+    activeModal = null
+    if (returnFocus && returnFocus.isConnected) returnFocus.focus()
+    returnFocus = null
   }
+
+  document.querySelectorAll('.card[data-target]').forEach(function (card) {
+    const modal = document.querySelector(card.dataset.target)
+    if (!modal || !modal.matches('.modal')) return
+    card.addEventListener('click', function (event) {
+      // Preserve opening the real project page in another tab or window.
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      event.preventDefault()
+      returnFocus = event.target.closest('a[href]') || card.querySelector('a[href]')
+      activeModal = modal
+      modal.classList.add('is-active')
+      document.documentElement.classList.add('modal-open')
+      const closeButton = modal.querySelector('.modal-close')
+      ;(closeButton || modal).focus()
+    })
+  })
+
+  document.querySelectorAll('.modal-close, .modal-background').forEach(function (element) {
+    element.addEventListener('click', closeModal)
+  })
+
+  document.addEventListener('keydown', function (event) {
+    if (!activeModal) return
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      closeModal()
+    } else if (event.key === 'Tab') {
+      const elements = focusableElements()
+      const first = elements[0] || activeModal
+      const last = elements[elements.length - 1] || activeModal
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === activeModal)) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && (document.activeElement === last || document.activeElement === activeModal)) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+  })
+
+  document.addEventListener('focusin', function (event) {
+    if (activeModal && !activeModal.contains(event.target)) {
+      ;(focusableElements()[0] || activeModal).focus()
+    }
+  })
 })

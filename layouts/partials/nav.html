@@ -4,11 +4,11 @@
     <hr>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         {{ $isHome := .Page.IsHome }}
-        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <button type="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" aria-controls="navMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </button>
         <div class="navbar-menu {{ if $isHome }}has-content-centered{{ end }}" id="navMenu">
             <!-- look for custom menu and include it -->
             {{ if .Site.Menus.main }}
@@ -54,7 +54,7 @@
 
             {{ range sort $pages "Params.weight" }}
             {{ if ne .Name "contact.md" }}
-            {{ if eq (os.Stat .File.Dir).Name "projects" }}
+            {{ if and .IsSection (eq .Section "projects") }}
                 <!-- Now for some cool projects -->
                 {{ if $isHome }}
                 <a class="navbar-item" href="{{ printf "#%s" ( .Title | urlize) | relLangURL }}">{{ .Title | markdownify }}</a>
@@ -72,7 +72,7 @@
                   </a>
                 {{ end }}
                 {{ end }}
-            {{ else if eq (os.Stat .File.Dir).Name "blog" }}
+            {{ else if and .IsSection (eq .Section "blog") }}
                 <!-- Let`s show some blog posts -->
                 {{ if $isHome }}
                 <a class="navbar-item" href="{{ printf "#%s" ( .Title | urlize) | relLangURL }}">{{ .Title | markdownify }}</a>
@@ -97,18 +97,22 @@
 
             {{ with .Site.GetPage "/home" }}
             {{ with .Resources.GetMatch "contact.md" }}
+            {{ if not .Draft }}
             <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title | markdownify }}</a>
             {{ end }}
             {{ end }}
+            {{ end }}
 
-            {{ range $.Site.Home.AllTranslations.ByWeight }}
-            {{ if ne .Language.LanguageName $.Language.LanguageName }}
-            <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ range $.Site.Home.AllTranslations }}
+            {{ if ne .Language.Name $.Language.Name }}
+            <a class="navbar-item" href="{{ .Permalink }}">{{ .Language.Label | default .Language.Name }}</a>
             {{ end }}
             {{ end }}
 
-            {{ if and .Site.Params.showRSSButton }}
-            <a class="navbar-item" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}"><i class="fas fa-rss"></i></a>
+            {{ if .Site.Params.showRSSButton }}
+            {{ with .Site.Home.OutputFormats.Get "RSS" }}
+            <a class="navbar-item" href="{{ .RelPermalink }}" aria-label="RSS"><i class="fas fa-rss" aria-hidden="true"></i></a>
+            {{ end }}
             {{ end }}
             {{ end }}
         </div>

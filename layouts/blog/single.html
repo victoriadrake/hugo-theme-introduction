@@ -55,14 +55,13 @@
         {{ end }}
     </div>
     {{ end }}
-    {{ range $taxonomy_term, $taxonomy := .Params }}
-    {{ with $.Site.GetPage $taxonomy_term }}
-    {{ $len := (len $taxonomy) }}
+    {{ range $taxonomy, $_ := .Site.Taxonomies }}
+    {{ with $.GetTerms $taxonomy }}
+    {{ $length := len . }}
     <p>
-        {{ $taxonomy_term | title }}:
-        {{ range $key, $value := $taxonomy }}
-        <a href="{{ (printf "/%s/" $taxonomy_term) | relLangURL }}{{ . | urlize }}">
-            {{ $value }}</a>{{ if ne (add $key 1) $len }},{{ end }}
+        {{ $taxonomy | title }}:
+        {{ range $index, $term := . }}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ if ne (add $index 1) $length }},{{ end }}
         {{ end }}
     </p>
     {{ end }}

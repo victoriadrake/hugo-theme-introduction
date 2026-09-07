@@ -6,7 +6,7 @@ Here are a couple ways you can help out.
 
 ## Open an Issue
 
-Please open an issue to ask questions, report bugs, troubleshoot the project, or discuss anything that might need fixing or updating. You can follow one of the [templates](https://github.com/victoriadrake/hugo-theme-sam/issues/new/choose) to make sure you provide helpful information.
+Please open an issue to ask questions, report bugs, troubleshoot the project, or discuss anything that might need fixing or updating. You can follow one of the [templates](https://github.com/victoriadrake/hugo-theme-introduction/issues/new/choose) to make sure you provide helpful information.
 
 ## Send a Pull Request
 

@@ -1,17 +1,23 @@
 {
-    "name": "hugo-theme-introduction",
-    "version": "6.0.3",
-    "description": "A Hugo theme for personal and professional introductions.",
-    "repository": {
-        "url": "https://github.com/victoriadrake/hugo-theme-introduction"
-    },
-    "scripts": {
-        "build": "npm install -g postcss postcss-cli autoprefixer && cd exampleSite && hugo --gc --minify -t ../.. -d ../docs -v -b https://hugo-introduction.netlify.app/",
-        "dev": "cd exampleSite && ENVIRONMENT=development hugo -t ../.. server"
-    },
-    "devDependencies": {
-        "autoprefixer": "^10.4.2",
-        "postcss": "^8.5.10",
-        "postcss-cli": "^9.1.0"
-    }
+  "name": "hugo-theme-introduction",
+  "version": "6.0.3",
+  "description": "A Hugo theme for personal and professional introductions.",
+  "repository": {
+    "url": "https://github.com/victoriadrake/hugo-theme-introduction"
+  },
+  "scripts": {
+    "build": "sh scripts/build_docs.sh",
+    "dev": "sh scripts/build_docs.sh server --disableFastRender",
+    "test": "python3 -m unittest discover -s tests -v && node --test tests/browser.test.cjs",
+    "check:html": "python3 scripts/check_html.py docs --base-url https://hugo-introduction.netlify.app/ --forbid-host example.com"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.5.5",
+    "postcss": "8.5.28",
+    "postcss-cli": "12.0.0",
+    "playwright-core": "1.63.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
 }

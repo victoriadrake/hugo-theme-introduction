@@ -2,7 +2,7 @@ baseURL                          = "http://example.com/"   # Your domain name. M
 theme                            = "introduction"
 DefaultContentLanguage           = "en"                    # Default language for multilingual sites
 # disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
-# googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
+# Configure Google Analytics 4 with [services.googleAnalytics] and id = "G-MEASUREMENT_ID".
 
 [params]
     themeStyle                   = "auto"                  # Choose "light" or "dark" or "auto"

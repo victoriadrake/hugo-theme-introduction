@@ -6,7 +6,7 @@ demosite = "https://hugo-introduction.netlify.app/"
 homepage = "https://github.com/victoriadrake/hugo-theme-introduction"
 tags = ["blog", "bulma", "clean", "dark", "disqus", "font awesome", "gallery", "minimal", "minimalist", "mobile", "multilingual", "one page", "personal", "responsive", "simple", "single page", "starter", "syntax highlighting", "projects", "white" ]
 features = ["responsive", "blog", "portfolio", "gallery"]
-min_version = "0.49"
+min_version = "0.163.0"
 
 [author]
   name = "Victoria Drake"

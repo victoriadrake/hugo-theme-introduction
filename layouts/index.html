@@ -56,14 +56,13 @@
 
         {{ range sort $pages "Params.weight" }}
         {{ if ne .Name "contact.md" }}
-        {{ if .File }}
-        {{ if eq (os.Stat .File.Dir).Name "projects" }}
+        {{ if and .IsSection (eq .Section "projects") }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
-        {{ else if eq (os.Stat .File.Dir).Name "blog" }}
+        {{ else if and .IsSection (eq .Section "blog") }}
             <!-- Let`s show some blog posts -->
             {{ partial "home/blog.html" . }}
-        {{ else }}
+        {{ else if .File }}
 
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
@@ -97,9 +96,9 @@
         {{ end }}
         {{ end }}
         {{ end }}
-        {{ end }}
         <!-- Let`s chat, shall we? -->
         {{ with .Resources.GetMatch "contact.md" }}
+        {{ if not .Draft }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container has-text-centered">
                 <h2 class="title is-2">{{ .Title | markdownify }}</h2>
@@ -123,6 +122,7 @@
             <hr>
         </div>
         {{ end }}
+        {{ end }}
         <!-- End Contact section -->
         {{ end }}
 
@@ -136,7 +136,8 @@
         <script>
             function update_localtime() {
                 const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
-                document.getElementById('time').innerHTML = time;
+                const element = document.getElementById('time');
+                if (element) element.textContent = time;
             }
             update_localtime();
             // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.

@@ -17,11 +17,11 @@
                   {{ $width = "490x" }}
                 {{ end}}
                 <div class="column {{ $columWidth }}">
-                    <div class="card" data-target="#project-{{ $index }}">
+                    <div class="card"{{ if not .Params.external_link }} data-target="#project-{{ $index }}"{{ end }}>
                         {{ if .Resources.ByType "image" }}
                         <div class="card-image">
                             <figure class="image is-3by2">
-                                <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                <a href="{{ .Params.external_link | default .Permalink }}"{{ if not .Params.external_link }} aria-haspopup="dialog" aria-controls="project-{{ $index }}"{{ end }}>
                                     {{ with .Resources.ByType "image" }}
                                     {{ range first 1 (sort . "Params.weight") }}
                                     {{ $image := .Resize $width }}
@@ -33,7 +33,7 @@
                         </div>
                         {{ end }}
                         <div class="card-content has-text-centered top-pad">
-                            <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                            <h1><a href="{{ .Params.external_link | default .Permalink }}"{{ if not .Params.external_link }} aria-haspopup="dialog" aria-controls="project-{{ $index }}"{{ end }}>
                                 {{ .Title | markdownify }}
                             </a></h1>
                             {{ if .Params.project_timeframe }}
@@ -55,12 +55,12 @@
     <!-- Projects modals -->
     {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
     {{ if not .Params.external_link }}
-    <div class="modal" id="project-{{ $index }}">
+    <div class="modal" id="project-{{ $index }}" role="dialog" aria-modal="true" aria-labelledby="project-title-{{ $index }}" tabindex="-1">
         <div class="modal-background"></div>
         <div class="modal-card">
             {{ with .Title }}
             <header class="modal-card-header bottom-pad">
-                <h1 class="modal-card-title has-text-centered">{{ . }}</h1>
+                <h2 class="modal-card-title has-text-centered" id="project-title-{{ $index }}">{{ . }}</h2>
             </header>
             {{ end }}
             {{ if .Params.project_timeframe }}
