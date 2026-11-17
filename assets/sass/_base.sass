@@ -6,6 +6,33 @@ body
     background-size: 180% 180%, 200% 200%, 160% 160%
     background-attachment: fixed
     animation: ambient-background 30s ease-in-out infinite alternate
+    isolation: isolate
+
+body::before,
+body::after
+    position: fixed
+    pointer-events: none
+    content: ""
+    z-index: -1
+
+body::before
+    inset: 0
+    opacity: 0.5
+    background-image: radial-gradient(circle, rgba($primary, 0.8) 1px, transparent 1.7px), radial-gradient(circle, rgba($primary, 0.55) 1px, transparent 1.8px), radial-gradient(circle, rgba(#8b5cf6, 0.55) 1px, transparent 1.8px)
+    background-size: 190px 190px, 260px 260px, 330px 330px
+    background-position: 15px 20px, 90px 110px, 180px 55px
+    animation: floating-dots 9s ease-in-out infinite alternate
+
+body::after
+    top: 12vh
+    left: 82vw
+    width: 150px
+    height: 2px
+    opacity: 0
+    background: linear-gradient(90deg, transparent, rgba($primary, 0.55), rgba(#ffffff, 0.9))
+    transform: rotate(135deg)
+    transform-origin: right center
+    animation: shooting-star 8s linear infinite
 
 @keyframes ambient-background
     0%
@@ -14,6 +41,25 @@ body
         background-position: 65% 35%, 30% 80%, 85% 15%
     100%
         background-position: 100% 100%, 0% 0%, 10% 45%
+
+@keyframes floating-dots
+    0%
+        transform: translate3d(0, 0, 0)
+    100%
+        transform: translate3d(0, -18px, 0)
+
+@keyframes shooting-star
+    0%, 2%
+        opacity: 0
+        transform: translate3d(0, 0, 0) rotate(135deg)
+    4%
+        opacity: 0.9
+    13%
+        opacity: 0
+        transform: translate3d(-70vw, 70vh, 0) rotate(135deg)
+    100%
+        opacity: 0
+        transform: translate3d(-70vw, 70vh, 0) rotate(135deg)
 
 html
     scroll-behavior: smooth
@@ -346,6 +392,9 @@ button.navbar-burger
     html
         scroll-behavior: auto
     body
+        animation: none
+    body::before,
+    body::after
         animation: none
     .fade-in
         opacity: 1
