@@ -35,12 +35,42 @@ before(async () => {
     }
     const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.ttf': 'font/ttf' }
     response.setHeader('Content-Type', mime[path.extname(file)] || 'application/octet-stream')
+    response.setHeader('Access-Control-Allow-Origin', '*')
     fs.createReadStream(file).pipe(response)
   })
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
   baseURL = `http://127.0.0.1:${server.address().port}/`
   execFileSync('sh', [path.join(theme, 'scripts/build_docs.sh')], {
     cwd: temporary, env: { ...process.env, HUGO_BASEURL: baseURL }, stdio: 'pipe'
+  })
+  // A static-only site visited through an alternate host (for example a deploy
+  // preview). Keep a subpath to catch asset URLs that accidentally drop it.
+  const staticSite = path.join(temporary, 'static-site')
+  fs.mkdirSync(path.join(staticSite, 'content'), { recursive: true })
+  fs.mkdirSync(path.join(staticSite, 'assets'))
+  fs.writeFileSync(path.join(staticSite, 'hugo.toml'), `
+defaultContentLanguage = "en"
+[params]
+showMenu = true
+themeStyle = "light"
+customJS = ["custom.js"]
+[[menus.main]]
+name = "About"
+url = "/static-only/about/"
+[[menus.main]]
+name = "Services"
+url = "/static-only/services/"
+`)
+  for (const name of ['about', 'services']) {
+    fs.writeFileSync(path.join(staticSite, 'content', `${name}.md`), `---\ntitle: ${name}\n---\nStatic page.\n`)
+  }
+  fs.writeFileSync(path.join(staticSite, 'assets/custom.js'), 'window.staticSiteCustomLoaded = true;')
+  execFileSync('sh', [path.join(theme, 'scripts/build_docs.sh'),
+    '--source', staticSite, '--config', path.join(staticSite, 'hugo.toml'),
+    '--destination', path.join(output, 'static-only')], {
+    cwd: temporary,
+    env: { ...process.env, HUGO_BASEURL: baseURL.replace('127.0.0.1', 'localhost') + 'static-only/' },
+    stdio: 'pipe'
   })
   browser = await chromium.launch({ channel: 'chrome', headless: true })
 })
@@ -73,6 +103,30 @@ test('mobile menu responds to keyboard and reports its state', async () => {
     assert.equal(await menu.getAttribute('aria-expanded'), 'true')
     await page.locator('#navMenu a').first().click()
     assert.equal(await menu.getAttribute('aria-expanded'), 'false')
+  } finally { await page.close() }
+})
+
+test('static-only mobile menu and scripts work on an alternate host under a subpath', async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+  const errors = []
+  page.on('pageerror', error => errors.push(error.message))
+  try {
+    for (const route of ['', 'about/', 'services/']) {
+      await page.goto(baseURL + 'static-only/' + route)
+      const menu = page.getByRole('button', { name: 'menu', exact: true })
+      await menu.click()
+      assert.equal(await menu.getAttribute('aria-expanded'), 'true', `Menu did not open on ${route || '/'}`)
+      assert.equal(await page.locator('#navMenu').isVisible(), true)
+      await page.keyboard.press('Escape')
+      assert.equal(await menu.getAttribute('aria-expanded'), 'false')
+      assert.equal(await page.evaluate(() => window.staticSiteCustomLoaded), true)
+      const scripts = await page.locator('script[src]').evaluateAll(elements => elements.map(element => element.src))
+      for (const source of scripts) {
+        assert.equal(new URL(source).origin, new URL(baseURL).origin)
+        assert.ok(new URL(source).pathname.startsWith('/static-only/'), source)
+      }
+    }
+    assert.deepEqual(errors, [])
   } finally { await page.close() }
 })
 
