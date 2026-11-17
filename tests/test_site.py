@@ -11,6 +11,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+os.environ["PATH"] = str(ROOT / ".tools/dart-sass") + os.pathsep + os.environ["PATH"]
 spec = importlib.util.spec_from_file_location('check_html', ROOT / 'scripts/check_html.py')
 checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
@@ -57,7 +58,7 @@ class ThemeBuildTests(unittest.TestCase):
         cls.temporary = tempfile.TemporaryDirectory(prefix='introduction-tests-')
         cls.theme = Path(cls.temporary.name) / 'theme'
         shutil.copytree(ROOT, cls.theme, ignore=shutil.ignore_patterns(
-            '.git', '.claude', 'node_modules', 'resources', 'docs', 'public', '__pycache__', '.hugo_build.lock'))
+            '.git', '.claude', '.tools', 'node_modules', 'resources', 'docs', 'public', '__pycache__', '.hugo_build.lock'))
         (cls.theme / 'node_modules').symlink_to(ROOT / 'node_modules', target_is_directory=True)
         cls.content = cls.theme / 'exampleSite/content/en'
         cls.build()

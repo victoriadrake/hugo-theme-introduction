@@ -4,3 +4,6 @@ node_modules
 
 /docs/
 __pycache__/
+
+# Pinned local Dart Sass compiler
+.tools/

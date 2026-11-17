@@ -27,6 +27,8 @@ Developer-friendly:
 
 ## Getting started
 
+Dart Sass is required for development and production builds. Install it with `python3 scripts/install_dart_sass.py` (macOS/Linux), or follow the [Hugo Dart Sass instructions](https://gohugo.io/installation/dart-sass/). The helper verifies a pinned release checksum and installs into `.tools/dart-sass`; add that directory to `PATH` when invoking Hugo directly. CI and the demo use the same pinned compiler. Legacy theme and vendored Sass syntax remains supported; selected Dart Sass language deprecation notices are silenced until those stylesheets are migrated.
+
 Requires **Hugo extended 0.163.0 or later**. See the [Hugo installation instructions](https://gohugo.io/getting-started/installing/). The minimum supported version and the latest release are tested in CI.
 
 Production builds also require **Node.js 22.12 or later** and the theme's local PostCSS dependencies. From the theme directory, install the locked versions:
