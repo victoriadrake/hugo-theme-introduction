@@ -1,7 +1,7 @@
 [build]
   base = "."
   publish = "docs"
-  command = "npm run build && npm run check:html"
+  command = "python3 scripts/install_dart_sass.py && npm run build && npm run check:html"
 
 [build.environment]
   HUGO_VERSION = "0.165.0"

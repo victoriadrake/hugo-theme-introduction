@@ -1,11 +1,14 @@
+{{/* Keep the legacy theme/vendor Sass syntax while using the supported compiler.
+     Only known Sass language deprecations are silenced; Hugo deprecations and
+     compilation errors remain visible. */}}
 {{ $bundleRaw := resources.Get "sass/style.sass" | resources.ExecuteAsTemplate "css/main.tmp.css" . }}
 
 {{ if hugo.IsServer }}
-{{ $cssOpts := (dict "targetPath" "css/main.css" "enableSourceMap" true ) }}
+{{ $cssOpts := (dict "transpiler" "dartsass" "silenceDeprecations" (slice "import" "global-builtin" "color-functions" "slash-div" "if-function") "targetPath" "css/main.css" "enableSourceMap" true ) }}
 {{ $bundle := $bundleRaw | css.Sass $cssOpts }}
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" media="screen">
 {{ else }}
-{{ $cssOpts := (dict "targetPath" "css/main.css" ) }}
+{{ $cssOpts := (dict "transpiler" "dartsass" "silenceDeprecations" (slice "import" "global-builtin" "color-functions" "slash-div" "if-function") "targetPath" "css/main.css" ) }}
 {{ $postCSSOpts := (dict "use" "autoprefixer" ) }}
 {{ $bundle := $bundleRaw | css.Sass $cssOpts | css.PostCSS $postCSSOpts | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous" media="screen">

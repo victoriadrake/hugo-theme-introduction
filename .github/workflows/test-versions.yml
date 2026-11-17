@@ -25,6 +25,8 @@ jobs:
       - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
+      - name: Install pinned Dart Sass
+        run: python3 scripts/install_dart_sass.py
       - name: Install locked build tools
         run: npm ci --ignore-scripts
       - uses: peaceiris/actions-hugo@v3
