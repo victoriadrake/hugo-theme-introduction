@@ -69,6 +69,12 @@
 </div>
 <!-- Begin blog post content -->
 <div class="container markdown top-pad">
+    {{ if .Params.toc }}
+    <nav class="table-of-contents" aria-label="Table of contents">
+        <h2>Contents</h2>
+        {{ .TableOfContents }}
+    </nav>
+    {{ end }}
     {{ .Content }}
 </div>
 <!-- End blog post content -->

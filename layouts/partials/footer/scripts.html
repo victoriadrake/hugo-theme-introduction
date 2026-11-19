@@ -8,3 +8,7 @@
     {{ $script := resources.Get . | minify }}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>
 {{- end }}
+
+{{ with .Site.Config.Services.Disqus.Shortname }}
+<script id="dsq-count-scr" src="//{{ . }}.disqus.com/count.js" async></script>
+{{ end }}

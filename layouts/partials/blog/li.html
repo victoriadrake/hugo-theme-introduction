@@ -2,5 +2,6 @@
 <li class="post-item">
     <span><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></span>{{ if .Params.date }} -
     <span>{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}</span>{{ end }}
+    {{ partial "blog/comment-count.html" . }}
 </li>
 {{ end }}
