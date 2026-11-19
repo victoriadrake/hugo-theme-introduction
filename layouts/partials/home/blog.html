@@ -7,7 +7,8 @@
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
         <div class="summary">
             {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
-            <h3 class="title is-3 latest-post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h3>
+        <h3 class="title is-3 latest-post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h3>
+        {{ partial "blog/comment-count.html" . }}
             <div class="markdown">
                 {{ .Summary }}
                 {{ if .Truncated }}

@@ -13,6 +13,7 @@
                 {{ .Title | markdownify }}
             </a>
         </h3>
+        {{ partial "blog/comment-count.html" . }}
         <div class="markdown">
             {{ .Summary }}
             {{ if .Truncated }}
